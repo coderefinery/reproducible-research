@@ -13,7 +13,8 @@ objectives:
   - "The goal is to get a basic idea of different tools that can be used to make research reproducible"
   - "You can use some of these tools in your research lifecycle"
 keypoints:
-  - 
+  -
+ 
 ---
 
 ## Why reproducible research?
