@@ -1,4 +1,3 @@
-
 ---
 layout: episode
 title: "Exercise"
@@ -10,6 +9,7 @@ objectives:
    - "You can incorporate some of these tools in your research lifecycle"
  
 ---
+
 ## Let's look at an example project and ask everyone to reproduce it
 
 - Code tracking with git

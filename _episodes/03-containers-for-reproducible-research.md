@@ -78,10 +78,11 @@ or daemon, which, in turn, does all the work.
   ``` -->
 - The Dockerfile contains a series of instructions paired with arguments
 - We can build the image by running docker build in directory containing Dockerfile
+
 <!--  ```bash
      docker build -t="vaths/nginx_test" .
   ``` 
-- commands to use
+ commands to use
   ```vim
    FROM
    RUN
@@ -93,7 +94,7 @@ or daemon, which, in turn, does all the work.
    EXPOSE
    ..
   ```
-- Let's create a simple webserver
+ Let's create a simple webserver
 ```vim
      #version 0.0.1
      FROM ubuntu:16.04
@@ -103,6 +104,7 @@ or daemon, which, in turn, does all the work.
      RUN echo 'I am inside container' >/var/www/html/index.html
      EXPOSE 80
   ``` -->
+  
 
 ## creating containers from images
 - running a container
