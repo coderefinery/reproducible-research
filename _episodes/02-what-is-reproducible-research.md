@@ -44,9 +44,10 @@ objectives:
 
 - git, mercurial (code level)
 - make, sumatra (data / documentation level)
-- Containers (environment level) 
+- Containers (environment level)
+ 
 ---
-##Could we apply the tools used in the workshop to create reproducible research?
+## Could we apply the tools used in the workshop to create reproducible research?
 
 ### Tracking the software/code we have used in an experiment
 - Using git for tracking the code. 
@@ -63,6 +64,7 @@ objectives:
 - makefile itself can act as a documentation for data generation
 - [ ] Example: use already discussed example in early sessions
 - [ ] Example: show overview of sumatra
+
 ---
 
 ## How to create the environment applied for an experiment?

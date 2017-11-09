@@ -1,4 +1,3 @@
-
 ---
 layout: episode
 title: "Containers for reproducible research"
@@ -30,6 +29,7 @@ objectives:
 - Docker hub - A platform to share docker images (Note: images are stored in repositories ~ similar to git repository)
 - Public Docker images available in [Docker hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 - [ ] Example  
+
 ---
 
 ## What aspects of containers would we like to communicate?
