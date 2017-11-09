@@ -1,4 +1,3 @@
-
 ---
 layout: episode
 title: "What is reproducible research"
