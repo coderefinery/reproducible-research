@@ -1,7 +1,7 @@
 
 ---
 layout: episode
-title: "Making research reproducible"
+title: "What is reproducible research"
 teaching: 10
 exercises: 10
 questions:
@@ -10,8 +10,6 @@ questions:
 objectives:
   - "The goal is to get a basic idea of different tools that can be used to make research reproducible"
   - "You can incorporate some of these tools in your research lifecycle"
-keypoints:
-  -
  
 ---
 
@@ -34,7 +32,7 @@ keypoints:
 - Using same code and data are not necessarily enough for reproducibility. The whole environment needs to be captured. 
 
 ## Multiple layers of reproducibility
-<img src="img/reproducibility_levels.png" style="height: 200px;"/>
+<img src="/reproducible-research/img/reproducibility_levels.png" style="height: 200px;"/>
 
 - code level
 - data level
@@ -43,7 +41,7 @@ keypoints:
 
 ---
 ## Multiple tools are available
-<img src="img/reproducibility_tools.png" style="height: 400px;"/>
+<img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
 - git, mercurial (code level)
 - make, sumatra (data / documentation level)

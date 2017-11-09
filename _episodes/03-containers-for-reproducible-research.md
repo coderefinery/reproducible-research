@@ -1,7 +1,7 @@
 
 ---
 layout: episode
-title: "Making research reproducible"
+title: "Containers for reproducible research"
 teaching: 15
 exercises: 10
 questions:
@@ -10,8 +10,6 @@ questions:
 objectives:
   - "The goal is to get a basic idea of using containers to capture research environments"
   - "You can incorporate some of these tools in your research lifecycle"
-keypoints:
-  -
  
 ---
 
@@ -42,7 +40,7 @@ keypoints:
 - Docker is a client server application. The Docker client talks to the Docker server
 or daemon, which, in turn, does all the work.
 
-<img src="img/docker_architecture.svg" style="height: 400px;"/>
+<img src="/reproducible-research/img/docker_architecture.svg" style="height: 400px;"/>
 
 - Docker client
    - End user uses docker client to communicate with docker engine 

@@ -1,15 +1,13 @@
 
 ---
 layout: episode
-title: "Making research reproducible"
+title: "Exercise"
 teaching: 0
 exercises: 20
 questions:
   - "How to use different tools to make reproducible research?" 
 objectives:
    - "You can incorporate some of these tools in your research lifecycle"
-keypoints:
-  -
  
 ---
 ## Let's look at an example project and ask everyone to reproduce it
