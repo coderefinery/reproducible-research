@@ -4,10 +4,10 @@ title: "What is reproducible research"
 teaching: 10
 exercises: 10
 questions:
-  - "How to repeat an experiment with different data after one year later?"
+  - "How to repeat an experiment with different data one year later?"
   - "How to make results reproducible regardless of platforms with minimal effort?"
 objectives:
-  - "The goal is to get a basic idea of different tools that can be used to make research reproducible"
+  - "Get a basic idea of different tools that can be used to make research reproducible"
   - "You can incorporate some of these tools in your research lifecycle"
  
 ---
@@ -19,11 +19,11 @@ objectives:
 > -- <cite> U.S. National Science Foundation (NSF) subcommittee on replicability in science</cite>
 
 
-- For any research project, an independent researcher should be able to replicate the experiment under the same conditions and receive the same results.
+- For any research project, an independent researcher should be able to replicate the experiment under the same conditions and obtain the same results.
 
 ---
 
-## Main drawbacks of not able to reproduce research 
+## Main drawbacks of not being able to reproduce research 
 - Software/code used to produce research
 - Data used to produce research
 - Documentation on how data is generated
@@ -33,16 +33,16 @@ objectives:
 ## Multiple layers of reproducibility
 <img src="/reproducible-research/img/reproducibility_levels.png" style="height: 200px;"/>
 
-- code level
-- data level
+- Code level
+- Data level
 - Environment level
-- documentation level
+- Documentation level
 
 ---
 ## Multiple tools are available
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
-- git, mercurial (code level)
+- Git, mercurial (code level)
 - make, sumatra (data / documentation level)
 - Containers (environment level)
  
@@ -50,9 +50,9 @@ objectives:
 ## Could we apply the tools used in the workshop to create reproducible research?
 
 ### Tracking the software/code we have used in an experiment
-- Using git for tracking the code. 
+- Using Git for tracking the code. 
 - Multiple ways to track a specific piece of code.
-- For example, using git tags to mark a specific piece of code we have used in an experiment
+- For example, using Git tags to mark a specific piece of code we have used in an experiment
 - [ ] Example: use already discussed example in early sessions
 
 ### Documentation on data generation  
@@ -60,16 +60,16 @@ objectives:
 - As projects grow, it is quite difficult to keep track of all the workflow steps and how they fit together
 - How we have generated/created the data in the first case
 - The steps we have followed in creating the data
-- for example, we can use ```make``` to track the steps we have followed in generating the data
-- makefile itself can act as a documentation for data generation
+- For example, we can use `make` to track the steps we have followed in generating the data
+- Makefile itself can act as a documentation for data generation
 - [ ] Example: use already discussed example in early sessions
 - [ ] Example: show overview of sumatra
 
 ---
 
 ## How to create the environment applied for an experiment?
-- Software/code we have used may depend on lot of dependencies and may be difficult to create and use
-- Many research softwares can be problematical to install and configure without experts 
+- Software/code we have used may depend on lots of dependencies and may be difficult to create and use
+- Many research codes can be problematic to install and configure without experts 
 - Could we bundle all the necessary dependencies together, so that it is easy to run the software
-- Containers can be used to create isolation environments. 
+- Containers can be used to create isolated environments
 

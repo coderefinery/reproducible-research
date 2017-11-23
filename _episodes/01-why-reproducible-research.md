@@ -4,18 +4,18 @@ title: "Why reproducible research"
 teaching: 5
 exercises: 0
 questions:
-  - "Why research should be reproducible?"
-  - "Can someone reproduce the results we have published/reported one year from now?"
+  - "Why should research be reproducible?"
+  - "Can others reproduce the results I published/reported a year ago?"
 objectives:
-  - "Discuss the reasons why research should be reproducible"
+  - "Discuss reasons for why research should be reproducible"
    
 ---
 
 ## Food for thought
 
-Mark and tom are researchers at a university. They got some great results, which they submitted to a high-profile journal. The reviews were quite positive, but reviewers asked for some new figures, alternative analysis and a change to existing figures.
-Mark and tom started to work on revisions, but the problem is that when they tried to generate modified figures; the figures don't match. The new figures are quite different from what they have found and don't show the observation they had found. Tom usually keeps track of which code has generated which figures, but he was in a rush to submit the paper by deadline. He forgot to keep track of the files as usual.
-Tom has left university for a job in industry and ever since the manuscript is languishing in the drawer.
+Mark and Mary are researchers at a university. They got some great results, which they submitted to a high-profile journal. The reviews were positive, but reviewers asked for some new figures, alternative analysis and a change to existing figures.
+Mark and Mary started to work on revisions, but when they tried to generate modified figures, it didn't match with previous results. The new figures were different from what they found before and didn't show the same trends. Mary usually keeps track of which code has generated which figures, but she was in a rush to submit the paper before a deadline. She forgot to keep track of the files as usual.
+Mary has left university for a job in industry and ever since the manuscript is languishing in the drawer.
   
 ---
 In many cases, we have to start from existing work.
@@ -24,15 +24,15 @@ In many cases, we have to start from existing work.
 
 
 ## Why reproducible research?
-   - long term value of data
+   - Long term value of data
    - Uniqueness of data, i.e., data collected today may be invalid/inappropriate 6 months
      from now
    - Publications after 2 years data collection ends
-   - We want to repeat the same experiment with different data and settings, few months later 
+   - We want to repeat the same experiment with different data and settings, many months later 
    
    <img src="/reproducible-research/img/reproducibility_figure.jpg" style="height: 200px;"/>
    
-## Why all the talk about reproducible research
+## Why all the talk about reproducible research?
    - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
  
  <img src="/reproducible-research/img/reproducibility_nature.png" style="height: 400px;"/>
