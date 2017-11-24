@@ -7,7 +7,7 @@ questions:
   - "How do you communicate different versions of dependencies you need?" 
   - "How to capture environments under which experiment was made?"
 objectives:
-  - "The goal is to get a basic idea of using containers to capture research environments"
+  - "Get a basic idea of using containers to capture research environments"
   - "You can incorporate some of these tools in your research lifecycle"
  
 ---
@@ -17,17 +17,17 @@ objectives:
 - Containers can be seen as a 'ready-to-eat' software. 
 - Containers can be built to bundle all the necessary ingredients (data, code, environment).
 - A standardized unit of software
-- A great solution to the problem of dependency hell
+- A great solution to the problem of "dependency hell"
 - Allows for seamlessly moving workflows across different platforms
 - A container provides operating-system-level virtualization. Container technology allows multiple isolated user space instances to be run on a single host.
 - Popular container implementations are Docker and Singularity
 
 ## Docker
-- Docker provides containerisation in software level
+- Docker provides containerization in software level
 - Available for most common operating systems, and also some clouds: AWS, Azure
-- Provides an easy and fast way to bundle all the necessary library and data together
-- Docker hub - A platform to share docker images (Note: images are stored in repositories ~ similar to git repository)
-- Public Docker images available in [Docker hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
+- Provides an easy and fast way to bundle all the necessary libraries and data together
+- Docker Hub - A platform to share docker images (Note: images are stored in repositories ~ similar to git repository)
+- Public Docker images available in [Docker Hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 - [ ] Example  
 
 ---
@@ -66,8 +66,8 @@ or daemon, which, in turn, does all the work.
   docker pull ubuntu:16.04
   ```
 
-## building docker images
-- A image is built based on the Dockerfile
+## Building docker images
+- An image is built based on the Dockerfile
 - Dockerfile contains a series of instructions for building Docker images
 <!-- - ```vim
      #version 0.0.1
@@ -115,7 +115,7 @@ or daemon, which, in turn, does all the work.
 - volumes
 - Note that Docker containers should be disposable: the data must be saved elsewhere
 
-## sharing a docker image
+## Sharing a docker image
 - dockerhub
 - pushing to dockerhub
   ```bash
