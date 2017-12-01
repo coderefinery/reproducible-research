@@ -2,14 +2,13 @@
 layout: episode
 title: "What is reproducible research"
 teaching: 10
-exercises: 10
+exercises: 0
 questions:
-  - "How to repeat an experiment with different data one year later?"
-  - "How to make results reproducible regardless of platforms with minimal effort?"
+  - "What does reproducible research mean?"
+  - "What tools are available for making research reproducible?"
 objectives:
-  - "Get a basic idea of different tools that can be used to make research reproducible"
-  - "You can incorporate some of these tools in your research lifecycle"
- 
+  - "Get a basic idea of different levels of reproducibility"
+   
 ---
 
 ## What is reproducible research?
@@ -24,13 +23,14 @@ objectives:
 ---
 
 ## Main drawbacks of not being able to reproduce research 
-- Software/code used to produce research
-- Data used to produce research
-- Documentation on how data is generated
-- How to create software environment (with different libraries) the researcher has used?
-- Using same code and data are not necessarily enough for reproducibility. The whole environment needs to be captured. 
+- Not able to apply the Software/Code used by the original investigator
+- Not able to use the Data used by the author
+- No documentation on how data is generated and how the experiment is conducted
+- Not able to create software environment (with different libraries) that was originally used to generate results
 
-## Multiple layers of reproducibility
+<!-- - Using same code and data are not necessarily enough for reproducibility. The whole environment needs to be captured. 
+-->
+## Multiple levels of reproducibility
 <img src="/reproducible-research/img/reproducibility_levels.png" style="height: 200px;"/>
 
 - Code level
@@ -40,6 +40,7 @@ objectives:
 
 ---
 ## Multiple tools are available
+
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
 - Git, mercurial (code level)
@@ -47,29 +48,4 @@ objectives:
 - Containers (environment level)
  
 ---
-## Could we apply the tools used in the workshop to create reproducible research?
-
-### Tracking the software/code we have used in an experiment
-- Using Git for tracking the code. 
-- Multiple ways to track a specific piece of code.
-- For example, using Git tags to mark a specific piece of code we have used in an experiment
-- [ ] Example: use already discussed example in early sessions
-
-### Documentation on data generation  
-
-- As projects grow, it is quite difficult to keep track of all the workflow steps and how they fit together
-- How we have generated/created the data in the first case
-- The steps we have followed in creating the data
-- For example, we can use `make` to track the steps we have followed in generating the data
-- Makefile itself can act as a documentation for data generation
-- [ ] Example: use already discussed example in early sessions
-- [ ] Example: show overview of sumatra
-
----
-
-## How to create the environment applied for an experiment?
-- Software/code we have used may depend on lots of dependencies and may be difficult to create and use
-- Many research codes can be problematic to install and configure without experts 
-- Could we bundle all the necessary dependencies together, so that it is easy to run the software
-- Containers can be used to create isolated environments
-
+## How we can use these tools to create reproducible workflow?
