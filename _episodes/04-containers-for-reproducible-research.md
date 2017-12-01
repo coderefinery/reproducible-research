@@ -159,14 +159,19 @@ We can run a container using `docker run` command
 docker run -i -t --name wordscount image_name 
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
+
+**Anyone with this image can reproduce the results we have generated**
+
 <!--
-  ```bashs
+  ```bash
   docker run -d -p 80:80 --name my_webserver vaths/nginx_test
   ```
-- The -p flag manages which network ports Docker exposes at runtime. 
+The -p flag manages which network ports Docker exposes at runtime. 
     - Docker can randomly assign a high port from the range 49000 to 49900 on the Docker host that maps to port 80 on the container.
     - We can specify a specific port on the Docker host that maps to port 80 on the container.
 -->
+
+---
 ## Managing data
 - Note that Docker containers should be disposable: the data must be saved elsewhere
 - A volume allows data to persist, even when a container is deleted. Volumes are also a convenient way to share data between the host and the container.
@@ -181,11 +186,13 @@ Note: Use -d to start a container in the background in a detached mode (to creat
 ## Sharing a docker image
 - Docker Hub - A platform to share docker images
 - Login to dockerhub
-  ```bash
+
+ ```bash
   docker login
   ```
 - Push to dockerhub. The image name has to be in **youruser/yourimage** format. 
-  ```bash
+
+ ```bash
   docker push image_name
   ```
 - For proprietary/sensitive images private Docker registries can be used

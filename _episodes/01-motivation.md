@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: "Why reproducible research"
+title: "motivation"
 teaching: 5
 exercises: 0
 questions:
@@ -24,7 +24,7 @@ In many cases, we have to start from existing work.
 
 
 ## Why reproducible research?
-   - To show evidence of the correctness of your results
+   - To show evidence of the correctness of our results
    - Long term value of data
    - Uniqueness of data, i.e., data collected today may be invalid/inappropriate 6 months
      from now

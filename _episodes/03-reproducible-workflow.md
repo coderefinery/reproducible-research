@@ -19,7 +19,7 @@ One should always be able to figure out precisely what data and what code were u
 
 ### We start by creating a clear and useful directory structure for our project
 
-- Our project directory can be something like this:
+Our project directory can be something like this:
 
 ```bash
 project_name/
@@ -27,7 +27,7 @@ project_name/
 |   |-- readme.txt                       may contain subdirectories as well
 |   |-- sub-folder/
 |   |-- ...
-|-- manuscript                           The manuscript folder will (someday) contain the manuscript that we'll write describing the results of our analysis
+|-- manuscript                           The manuscript folder will contain the manuscript that we'll write to describe the results
 |-- results/                             The results folder will contain the results of our analysis, including both tables and figures
 |-- source/                              The source folder will contain all of our code
 ```
@@ -58,6 +58,7 @@ As you add and modify things in the project directory, you'll want to frequently
 - In the case of character-count example, we will use the file *shakespeare.in* download earlier. It contains the text that we want to analyze. 
 - Copy `shakespeare.in` file inside the data subdirectory
 - Include a readme file to describe the data (which helps us later)
+
 ```bash
 Data is gathered from shakespeare.in file found in repository https://github.com/bast/make-pipeline
 Date: 15/12/2017
@@ -138,13 +139,13 @@ For example:
 ```makefile
 # rule (mind the tab)
 target : dependencies
-    command
+         command(s)
 ```
 We can think of it as follows:
 
 ```makefile
 outputs : inputs
-    command
+          command(s)
 ```
 
 Let's re-implement the steps in running character count example using Make.
@@ -197,7 +198,7 @@ character_count/
 |   |--plot.py
 |--Makefile
 ```
--If our requirement changes and we have to read text from multiple files, we can modify the Makefile as follows:
+If our requirement changes and we have to read text from multiple files, we can modify the Makefile as follows:
 ```makefile
 all: results/charscount.out results/charsplot.out
 
@@ -232,5 +233,5 @@ git tag -a aalto_workshop_2017 -m "results submitted to aalto workshop 2017"
 
 ### References
 
-- Thsi material uses some suggestions from [software carpentry](http://swcarpentry.github.io/2014-03-17-ucb/lessons/jk-python/reproducible_workflow.html) and [software sustainability institute](https://www.software.ac.uk/)
+- This material uses some suggestions from [software carpentry](http://swcarpentry.github.io/2014-03-17-ucb/lessons/jk-python/reproducible_workflow.html) and [software sustainability institute](https://www.software.ac.uk/)
 
