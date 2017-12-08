@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: "motivation"
+title: "Motivation"
 teaching: 5
 exercises: 0
 questions:

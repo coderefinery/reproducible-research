@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: "Containers for reproducible research"
-teaching: 10
-exercises: 15
+teaching: 15
+exercises: 10
 questions:
    - "How to capture the environment under which experiment was made?"
    - "How do you communicate different versions of dependencies you need?" 
@@ -49,79 +49,79 @@ or daemon, which, in turn, does all the work.
 - A Docker image is made up of filesystems layered over each other <!--Docker calls each of these filesystems images.-->
 
 Listing docker images
-  ```bash
-  docker images
-  ```
+```bash
+docker images
+```
 Searching docker images from Dockerhub
-  ```bash
-  docker search ubuntu
-  ```
+```bash
+docker search ubuntu
+```
 Pulling from dockerhub <!-- (if no tag is mentioned pulls the latest one by default) -->
-  ```bash
-  docker pull ubuntu
-  ```
+```bash
+docker pull ubuntu
+```
 Starting container from the pulled image
-  ```bash
-  docker run -i -t ubuntu
+```bash
+docker run -i -t ubuntu
   
-  -i flag keeps STDIN open from the container
-  -t flag provides an interactive shell to the container
-  ```
+-i flag keeps STDIN open from the container
+-t flag provides an interactive shell to the container
+```
    
 Check running containers
-  ```bash
-  docker ps
-  ```
+```bash
+docker ps
+```
 Stop the container
-  ```bash
-  docker stop container_id or name
-  ```
+```bash
+docker stop container_id or name
+```
 ## Building docker images
 - An image is built based on the Dockerfile
 - The Dockerfile contains a series of instructions paired with arguments
 
 ```vim
-     #version 0.0.1
-     FROM ubuntu:16.04 (good to mention the image version being used)
-     MAINTAINER Sri Harsha Vathsavayi "sriharsha.vathsavayi@csc.fi"
-     RUN apt-get update
-     ...
+#version 0.0.1
+FROM ubuntu:16.04 (good to mention the image version being used)
+MAINTAINER Sri Harsha Vathsavayi "sriharsha.vathsavayi@csc.fi"
+RUN apt-get update
+...
   ```
 Instructions in the Dockerfile (for full reference, please visit [Dockerfile](https://docs.docker.com/engine/reference/builder/) )
 
 ```vim
-   FROM -  sets the base image for subsequent instructions
-   RUN - execute any commands in a new layer on top of the current image and commit the results
-   COPY - copies local files from build context into our image
-   WORKDIR - provides a way to set the working directory for the container when a container is launched from the image
-   CMD -  specifies the command to run when a container is launched
-   ..
-   ..
+FROM -  sets the base image for subsequent instructions
+RUN - execute any commands in a new layer on top of the current image and commit the results
+COPY - copies local files from build context into our image
+WORKDIR - provides a way to set the working directory for the container when a container is launched from the image
+CMD -  specifies the command to run when a container is launched
+..
+..
   ```
   
 Let's create a Dockerfile for our example project
 ```vim
-     #version 0.0.1
-     FROM ubuntu:16.04
-     MAINTAINER Your name "email address"
+#version 0.0.1
+FROM ubuntu:16.04
+MAINTAINER Your name "email address"
      
-     # update the apt package manager
-     RUN apt-get update     
+# update the apt package manager
+RUN apt-get update     
   
-     # install python
-     RUN apt-get install -y python
+# install python
+RUN apt-get install -y python
   
-     # install make
-     RUN apt-get install -y build-essential
+# install make
+RUN apt-get install -y build-essential
   
-     # copy project to container 
-     COPY ./ /opt/character_count/
+# copy project to container 
+COPY ./ /opt/character_count/
   
-     # set work directory in container
-     WORKDIR /opt/character_count
+# set work directory in container
+WORKDIR /opt/character_count
   
-     # default command to execute when container starts 
-     CMD ["/bin/bash"]
+# default command to execute when container starts 
+CMD ["/bin/bash"]
   ```
 
 At this point, our project directory will be like this:
@@ -144,23 +144,22 @@ character_count/
 We can build the image by running docker build in the character_count directory containing Dockerfile 
 
  ```bash
-     docker build -t <dockerhub-username>/character_count:0.0.1 .
+docker build -t <dockerhub-username>/character_count:0.0.1 .
   ``` 
 
 Check if the image is created
  ```bash
-     docker images
+docker images
   ``` 
 
 ## Starting containers from images
 We can run a container using `docker run` command
 
 ```bash
-docker run -i -t --name wordscount image_name 
+docker run -i -t --name charactercount image_name 
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
-**Anyone with this image can reproduce the results we have generated**
 
 <!--
   ```bash
@@ -180,20 +179,28 @@ The -p flag manages which network ports Docker exposes at runtime.
 **sharing a host directory with container**
  
   ```bash
-  docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data wordscount
+docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <image_name>
   ```
+**Anyone with this image can reproduce the results we have generated**
+
+  ```bash
+docker run -i --name reproduce-results -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
+  ```
+The _results_directory_ folder will have the results of our character example project
+
+We can also specify make as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
 
 ## Sharing a docker image
 - Docker Hub - A platform to share docker images
 - Login to dockerhub
 
  ```bash
-  docker login
+docker login
   ```
 - Push to dockerhub. The image name has to be in **youruser/yourimage** format. 
 
  ```bash
-  docker push image_name
+docker push image_name
   ```
 - For proprietary/sensitive images private Docker registries can be used
 

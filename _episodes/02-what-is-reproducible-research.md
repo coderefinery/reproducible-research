@@ -46,6 +46,7 @@ objectives:
 - Git, mercurial (code level)
 - make, sumatra (data / documentation level)
 - Containers (environment level)
+- Jupyter notebooks, R Markdown (article/report level)
  
 ---
 ## How we can use these tools to create reproducible workflow?
