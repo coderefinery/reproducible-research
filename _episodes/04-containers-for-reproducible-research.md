@@ -184,7 +184,7 @@ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <imag
 **Anyone with this image can reproduce the results we have generated**
 
   ```bash
-docker run -i --name reproduce-results -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
+docker run -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
   ```
 The _results_directory_ folder will have the results of our character example project
 
