@@ -8,7 +8,9 @@ questions:
    - "How do you communicate different versions of dependencies you need?" 
 objectives:
   - "Get a basic idea of using containers to capture research environments"
- 
+keypoints:
+  - Use containers to share research environments
+
 ---
 
 # Containers
@@ -36,7 +38,7 @@ or daemon, which, in turn, does all the work.
 <img src="/reproducible-research/img/docker_architecture.svg" style="height: 400px;"/>
 
 - Docker client
-   - End user uses docker client to communicate with docker engine 
+   - End user uses docker client to communicate with docker daemon 
 - Docker daemon
    - Executes the commands sent to the docker client. It manages containers, images, builds, etc. <!--The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.--> 
 - Docker registry
@@ -81,7 +83,7 @@ docker stop container_id or name
 - The Dockerfile contains a series of instructions paired with arguments
 
 ```vim
-#version 0.0.1
+#version 0.1
 FROM ubuntu:16.04 (good to mention the image version being used)
 MAINTAINER Sri Harsha Vathsavayi "sriharsha.vathsavayi@csc.fi"
 RUN apt-get update
@@ -101,7 +103,7 @@ CMD -  specifies the command to run when a container is launched
   
 Let's create a Dockerfile for our example project
 ```vim
-#version 0.0.1
+#version 0.1
 FROM ubuntu:16.04
 MAINTAINER Your name "email address"
      
@@ -121,7 +123,7 @@ COPY ./ /opt/character_count/
 WORKDIR /opt/character_count
   
 # default command to execute when container starts 
-CMD ["/bin/bash"]
+CMD /bin/bash
   ```
 
 At this point, our project directory will be like this:
@@ -144,7 +146,7 @@ character_count/
 We can build the image by running docker build in the character_count directory containing Dockerfile 
 
  ```bash
-docker build -t <dockerhub-username>/character_count:0.0.1 .
+docker build -t <dockerhub-username>/character_count:0.1 .
   ``` 
 
 Check if the image is created

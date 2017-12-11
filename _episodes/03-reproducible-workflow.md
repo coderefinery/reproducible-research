@@ -9,12 +9,16 @@ questions:
 objectives:
   - "Get a basic idea of different tools that can be used to create reproducible workflow"
   - "You can incorporate some of these tools in your research lifecycle"
-
+keypoints:
+  - Create useful project directory structure
+  - Setup version control
+  - Preserve the workflow of generating results
+  
 ---
 
 ## Suggestions for creating a reproducible workflow
 
-One should always be able to figure out precisely what data and what code were used to generate the results.
+One should always be able to figure out precisely what data and what code were used to generate what results.
  
 
 ### Create useful directory structure for project
@@ -37,7 +41,7 @@ project_name/
 ```
 
 - Let's create an example project that will count 10 most frequent characters in a given text and plots a bar chart of the characters
-- The example is in this [repository](https://github.com/Vathasav/character-count-example). Clone it.   
+- To follow along, clone this [repository](https://github.com/Vathasav/character-count)   
 
 
 The example project directory will be like this:
@@ -129,20 +133,21 @@ Let us look at our workflow:
 - As projects grow, it is quite difficult to keep track of all the workflow steps and how they fit together
 
 ### Documenting and automating the workflow
-- It is difficult to track the workflow:
-    -  How we have generated/created the results in the first case
-    -  What steps are followed in creating the results
 
-- Provenance of workflow
-    - Provides a historical record of data, its origins and causal relationships
-    - Can use it to ensure quality of data based on ancestral data, or find sources of errors
-    - Allows automated recreation of data
+##### It is difficult to track the workflow:
+   -  How we have generated/created the results in the first case
+   -  What steps are followed in creating the results
 
-- Multiple tools are available for documenting and managing the workflow
-    - [make](https://www.gnu.org/software/make/), can be used to track the steps we have followed in generating the data
-    - [Sumatra](http://sumatra.readthedocs.io/en/0.7.4/), manages and tracks numerical simulations.
-    - [Snakemake](http://snakemake.readthedocs.io/en/stable/), a workflow management system to create reproducible and scalable data analyses.
-    - See [additional tools](#workflow-tools) 
+#### Provenance of workflow
+   - Provides a historical record of data, its origins and causal relationships
+   - Can use it to ensure quality of data based on ancestral data, or find sources of errors
+   - Allows automated recreation of data
+
+#### Multiple tools are available for documenting and managing the workflow
+   - [make](https://www.gnu.org/software/make/), can be used to track the steps we have followed in generating the data
+   - [Sumatra](http://sumatra.readthedocs.io/en/0.7.4/), manages and tracks numerical simulations.
+   - [Snakemake](http://snakemake.readthedocs.io/en/stable/), a workflow management system to create reproducible and scalable data analyses.
+   - See [additional tools](#workflow-tools) 
    
 #### Using make to automate workflow
 

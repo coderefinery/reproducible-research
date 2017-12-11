@@ -25,7 +25,7 @@ objectives:
 ## Main drawbacks of not being able to reproduce research 
 - Not able to apply the Software/Code used by the original investigator
 - Not able to use the Data used by the author
-- No documentation on how data is generated and how the experiment is conducted
+- Not enough documentation on how data is generated and how the experiment is conducted
 - Not able to create software environment (with different libraries) that was originally used to generate results
 
 <!-- - Using same code and data are not necessarily enough for reproducibility. The whole environment needs to be captured. 
@@ -36,7 +36,7 @@ objectives:
 - Code level
 - Data level
 - Environment level
-- Documentation level
+- Documentation level (documenting the workflow)
 
 ---
 ## Multiple tools are available
@@ -44,7 +44,8 @@ objectives:
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
 - Git, mercurial (code level)
-- make, sumatra (data / documentation level)
+- Git or mercurial, sumatra (data level)
+- make, sumatra (documentation level)
 - Containers (environment level)
 - Jupyter notebooks, R Markdown (article/report level)
  
