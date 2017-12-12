@@ -20,7 +20,7 @@ keypoints:
 - A great solution to the problem of "dependency hell"
 - Allows for seamlessly moving workflows across different platforms
 - A container provides operating-system-level virtualization, i.e., it shares  the host system’s kernel with other containers
-- Popular container implementations are **Docker** and **Singularity**
+- Popular container implementations are **Docker** and **[Singularity](http://singularity.lbl.gov/)**
 
 ## Docker
 - Docker provides containerization in software level
@@ -85,7 +85,7 @@ docker stop container_id or name
 ```vim
 #version 0.1
 FROM ubuntu:16.04 (good to mention the image version being used)
-MAINTAINER Sri Harsha Vathsavayi "sriharsha.vathsavayi@csc.fi"
+LABEL maintainer="sriharsha.vathsavayi@csc.fi"
 RUN apt-get update
 ...
   ```
@@ -97,6 +97,7 @@ RUN - execute any commands in a new layer on top of the current image and commit
 COPY - copies local files from build context into our image
 WORKDIR - provides a way to set the working directory for the container when a container is launched from the image
 CMD -  specifies the command to run when a container is launched
+LABEL - adds metadata to an image and is a key-value pair
 ..
 ..
   ```
@@ -105,7 +106,7 @@ Let's create a Dockerfile for our example project
 ```vim
 #version 0.1
 FROM ubuntu:16.04
-MAINTAINER Your name "email address"
+LABEL maintainer="your email address"
      
 # update the apt package manager
 RUN apt-get update     
@@ -208,7 +209,7 @@ docker push image_name
 
 ---
 ## Singularity container (good to know)
-- Singularity is aimed at scientific community and to run scientific workflows
+- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows
 - Docker is compatible with singularity, but the main purpose of docker is for micro services development and different than the purpose of singularity
 - Docker is compatible with singularity, so docker images can be later converted into singularity images
 
