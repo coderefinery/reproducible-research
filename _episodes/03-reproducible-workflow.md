@@ -267,12 +267,8 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 ### Additional tools for managing workflow {#workflow-tools}
 
-- [Common Workflow Language](https://github.com/common-workflow-language/common-workflow-language), a specification for describing analysis workflows and tools which are portable and scalable across software and hardware environments.
-- [Ruffus](https://code.google.com/archive/p/ruffus/), a lightweight python module for running computational pipelines.
-- [AiiDA](http://www.aiida.net/), a flexible and scalable informatics' infrastructure to manage, preserve, and disseminate the simulations, data, and workflows of modern-day computational science (electronic structure calculations).
-- [Kepler](https://kepler-project.org/), GUI tool to help scientists, analysts, and programmers create, execute, and share models and analyses across a broad range of scientific and engineering disciplines.
-- [VisTrails](https://www.vistrails.org/index.php/Main_Page), an open-source scientific workflow and provenance management system that provides support for simulations, data exploration and visualization (GUI).
-- [Pegasus](https://pegasus.isi.edu/), workflow management system to automate, recover, and debug scientific computations (command line and browser interface tool automating).
+- [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
+  contains over 200 different tools...
 
 ## References
 
