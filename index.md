@@ -5,17 +5,15 @@ permalink: /
 
 # Reproducible research 
 
-In this lesson we will discuss different tools for creating reproducible workflow. We will demonstrate how version control, work flow engines and containers can be used to develop a reproducible workflow.
+In this lesson we will discuss different methods and tools for better reproducibility in research. We will demonstrate how version control, workflow engines and containers can be used to develop reproducible workflows.
 
-In this demonstration we will use Python snippets but is independent of programming languages and relevant
-also for other programming languages. 
-
-
+This demonstration will use Python snippets but all tools work equally well for other programming languages.
 
 ## Prerequisites
 
 1. You need to install [Git, Python, Make](https://coderefinery.github.io/installation/).
 
-2. [Docker]((https://coderefinery.github.io/installation/)) is optional. 
+2. [Docker]((https://coderefinery.github.io/installation/)) and 
+   [CWL](https://coderefinery.github.io/installation/python/#common-workflow-language-cwl) are optional. 
 
 

@@ -16,16 +16,16 @@ keypoints:
   
 ---
 
-## Suggestions for creating a reproducible workflow
+## Creating a reproducible workflow
 
-One should always be able to figure out precisely what data and what code were used to generate what results.
+- One should always be able to figure out precisely what data and what code were used to generate what results.
  
 
-### Create useful directory structure for project
+### Directory structure for projects
 
-- It is good to keep all the files associated with a project in a single folder
-- Make a folder for every project
-- Use consistent and informative directory structure (Note: there is no single best way to organize a project)
+- It is good to keep all files associated with a project in a single folder
+- Each project should have separate folder
+- Use consistent and informative directory structure (but your mileage may vary)
    
 Our project directory can be something like this:
 
@@ -134,7 +134,7 @@ Let us look at our workflow:
 
 ### Documenting and automating the workflow
 
-##### It is difficult to track the workflow:
+##### It is difficult to track the workflow
    -  How we have generated/created the results in the first case
    -  What steps are followed in creating the results
 
@@ -269,6 +269,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
   contains over 200 different tools...
+- One problem with workflow tools: "vendor lock-in"
 
 ## References
 
