@@ -4,149 +4,81 @@ title: "Creating reproducible workflow"
 teaching: 10
 exercises: 10
 questions:  
-  - "How to create a reproducible workflow?"
-  - "How to repeat an experiment with different data one year later?"
+  - "How can we create a reproducible workflow?"
+  - "How do we repeat an experiment with different data one year later?"
 objectives:
-  - "Get a basic idea of different tools that can be used to create reproducible workflow"
-  - "You can incorporate some of these tools in your research lifecycle"
+  - "Get a basic idea of different approaches for creating reproducible workflows"
+  - "You can incorporate some of these tools in your research"
 keypoints:
   - Create useful project directory structure
-  - Setup version control
+  - Set up version control for your projects
   - Preserve the workflow of generating results
   
 ---
 
 ## Creating a reproducible workflow
 
-- One should always be able to figure out precisely what data and what code were used to generate what results.
+One should always be able to figure out precisely what data and what code were used to generate a result
  
 
 ### Directory structure for projects
 
 - It is good to keep all files associated with a project in a single folder
-- Each project should have separate folder
+- Different project should have separate folders
 - Use consistent and informative directory structure (but your mileage may vary)
    
-Our project directory can be something like this:
+A project directory can look something like this:
 
 ```bash
 project_name/
-|-- data/                        All input data files of our project
+|-- data/                        contains input data files of our project
 |   |-- readme.txt               may contain subdirectories as well
 |   |-- sub-folder/
 |   |-- ...
-|-- manuscript                   The manuscript folder will contain the manuscript that we will write to describe the results
-|-- results/                     The results folder will contain the results of our analysis (including both tables and figures)
-|-- source/                      The source folder will contain all of our code
-```
-
-- Let's create an example project that will count 10 most frequent characters in a given text and plots a bar chart of the characters
-- To follow along, clone this [repository](https://github.com/Vathasav/character-count)   
-
-
-The example project directory will be like this:
-```bash
-character_count/
-|-- data/                                
-|-- manuscript                           
-|-- results/                             
-|-- source/
-|-- ...                              
-```
-
-### Using version control to track our changes
-
-- Since we want to track the software/code we have used in our project
-- Use version control for tracking this project
-- For example, initialize a Git repository 
-
-As you add and modify things in the project directory, you'll want to frequently commit your changes as discussed in the [Git introduction](https://coderefinery.github.io/git-intro/).
-
-### Track data used in the project
-- We often start our experiment with a particular data file, or set of data files (i.e., raw data)
-- We can track the data files by placing in **data** sub-folder
-- Include a readme file to describe the data (which helps us later)
-- Note: If we have too large files / sensitive files to track, we can untrack those files using **gitignore**
-
-
-In the case of character-count example, we already have a data file, i.e., *data/shakespeare.in*. It contains the text that we want to analyze. 
-
-In addition, we have a following readme file:
-```bash
-Data is gathered from shakespeare.in file found in repository https://github.com/bast/make-pipeline
-Date: 12/12/2017
+|-- manuscript                   will contain the manuscript that we will write to describe the results
+|-- results/                     will contain the results of our analysis (including tables and figures)
+|-- source/                      will contain all of our code
 ```
 
 
-Our example project's data directory is like this:
-```bash
-character_count/
-|-- data/
-|   |--readme.txt
-|   |--shakespeare.in
-|-- manuscript                           
-|-- ....                             
-|-- ....                              
-```
+### Version control of source code and data
 
-### Write code
-- Write the core "scientific code" to perform the analysis, including tests
-- Keep the code in **source** sub-folder
+#### Source code
+- Write the core scientific code to perform the analysis, including tests
+- Keep the code in the **source** sub-folder
+- Track all software/code used in a project, for example using Git
 
-In the case of character-count example, we already have two scripts:
- - count.py, counts the 10 most frequently used characters in a text 
- - plot.py, plots a bar chart of the results
+#### Data files
+- You can also track raw data files or input files, placed in the **data** sub-folder 
+- Does it make sense to track generated/processed data?
+- Include a README file to describe the data (helping us later)
+- If data files are too large or too sensitive to track, one can untrack them using **.gitignore**
 
-Our example project's source directory is like this:
-```bash
-character_count/
-|-- data/
-|   |--readme.txt
-|   |--shakespeare.in
-|-- manuscript                           
-|-- results                             
-|-- source
-|   |--count.py
-|   |--plot.py
-|-- ...                              
-```
-#### Generate results
+As files are added and modified in the project directory, commit your changes frequently as discussed in the [Git introduction](https://coderefinery.github.io/git-intro/).
 
-- Store the results of the analysis in the results folder
+#### Generating results
 
-In the case of character-count example, we can extract the 10 most frequently used characters by:
+- Store the results of the analysis in the `results` folder
 
-```bash
-cat data/shakespeare.in | ./source/count.py > results/charscount.out
-```
+#### Writing a paper
 
-Generate the bar chart by:
-```bash
-cat results/charscount.out | ./source/plot.py > results/charsplot.out
-```
-
-Let us look at our workflow:
-
-<img src="/reproducible-research/img/wordcount_workflow.png" style="height: 300px;"/>
-
-- In this simple example, we can easily figure out the inputs and ouputs and how they are joined together
-- As projects grow, it is quite difficult to keep track of all the workflow steps and how they fit together
+- It's a good idea to also put your manuscript under version control
+- Git can be used to collaborate on manuscripts written in, e.g., LaTeX, but other tools exist
 
 ### Documenting and automating the workflow
 
-##### It is difficult to track the workflow
-   -  How we have generated/created the results in the first case
-   -  What steps are followed in creating the results
+-  What steps are followed in creating the results?
 
 #### Provenance of workflow
    - Provides a historical record of data, its origins and causal relationships
    - Can use it to ensure quality of data based on ancestral data, or find sources of errors
    - Allows automated recreation of data
 
-#### Multiple tools are available for documenting and managing the workflow
+#### Multiple tools are available for documenting and managing workflows
    - [make](https://www.gnu.org/software/make/), can be used to track the steps we have followed in generating the data
-   - [Sumatra](http://sumatra.readthedocs.io/en/0.7.4/), manages and tracks numerical simulations.
-   - [Snakemake](http://snakemake.readthedocs.io/en/stable/), a workflow management system to create reproducible and scalable data analyses.
+   - [Jupyter](https://jupyter.org/), literate programming, interweaving code, documentation and results
+   - [Sumatra](http://sumatra.readthedocs.io/en/0.7.4/), manages and tracks numerical simulations
+   - [Snakemake](http://snakemake.readthedocs.io/en/stable/), workflow management system for reproducible and scalable data analyses
    - See [additional tools](#workflow-tools) 
    
 #### Using make to automate workflow
@@ -241,6 +173,83 @@ git tag -a <tagname> -m "comment"
 ```
 - Add a README file to describe the project and instructions on reproducing the results
 - Include appropriate LICENSE file
+
+### Exercise: Simple workflow with Git and Make
+
+Let's create an example project that will count 10 most frequent characters in a given text and plots a bar chart of the characters
+
+#### Step 1: fetch source
+
+- To follow along, clone this [repository](https://github.com/Vathasav/character-count)   
+
+The example project directory will be like this:
+```bash
+character_count/
+|-- data/                                
+|-- manuscript                           
+|-- results/                             
+|-- source/
+|-- ...                              
+```
+
+In this exercise, we already have a data file, i.e., *data/shakespeare.in*. It contains the text that we want to analyze. 
+
+In addition, we have a following README file:
+```bash
+Data is gathered from shakespeare.in file found in repository https://github.com/bast/make-pipeline
+Date: 12/12/2017
+```
+
+Our example project's data directory is like this:
+```bash
+character_count/
+|-- data/
+|   |--readme.txt
+|   |--shakespeare.in
+|-- manuscript                           
+|-- ....                             
+|-- ....                              
+```
+
+In the case of character-count example, we already have two scripts:
+ - count.py, counts the 10 most frequently used characters in a text 
+ - plot.py, plots a bar chart of the results
+
+Our example project's source directory is like this:
+```bash
+character_count/
+|-- data/
+|   |--readme.txt
+|   |--shakespeare.in
+|-- manuscript                           
+|-- results                             
+|-- source
+|   |--count.py
+|   |--plot.py
+|-- ...                              
+```
+
+#### Step 2: Generate results
+
+Extract the 10 most frequently used characters by:
+
+```bash
+cat data/shakespeare.in | ./source/count.py > results/charscount.out
+```
+
+Generate the bar chart by:
+```bash
+cat results/charscount.out | ./source/plot.py > results/charsplot.out
+```
+
+Let us look at our workflow:
+
+<img src="/reproducible-research/img/wordcount_workflow.png" style="height: 300px;"/>
+
+- In this simple example, we can easily figure out the inputs and ouputs and how they are joined together
+- As projects grow, it is quite difficult to keep track of all the workflow steps and how they fit together
+
+
 
 ### Exercise: Update Makefile to consider multiple data files
 Let's say our requirements have changed and we have to read text from another file (let's say lorem.in):
