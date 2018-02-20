@@ -87,6 +87,10 @@ What steps are followed in creating the results?
    - Provides a historical record of data, its origins and causal relationships
    - Can use it to ensure quality of data based on ancestral data, or find sources of errors
    - Allows automated recreation of data
+   - Directed acyclic graphs (DAGs)
+     - representation of data and their provenance
+     - nodes can represent data, calculations, etc. - links represent their connections
+     - used in many workflow management systems  
 
 #### Multiple tools are available for documenting and managing workflows
    - [make](https://www.gnu.org/software/make/), can be used to track the steps we have followed in generating the data
@@ -95,7 +99,6 @@ What steps are followed in creating the results?
    - [Snakemake](http://snakemake.readthedocs.io/en/stable/), workflow management system for reproducible and scalable data analyses
    - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
      contains over 200 different tools...
-   - One problem with workflow tools: "vendor lock-in"
 
 #### Using `make` to automate workflow
 
