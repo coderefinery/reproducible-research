@@ -20,7 +20,7 @@ keypoints:
 - A great solution to the problem of "dependency hell"
 - Allows for seamlessly moving workflows across different platforms
 - A container provides operating-system-level virtualization, i.e., it shares  the host system’s kernel with other containers
-- Popular container implementations are **Docker** and **[Singularity](http://singularity.lbl.gov/)**
+- Popular container implementations are **[Docker](https://www.docker.com/)** and **[Singularity](http://singularity.lbl.gov/)**
 
 ## Docker
 - Docker provides containerization in software level
