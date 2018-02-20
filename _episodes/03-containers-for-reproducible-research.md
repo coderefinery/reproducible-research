@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Containers for reproducible research"
-teaching: 15
+teaching: 10
 exercises: 10
 questions:
    - "How to capture the environment under which experiment was made?"
