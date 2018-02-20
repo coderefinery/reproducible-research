@@ -46,6 +46,13 @@ keypoints:
 - [A wide range of workflow tools](http://www.commonwl.org/#Implementations) support CWL
 
 
+### CWL vs. Makefiles
+
+- Components can be run in Docker containers without the details of getting data into/out of the container
+- Workflows can be pushed out to run on a cluster
+- Workflows can run unmodified on multiple cluster platforms
+- But CWL is more complex
+
 ### Type-along exercise: Hello World
 
    > This material has been adapted from [an online tutorial](http://www.commonwl.org/user_guide/)
@@ -76,8 +83,10 @@ message: Hello world!
   - `cwlVersion` indicates the version of the CWL spec used by the document
   - `class` field indicates this document describes a command line tool
   - `baseCommand` provides the name of program that will actually run (echo)
-  - `inputs` section describes the inputs of the tool, i.e. a list of input parameters and each parameter includes an identifier, a data type, 
-  and (optionally) an inputBinding which describes how this input parameter should appear on the command line
+  - `inputs` section describes the inputs of the tool, i.e. a list of input parameters. Each parameter includes
+    -  an identifier 
+    - a data type, 
+    -  (optionally) an inputBinding which describes how this input parameter should appear on the command line
   - `outputs` describes outputs of the tool (here there is no output, so the list is empty)
 
 
@@ -125,7 +134,8 @@ src:
 
 - What's going on?
   - the base command is `node`
-  - the Docker specs are in the `hints` section (generally used for software requirements)
+  - the Docker specs are in the `hints` section 
+    - `hints` is used for soft requirements, `requirements` for hard requirements
   - the input section specifies one input source file
   - the output is stdout, which is redirected to a file
 
