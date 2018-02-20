@@ -32,13 +32,13 @@ A project directory can look something like this:
 
 ```bash
 project_name/
-|-- data/                        contains input data files of our project
+|-- data/                        contains input data files of the project
 |   |-- readme.txt               may contain subdirectories as well
 |   |-- sub-folder/
 |   |-- ...
-|-- manuscript                   will contain the manuscript that we will write to describe the results
-|-- results/                     will contain the results of our analysis (including tables and figures)
-|-- source/                      will contain all of our code
+|-- manuscript                   will contain the manuscript describing the results
+|-- results/                     will contain the results of the analysis (including tables and figures)
+|-- source/                      will contain all code
 ```
 
 
@@ -61,11 +61,6 @@ As files are added and modified in the project directory, commit your changes fr
 ### Results
 
 - Store the results of the analysis (data files, figures, ...) in the `results` folder
-- Consider using Git tags to track specific versions of results (version submitted to a journal, the dissertation version, the poster version, etc.)
-
-```bash
-git tag -a <tagname> -m "comment" 
-```
 
 #### Manuscript
 
@@ -74,6 +69,14 @@ git tag -a <tagname> -m "comment"
   - [Overleaf](https://www.overleaf.com/)
   - [Authorea](https://www.authorea.com/)
   - Google Docs
+
+#### Tags
+- Consider using Git tags to track specific versions of results (and/or the code that gives the particular results)
+  - version submitted to a journal, the dissertation version, the poster version, etc.
+
+```bash
+git tag -a <tagname> -m "comment" 
+```
 
 
 ### Documenting and automating the workflow
@@ -90,14 +93,13 @@ What steps are followed in creating the results?
    - [Jupyter](https://jupyter.org/), literate programming, interweaving code, documentation and results
    - [Sumatra](http://sumatra.readthedocs.io/en/0.7.4/), manages and tracks numerical simulations
    - [Snakemake](http://snakemake.readthedocs.io/en/stable/), workflow management system for reproducible and scalable data analyses
-   - See [additional tools](#workflow-tools) 
    - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
      contains over 200 different tools...
    - One problem with workflow tools: "vendor lock-in"
 
 #### Using `make` to automate workflow
 
-- Make is a tool at the heart of many software build systems
+- Make is a tool at the heart of many software build systems, but is more general than that
 - Make uses a domain specific language that the user writes in a Makefile
 - Makefile specifies how to build the particular targets from their dependencies
 
@@ -187,7 +189,7 @@ Let us look at our workflow:
 
 <img src="/reproducible-research/img/wordcount_workflow.png" style="height: 300px;"/>
 
-- In this simple example, we can easily figure out the inputs and ouputs and how they are joined together
+- In this simple example, we can easily figure out the inputs and outputs and how they are joined together
 - As projects grow, it can become difficult to keep track of all steps of the workflow and how they fit together
 
 Let's re-implement the steps in running character count example using Make.
@@ -245,13 +247,13 @@ character_count/
 - Run make (executes the first rule by default) in the cloned directory and see if the results are generated
 
 To summarize:
-   - In Makefile, we explicitly define the dependencies of different files needed for executing the workflow
-   - Makefile itself can act as a documentation for data generation
+   - In `Makefile`, we explicitly define the dependencies of different files needed for executing the workflow
+   - `Makefile` itself can act as a documentation for data generation
    - With a single command we can always generate the results
 
 #### See if we can reproduce the results
 - Delete the content in results folder
-- Run make and see if we can generate results
+- Run `make` and see if we can generate results
 - Note: if we have raw data and code, we should be able to regenerate results with a single command
 
 
@@ -273,12 +275,12 @@ culpa qui officia deserunt mollit anim id est laborum.
 - generate results
 - commit changed files and create a new tag
 
-## How to create the environment applied for an experiment?
-- Software/code we have used may depend on lots of dependencies and may be difficult to create and use
+## How to create the environment applied in an experiment?
+- Software may have lots of dependencies which may be difficult to recreate 
 - Results should be possible to reproduce regardless of platform and with minimal effort
 - Many research codes can be problematic to install and configure without experts
-- Could we bundle all the necessary dependencies together, so that it is easy to run the software
-- Containers can be used to create isolated environments
+- Could we bundle all the necessary dependencies together, making it easier to run the software?
+- **Containers** can be used to create isolated environments
 
 
 
