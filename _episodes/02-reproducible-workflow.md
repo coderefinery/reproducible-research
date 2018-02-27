@@ -1,14 +1,14 @@
 ---
 layout: episode
-title: "Creating reproducible workflow"
+title: "Creating a reproducible workflow"
 teaching: 10
 exercises: 10
 questions:  
   - "How can we create a reproducible workflow?"
   - "How do we repeat an experiment with different data one year later?"
 objectives:
-  - "Get a basic idea of different approaches for creating reproducible workflows"
-  - "You can incorporate some of these tools in your research"
+  - "Get an overview of different approaches for creating reproducible workflows"
+  - "Learn the basics of make"
 keypoints:
   - Create useful project directory structure
   - Set up version control for your projects
@@ -18,16 +18,17 @@ keypoints:
 
 ## Creating a reproducible workflow
 
-Adopting reproducible workflows enables you to figure out precisely what data and what code were used to generate a result
+Adopting reproducible workflows enables you to figure out precisely what data and what code were used to generate a result.
  
 
 ### Directory structure for projects
 
 - It is good to keep all files associated with a project in a single folder
-- Different project should have separate folders
-- Use consistent and informative directory structure (but your mileage may vary)
+- Different projects should have separate folders
+- Use consistent and informative directory structure 
 - Add a README file to describe the project and instructions on reproducing the results
-   
+- But your mileage may vary, it's not a one-size-fits-all
+
 A project directory can look something like this:
 
 ```bash
@@ -40,43 +41,41 @@ project_name/
 |-- results/                     will contain the results of the analysis (including tables and figures)
 |-- source/                      will contain all code
 ```
-
+- In both Linux and Windows terminals, output like the above can be generated with the `tree` command
 
 ### Tracking source code and data
 
-#### Source code
+#### `source/`
 - Write the core scientific code to perform the analysis, including tests
 - Keep the code in the `source` sub-folder
-- Track all software/code used in a project in a version control system, for example using Git
+- Track all code used in a project in a version control system, for example Git
 - Include appropriate LICENSE file
 
-#### Data files
+#### `data/`
 - You can also track raw data files or input files in version control, placed in the `data` sub-folder 
   - Does it make sense to track generated/processed data?
 - Include a README file to describe the data (helping us later)
-- If data files are too large or too sensitive to track, one can untrack them using `.gitignore`
+- If data files are too large (or too sensitive) to track, one can untrack them using `.gitignore`
 
 As files are added and modified in the project directory, commit your changes frequently as discussed in the [Git introduction](https://coderefinery.github.io/git-intro/).
 
-### Results
+#### `results/`
 
 - Store the results of the analysis (data files, figures, ...) in the `results` folder
+- Consider using Git tags to track specific versions of results (and/or the code that gives the particular results)
+  - version submitted to a journal, the dissertation version, the poster version, etc.
 
-#### Manuscript
+```bash
+$ git tag -a <tagname> -m "comment" 
+```
+
+#### `manuscript/`
 
 - It's a good idea to also put your manuscript under version control
 - Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
   - [Overleaf](https://www.overleaf.com/)
   - [Authorea](https://www.authorea.com/)
   - Google Docs
-
-#### Tags
-- Consider using Git tags to track specific versions of results (and/or the code that gives the particular results)
-  - version submitted to a journal, the dissertation version, the poster version, etc.
-
-```bash
-git tag -a <tagname> -m "comment" 
-```
 
 
 ### Documenting and automating the workflow
@@ -93,10 +92,6 @@ What steps are followed in creating the results?
      - used in many workflow management systems  
 
 #### Multiple tools are available for documenting and managing workflows
-   - [make](https://www.gnu.org/software/make/), can be used to track the steps we have followed in generating the data
-   - [Jupyter](https://jupyter.org/), literate programming, interweaving code, documentation and results
-   - [Sumatra](http://sumatra.readthedocs.io/en/0.7.4/), manages and tracks numerical simulations
-   - [Snakemake](http://snakemake.readthedocs.io/en/stable/), workflow management system for reproducible and scalable data analyses
    - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
      contains over 200 different tools...
 
@@ -106,7 +101,7 @@ What steps are followed in creating the results?
 - Make uses a domain specific language that the user writes in a Makefile
 - Makefile specifies how to build the particular targets from their dependencies
 
-The target/dependencies/command are called as rules
+The target/dependencies/command are called rules
 
 For example:
 
@@ -180,12 +175,12 @@ character_count/
 We extract the 10 most frequently used characters by:
 
 ```bash
-cat data/shakespeare.in | ./source/count.py > results/charscount.out
+$ cat data/shakespeare.in | ./source/count.py > results/charscount.out
 ```
 
 and generate a bar chart by:
 ```bash
-cat results/charscount.out | ./source/plot.py > results/charsplot.out
+$ cat results/charscount.out | ./source/plot.py > results/charsplot.out
 ```
 
 Let us look at our workflow:
@@ -263,7 +258,7 @@ To summarize:
 
 ### Exercise: Update Makefile to consider multiple data files
 
-Let's say our requirements have changed and we have to read text from another file (let's say `lorem.in`):
+Let's say our requirements have changed and we have to read text from another file as well (let's say `lorem.in`):
 ```text
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -275,10 +270,12 @@ culpa qui officia deserunt mollit anim id est laborum.
 - create `lorem.in` file with the above content in `data` folder
 - update `readme.txt` to describe where lorem.in comes from
 - update `Makefile` to consider multiple input data files
+  - to keep it simple, `cat` both data files to generate one `charsplot.out`
+  - hint: you will have to add `lorem.in` to two lines...
 - generate results
 - commit changed files and create a new tag
 
-## How to create the environment applied in an experiment?
+## How to create a reproducible environment?
 - Software may have lots of dependencies which may be difficult to recreate 
 - Results should be possible to reproduce regardless of platform and with minimal effort
 - Many research codes can be problematic to install and configure without experts
@@ -289,4 +286,4 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 ## References
 
-- This material uses some suggestions from [software carpentry](http://swcarpentry.github.io/2014-03-17-ucb/lessons/jk-python/reproducible_workflow.html) and [software sustainability institute](https://www.software.ac.uk/)
+- This material uses some suggestions from [Software Carpentry](http://swcarpentry.github.io/2014-03-17-ucb/lessons/jk-python/reproducible_workflow.html) and [Software Sustainability Institute](https://www.software.ac.uk/)
