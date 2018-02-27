@@ -5,7 +5,7 @@ teaching: 5
 exercises: 0
 questions:
   - "Why should research be reproducible?"
-  - "What tools are available for making research reproducible?"
+  - "What factors influence reproducibility?"
 objectives:
   - "Discuss reasons for why research should be reproducible"
   - "Get a basic idea of different levels of reproducibility"   
@@ -22,11 +22,14 @@ Mary has left university for a job in industry and ever since the manuscript is 
 
 ## What is reproducible research?
 
-> “reproducibility refers to the ability of a researcher to duplicate the results of a prior study using the same materials as were used by the original investigator. That is, a second researcher might use the same raw data to build the same analysis files and implement the same statistical analysis in an attempt to yield the same results…. Reproducibility is a minimum necessary condition for a finding to be believable and informative.” 
+> “reproducibility refers to the ability of a researcher to duplicate the results of a prior study using the same materials as were used by the original investigator. That is, a second researcher might use the same raw data to build the same analysis files and implement the same statistical analysis in an attempt to yield the same results. Reproducibility is a minimum necessary condition for a finding to be believable and informative.” 
 >
 > -- <cite> U.S. National Science Foundation (NSF) subcommittee on replicability in science</cite>
 
-- For any research project, an independent researcher should be able to replicate the experiment under the same conditions and obtain the same results.
+- For any research project, an independent researcher should be able to replicate an experiment under the same conditions and obtain the same results
+  - the same results should be obtained under the same contitions
+  - it should be possible to recreate the same conditions!
+- "Experiment" is interpreted in a wide sense, encompassing also computational work
 
 ---
 
@@ -41,15 +44,13 @@ In many cases, we have to start from existing work.
 - Not enough documentation on how experiment is conducted and data is generated 
 - Data used to generate original results unavailable
 - Software used to generate original results unavailable
-- Difficult/impossible to recreate software environment (libraries, versions) used to generate original results
+- Difficult to recreate software environment (libraries, versions) used to generate original results
 
 
 ## Why reproducible research?
 
  - Demonstrating correctness of results
  - Long-term value of data
- - Uniqueness of data, i.e., data collected today may be invalid/inappropriate 6 months
-   from now
  - Publishing 2 years after data collection and analysis ends
  - Repeating the same experiment with different data and settings, many months later 
  - Saves a lot of time in transmitting knowledge to future researchers
@@ -65,25 +66,16 @@ In many cases, we have to start from existing work.
    
  
 ## Multiple levels of reproducibility
-<img src="/reproducible-research/img/reproducibility_levels.png" style="height: 200px;"/>
-
-- Code level
-- Data level
-- Environment level
-- Documentation level (documenting the workflow)
-
----
-## Multiple tools are available
 
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
-- Git, mercurial (code level)
-- Git or mercurial, sumatra (data level)
-- make, sumatra (documentation level)
-- Containers (environment level)
-- [Jupyter notebooks](http://jupyter.org/), [R Markdown](http://rmarkdown.rstudio.com/) (article/report level)
+- Environment levels (containers): [Docker](https://docs.docker.com/), 
+  (Singularity)[http://singularity.lbl.gov/]
+- Code level: Git, Mercurial...
+- Data level: Git, [Zenodo](https://zenodo.org/), [figshare](https://figshare.com/),
+  [CWL](http://www.commonwl.org/),
+- Documentation level: [make](https://www.gnu.org/software/make/), [CWL](http://www.commonwl.org/)
+- Article/result level: [Jupyter notebooks](http://jupyter.org/), [R Markdown](http://rmarkdown.rstudio.com/)
  
----
-## How we can use these tools to create reproducible workflow?
    
    
