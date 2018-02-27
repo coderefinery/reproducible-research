@@ -15,12 +15,12 @@ keypoints:
 
 # Containers
 
-- Containers can be seen as a 'ready-to-eat' software
 - Containers can be built to bundle all the necessary ingredients (data, code, environment)
 - A great solution to the problem of "dependency hell"
 - Allows for seamlessly moving workflows across different platforms
 - A container provides operating-system-level virtualization, i.e., it shares  the host system’s kernel with other containers
 - Popular container implementations are **[Docker](https://www.docker.com/)** and **[Singularity](http://singularity.lbl.gov/)**
+- "[the term] is borrowed from Shipping Containers, which define a standard to ship goods globally. Docker defines a standard to ship software." ([from the Docker documentation](https://docs.docker.com/glossary/))
 
 ## Docker
 - Docker provides containerization in software level
@@ -32,7 +32,7 @@ keypoints:
 ---
 
 ## Docker fundamentals
-- Docker is a client server application. The Docker client talks to the Docker server
+- Docker is a client-server application. The Docker client talks to the Docker server
 or daemon, which, in turn, does all the work.
 
 <img src="/reproducible-research/img/docker_architecture.svg" style="height: 400px;"/>
@@ -46,19 +46,19 @@ or daemon, which, in turn, does all the work.
    - You can even run your own private registry
 
 
-## What is a docker image
-- A container image is executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
-- A Docker image is made up of filesystems layered over each other <!--Docker calls each of these filesystems images.-->
+## What are Docker images and containers
+- A Docker *image* is executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
+- When you start the image, you have a running *container* of this image
 
 Listing docker images
 ```bash
 docker images
 ```
-Searching docker images from Dockerhub
+Searching docker images from Docker Hub
 ```bash
 docker search ubuntu
 ```
-Pulling from dockerhub <!-- (if no tag is mentioned pulls the latest one by default) -->
+Pulling from Docker Hub (pulls the latest one by default if no tag is mentioned)
 ```bash
 docker pull ubuntu
 ```
@@ -78,9 +78,9 @@ Stop the container
 ```bash
 docker stop container_id or name
 ```
-## Building docker images
-- An image is built based on the Dockerfile
-- The Dockerfile contains a series of instructions paired with arguments
+## Building Docker images
+- An image is built based on a Dockerfile
+- A Dockerfile contains a series of instructions paired with arguments
 
 ```vim
 #version 0.1
@@ -208,9 +208,11 @@ docker push image_name
 - For proprietary/sensitive images private Docker registries can be used
 
 ---
-## Singularity container (good to know)
+## Singularity containers
 - [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows
-- Docker is compatible with singularity, but the main purpose of docker is for micro services development and different than the purpose of singularity
-- Docker is compatible with singularity, so docker images can be later converted into singularity images
+- Docker is compatible with Singularity
+  - main purpose of Docker is for microservices development, which is different 
+  to the purpose of Singularity
+  - Docker images can be converted into Singularity images
 
 
