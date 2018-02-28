@@ -50,33 +50,38 @@ or daemon, which, in turn, does all the work.
 - A Docker *image* is executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
 - When you start the image, you have a running *container* of this image
 
-Listing docker images
-```bash
-docker images
+Getting help:
+```shell
+$ docker help
 ```
-Searching docker images from Docker Hub
-```bash
-docker search ubuntu
+
+Listing docker images:
+```shell
+$ docker images
 ```
-Pulling from Docker Hub (pulls the latest one by default if no tag is mentioned)
-```bash
-docker pull ubuntu
+Searching docker images from Docker Hub:
+```shell
+$ docker search ubuntu
 ```
-Starting container from the pulled image
-```bash
-docker run -i -t ubuntu
+Pulling from Docker Hub (pulls the latest one by default if no tag is mentioned):
+```shell
+$ docker pull ubuntu
+```
+Starting container from the pulled image:
+```shell
+$ docker run -i -t ubuntu
   
 -i flag keeps STDIN open from the container
 -t flag provides an interactive shell to the container
 ```
    
 Check running containers
-```bash
-docker ps
+```shell
+$ docker ps
 ```
 Stop the container
-```bash
-docker stop container_id or name
+```shell
+$ docker stop container_id or name
 ```
 ## Building Docker images
 - An image is built based on a Dockerfile
@@ -128,7 +133,7 @@ CMD /bin/bash
   ```
 
 At this point, our project directory will be like this:
-```bash
+```shell
 character_count/
 |-- data/
 |   |--readme.txt
@@ -146,26 +151,26 @@ character_count/
   
 We can build the image by running docker build in the character_count directory containing Dockerfile 
 
- ```bash
-docker build -t <dockerhub-username>/character_count:0.1 .
+ ```shell
+$ docker build -t <dockerhub-username>/character_count:0.1 .
   ``` 
 
 Check if the image is created
- ```bash
-docker images
+ ```shell
+$ docker images
   ``` 
 
 ## Starting containers from images
 We can run a container using `docker run` command
 
-```bash
-docker run -i -t --name charactercount image_name 
+```shell
+$ docker run -i -t --name charactercount image_name 
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
 
 <!--
-  ```bash
+  ```shell
   docker run -d -p 80:80 --name my_webserver vaths/nginx_test
   ```
 The -p flag manages which network ports Docker exposes at runtime. 
@@ -181,13 +186,13 @@ The -p flag manages which network ports Docker exposes at runtime.
 
 **sharing a host directory with container**
  
-  ```bash
-docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <image_name>
+  ```shell
+$ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <image_name>
   ```
 **Anyone with this image can reproduce the results we have generated**
 
-  ```bash
-docker run -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
+  ```shell
+$ docker run -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
   ```
 The _results_directory_ folder will have the results of our character example project
 
@@ -197,13 +202,13 @@ We can also specify make as the default command to run when our container starts
 - Docker Hub - A platform to share docker images
 - Login to dockerhub
 
- ```bash
-docker login
+ ```shell
+$ docker login
   ```
 - Push to dockerhub. The image name has to be in **youruser/yourimage** format. 
 
- ```bash
-docker push image_name
+ ```shell
+$ docker push image_name
   ```
 - For proprietary/sensitive images private Docker registries can be used
 
