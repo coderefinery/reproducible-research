@@ -73,10 +73,16 @@ inputs:
 outputs: []
 ```
 
-The *input object* which describes the input of a run goes into a separate YAML file:
+The *input object* which describes the input of a run goes into a separate YAML file.
+Save the following line into a file `1st-job.yml`:
 
 ```shell
 message: Hello world!
+```
+
+We can now run this job with:
+```shell
+$ cwltool 1st-tool.cwl 1st-job.yml
 ```
 
 - What's going on?
@@ -139,9 +145,13 @@ src:
   - the input section specifies one input source file
   - the output is stdout, which is redirected to a file
 
-We then provide a `hello.js` file:
+We then provide a `hello.js` file. Either run this command in a terminal
 ```shell
 $ echo "console.log(\"Hello World\");" > hello.js
+```
+or edit the file `hello.js` in an editor:
+```shell
+console.log(\"Hello World\");
 ```
 
 and run it with:
@@ -149,7 +159,9 @@ and run it with:
 $ cwltool docker.cwl docker-job.yml
 ```
 
-- The CWL runner constructed a Docker command line to run the script!
+- The CWL runner constructed a Docker command line to create a 
+  Docker container and run the script!
+
 
 ### Take-home exercise
 
