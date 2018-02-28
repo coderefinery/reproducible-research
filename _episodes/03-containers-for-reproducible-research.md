@@ -75,14 +75,20 @@ $ docker run -i -t ubuntu
 -t flag provides an interactive shell to the container
 ```
    
-Check running containers
+Check running containers:
 ```shell
 $ docker ps
 ```
-Stop the container
+Stop the container:
 ```shell
 $ docker stop container_id or name
 ```
+
+Remove an image:
+```shell
+$ docker rmi <image name>
+```
+
 ## Building Docker images
 - An image is built based on a Dockerfile
 - A Dockerfile contains a series of instructions paired with arguments
