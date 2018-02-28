@@ -170,7 +170,7 @@ $ docker images
 We can run a container using `docker run` command
 
 ```shell
-$ docker run -i -t --name charactercount image_name 
+$ docker run -i -t --name charactercount <dockerhub-username>/character_count:0.1
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
