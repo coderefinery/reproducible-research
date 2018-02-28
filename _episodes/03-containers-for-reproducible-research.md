@@ -84,6 +84,11 @@ Stop the container:
 $ docker stop container_id or name
 ```
 
+Remove a container:
+```shell
+$ docker rm <container name>
+```
+
 Remove an image:
 ```shell
 $ docker rmi <image name>
@@ -174,6 +179,10 @@ $ docker run -i -t --name charactercount <dockerhub-username>/character_count:0.
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
+We can now see the running container (in another terminal):
+```shell
+$ docker ps
+```
 
 <!--
   ```shell
