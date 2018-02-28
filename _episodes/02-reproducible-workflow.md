@@ -41,7 +41,6 @@ project_name/
 |-- results/                     will contain the results of the analysis (including tables and figures)
 |-- source/                      will contain all code
 ```
-- In both Linux and Windows terminals, output like the above can be generated with the `tree` command
 
 ### Tracking source code and data
 
@@ -135,6 +134,8 @@ character_count/
 |-- source/
 |-- ...                              
 ```
+
+- In both Linux and Windows terminals, output like the above can be generated with the `tree` command
 
 The input data for the project is in `data/shakespeare.in`. This file contains the text that we want to analyze. 
 
