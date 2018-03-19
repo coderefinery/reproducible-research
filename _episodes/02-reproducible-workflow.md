@@ -190,6 +190,15 @@ Let us look at our workflow:
 
 - In this simple example, we can easily figure out the inputs and outputs and how they are joined together
 - As projects grow, it can become difficult to keep track of all steps of the workflow and how they fit together
+- Bash scripts can be used to automate the workflow as well. The problem with bash scripts is that we might loose information about the workflow. Bash scripts do not explicitly document the needed inputs, generated outputs and generated intermediate results.
+- If the steps involved in the workflow are small and if the inputs and outputs generated in the workflow are clearly evident, then bash scripts can be used.
+ 
+`Make`files are a good choice, when we need to store the workflow information and create replicable workflows
+
+- Make also offers other benfits:
+  - ability to conduct partial steps of the workflow
+  - avoiding the need for excessive recomputation
+  - ability to parallelize the jobs
 
 Let's re-implement the steps in running character count example using Make.
  
