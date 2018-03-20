@@ -193,12 +193,7 @@ Let us look at our workflow:
 - Bash scripts can be used to automate the workflow as well. The problem with bash scripts is that we might loose information about the workflow. Bash scripts do not explicitly document the needed inputs, generated outputs and generated intermediate results.
 - If the steps involved in the workflow are small and if the inputs and outputs generated in the workflow are clearly evident, then bash scripts can be used.
  
-`Make`files are a good choice, when we need to store the workflow information and create replicable workflows
-
-- Make also offers other benfits:
-  - ability to conduct partial steps of the workflow
-  - avoiding the need for excessive recomputation
-  - ability to parallelize the jobs
+`Make` files are a good choice, when we need to store the workflow information and create replicable workflows
 
 Let's re-implement the steps in running character count example using Make.
  
@@ -254,10 +249,16 @@ character_count/
 ```
 - Run make (executes the first rule by default) in the cloned directory and see if the results are generated
 
+- Make also offers other benfits:
+  - ability to conduct partial steps of the workflow
+  - avoiding the need for excessive recomputation
+  - ability to parallelize the jobs
+  
 To summarize:
    - In `Makefile`, we explicitly define the dependencies of different files needed for executing the workflow
    - `Makefile` itself can act as a documentation for data generation
    - With a single command we can always generate the results
+   
 
 #### See if we can reproduce the results
 - Delete the content in results folder
@@ -280,7 +281,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 - create `lorem.in` file with the above content in `data` folder
 - update `readme.txt` to describe where lorem.in comes from
 - update `Makefile` to consider multiple input data files
-  - to keep it simple, `cat` both data files to generate one `charsplot.out`
+  - to keep it simple, `cat` both data files to generate one `charscount.out`
   - hint: you will have to add `lorem.in` to two lines...
 - generate results
 - commit changed files and create a new tag

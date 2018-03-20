@@ -59,7 +59,7 @@ keypoints:
 
 - CWL documents are written in [JSON](http://json.org/) or [YAML](http://yaml.org/)
 
-Save the following CWL *tool wrapper* in a file `1st-tool.clw`:
+Save the following CWL *tool wrapper* in a file `1st-tool.cwl`:
 
 ```shell
 cwlVersion: v1.0

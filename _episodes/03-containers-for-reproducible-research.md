@@ -124,15 +124,11 @@ Let's create a Dockerfile for our example project
 FROM ubuntu:16.04
 LABEL maintainer="your email address"
      
-# update the apt package manager
-RUN apt-get update     
-  
-# install python
-RUN apt-get install -y python
-  
-# install make
-RUN apt-get install -y build-essential
-  
+# update the apt package manager and install python, make
+RUN apt-get update && apt-get install -y \
+    python \
+    build-essential
+      
 # copy project to container 
 COPY ./ /opt/character_count/
   
