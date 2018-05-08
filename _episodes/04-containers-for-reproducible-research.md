@@ -13,6 +13,13 @@ keypoints:
 
 ---
 
+# Reproducible environments
+- Software may have lots of dependencies which may be difficult to recreate 
+- Results should be possible to reproduce regardless of platform and with minimal effort
+- Many research codes can be problematic to install and configure without experts
+- Could we bundle all the necessary dependencies together, making it easier to run the software?
+- **Containers** can be used to create isolated environments
+
 # Containers
 
 - Containers can be built to bundle all the necessary ingredients (data, code, environment)
