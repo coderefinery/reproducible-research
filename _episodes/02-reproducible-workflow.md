@@ -16,12 +16,7 @@ keypoints:
   
 ---
 
-## Creating a reproducible workflow
-
-Adopting reproducible workflows enables you to figure out precisely what data and what code were used to generate a result.
- 
-
-### Directory structure for projects
+## Directory structure for projects
 
 - It is good to keep all files associated with a project in a single folder
 - Different projects should have separate folders
@@ -30,19 +25,19 @@ Adopting reproducible workflows enables you to figure out precisely what data an
 - But your mileage may vary, it's not a one-size-fits-all
 
 A project directory can look something like this:
-
 ```bash
 project_name/
 |-- data/                        contains input data files of the project
-|   |-- readme.txt               may contain subdirectories as well
-|   |-- sub-folder/
+|   |-- README.md                describes where input data came from
+|   |-- sub-folder/              may contain subdirectories as well
 |   |-- ...
-|-- manuscript                   will contain the manuscript describing the results
+|-- processed_data/              will contain intermediate files from the analysis
+|-- manuscript/                  will contain the manuscript describing the results
 |-- results/                     will contain the results of the analysis (including tables and figures)
 |-- source/                      will contain all code
 ```
 
-### Tracking source code and data
+## Tracking source code and data
 
 #### `source/`
 - Write the core scientific code to perform the analysis, including tests
@@ -52,11 +47,14 @@ project_name/
 
 #### `data/`
 - You can also track raw data files or input files in version control, placed in the `data` sub-folder 
-  - Does it make sense to track generated/processed data?
 - Include a README file to describe the data (helping us later)
 - If data files are too large (or too sensitive) to track, one can untrack them using `.gitignore`
 
 As files are added and modified in the project directory, commit your changes frequently as discussed in the [Git introduction](https://coderefinery.github.io/git-intro/).
+
+#### `processed_data/`
+- Intermediate files from the analysis are kept here
+- Does it make sense to track generated/processed data?
 
 #### `results/`
 
@@ -77,11 +75,11 @@ $ git tag -a <tagname> -m "comment"
   - Google Docs
 
 
-### Documenting and automating the workflow
+## Documenting and automating your workflow
 
-What steps are followed in creating the results?
+Adopting reproducible workflows enables you to figure out precisely what data and what code were used to generate a result.
 
-#### Provenance of data
+### Provenance of data
    - Provides a historical record of data, its origins and causal relationships
    - Can use it to ensure quality of data based on ancestral data, or find sources of errors
    - Allows automated recreation of data
@@ -90,11 +88,11 @@ What steps are followed in creating the results?
      - nodes can represent data, calculations, etc. - links represent their connections
      - used in many workflow management systems  
 
-#### Multiple tools are available for documenting and managing workflows
+### Multiple tools are available for documenting and managing workflows
    - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
      contains over 200 different tools...
 
-#### Using `make` to automate workflow
+### Using `make` to automate workflow
 
 - Make is a tool at the heart of many software build systems, but is more general than that
 - Make uses a domain specific language that the user writes in a Makefile
@@ -117,182 +115,177 @@ outputs: inputs
 ```
 
 
-
 ### Type-along exercise: Simple workflow with Git and Make
 
-Let's create an example project which follows the guidelines given above. 
-The project is about counting the most frequent characters in a given text and plotting a bar chart of the characters.
+Let's look at an example project which follows the guidelines given above. 
+The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
+[Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
 
-> To follow along, clone this [repository](https://github.com/Vathasav/character-count)   
+> To follow along, clone this [repository](https://github.com/wikfeldt/word-count)   
 
 The example project directory is like this:
 ```bash
-character_count/
+word_count/
 |-- data/                                
+|-- processed_data/                                
 |-- manuscript                           
 |-- results/                             
 |-- source/
 |-- ...                              
 ```
 
-- In both Linux and Windows terminals, output like the above can be generated with the `tree` command
+The texts that we want to analyze for the project is in the `data/` directory (four books in plain text).
 
-The input data for the project is in `data/shakespeare.in`. This file contains the text that we want to analyze. 
+In addition, we have a LICENSE_TEXTS.md file which contains the license for the texts and their origins. 
+Normally, you would instead include a README file describing where the data comes from.
 
-In addition, we have a following README file:
+The data directory is like this:
 ```bash
-Data is gathered from shakespeare.in file found in repository https://github.com/bast/make-pipeline
-Date: 12/12/2017
-```
-
-and the data directory is like this:
-```bash
-character_count/
+word_count/
 |-- data/
-|   |--readme.txt
-|   |--shakespeare.in
-|-- manuscript                           
+|   |--LICENSE_TEXTS.md
+|   |--abyss.txt
+|   |--isles.txt
+|   |--last.txt
+|   |--sierra.txt
 |-- ...                            
 ```
 
-In the `source` directory  we already have two scripts
- - count.py, counts the 10 most frequently used characters in a text 
- - plot.py, plots a bar chart of the results
+In the `source` directory  we have three scripts:
+ - wordcount.py, finds the frequency wdistribution of ords used in a text 
+ - plotcount.py, plots a bar chart of the results
+ - zipf_test.py, calculates the ratio between the counts of the two most common words
 
 The project's `source` directory is like this:
 ```bash
-character_count/
-|-- data/
-|-- manuscript                           
-|-- results                             
+word_count/
 |-- source
-|   |--count.py
-|   |--plot.py
+|   |--plotcount.py
+|   |--wordcount.py
+|   |--zipf_test.py
 |-- ...                              
 ```
 
 #### Generating results
 
-We extract the 10 most frequently used characters by:
+We count the number of times each word appears by:
 
 ```bash
-$ cat data/shakespeare.in | ./source/count.py > results/charscount.out
+$ ./source/wordcount.py data/abyss.txt  processed_data/abyss.dat
 ```
 
-and generate a bar chart by:
+and generate a plot by:
 ```bash
-$ cat results/charscount.out | ./source/plot.py > results/charsplot.out
+$ ./source/plotcount.py processed_data/abyss.dat results/abyss.png
 ```
 
-Let us look at our workflow:
+and finally compute the ratio between the frequencies of the two most common words (Zipf's law predicts this ratio to be 2)
+```bash
+$ ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
 
-<img src="/reproducible-research/img/wordcount_workflow.png" style="height: 300px;"/>
+- In simple cases it's easy to figure out what the input is and how results are computed from it
+- As projects grow, it becomes more difficult to keep track of all steps of a workflow 
+- Shell scripts can be used to automate workflows, but the drawback is that scripts are unaware of dependencies between steps 
+  and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes 
+- Makefiles are a good choice when there is a need to store the workflow information and create a replicable workflow
 
-- In this simple example, we can easily figure out the inputs and outputs and how they are joined together
-- As projects grow, it can become difficult to keep track of all steps of the workflow and how they fit together
-- Bash scripts can be used to automate the workflow as well. The problem with bash scripts is that we might loose information about the workflow. Bash scripts do not explicitly document the needed inputs, generated outputs and generated intermediate results.
-- If the steps involved in the workflow are small and if the inputs and outputs generated in the workflow are clearly evident, then bash scripts can be used.
+#### Writing a Makefile for [GNU Make](https://www.gnu.org/software/make/).
  
-`Make` files are a good choice, when we need to store the workflow information and create replicable workflows
-
-Let's re-implement the steps in running character count example using Make.
- 
-**Step 1**: extract the 10 most frequently used characters in a text
+**Step 1**: calculate frequency distribution of words used in a text
 
 ```makefile
-results/charscount.out: source/count.py data/shakespeare.in
-        cat data/shakespeare.in | ./source/count.py > results/charscount.out
+processed_data/abyss.dat: data/abyss.txt
+        ./source/wordcount.py data/abyss.txt processed_data/abyss.dat
 ```
 
-The above rule says: I know how to build `results/charscount.out` if I have the `source/count.py` 
-script and the `data/shakespeare.in` file, and I do that by calling `source/count.py` on 
-`data/shakespeare.in` and redirecting the output
+The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
+script and the `data/abyss.txt` inputfile.
 
 **Step 2**: generate the bar chart
 ```makefile
-results/charsplot.out: source/plot.py results/charscount.out
-        cat results/charscount.out | ./source/plot.py > results/charsplot.out
+results/abyss.png: processed_data/abyss.dat
+        ./source/plotcount.py processed_data/abyss.dat results/abyss.png
 ```
 
-**Final step**: we need to build both steps
+**Step 3**: calculate the ratio between the two most common words:
 ```makefile
-all: results/charscount.out results/charsplot.out
+results/results.txt: processed_data/abyss.dat
+        ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
+
+**Final step**: we need to build all three steps
+```makefile
+all: processed_data/abyss.dat results/abyss.png results/results.txt
 ```
    
-The whole makefile:
+**Makefile for running the analysis for one input file:**
 ```makefile
-all: results/charscount.out results/charsplot.out
+all: processed_data/abyss.dat results/abyss.png results/results.txt
 
-results/charscount.out: source/count.py data/shakespeare.in
-        cat data/shakespeare.in | ./source/count.py > results/charscount.out
+processed_data/abyss.dat: data/abyss.txt
+        ./source/wordcount.py data/abyss.txt processed_data/abyss.dat
 
-results/charsplot.out: source/plot.py results/charscount.out
-        cat results/charscount.out | ./source/plot.py > results/charsplot.out
+results/abyss.png: processed_data/abyss.dat
+        ./source/plotcount.py processed_data/abyss.dat results/abyss.png
 
+results/results.txt: processed_data/abyss.dat
+        ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
 ```
 
-
-Our example project directory together with the `Makefile` will be like this:
-```bash
-character_count/
-|-- data/
-|   |--readme.txt
-|   |--shakespeare.in
-|-- manuscript                           
-|-- results/
-|   |--charscount.out
-|   |--charsplot.out
-|-- source/
-|   |--count.py
-|   |--plot.py
-|--Makefile
+The Makefile is executed by running make:
 ```
-- Run make (executes the first rule by default) in the cloned directory and see if the results are generated
-
-- Make also offers other benfits:
-  - ability to conduct partial steps of the workflow
-  - avoiding the need for excessive recomputation
-  - ability to parallelize the jobs
-  
-To summarize:
-   - In `Makefile`, we explicitly define the dependencies of different files needed for executing the workflow
-   - `Makefile` itself can act as a documentation for data generation
-   - With a single command we can always generate the results
-   
-
-#### See if we can reproduce the results
-- Delete the content in results folder
-- Run `make` and see if we can generate results
-- Note: if we have raw data and code, we should be able to regenerate results with a single command
-
-
-
-### Exercise: Update Makefile to consider multiple data files
-
-Let's say our requirements have changed and we have to read text from another file as well (let's say `lorem.in`):
-```text
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+$ make 
 ```
-- create `lorem.in` file with the above content in `data` folder
-- update `readme.txt` to describe where lorem.in comes from
-- update `Makefile` to consider multiple input data files
-  - to keep it simple, `cat` both data files to generate one `charscount.out`
-  - hint: you will have to add `lorem.in` to two lines...
-- generate results
-- commit changed files and create a new tag
+This executes the first rule in the Makefile by default.
 
-## How to create a reproducible environment?
-- Software may have lots of dependencies which may be difficult to recreate 
-- Results should be possible to reproduce regardless of platform and with minimal effort
-- Many research codes can be problematic to install and configure without experts
-- Could we bundle all the necessary dependencies together, making it easier to run the software?
-- **Containers** can be used to create isolated environments
+#### Advantages of make
+ - ability to conduct partial steps of the workflow, skipping any unnecessary steps
+ - ability to parallelize the jobs, e.g. `$ make -j 2`
+ - `Makefile` itself can act as a documentation for data generation
+ - With a single command we can generate all or parts of the results 
 
+### Makefile to process all data files
+
+In this project we have three more books to analyze, and inn reality we may have many 
+more input files and more complicated dependencies.
+
+A more general Makefile for this project can look like this (see `Makefile_all`):
+
+```makefile
+SRCDIR := data
+TMPDIR := processed_data
+RESDIR := results
+
+SRCS = $(wildcard $(SRCDIR)/*.txt)
+OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
+OBJS += $(RESDIR)/results.txt
+DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+
+all: $(OBJS)
+
+$(TMPDIR)/%.dat: $(SRCDIR)/%.txt
+        ./source/wordcount.py $<  $@
+
+$(RESDIR)/%.png: $(TMPDIR)/%.dat
+        ./source/plotcount.py $<  $@
+
+$(RESDIR)/results.txt: $(DATA)
+        ./source/zipf_test.py $^ > $@
+
+clean:
+        @$(RM) $(TMPDIR)/*
+        @$(RM) $(RESDIR)/*
+
+.PHONY: clean directories
+```
+
+#### Short exercise
+- Build all the results using `$ make -f Makefile_all`
+- Try removing one of the plots (e.g. `results/abyss.png`) and recompile. What happens?
+- Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and recompile. Did you expect this to happen?
+- Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
 
 
 ## References
