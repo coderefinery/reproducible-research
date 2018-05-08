@@ -287,7 +287,3 @@ clean:
 - Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and recompile. Did you expect this to happen?
 - Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
 
-
-## References
-
-- This material uses some suggestions from [Software Carpentry](http://swcarpentry.github.io/2014-03-17-ucb/lessons/jk-python/reproducible_workflow.html) and [Software Sustainability Institute](https://www.software.ac.uk/)
