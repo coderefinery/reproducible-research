@@ -247,7 +247,7 @@ This executes the first rule in the Makefile by default.
 
 ### Makefile to process all data files
 
-In this project we have three more books to analyze, and inn reality we may have many 
+In this project we have three more books to analyze, and in reality we may have many 
 more input files and more complicated dependencies.
 
 A more general Makefile for this project can look like this (see `Makefile_all`):
