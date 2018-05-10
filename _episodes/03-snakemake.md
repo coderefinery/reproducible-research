@@ -25,7 +25,7 @@ keypoints:
   - enable researchers to track the provenance of workflow execution results and the workflow creation steps
   - can enable scaling across nodes, clusters, cloud
 
-### Tools
+## Tools
 
 - [Hundreds of workflow tools have been 
   developed](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems)
@@ -40,7 +40,7 @@ keypoints:
 - Different workflow engines are generally not interchangeable -> vendor lock-in
   - A community-led effort to overcome this limitation is the [common workflow language (CWL)](http://www.commonwl.org)
 
-### Creating workflows with [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
+## Managing workflows with [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
 #### Why Snakemake?
 - Gentle learning curve
@@ -60,6 +60,7 @@ keypoints:
 - Workflows can be pushed out to run on a cluster without modifications to scale up
 - Workflows can be pushed out to run on cloud
 
+<br>
 <img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
 
 > The following material is based on a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
@@ -103,11 +104,6 @@ Finished job 0.
 What just happened? 
 The rule told Snakemake how to build the **target** `processed_data/isles.dat` using the **action** `source/wordcount.py` 
 and the **dependency** `data/isles.txt`.
-- Snakefiles can have other names as well:
-
-```bash
-$ snakemake -s AnySnakefileName
-```
 
 Let's try to build another target by adding a new rule (with a unique name) to the Snakefile:
 
@@ -151,15 +147,15 @@ rule alldata:
          'processed_data/abyss.dat'
 ```
 
-- The dependencies (inputs) of this rule are targets of other rules. When Snakeake runs, 
-  it will check to see if the dependencies exist and, if not, will see if rules are available that will create these. 
-  If such rules exist it will invoke these first, otherwise Snakemake will raise an error
-- Also an example of a rule that has no actions - used only to trigger the build of its dependencies if needed
+- Dependencies (inputs) of this rule are targets of other rules. Snakemake will 
+  check to see if the dependencies exist and, if not, will see if rules are available that will create them. 
+  If such rules exist it will invoke them first, otherwise it will raise an error
+- An example of a rule that has no actions - used only to trigger the build of its dependencies if needed
 - Dependencies must form a directed acyclic graph (DAG). 
   A target cannot depend on a dependency which itself, or one of its dependencies, depends on that target (cyclic dependency)
 
 We can visualize the DAG of our current Snakefile using the `--dag` option, which will output the DAG 
-in `dot` language (a plain-text format for describing graphs used by Graphviz software)
+in `dot` language (a plain-text format for describing graphs used by [Graphviz software](https://www.graphviz.org/))
 
 ```bash
 $ snakemake --dag | dot -Tpng > dag.png
@@ -215,13 +211,157 @@ Job counts:
 
 1. Write a new rule for `last.dat,` created from `data/last.txt`
 2. Update the `alldata` rule with this target.
-3. Write a new rule for `results.txt,` which creates the summary table. The rule needs to:
+3. Write a new rule for `results.txt,` which creates a table from the Zipf analysis. The rule needs to:
   - Depend upon each of the three .dat files.
-  - Invoke the action `python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt`.
+  - Invoke the action:
+  ```python
+./source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
+  ```
 4. Put this rule at the top of the Snakefile so that it is the default target.
 5. Update clean so that it removes results.txt.
 
 
 
-### Wildcards and pattern rules
+### Wildcards 
+
+The Snakefile created above contains a lot of unnecessary 
+repetition which requires more typing and is more error-prone.
+*Wildcards* can be used to avoid this situation.
+For example, the following code block:
+```python
+rule zipf_test:
+     input:
+         'processed_data/isles.dat',
+         'processed_data/abyss.dat',
+         'processed_data/last.dat'
+     output:
+         'results/results.txt'
+     shell:
+         './source/zipf_test.py processed_data/isles.dat processed_data/abyss.dat processed_data/last.dat > results/results.txt'
+```
+
+can be replaced by 
+```python
+rule zipf_test:
+     input:
+         'processed_data/isles.dat',
+         'processed_data/abyss.dat',
+         'processed_data/last.dat'
+     output:
+         'results/results.txt'
+     shell:
+         './source/zipf_test.py {input} > {output}'
+```
+
+Let's test if this works:
+```bash
+$ snakemake clean
+$ snakemake 
+```
+
+```bash
+... [more output] ...
+rule zipf_test:
+    input: processed_data/isles.dat, processed_data/abyss.dat, processed_data/last.dat
+    output: results/results.txt
+    jobid: 0
+
+Finished job 0.
+4 of 4 steps (100%) done
+```
+
+It worked.
+
+**Questions**
+- What steps does Snakemake perform if we now do the following steps?
+```bash
+$ touch processed_data/*.dat
+$ snakemake 
+```
+- What if we instead do this?
+```bash
+$ touch data/*.txt
+$ snakemake 
+```
+- Are the following three commands equivalent?
+```bash
+$ snakemake
+$ snakemake zipf_test
+$ snakemake results/results.txt
+```
+- What happens if we do the following? 
+```bash
+$ touch source/wordcount.py
+$ snakemake
+```
+  - should we do something about that?
+
+#### Naming dependencies
+
+Sometimes one needs to treat different dependencies of a rule differently. This can be done in two ways, either by 
+enumeration:
+```python
+rule count_words:
+    input: './source/wordcount.py', 'data/isles.txt'
+    output: 'processed_data/isles.dat'
+    shell: '{input[0]} {input[1]} processed_data/isles.dat'
+```
+or by naming:
+```python
+rule count_words:
+    input:
+           wc = './source/wordcount.py',
+           book = 'data/isles.txt'
+    output: 'processed_data/isles.dat'
+    shell: '{input.wc} {input.book} processed_data/isles.dat'
+```
+
+### Pattern rules
+
+The Snakefile at this point looks something like the following:
+
+```python
+rule zipf_test:
+     input: 'processed_data/isles.dat', 'processed_data/abyss.dat', 'processed_data/last.dat'
+     output: 'results/results.txt'
+     shell: './source/zipf_test.py {input} > {output}'
+
+rule alldata:
+     input: 'processed_data/isles.dat',	'processed_data/abyss.dat', 'processed_data/last.dat'
+
+# Count words.
+rule count_words:
+    input:
+           wc = './source/wordcount.py',
+           book = 'data/isles.txt'
+    output: 'processed_data/isles.dat'
+    shell: '{input.wc} {input.book} {output}'
+
+rule count_words_abyss:
+     input:  'data/abyss.txt'
+     output: 'processed_data/abyss.dat'
+     shell:  './source/wordcount.py data/abyss.txt processed_data/abyss.dat'
+
+rule count_words_last:
+     input:  'data/last.txt'
+     output: 'processed_data/last.dat'
+     shell:  './source/wordcount.py data/last.txt processed_data/last.dat'
+
+rule clean:
+    shell: 'rm -f processed_data/*.dat results/results.txt'
+```
+ 
+It still contains lots of repetition, i.e. there's a separate rule for each `.dat` target. 
+We can replace all these rules with a single *pattern rule* which can be used to build 
+any `.dat` file from a `.txt` file in `data/`:
+```python
+rule count_words:
+    input:
+           wc = './source/wordcount.py',
+           book = 'data/{file}.txt'
+    output: 'processed_data/{file}.dat'
+    shell: '{input.wc} {input.book} {output}'
+```
+
+This general rule uses the wildcard `{file}` as a placeholder for any book in the `data/` directory.
 
