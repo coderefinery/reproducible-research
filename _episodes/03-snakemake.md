@@ -1,10 +1,10 @@
 ---
 layout: episode
-title: "Workflow management and tracking tools"
+title: "Workflow management tools"
 teaching: 5
 exercises: 5
 questions:
-  - "What are scientific workflow management systems all about?"
+  - "What are scientific workflow management systems?"
   - "Can such tools be adopted to your research?"
 objectives:
   - "Get familiar with Snakemake"
@@ -16,6 +16,7 @@ keypoints:
 ## Scientific workflows
 
 - Home-made workflows: scripts that call in data, programs and other inputs and produce outputs
+- Make can be used to manage workflows, but it has limitations
 - Many specialized frameworks exist for managing scientific workflows
   - user-friendly environment to create workflows
   - automatic job execution
@@ -29,33 +30,198 @@ keypoints:
 - [Hundreds of workflow tools have been 
   developed](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems)
 - Each has its own specialities, benefits and user communities, some are domain-specific while others domain-independent
-- Two open-source, multi-disciplinary alternatives:
+- Some open-source, multi-disciplinary alternatives:
   - [Taverna](https://taverna.incubator.apache.org/):
   "open source multi-platform tool for designing and executing workflows. Taverna is discipline independent and used in many domains, such as bioinformatics, cheminformatics, medicine, astronomy, social science, music, and digital preservation"
   - [Pegasus](https://pegasus.isi.edu/):
     "runs on various environments including personal computers, campus clusters, grids, and clouds. It is quite flexible, but more difficult to learn than Taverna. No graphical design tool is available."
+  - [NextFlow](https://www.nextflow.io/):
+    "Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."
 - Different workflow engines are generally not interchangeable -> vendor lock-in
   - A community-led effort to overcome this limitation is the [common workflow language (CWL)](http://www.commonwl.org)
 
-### [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
+### Creating workflows with [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
-- Snakemake workflows are essentially Python scripts extended by declarative code to define rules 
-- Rules (following that of GNU Make) describe how to create output files from input files 
+#### Why Snakemake?
+- Gentle learning curve
+- Free, open-source, and installs easily via pip
+- Cross-platform (Windows, MacOS, Linux) and compatible with all HPC schedulers
+  - same workflow works without modification and scales appropriately whether on a laptop or cluster 
 - Heavily used in bioinformatics, but is completely general
 
+#### Snakemake vs. make
+
+- Workflows defined in Python scripts extended by declarative code to define rules 
+  - anything that can be done in Python can be done with Snakemake
+- Rules work much like in GNU Make - describe how to create output files from input files 
+- Possible to define isolated software environments per rule
+  - uses conda to obtain and deploy software packages in the specified versions
+- Also possible to run workflows in Docker or Singularity containers
+- Workflows can be pushed out to run on a cluster without modifications to scale up
+- Workflows can be pushed out to run on cloud
+
+<img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
+
+> The following material is based on a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
+
+### Type-along exercise: Snakemake for counting words
+
+> This exercise is based on the [same example project](https://github.com/wikfeldt/word-count) as in the previous episode
+
+We create a file called `Snakefile` with the following contents:
+```python
+# Count words.
+rule count_words:
+    input: 'data/isles.txt'
+    output: 'processed_data/isles.dat'
+    shell: './source/wordcount.py data/isles.txt processed_data/isles.dat'
+```
+and run it with
+```bash
+$ snakemake
+```
+and get
+```bash
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+    count	jobs
+    1		count_words
+    1
+
+rule count_words:
+    input: data/isles.txt
+    output: processed_data/isles.dat
+    jobid: 0
+
+Finished job 0.
+1 of 1 steps (100%) done
+```
+
+What just happened? 
+The rule told Snakemake how to build the **target** `processed_data/isles.dat` using the **action** `source/wordcount.py` 
+and the **dependency** `data/isles.txt`.
+- Snakefiles can have other names as well:
+
+```bash
+$ snakemake -s AnySnakefileName
+```
+
+Let's try to build another target by adding a new rule (with a unique name) to the Snakefile:
+
+```python
+rule count_words_abyss:
+     input:  'data/abyss.txt'
+     output: 'processed_data/abyss.dat'
+     shell:  './source/wordcount.py data/abyss.txt processed_data/abyss.dat'
+```
+and try running `snakemake` again. It gives
+
+```bash
+Nothing to be done.
+```
+
+This is because, just like make, snakemake only tries to build the first rule in the Snakefile. 
+But we can build the new target by
+
+```bash
+$ snakemake processed_data/abyss.dat
+```
+
+It's useful to have a rule to remove all data files to be able to explicitly recreate them. 
+It can be called `clean`, as this is a common name for rules that delete auto-generated files:
+
+```python
+rule clean:
+    shell: 'rm -f processed_data/*.dat'
+```
+
+This rule can be run by `$ snakemake clean`.
+
+A similar command can be added to create all the data files. 
+This rule should be at the top of the Snakefile so that it is the default target, 
+which is executed by default if no target is given to the snakemake command:
+
+```python
+rule alldata:
+     input:
+         'processed_data/isles.dat',
+         'processed_data/abyss.dat'
+```
+
+- The dependencies (inputs) of this rule are targets of other rules. When Snakeake runs, 
+  it will check to see if the dependencies exist and, if not, will see if rules are available that will create these. 
+  If such rules exist it will invoke these first, otherwise Snakemake will raise an error
+- Also an example of a rule that has no actions - used only to trigger the build of its dependencies if needed
+- Dependencies must form a directed acyclic graph (DAG). 
+  A target cannot depend on a dependency which itself, or one of its dependencies, depends on that target (cyclic dependency)
+
+We can visualize the DAG of our current Snakefile using the `--dag` option, which will output the DAG 
+in `dot` language (a plain-text format for describing graphs used by Graphviz software)
+
+```bash
+$ snakemake --dag | dot -Tpng > dag.png
+```
+Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
+
+<img src="/reproducible-research/img/snakemake_simpledag.png" style="height: 150px;"/>
+
+There is also an option to print out all commands that will be run (`-p`), and 
+another to perform a dry-run (`-n`):
+
+```bash
+$ snakemake clean
+$ snakemake -n -p
+```
+
+```bash
+Job counts:
+    count	jobs
+    1		alldata
+    1		count_words
+    1		count_words_abyss
+    3
+
+rule count_words:
+    input: data/isles.txt
+    output: processed_data/isles.dat
+    jobid: 2
+
+./source/wordcount.py data/isles.txt processed_data/isles.dat
+
+rule count_words_abyss:
+    input: data/abyss.txt
+    output: processed_data/abyss.dat
+    jobid: 1
+
+./source/wordcount.py data/abyss.txt processed_data/abyss.dat
+
+localrule alldata:
+    input: processed_data/isles.dat, processed_data/abyss.dat
+    jobid: 0
+
+Job counts:
+    count	jobs
+    1		alldata
+    1		count_words
+    1		count_words_abyss
+    3
+```
+
+### Exercise
 
 
-### Snakefiles vs. Makefiles
-
-$ snakemake --use-singularity
-will execute the job within a singularity container that is spawned from the given image
-
-- Components can be run in Docker containers without the details of getting data into/out of the container
-- Workflows can be pushed out to run on a cluster
-- Workflows can run unmodified on multiple cluster platforms
-
-
-<img src="/reproducible-research/img/snakemake.png" style="height: 200px;"/>
+1. Write a new rule for `last.dat,` created from `data/last.txt`
+2. Update the `alldata` rule with this target.
+3. Write a new rule for `results.txt,` which creates the summary table. The rule needs to:
+  - Depend upon each of the three .dat files.
+  - Invoke the action `python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt`.
+4. Put this rule at the top of the Snakefile so that it is the default target.
+5. Update clean so that it removes results.txt.
 
 
-snakemake --dag | dot -Tpng > test.png
+
+### Wildcards and pattern rules
+
