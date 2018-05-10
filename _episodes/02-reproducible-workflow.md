@@ -92,7 +92,7 @@ Adopting reproducible workflows enables you to figure out precisely what data an
    - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
      contains over 200 different tools...
 
-### Using `make` to automate workflow
+### Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
 
 - Make is a tool at the heart of many software build systems, but is more general than that
 - Make uses a domain specific language that the user writes in a Makefile
@@ -190,7 +190,7 @@ $ ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
   and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes 
 - Makefiles are a good choice when there is a need to store the workflow information and create a replicable workflow
 
-#### Writing a Makefile for [GNU Make](https://www.gnu.org/software/make/).
+#### Writing a Makefile
  
 **Step 1**: calculate frequency distribution of words used in a text
 
