@@ -13,6 +13,12 @@ keypoints:
 
 ---
 
+# Reproducible environments
+- Software may have lots of dependencies which may be difficult to recreate 
+- Results should be possible to reproduce regardless of platform and with minimal effort
+- Many research codes can be problematic to install and configure without experts
+- Can we bundle all the necessary dependencies together, making it easier to run the software?
+
 # Containers
 
 - Containers can be built to bundle all the necessary ingredients (data, code, environment)
@@ -26,7 +32,7 @@ keypoints:
 - Docker provides containerization in software level
 - Available for most common operating systems
 - Provides an easy and fast way to bundle all the necessary libraries and data together
-- Docker Hub - A platform to share docker images (Note: images are stored in repositories ~ similar to git repository)
+- DockerHub is a platform to share docker images (images are stored in repositories - similar to Git repository)
 - Public Docker images available in [Docker Hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 
 ---
@@ -52,7 +58,7 @@ or daemon, which, in turn, does all the work.
 
 Getting help:
 ```shell
-$ docker help
+$ docker help <command>
 ```
 
 Listing docker images:
@@ -79,9 +85,18 @@ Check running containers:
 ```shell
 $ docker ps
 ```
+Check all containers (also those not running):
+```shell
+$ docker ps -a
+```
 Stop the container:
 ```shell
 $ docker stop container_id or name
+```
+
+Start (in interactive mode) a stopped container:
+```shell
+$ docker start -i container_id or name
 ```
 
 Remove a container:
@@ -104,7 +119,7 @@ FROM ubuntu:16.04 (good to mention the image version being used)
 LABEL maintainer="sriharsha.vathsavayi@csc.fi"
 RUN apt-get update
 ...
-  ```
+```
 Instructions in the Dockerfile (for full reference, please visit [Dockerfile](https://docs.docker.com/engine/reference/builder/) )
 
 ```vim
@@ -116,62 +131,66 @@ CMD -  specifies the command to run when a container is launched
 LABEL - adds metadata to an image and is a key-value pair
 ..
 ..
-  ```
+```
   
-Let's create a Dockerfile for our example project
+## Type-along exercise: Containerizing our workflow
+
+> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episodes
+
+
+Let's create a Dockerfile for our example project (this Dockerfile is available in the project repository)
 ```vim
 #version 0.1
 FROM ubuntu:16.04
-LABEL maintainer="your email address"
-     
-# update the apt package manager and install python, make
-RUN apt-get update && apt-get install -y \
-    python \
-    build-essential
-      
-# copy project to container 
-COPY ./ /opt/character_count/
-  
+
+#maintainer information
+LABEL maintainer="kthw@kth.se"
+
+# update the apt package manager
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:jonathonf/python-3.6
+RUN apt-get update
+
+# install make
+RUN apt-get install -y build-essential
+
+# install nano
+RUN apt-get install -y nano
+
+# install python
+RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
+RUN yes | pip3 install numpy
+RUN yes | pip3 install matplotlib
+RUN yes | pip3 install snakemake
+
+# copy project to container
+COPY ./ /opt/word_count/
+
 # set work directory in container
-WORKDIR /opt/character_count
-  
-# default command to execute when container starts 
+WORKDIR /opt/word_count
+
+# default command to execute when container starts
 CMD /bin/bash
-  ```
-
-At this point, our project directory will be like this:
-```shell
-character_count/
-|-- data/
-|   |--readme.txt
-|   |--shakespeare.in
-|-- manuscript                           
-|-- results/
-|   |--format-data.tmp
-|   |--format-data.out
-|-- source/
-|   |--count.py
-|   |--plot.py
-|--Makefile
-|--Dockerfile
 ```
-  
-We can build the image by running docker build in the character_count directory containing Dockerfile 
 
- ```shell
-$ docker build -t <dockerhub-username>/character_count:0.1 .
-  ``` 
+We can build the image by running docker build in the word_count directory containing Dockerfile 
+
+```shell
+$ docker build -t word_count:0.1 .
+``` 
+This will take a few minutes...
 
 Check if the image is created
- ```shell
+```shell
 $ docker images
-  ``` 
+``` 
 
 ## Starting containers from images
 We can run a container using `docker run` command
 
 ```shell
-$ docker run -i -t --name charactercount <dockerhub-username>/character_count:0.1
+$ docker run -i -t --name wordcount word_count:0.1
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
@@ -200,14 +219,14 @@ The -p flag manages which network ports Docker exposes at runtime.
   ```shell
 $ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <image_name>
   ```
+
 **Anyone with this image can reproduce the results we have generated**
-
   ```shell
-$ docker run -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
+$ docker run -v <path-on-hostmachine/results_directory>:/opt/word_count/results word_count:0.1 snakemake -s Snakefile_all
   ```
-The _results_directory_ folder will have the results of our character example project
+The `results_directory` folder will have the results of our word count example project
 
-We can also specify make as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
+We can also specify snakemake (or  any other command) as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
 
 ## Sharing a docker image
 - Docker Hub - A platform to share docker images
@@ -216,7 +235,9 @@ We can also specify make as the default command to run when our container starts
  ```shell
 $ docker login
   ```
-- Push to dockerhub. The image name has to be in **youruser/yourimage** format. 
+- Push to dockerhub. The image name has to be in **youruser/yourimage** format 
+(thus instead of the name `word_count`, 
+we should have used `<dockerhub-username>/word_count` above)
 
  ```shell
 $ docker push image_name
@@ -225,7 +246,7 @@ $ docker push image_name
 
 ---
 ## Singularity containers
-- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows
+- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources
 - Docker is compatible with Singularity
   - main purpose of Docker is for microservices development, which is different 
   to the purpose of Singularity

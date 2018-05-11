@@ -47,14 +47,6 @@ In many cases, we have to start from existing work.
 - Difficult to recreate software environment (libraries, versions) used to generate original results
 
 
-## Why reproducible research?
-
- - Demonstrating correctness of results
- - Long-term value of data
- - Publishing 2 years after data collection and analysis ends
- - Repeating the same experiment with different data and settings, many months later 
- - Saves a lot of time in transmitting knowledge to future researchers
-   
 <!--
    <img src="/reproducible-research/img/reproducibility_figure.jpg" style="height: 200px;"/>
 -->
@@ -71,10 +63,9 @@ In many cases, we have to start from existing work.
 
 - Environment levels (containers): [Docker](https://docs.docker.com/), 
   [Singularity](http://singularity.lbl.gov)
-- Code level: Git, Mercurial...
-- Data level: Git, [Zenodo](https://zenodo.org/), [figshare](https://figshare.com/),
-  [CWL](http://www.commonwl.org/),
-- Documentation level: [make](https://www.gnu.org/software/make/), [CWL](http://www.commonwl.org/)
+- Code level: Git, Mercurial, ...
+- Data level: Git, [Zenodo](https://zenodo.org/), [figshare](https://figshare.com/), ...
+- Documentation level: [make](https://www.gnu.org/software/make/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), ...
 - Article/result level: [Jupyter notebooks](http://jupyter.org/), [R Markdown](http://rmarkdown.rstudio.com/)
  
    
