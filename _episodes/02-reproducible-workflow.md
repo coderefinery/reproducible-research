@@ -284,7 +284,7 @@ clean:
 
 #### Short exercise
 - Build all the results using `$ make -f Makefile_all`
-- Try removing one of the plots (e.g. `results/abyss.png`) and recompile. What happens?
-- Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and recompile. Did you expect this to happen?
+- Try removing one of the plots (e.g. `results/abyss.png`) and re-build by re-running `make`. What happens?
+- Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and re-build. Did you expect this to happen?
 - Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
 
