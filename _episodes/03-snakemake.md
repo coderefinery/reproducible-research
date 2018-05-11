@@ -155,7 +155,8 @@ rule alldata:
   A target cannot depend on a dependency which itself, or one of its dependencies, depends on that target (cyclic dependency)
 
 We can visualize the DAG of our current Snakefile using the `--dag` option, which will output the DAG 
-in `dot` language (a plain-text format for describing graphs used by [Graphviz software](https://www.graphviz.org/))
+in `dot` language (a plain-text format for describing graphs used by [Graphviz software](https://www.graphviz.org/), 
+which can be installed by `conda install graphviz`)
 
 ```bash
 $ snakemake --dag | dot -Tpng > dag.png
