@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: "Workflow management tools"
-teaching: 5
-exercises: 5
+teaching: 15
+exercises: 15
 questions:
   - "What are scientific workflow management systems?"
   - "Can such tools be adopted to your research?"
