@@ -157,23 +157,6 @@ WORKDIR /opt/word_count
 CMD /bin/bash
  ```
 
-At this point, our project directory will be like this:
-```shell
-character_count/
-|-- data/
-|   |--readme.txt
-|   |--shakespeare.in
-|-- manuscript                           
-|-- results/
-|   |--format-data.tmp
-|   |--format-data.out
-|-- source/
-|   |--count.py
-|   |--plot.py
-|--Makefile
-|--Dockerfile
-```
-  
 We can build the image by running docker build in the character_count directory containing Dockerfile 
 
  ```shell
