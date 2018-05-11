@@ -219,9 +219,9 @@ $ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <im
   ```shell
 $ docker run -v <path-on-hostmachine/results_directory>:/opt/word_count/results word_count:0.1 snakemake -s Snakefile_all
   ```
-The `results_directory` folder will have the results of our character example project
+The `results_directory` folder will have the results of our word count example project
 
-We can also specify make as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
+We can also specify snakemake (or  any other command) as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
 
 ## Sharing a docker image
 - Docker Hub - A platform to share docker images
@@ -230,7 +230,9 @@ We can also specify make as the default command to run when our container starts
  ```shell
 $ docker login
   ```
-- Push to dockerhub. The image name has to be in **youruser/yourimage** format. 
+- Push to dockerhub. The image name has to be in **youruser/yourimage** format 
+(thus instead of the name `word_count`, 
+we should have used `<dockerhub-username>/word_count` above)
 
  ```shell
 $ docker push image_name
@@ -239,7 +241,7 @@ $ docker push image_name
 
 ---
 ## Singularity containers
-- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows
+- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources
 - Docker is compatible with Singularity
   - main purpose of Docker is for microservices development, which is different 
   to the purpose of Singularity
