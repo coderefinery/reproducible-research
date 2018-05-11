@@ -9,7 +9,8 @@ questions:
 objectives:
   - "Get familiar with Snakemake"
 keypoints:
-  - "Snakemake is a tool to create reproducible and scalable data analyses"
+  - "Hundreds of workflow management tools have been developed to make research more replicable and reproducible"
+  - "Snakemake is a comparatively simple option to create transferable and scalable data analyses"
    
 ---
 
@@ -220,6 +221,29 @@ Job counts:
   ```
 4. Put this rule at the top of the Snakefile so that it is the default target.
 5. Update clean so that it removes results.txt.
+6. Questions
+    - What steps does Snakemake perform if we now do the following steps?
+    ```bash
+    $ touch processed_data/*.dat
+    $ snakemake 
+    ```
+    - What if we instead do this?
+    ```bash
+    $ touch data/*.txt
+    $ snakemake 
+    ```
+    - Are the following three commands equivalent?
+    ```bash
+    $ snakemake
+    $ snakemake zipf_test
+    $ snakemake results/results.txt
+    ```
+    - What happens if we do the following? 
+    ```bash
+    $ touch source/wordcount.py
+    $ snakemake
+    ```
+      - should we do something about that?
 
 
 
@@ -272,30 +296,6 @@ Finished job 0.
 ```
 
 It worked.
-
-#### Questions
-- What steps does Snakemake perform if we now do the following steps?
-```bash
-$ touch processed_data/*.dat
-$ snakemake 
-```
-- What if we instead do this?
-```bash
-$ touch data/*.txt
-$ snakemake 
-```
-- Are the following three commands equivalent?
-```bash
-$ snakemake
-$ snakemake zipf_test
-$ snakemake results/results.txt
-```
-- What happens if we do the following? 
-```bash
-$ touch source/wordcount.py
-$ snakemake
-```
-  - should we do something about that?
 
 #### Naming dependencies
 
@@ -373,7 +373,7 @@ This general rule uses the wildcard `{file}` as a placeholder for any book in th
 
 ### OPTIONAL: further topics
 
-**Python functions**
+#### Python functions
 
 Snakefiles are more or less just Python code, and we can add Python code anywhere:
 ```python
@@ -403,7 +403,7 @@ rule zipf_test:
 ```
 This is particularly useful if a rule has lots of dependencies.
 
-**Resources and parallelism**
+#### Resources and parallelism
 
 Just like GNU Make, Snakemake can run in parallel:
 ```bash
@@ -455,7 +455,7 @@ $ snakemake -j 4 --resources gpu=1
 Note however that `gpu` does not actually represent a GPU, it is simply an arbitrary limit 
 used to prevent multiple tasks that use a `gpu` from executing at the same time.
 
-**Running on a cluster**
+#### Running on a cluster
 
 Moving a workflow to a cluster or between clusters can be a tedious task; batch scripts need
 to be written and adapted to possibly different job schedulers, jobs that depend on each 
@@ -514,7 +514,7 @@ number of jobs that Snakemake is allowed to have submitted at the same time.
 The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
 the command used to submit jobs on the particular cluster.
 
-**Final version of our Snakefile**
+#### Final version of our Snakefile
 ```python
 # This is a "hidden" version of the final Snakefile if students want/need
 # to run the instructor's copy.
@@ -578,13 +578,15 @@ rule make_archive:
     shell: 'tar -czvf {output} {input}'
 ```
 
-**GUI**
+<img src="/reproducible-research/img/snakemake_dag.png" style="height: 300px;"/>
+
+#### GUI
 
 Snakemake has an experimental GUI feature which can be invoked by:
 ```bash
 $ snakemake --gui
 ```
 
-**Further documentation**
+#### Further documentation
 
 Visit [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
