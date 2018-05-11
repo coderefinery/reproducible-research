@@ -97,6 +97,7 @@ Adopting reproducible workflows enables you to figure out precisely what data an
 - Make is a tool at the heart of many software build systems, but is more general than that
 - Make uses a domain specific language that the user writes in a Makefile
 - Makefile specifies how to build the particular targets from their dependencies
+- Example of command-line automation - easier to ensure reproducibility compared to graphical user interfaces
 
 The target/dependencies/command are called rules
 
@@ -241,8 +242,8 @@ This executes the first rule in the Makefile by default, which will trigger the
 execution of all the other rules to build the dependencies of `all`.
 
 #### Advantages of make
- - ability to conduct partial steps of the workflow, skipping any unnecessary steps
- - ability to parallelize the jobs, e.g. `$ make -j 2`
+ - Ability to conduct partial steps of the workflow, skipping any unnecessary steps
+ - Ability to parallelize the jobs, e.g. `$ make -j 2`
  - `Makefile` itself can act as a documentation for data generation
  - With a single command we can generate all or parts of the results 
 
