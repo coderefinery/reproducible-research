@@ -272,7 +272,7 @@ Finished job 0.
 
 It worked.
 
-**Questions**
+#### Questions
 - What steps does Snakemake perform if we now do the following steps?
 ```bash
 $ touch processed_data/*.dat
@@ -315,6 +315,10 @@ rule count_words:
     output: 'processed_data/isles.dat'
     shell: '{input.wc} {input.book} processed_data/isles.dat'
 ```
+
+Note that here the source file `wordcount.py` has been made a dependency. This is 
+important since any changes of the source code should trigger a rebuild of all
+targets that depend on it!
 
 ### Pattern rules
 
@@ -365,3 +369,221 @@ rule count_words:
 
 This general rule uses the wildcard `{file}` as a placeholder for any book in the `data/` directory.
 
+
+### OPTIONAL: further topics
+
+**Python functions**
+
+Snakefiles are more or less just Python code, and we can add Python code anywhere:
+```python
+# at the top of the file
+import os
+import glob
+
+# add this wherever
+rule print_book_names:
+    run:
+        print('These are all the book names:')
+        for book in glob.glob(''ata/*.txt'):
+            print(book)
+```
+
+The `snakemake.io` modules comes with a set of useful functions. To generalize our Snakefile further,
+we can use the `glob_wildcards()` an `expand()` functions:
+```python
+DATA = glob_wildcards('data/{book}.txt').book
+...
+rule zipf_test:
+    input:
+        zipf='source/zipf_test.py',
+	books=expand('processed_data/{book}.dat', book=DATA)
+    output: 'results/results.txt'
+    shell:  './{input.zipf} {input.books} > {output}'
+```
+This is particularly useful if a rule has lots of dependencies.
+
+**Resources and parallelism**
+
+Just like GNU Make, Snakemake can run in parallel:
+```bash
+$ snakemake -j 4
+```
+which gives the output:
+```bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+... more output ...
+```
+
+This will allow Snakemake to execute multiple instances of rules at the same time 
+and speed up the run.
+
+Apart from `input`, `output` and `shell`, rules can have a number of other keywords.
+Among other things, one can explicitly specify how many cores (or threads) a rule needs:
+```python
+# count words in one of our "books"
+rule count_words:
+    input:
+        wc='source/wordcount.py',
+        book='data/{file}.txt'
+    output: 'processed_data/{file}.dat'
+    threads: 4
+    shell: './{input.wc} {input.book} {output}'
+```
+This will run each instance of the rule using 4 theads.
+
+Non-CPU resources are handled with the `resources` keyword. Pretending that we have a plotting 
+routine which can use a GPU, this can be specified in the Snakefile as:
+```python
+# create a plot for each book
+rule make_plot:
+    input:
+        plotcount='source/plotcount.py',
+        book='processed_data/{file}.dat'
+    output: 'results/{file}.png'
+    resources: gpu=1
+    shell: './{input.plotcount} {input.book} {output}'
+```
+
+The workflow can now be executed on 4 cores and one GPU by:
+```bash
+$ snakemake clean
+$ snakemake -j 4 --resources gpu=1
+```
+
+Note however that `gpu` does not actually represent a GPU, it is simply an arbitrary limit 
+used to prevent multiple tasks that use a `gpu` from executing at the same time.
+
+**Running on a cluster**
+
+Moving a workflow to a cluster or between clusters can be a tedious task; batch scripts need
+to be written and adapted to possibly different job schedulers, jobs that depend on each 
+other need to be executed in the right order, etc. 
+But Snakemake can manage this for you - it writes the batch scripts, submits and monitors jobs!
+
+To facilitate the transfer of a workflow to a cluster, Snakemake has the `--archive` flag 
+which will archive all files under version control (scripts, Snakefile, config files, 
+conda environment file), and in addition all input files, to a specified tar archive file. 
+On the cluster, Snakemake can then use the conda package manager to recreate the software
+environment:
+```bash
+$ snakemake --archive myworkflow.tar.gz
+$ scp myworkflow.tar.gz <some-cluster>
+$ ssh <some-cluster>
+$ tar zxf myworkflow.tar.gz
+$ cd myworkflow
+$ snakemake -n --use-conda
+```
+
+Snakemake uses a JSON configuration file to specify cluster-specific parameters. 
+An example file for a SLURM system is:
+```bash
+{
+    "__default__":
+    {
+        "account": "a_slurm_submission_account",
+        "mem": "1G",
+        "time": "0:5:0"
+    },
+    "count_words":
+    {
+        "time": "0:10:0",
+        "mem": "2G"
+    }
+}
+```
+
+In this case, rules will by default use 5 minute jobs requiring 1 GB, while the `count_words` rule requires
+more time and memory. 
+
+Some rules do not need to run in a separate job on the cluster (since they take only seconds to complete),
+and should rather be completedd locallywhere the `snakemake` command is run (e.g. login node).
+One can add such exceptions with the `localrules` rule:
+```python
+localrules: all, clean, make_archive
+```
+
+The workflow can now be executed by:
+```bash
+snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
+```
+
+Note that in this case `-j` does not correspond to the number of cores used, instead it represents the maximum 
+number of jobs that Snakemake is allowed to have submitted at the same time.  
+The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
+the command used to submit jobs on the particular cluster.
+
+**Final version of our Snakefile**
+```python
+# This is a "hidden" version of the final Snakefile if students want/need
+# to run the instructor's copy.
+
+# our zipf analysis pipeline
+DATA = glob_wildcards('data/{book}.txt').book
+
+localrules: all, clean, make_archive
+
+rule all:
+    input:
+        'zipf_analysis.tar.gz'
+
+# delete everything so we can re-run things
+# deletes a little extra for purposes of lesson prep
+rule clean:
+    shell:
+        '''
+        rm -rf source/__pycache__
+        rm -f zipf_analysis.tar.gz processed_data/* results/*
+        '''
+
+# count words in one of our "books"
+rule count_words:
+    input:
+        wc='source/wordcount.py',
+        book='data/{file}.txt'
+    output: 'processed_data/{file}.dat'
+    threads: 4
+    log: 'processed_data/{file}.log'
+    shell:
+        '''
+        echo "Running {input.wc} with {threads} cores on {input.book}." &> {log} &&
+            ./{input.wc} {input.book} {output} >> {log} 2>&1
+        '''
+
+# create a plot for each book
+rule make_plot:
+    input:
+        plotcount='source/plotcount.py',
+	book='processed_data/{file}.dat'
+    output: 'results/{file}.png'
+    resources: gpu=1
+    shell: './{input.plotcount} {input.book} {output}'
+
+# generate summary table
+rule zipf_test:
+    input:
+        zipf='source/zipf_test.py',
+        books=expand('processed_data/{book}.dat', book=DATA)
+    output: 'results/results.txt'
+    shell:  './{input.zipf} {input.books} > {output}'
+
+# create an archive with all of our results
+rule make_archive:
+    input:
+        expand('results/{book}.png', book=DATA),
+        expand('processed_data/{book}.dat', book=DATA),
+        'results/results.txt'
+    output: 'zipf_analysis.tar.gz'
+    shell: 'tar -czvf {output} {input}'
+```
+
+**GUI**
+
+Snakemake has an experimental GUI feature which can be invoked by:
+```bash
+$ snakemake --gui
+```
+
+**Further documentation**
+
+Visit [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
