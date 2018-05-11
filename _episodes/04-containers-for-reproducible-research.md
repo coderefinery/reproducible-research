@@ -58,7 +58,7 @@ or daemon, which, in turn, does all the work.
 
 Getting help:
 ```shell
-$ docker help
+$ docker help <command>
 ```
 
 Listing docker images:
@@ -85,9 +85,18 @@ Check running containers:
 ```shell
 $ docker ps
 ```
+Check all containers (also those not running):
+```shell
+$ docker ps -a
+```
 Stop the container:
 ```shell
 $ docker stop container_id or name
+```
+
+Start (in interactive mode) a stopped container:
+```shell
+$ docker start -i container_id or name
 ```
 
 Remove a container:
@@ -110,7 +119,7 @@ FROM ubuntu:16.04 (good to mention the image version being used)
 LABEL maintainer="sriharsha.vathsavayi@csc.fi"
 RUN apt-get update
 ...
-  ```
+```
 Instructions in the Dockerfile (for full reference, please visit [Dockerfile](https://docs.docker.com/engine/reference/builder/) )
 
 ```vim
@@ -122,7 +131,7 @@ CMD -  specifies the command to run when a container is launched
 LABEL - adds metadata to an image and is a key-value pair
 ..
 ..
-  ```
+```
   
 Let's create a Dockerfile for our example project
 ```vim
@@ -141,6 +150,9 @@ RUN apt-get update
 # install make
 RUN apt-get install -y build-essential
 
+# install nano
+RUN apt-get install -y nano
+
 # install python
 RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
 RUN yes | pip3 install numpy
@@ -155,24 +167,24 @@ WORKDIR /opt/word_count
 
 # default command to execute when container starts
 CMD /bin/bash
- ```
+```
 
 We can build the image by running docker build in the word_count directory containing Dockerfile 
 
- ```shell
-$ docker build -t <dockerhub-username>/word_count:0.1 .
-  ``` 
+```shell
+$ docker build -t word_count:0.1 .
+``` 
 
 Check if the image is created
- ```shell
+```shell
 $ docker images
-  ``` 
+``` 
 
 ## Starting containers from images
 We can run a container using `docker run` command
 
 ```shell
-$ docker run -i -t --name charactercount <dockerhub-username>/word_count:0.1
+$ docker run -i -t --name wordcount word_count:0.1
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
