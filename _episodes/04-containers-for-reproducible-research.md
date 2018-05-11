@@ -157,10 +157,10 @@ WORKDIR /opt/word_count
 CMD /bin/bash
  ```
 
-We can build the image by running docker build in the character_count directory containing Dockerfile 
+We can build the image by running docker build in the word_count directory containing Dockerfile 
 
  ```shell
-$ docker build -t <dockerhub-username>/character_count:0.1 .
+$ docker build -t <dockerhub-username>/word_count:0.1 .
   ``` 
 
 Check if the image is created
@@ -172,7 +172,7 @@ $ docker images
 We can run a container using `docker run` command
 
 ```shell
-$ docker run -i -t --name charactercount <dockerhub-username>/character_count:0.1
+$ docker run -i -t --name charactercount <dockerhub-username>/word_count:0.1
 ``` 
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers)
 
@@ -204,7 +204,7 @@ $ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <im
 **Anyone with this image can reproduce the results we have generated**
 
   ```shell
-$ docker run -v <path-on-hostmachine/results_directory>:/opt/character_count/results <image_name> make
+$ docker run -v <path-on-hostmachine/results_directory>:/opt/word_count/results <image_name> make
   ```
 The _results_directory_ folder will have the results of our character example project
 
