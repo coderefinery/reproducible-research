@@ -17,8 +17,7 @@ keypoints:
 - Software may have lots of dependencies which may be difficult to recreate 
 - Results should be possible to reproduce regardless of platform and with minimal effort
 - Many research codes can be problematic to install and configure without experts
-- Could we bundle all the necessary dependencies together, making it easier to run the software?
-- **Containers** can be used to create isolated environments
+- Can we bundle all the necessary dependencies together, making it easier to run the software?
 
 # Containers
 
@@ -33,7 +32,7 @@ keypoints:
 - Docker provides containerization in software level
 - Available for most common operating systems
 - Provides an easy and fast way to bundle all the necessary libraries and data together
-- Docker Hub - A platform to share docker images (Note: images are stored in repositories ~ similar to git repository)
+- DockerHub is a platform to share docker images (images are stored in repositories - similar to Git repository)
 - Public Docker images available in [Docker Hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 
 ---
@@ -129,22 +128,34 @@ Let's create a Dockerfile for our example project
 ```vim
 #version 0.1
 FROM ubuntu:16.04
-LABEL maintainer="your email address"
-     
-# update the apt package manager and install python, make
-RUN apt-get update && apt-get install -y \
-    python \
-    build-essential
-      
-# copy project to container 
-COPY ./ /opt/character_count/
-  
+
+#maintainer information
+LABEL maintainer="kthw@kth.se"
+
+# update the apt package manager
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:jonathonf/python-3.6
+RUN apt-get update
+
+# install make
+RUN apt-get install -y build-essential
+
+# install python
+RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
+RUN yes | pip3 install numpy
+RUN yes | pip3 install matplotlib
+RUN yes | pip3 install snakemake
+
+# copy project to container
+COPY ./ /opt/word_count/
+
 # set work directory in container
-WORKDIR /opt/character_count
-  
-# default command to execute when container starts 
+WORKDIR /opt/word_count
+
+# default command to execute when container starts
 CMD /bin/bash
-  ```
+ ```
 
 At this point, our project directory will be like this:
 ```shell
