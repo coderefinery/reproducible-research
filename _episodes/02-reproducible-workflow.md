@@ -121,7 +121,7 @@ Let's look at an example project which follows the guidelines given above.
 The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
 [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
 
-> To follow along, clone this [repository](https://github.com/wikfeldt/word-count)   
+> To follow along, clone this [repository](https://github.com/wikfeldt/word-count)
 
 The example project directory is like this:
 ```bash
@@ -237,7 +237,8 @@ The Makefile is executed by running make:
 ```
 $ make 
 ```
-This executes the first rule in the Makefile by default.
+This executes the first rule in the Makefile by default, which will trigger the 
+execution of all the other rules to build the dependencies of `all`.
 
 #### Advantages of make
  - ability to conduct partial steps of the workflow, skipping any unnecessary steps
