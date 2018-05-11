@@ -68,7 +68,7 @@ keypoints:
 
 ### Type-along exercise: Snakemake for counting words
 
-> This exercise is based on the [same example project](https://github.com/wikfeldt/word-count) as in the previous episode
+> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episode
 
 We create a file called `Snakefile` with the following contents:
 ```python

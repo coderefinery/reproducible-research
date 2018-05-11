@@ -135,7 +135,7 @@ LABEL - adds metadata to an image and is a key-value pair
   
 ## Type-along exercise: Containerizing our workflow
 
-> This exercise is based on the [same example project](https://github.com/wikfeldt/word-count) as in the previous episodes
+> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episodes
 
 
 Let's create a Dockerfile for our example project (this Dockerfile is available in the project repository)
