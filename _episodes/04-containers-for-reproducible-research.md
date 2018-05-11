@@ -174,6 +174,7 @@ We can build the image by running docker build in the word_count directory conta
 ```shell
 $ docker build -t word_count:0.1 .
 ``` 
+This will take a few minutes...
 
 Check if the image is created
 ```shell
@@ -213,12 +214,12 @@ The -p flag manages which network ports Docker exposes at runtime.
   ```shell
 $ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <image_name>
   ```
-**Anyone with this image can reproduce the results we have generated**
 
+**Anyone with this image can reproduce the results we have generated**
   ```shell
-$ docker run -v <path-on-hostmachine/results_directory>:/opt/word_count/results <image_name> make
+$ docker run -v <path-on-hostmachine/results_directory>:/opt/word_count/results word_count:0.1 snakemake -s Snakefile_all
   ```
-The _results_directory_ folder will have the results of our character example project
+The `results_directory` folder will have the results of our character example project
 
 We can also specify make as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
 
