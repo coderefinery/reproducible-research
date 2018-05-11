@@ -172,17 +172,17 @@ word_count/
 We count the number of times each word appears by:
 
 ```bash
-$ ./source/wordcount.py data/abyss.txt  processed_data/abyss.dat
+$ python source/wordcount.py data/abyss.txt  processed_data/abyss.dat
 ```
 
 and generate a plot by:
 ```bash
-$ ./source/plotcount.py processed_data/abyss.dat results/abyss.png
+$ python source/plotcount.py processed_data/abyss.dat results/abyss.png
 ```
 
 and finally compute the ratio between the frequencies of the two most common words (Zipf's law predicts this ratio to be 2)
 ```bash
-$ ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
+$ python source/zipf_test.py processed_data/abyss.dat > results/results.txt
 ```
 
 - In simple cases it's easy to figure out what the input is and how results are computed from it
@@ -197,7 +197,7 @@ $ ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
 
 ```makefile
 processed_data/abyss.dat: data/abyss.txt
-        ./source/wordcount.py data/abyss.txt processed_data/abyss.dat
+        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 ```
 
 The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
@@ -206,13 +206,13 @@ script and the `data/abyss.txt` inputfile.
 **Step 2**: generate the bar chart
 ```makefile
 results/abyss.png: processed_data/abyss.dat
-        ./source/plotcount.py processed_data/abyss.dat results/abyss.png
+        python source/plotcount.py processed_data/abyss.dat results/abyss.png
 ```
 
 **Step 3**: calculate the ratio between the two most common words:
 ```makefile
 results/results.txt: processed_data/abyss.dat
-        ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
+        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
 ```
 
 **Final step**: we need to build all three steps
@@ -225,13 +225,13 @@ all: processed_data/abyss.dat results/abyss.png results/results.txt
 all: processed_data/abyss.dat results/abyss.png results/results.txt
 
 processed_data/abyss.dat: data/abyss.txt
-        ./source/wordcount.py data/abyss.txt processed_data/abyss.dat
+        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 
 results/abyss.png: processed_data/abyss.dat
-        ./source/plotcount.py processed_data/abyss.dat results/abyss.png
+        python source/plotcount.py processed_data/abyss.dat results/abyss.png
 
 results/results.txt: processed_data/abyss.dat
-        ./source/zipf_test.py processed_data/abyss.dat > results/results.txt
+        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
 ```
 
 The Makefile is executed by running make:
@@ -268,13 +268,13 @@ DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
 all: $(OBJS)
 
 $(TMPDIR)/%.dat: $(SRCDIR)/%.txt
-        ./source/wordcount.py $<  $@
+        python source/wordcount.py $<  $@
 
 $(RESDIR)/%.png: $(TMPDIR)/%.dat
-        ./source/plotcount.py $<  $@
+        python source/plotcount.py $<  $@
 
 $(RESDIR)/results.txt: $(DATA)
-        ./source/zipf_test.py $^ > $@
+        python source/zipf_test.py $^ > $@
 
 clean:
         @$(RM) $(TMPDIR)/*

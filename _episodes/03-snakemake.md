@@ -76,7 +76,7 @@ We create a file called `Snakefile` with the following contents:
 rule count_words:
     input: 'data/isles.txt'
     output: 'processed_data/isles.dat'
-    shell: './source/wordcount.py data/isles.txt processed_data/isles.dat'
+    shell: 'python source/wordcount.py data/isles.txt processed_data/isles.dat'
 ```
 and run it with
 ```bash
@@ -112,7 +112,7 @@ Let's try to build another target by adding a new rule (with a unique name) to t
 rule count_words_abyss:
      input:  'data/abyss.txt'
      output: 'processed_data/abyss.dat'
-     shell:  './source/wordcount.py data/abyss.txt processed_data/abyss.dat'
+     shell:  'python source/wordcount.py data/abyss.txt processed_data/abyss.dat'
 ```
 and try running `snakemake` again. It gives
 
@@ -187,14 +187,14 @@ rule count_words:
     output: processed_data/isles.dat
     jobid: 2
 
-./source/wordcount.py data/isles.txt processed_data/isles.dat
+python source/wordcount.py data/isles.txt processed_data/isles.dat
 
 rule count_words_abyss:
     input: data/abyss.txt
     output: processed_data/abyss.dat
     jobid: 1
 
-./source/wordcount.py data/abyss.txt processed_data/abyss.dat
+python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 
 localrule alldata:
     input: processed_data/isles.dat, processed_data/abyss.dat
@@ -217,7 +217,7 @@ Job counts:
   - Depend upon each of the three .dat files.
   - Invoke the action:
   ```python
-./source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
+python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
   ```
 4. Put this rule at the top of the Snakefile so that it is the default target.
 5. Update clean so that it removes results.txt.
@@ -262,7 +262,7 @@ rule zipf_test:
      output:
          'results/results.txt'
      shell:
-         './source/zipf_test.py processed_data/isles.dat processed_data/abyss.dat processed_data/last.dat > results/results.txt'
+         'python source/zipf_test.py processed_data/isles.dat processed_data/abyss.dat processed_data/last.dat > results/results.txt'
 ```
 
 can be replaced by 
@@ -275,7 +275,7 @@ rule zipf_test:
      output:
          'results/results.txt'
      shell:
-         './source/zipf_test.py {input} > {output}'
+         'python source/zipf_test.py {input} > {output}'
 ```
 
 Let's test if this works:
@@ -303,7 +303,7 @@ Sometimes one needs to treat different dependencies of a rule differently. This 
 enumeration:
 ```python
 rule count_words:
-    input: './source/wordcount.py', 'data/isles.txt'
+    input: 'python source/wordcount.py', 'data/isles.txt'
     output: 'processed_data/isles.dat'
     shell: '{input[0]} {input[1]} processed_data/isles.dat'
 ```
@@ -311,10 +311,10 @@ or by naming:
 ```python
 rule count_words:
     input:
-           wc = './source/wordcount.py',
+           wc = 'source/wordcount.py',
            book = 'data/isles.txt'
     output: 'processed_data/isles.dat'
-    shell: '{input.wc} {input.book} processed_data/isles.dat'
+    shell: 'python {input.wc} {input.book} processed_data/isles.dat'
 ```
 
 Note that here the source file `wordcount.py` has been made a dependency. This is 
@@ -329,7 +329,7 @@ The Snakefile at this point looks something like the following:
 rule zipf_test:
      input: 'processed_data/isles.dat', 'processed_data/abyss.dat', 'processed_data/last.dat'
      output: 'results/results.txt'
-     shell: './source/zipf_test.py {input} > {output}'
+     shell: 'python source/zipf_test.py {input} > {output}'
 
 rule alldata:
      input: 'processed_data/isles.dat',	'processed_data/abyss.dat', 'processed_data/last.dat'
@@ -337,20 +337,20 @@ rule alldata:
 # Count words.
 rule count_words:
     input:
-           wc = './source/wordcount.py',
+           wc = 'source/wordcount.py',
            book = 'data/isles.txt'
     output: 'processed_data/isles.dat'
-    shell: '{input.wc} {input.book} {output}'
+    shell: 'python {input.wc} {input.book} {output}'
 
 rule count_words_abyss:
      input:  'data/abyss.txt'
      output: 'processed_data/abyss.dat'
-     shell:  './source/wordcount.py data/abyss.txt processed_data/abyss.dat'
+     shell:  'python source/wordcount.py data/abyss.txt processed_data/abyss.dat'
 
 rule count_words_last:
      input:  'data/last.txt'
      output: 'processed_data/last.dat'
-     shell:  './source/wordcount.py data/last.txt processed_data/last.dat'
+     shell:  'python source/wordcount.py data/last.txt processed_data/last.dat'
 
 rule clean:
     shell: 'rm -f processed_data/*.dat results/results.txt'
@@ -362,10 +362,10 @@ any `.dat` file from a `.txt` file in `data/`:
 ```python
 rule count_words:
     input:
-           wc = './source/wordcount.py',
+           wc = 'source/wordcount.py',
            book = 'data/{file}.txt'
     output: 'processed_data/{file}.dat'
-    shell: '{input.wc} {input.book} {output}'
+    shell: 'python {input.wc} {input.book} {output}'
 ```
 
 This general rule uses the wildcard `{file}` as a placeholder for any book in the `data/` directory.
@@ -399,7 +399,7 @@ rule zipf_test:
         zipf='source/zipf_test.py',
 	books=expand('processed_data/{book}.dat', book=DATA)
     output: 'results/results.txt'
-    shell:  './{input.zipf} {input.books} > {output}'
+    shell:  'python {input.zipf} {input.books} > {output}'
 ```
 This is particularly useful if a rule has lots of dependencies.
 
@@ -429,7 +429,7 @@ rule count_words:
         book='data/{file}.txt'
     output: 'processed_data/{file}.dat'
     threads: 4
-    shell: './{input.wc} {input.book} {output}'
+    shell: 'python {input.wc} {input.book} {output}'
 ```
 This will run each instance of the rule using 4 theads.
 
@@ -443,7 +443,7 @@ rule make_plot:
         book='processed_data/{file}.dat'
     output: 'results/{file}.png'
     resources: gpu=1
-    shell: './{input.plotcount} {input.book} {output}'
+    shell: 'python {input.plotcount} {input.book} {output}'
 ```
 
 The workflow can now be executed on 4 cores and one GPU by:
@@ -548,7 +548,7 @@ rule count_words:
     shell:
         '''
         echo "Running {input.wc} with {threads} cores on {input.book}." &> {log} &&
-            ./{input.wc} {input.book} {output} >> {log} 2>&1
+            python {input.wc} {input.book} {output} >> {log} 2>&1
         '''
 
 # create a plot for each book
@@ -558,7 +558,7 @@ rule make_plot:
 	book='processed_data/{file}.dat'
     output: 'results/{file}.png'
     resources: gpu=1
-    shell: './{input.plotcount} {input.book} {output}'
+    shell: 'python {input.plotcount} {input.book} {output}'
 
 # generate summary table
 rule zipf_test:
@@ -566,7 +566,7 @@ rule zipf_test:
         zipf='source/zipf_test.py',
         books=expand('processed_data/{book}.dat', book=DATA)
     output: 'results/results.txt'
-    shell:  './{input.zipf} {input.books} > {output}'
+    shell:  'python {input.zipf} {input.books} > {output}'
 
 # create an archive with all of our results
 rule make_archive:
