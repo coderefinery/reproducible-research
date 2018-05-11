@@ -133,7 +133,12 @@ LABEL - adds metadata to an image and is a key-value pair
 ..
 ```
   
-Let's create a Dockerfile for our example project
+## Type-along exercise: Containerizing our workflow
+
+> This exercise is based on the [same example project](https://github.com/wikfeldt/word-count) as in the previous episodes
+
+
+Let's create a Dockerfile for our example project (this Dockerfile is available in the project repository)
 ```vim
 #version 0.1
 FROM ubuntu:16.04
