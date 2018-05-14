@@ -153,7 +153,7 @@ word_count/
 ```
 
 In the `source` directory  we have three scripts:
- - wordcount.py, finds the frequency wdistribution of ords used in a text 
+ - wordcount.py, finds the frequency distribution of words used in a text 
  - plotcount.py, plots a bar chart of the results
  - zipf_test.py, calculates the ratio between the counts of the two most common words
 
