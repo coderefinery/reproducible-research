@@ -22,15 +22,15 @@ keypoints:
   - user-friendly environment to create workflows
   - automatic job execution
   - interactive tools to execute workflows and view results in real-time
-  - simplify sharing and reusing workflows
-  - enable researchers to track the provenance of workflow execution results and the workflow creation steps
+  - enable sharing and reusing workflows
+  - enable tracking the provenance of workflow results 
   - can enable scaling across nodes, clusters, cloud
 
 ## Tools
 
 - [Hundreds of workflow tools have been 
   developed](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems)
-- Each has its own specialities, benefits and user communities, some are domain-specific while others domain-independent
+- Each has its own specialities, benefits and user communities
 - Some open-source, multi-disciplinary alternatives:
   - [Taverna](https://taverna.incubator.apache.org/):
   "open source multi-platform tool for designing and executing workflows. Taverna is discipline independent and used in many domains, such as bioinformatics, cheminformatics, medicine, astronomy, social science, music, and digital preservation"
@@ -54,12 +54,10 @@ keypoints:
 
 - Workflows defined in Python scripts extended by declarative code to define rules 
   - anything that can be done in Python can be done with Snakemake
-- Rules work much like in GNU Make - describe how to create output files from input files 
+- Rules work much like in GNU Make
 - Possible to define isolated software environments per rule
-  - uses conda to obtain and deploy software packages in the specified versions
 - Also possible to run workflows in Docker or Singularity containers
-- Workflows can be pushed out to run on a cluster without modifications to scale up
-- Workflows can be pushed out to run on cloud
+- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up
 
 <br>
 <img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
@@ -69,6 +67,8 @@ keypoints:
 ### Type-along exercise: Snakemake for counting words
 
 > This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episode
+
+##### Defining rules
 
 We create a file called `Snakefile` with the following contents:
 ```python
@@ -127,6 +127,26 @@ But we can build the new target by
 $ snakemake processed_data/abyss.dat
 ```
 
+##### Building all targets
+
+To generalize, we need a rule to create all the data files. 
+This rule should be at the top of the Snakefile so that it is the default target:
+
+```python
+rule alldata:
+     input:
+         'processed_data/isles.dat',
+         'processed_data/abyss.dat'
+```
+
+- Dependencies of this rule are targets of other rules. Snakemake will 
+  check to see if the dependencies exist and, if not, will check if rules 
+  are defined that will create them and invoke those first. 
+- An example of a rule that has no actions - used only to trigger the build of its dependencies if needed
+- Dependencies must form a directed acyclic graph (DAG) - cyclic dependencies will not work
+
+##### Cleaning up
+
 It's useful to have a rule to remove all data files to be able to explicitly recreate them. 
 It can be called `clean`, as this is a common name for rules that delete auto-generated files:
 
@@ -137,23 +157,7 @@ rule clean:
 
 This rule can be run by `$ snakemake clean`.
 
-A similar command can be added to create all the data files. 
-This rule should be at the top of the Snakefile so that it is the default target, 
-which is executed by default if no target is given to the snakemake command:
-
-```python
-rule alldata:
-     input:
-         'processed_data/isles.dat',
-         'processed_data/abyss.dat'
-```
-
-- Dependencies (inputs) of this rule are targets of other rules. Snakemake will 
-  check to see if the dependencies exist and, if not, will see if rules are available that will create them. 
-  If such rules exist it will invoke them first, otherwise it will raise an error
-- An example of a rule that has no actions - used only to trigger the build of its dependencies if needed
-- Dependencies must form a directed acyclic graph (DAG). 
-  A target cannot depend on a dependency which itself, or one of its dependencies, depends on that target (cyclic dependency)
+##### Visualizing the workflow
 
 We can visualize the DAG of our current Snakefile using the `--dag` option, which will output the DAG 
 in `dot` language (a plain-text format for describing graphs used by [Graphviz software](https://www.graphviz.org/), 
@@ -165,6 +169,8 @@ $ snakemake --dag | dot -Tpng > dag.png
 Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
 
 <img src="/reproducible-research/img/snakemake_simpledag.png" style="height: 150px;"/>
+
+##### Testing before running
 
 There is also an option to print out all commands that will be run (`-p`), and 
 another to perform a dry-run (`-n`):
@@ -221,13 +227,14 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
   ```
 4. Put this rule at the top of the Snakefile so that it is the default target.
 5. Update clean so that it removes results.txt.
-6. Questions
-    - What steps does Snakemake perform if we now do the following steps?
+6. Now run `snakemake` (you can test it with a dry-run first)
+7. Questions
+    - What steps does Snakemake perform if you now do the following steps?
     ```bash
     $ touch processed_data/*.dat
     $ snakemake 
     ```
-    - What if we instead do this?
+    - What if you instead do this?
     ```bash
     $ touch data/*.txt
     $ snakemake 
@@ -238,13 +245,12 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
     $ snakemake zipf_test
     $ snakemake results/results.txt
     ```
-    - What happens if we do the following? 
+    - What happens if you do the following? (and should we do something about that?)
     ```bash
     $ touch source/wordcount.py
     $ snakemake
     ```
-      - should we do something about that?
-
+8. If you get stuck, you can have a look at the [final version of our Snakefile below](#finalversion)
 
 
 ### Wildcards 
@@ -385,7 +391,7 @@ import glob
 rule print_book_names:
     run:
         print('These are all the book names:')
-        for book in glob.glob(''ata/*.txt'):
+        for book in glob.glob('data/*.txt'):
             print(book)
 ```
 
@@ -514,22 +520,27 @@ number of jobs that Snakemake is allowed to have submitted at the same time.
 The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
 the command used to submit jobs on the particular cluster.
 
-#### Final version of our Snakefile
-```python
-# This is a "hidden" version of the final Snakefile if students want/need
-# to run the instructor's copy.
+#### GUI
 
-# our zipf analysis pipeline
+Snakemake has an experimental GUI feature which can be invoked by:
+```bash
+$ snakemake --gui
+```
+
+#### Final version of our Snakefile {#finalversion}
+```python
+# a list of all the books we are analyzing
 DATA = glob_wildcards('data/{book}.txt').book
 
+# this is for running on HPC resources
 localrules: all, clean, make_archive
 
+# the default rule
 rule all:
     input:
         'zipf_analysis.tar.gz'
 
 # delete everything so we can re-run things
-# deletes a little extra for purposes of lesson prep
 rule clean:
     shell:
         '''
@@ -537,7 +548,8 @@ rule clean:
         rm -f zipf_analysis.tar.gz processed_data/* results/*
         '''
 
-# count words in one of our "books"
+# count words in one of our books
+# logfiles from each run are put in .log files"
 rule count_words:
     input:
         wc='source/wordcount.py',
@@ -552,6 +564,7 @@ rule count_words:
         '''
 
 # create a plot for each book
+# shows example usage of the resources keyword
 rule make_plot:
     input:
         plotcount='source/plotcount.py',
@@ -579,13 +592,6 @@ rule make_archive:
 ```
 
 <img src="/reproducible-research/img/snakemake_dag.png" style="height: 300px;"/>
-
-#### GUI
-
-Snakemake has an experimental GUI feature which can be invoked by:
-```bash
-$ snakemake --gui
-```
 
 #### Further documentation
 
