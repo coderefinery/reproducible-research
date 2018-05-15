@@ -22,7 +22,7 @@ keypoints:
 # Containers
 
 - Containers can be built to bundle all the necessary ingredients (data, code, environment)
-- A great solution to the problem of "dependency hell"
+- A great solution to the problem of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell)
 - Allows for seamlessly moving workflows across different platforms
 - A container provides operating-system-level virtualization, i.e., it shares  the host system’s kernel with other containers
 - Popular container implementations are **[Docker](https://www.docker.com/)** and **[Singularity](http://singularity.lbl.gov/)**
@@ -34,6 +34,15 @@ keypoints:
 - Provides an easy and fast way to bundle all the necessary libraries and data together
 - DockerHub is a platform to share docker images (images are stored in repositories - similar to Git repository)
 - Public Docker images available in [Docker Hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
+
+---
+
+## Singularity 
+- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources
+- Docker is compatible with Singularity
+  - main purpose of Docker is for microservices development, which is different 
+  to the purpose of Singularity
+  - Docker images can be converted into Singularity images
 
 ---
 
@@ -243,13 +252,4 @@ we should have used `<dockerhub-username>/word_count` above)
 $ docker push image_name
   ```
 - For proprietary/sensitive images private Docker registries can be used
-
----
-## Singularity containers
-- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources
-- Docker is compatible with Singularity
-  - main purpose of Docker is for microservices development, which is different 
-  to the purpose of Singularity
-  - Docker images can be converted into Singularity images
-
 
