@@ -83,12 +83,13 @@ Reproducible workflows enable you to figure out precisely what data and what cod
  - Can be used to ensure quality of data based on ancestral data, or find sources of errors
  - Allow automated recreation of data
  - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
+
 ### Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
 
 - Make is a tool at the heart of many software build systems, but is more general than that
-- Make uses a domain specific language that the user writes in a Makefile
-- Makefile specifies how to build the particular targets from their dependencies
-- Example of command-line automation - easier to ensure reproducibility compared to graphical user interfaces
+- Uses specific syntax that the user writes in a Makefile
+- Makefile specifies how to build targets from their dependencies
+- Example of command-line automation - can be easier to ensure reproducibility compared to GUIs
 
 The target/dependencies/command are called rules
 
@@ -129,7 +130,6 @@ word_count/
 The texts that we want to analyze for the project is in the `data/` directory (four books in plain text).
 
 In addition, we have a LICENSE_TEXTS.md file which contains the license for the texts and their origins. 
-Normally, you would instead include a README file describing where the data comes from.
 
 The data directory is like this:
 ```bash
