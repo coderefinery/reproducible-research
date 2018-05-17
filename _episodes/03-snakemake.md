@@ -309,9 +309,9 @@ Sometimes one needs to treat different dependencies of a rule differently. This 
 enumeration:
 ```python
 rule count_words:
-    input: 'python source/wordcount.py', 'data/isles.txt'
+    input: 'source/wordcount.py', 'data/isles.txt'
     output: 'processed_data/isles.dat'
-    shell: '{input[0]} {input[1]} processed_data/isles.dat'
+    shell: 'python {input[0]} {input[1]} processed_data/isles.dat'
 ```
 or by naming:
 ```python
