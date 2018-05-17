@@ -77,21 +77,12 @@ $ git tag -a <tagname> -m "comment"
 
 ## Documenting and automating your workflow
 
-Adopting reproducible workflows enables you to figure out precisely what data and what code were used to generate a result.
+Reproducible workflows enable you to figure out precisely what data and what code were used to generate a result:
 
-### Provenance of data
-   - Provides a historical record of data, its origins and causal relationships
-   - Can use it to ensure quality of data based on ancestral data, or find sources of errors
-   - Allows automated recreation of data
-   - Directed acyclic graphs (DAGs)
-     - representation of data and their provenance
-     - nodes can represent data, calculations, etc. - links represent their connections
-     - used in many workflow management systems  
-
-### Multiple tools are available for documenting and managing workflows
-   - [This list of workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
-     contains over 200 different tools...
-
+ - Provide a historical record (provenance) of data, its origins and causal relationships
+ - Can be used to ensure quality of data based on ancestral data, or find sources of errors
+ - Allow automated recreation of data
+ - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
 ### Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
 
 - Make is a tool at the heart of many software build systems, but is more general than that
