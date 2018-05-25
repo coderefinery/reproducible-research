@@ -58,5 +58,30 @@ We do not go into details about Make, but it's important to emphasize:
 
 ### Typical pitfalls
 
+#### Indentation in Snakefiles
+
+- the body of a rule and the body of an input keyword need to be indented, but the number of spaces doesn't matter
+This works:
+```python
+rule alldata:
+     input:
+         'processed_data/isles.dat',
+         'processed_data/abyss.dat'
+```
+but this doesn't work:
+```python
+rule alldata:
+     input:
+     'processed_data/isles.dat',
+     'processed_data/abyss.dat'
+```
+not this:
+```python
+rule alldata:
+input:
+    'processed_data/isles.dat',
+    'processed_data/abyss.dat'
+```
+
 #### Containers are confusing
 
