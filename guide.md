@@ -85,3 +85,4 @@ input:
 
 #### Containers are confusing
 
+Some pedagogical way to demystify containers needs to be found and the lesson updated accordingly...
