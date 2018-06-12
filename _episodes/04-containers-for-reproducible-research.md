@@ -253,3 +253,10 @@ $ docker push image_name
   ```
 - For proprietary/sensitive images private Docker registries can be used
 
+---
+
+### Where you might want to go from here
+
+- An excellent overview of methods and tools for reproducible research can be found [here](https://reproducible-analysis-workshop.readthedocs.io/en/latest/toc.html)
+- New platforms for doing reproducible research are emerging [**reana**](http://www.reana.io/)
+- Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html)
