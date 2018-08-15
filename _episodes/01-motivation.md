@@ -5,12 +5,11 @@ teaching: 5
 exercises: 0
 questions:
   - "Why should research be reproducible?"
-  - "What factors influence reproducibility?"
+  - "Why is research sometimes irreproducible?"
 objectives:
-  - "Discuss reasons for why research should be reproducible"
-  - "Get a basic idea of different levels of reproducibility"   
+  - "Discuss factors affecting reproducibility in research"
 keypoints:
-  - "There are multiple levels of reproducibility"
+  - "Many factors on multiple levels influence reproducibility"
 ---
 
 ## Food for thought
