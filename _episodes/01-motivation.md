@@ -9,14 +9,16 @@ questions:
 objectives:
   - "Discuss reasons for why research should be reproducible"
   - "Get a basic idea of different levels of reproducibility"   
-
+keypoints:
+  - "There are multiple levels of reproducibility"
 ---
 
 ## Food for thought
 
-Mark and Mary are researchers at a university. They got some great results, which they submitted to a high-profile journal. The reviews were positive, but reviewers asked for some new figures, alternative analysis and a change to existing figures.
-Mark and Mary started to work on revisions, but when they tried to generate modified figures, it didn't match with previous results. The new figures were different from what they found before and didn't show the same trends. Mary usually keeps track of which code has generated which figures, but she was in a rush to submit the paper before a deadline. She forgot to keep track of the files as usual.
-Mary has left university for a job in industry and ever since the manuscript is languishing in the drawer.
+- A couple of researchers get great results and submit to a high-profile journal.
+- Reviewers ask for new figures and alternative analysis.
+- The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
+- The manuscript is still languishing in the drawer...
   
 ---
 
