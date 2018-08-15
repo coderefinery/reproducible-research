@@ -63,12 +63,5 @@ In many cases, we have to start from existing work.
 
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
-- Environment levels (containers): [Docker](https://docs.docker.com/), 
-  [Singularity](http://singularity.lbl.gov)
-- Code level: Git, Mercurial, ...
-- Data level: Git, [Zenodo](https://zenodo.org/), [figshare](https://figshare.com/), ...
-- Documentation level: [make](https://www.gnu.org/software/make/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), ...
-- Article/result level: [Jupyter notebooks](http://jupyter.org/), [R Markdown](http://rmarkdown.rstudio.com/)
- 
    
    
