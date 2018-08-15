@@ -40,14 +40,6 @@ In many cases, we have to start from existing work.
 
 ---
 
-## Factors behind irreproducible research 
-
-- Not enough documentation on how experiment is conducted and data is generated 
-- Data used to generate original results unavailable
-- Software used to generate original results unavailable
-- Difficult to recreate software environment (libraries, versions) used to generate original results
-
-
 <!--
    <img src="/reproducible-research/img/reproducibility_figure.jpg" style="height: 200px;"/>
 -->
@@ -56,9 +48,21 @@ In many cases, we have to start from existing work.
    - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
  
  <img src="/reproducible-research/img/reproducibility_nature.png" style="height: 400px;"/>
+
+---
+
+## Factors behind irreproducible research 
+
+- Not enough documentation on how experiment is conducted and data is generated 
+- Data used to generate original results unavailable
+- Software used to generate original results unavailable
+- Difficult to recreate software environment (libraries, versions) used to generate original results
    
  
-## Multiple levels of reproducibility
+## Levels of reproducibility
+
+Ensuring that one's research is fully reproducible can be a challenging task, 
+but multiple tools exist to make it easier.
 
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
