@@ -2,13 +2,14 @@
 layout: episode
 title: "Workflow management tools"
 teaching: 15
-exercises: 15
+exercises: 25
 questions:
+  - "How can we create a reproducible workflow?"
   - "What are scientific workflow management systems?"
-  - "Can such tools be adopted to your research?"
 objectives:
-  - "Get familiar with Snakemake"
+  - "Get familiar with Make and Snakemake"
 keypoints:
+  - "Preserve the workflow of generating results"
   - "Hundreds of workflow management tools have been developed to make research more replicable and reproducible"
   - "Snakemake is a comparatively simple option to create transferable and scalable data analyses"
    
@@ -40,6 +41,203 @@ keypoints:
     "Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."
 - Different workflow engines are generally not interchangeable -> vendor lock-in
   - A community-led effort to overcome this limitation is the [common workflow language (CWL)](http://www.commonwl.org)
+
+## Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
+
+- Make is a tool at the heart of many software build systems, but is more general than that
+- Uses specific syntax that the user writes in a Makefile
+- Makefile specifies how to build targets from their dependencies
+- Example of command-line automation - can be easier to ensure reproducibility compared to GUIs
+
+The target/dependencies/command are called rules
+
+For example:
+
+```makefile
+# rule (mind the tab)
+target: dependencies
+	command(s)
+```
+
+We can think of it as follows:
+```makefile
+outputs: inputs
+	command(s)
+```
+
+
+### Type-along exercise: Simple workflow with Git and Make
+
+Let's look at an example project which follows the guidelines given above. 
+The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
+[Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
+
+> To follow along, clone this [repository](https://github.com/coderefinery/word-count)
+
+The example project directory is like this:
+```bash
+word_count/
+|-- data/                                
+|-- processed_data/                                
+|-- manuscript                           
+|-- results/                             
+|-- source/
+|-- ...                              
+```
+
+The texts that we want to analyze for the project is in the `data/` directory (four books in plain text).
+
+In addition, we have a LICENSE_TEXTS.md file which contains the license for the texts and their origins. 
+
+The data directory is like this:
+```bash
+word_count/
+|-- data/
+|   |--LICENSE_TEXTS.md
+|   |--abyss.txt
+|   |--isles.txt
+|   |--last.txt
+|   |--sierra.txt
+|-- ...                            
+```
+
+In the `source` directory  we have three scripts:
+ - wordcount.py, finds the frequency distribution of words used in a text 
+ - plotcount.py, plots a bar chart of the results
+ - zipf_test.py, calculates the ratio between the counts of the two most common words
+
+The project's `source` directory is like this:
+```bash
+word_count/
+|-- source
+|   |--plotcount.py
+|   |--wordcount.py
+|   |--zipf_test.py
+|-- ...                              
+```
+
+#### Generating results
+
+We count the number of times each word appears by:
+
+```bash
+$ python source/wordcount.py data/abyss.txt  processed_data/abyss.dat
+```
+
+and generate a plot by:
+```bash
+$ python source/plotcount.py processed_data/abyss.dat results/abyss.png
+```
+
+and finally compute the ratio between the frequencies of the two most common words (Zipf's law predicts this ratio to be 2)
+```bash
+$ python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
+
+- In simple cases it's easy to figure out what the input is and how results are computed from it
+- As projects grow, it becomes more difficult to keep track of all steps of a workflow 
+- Shell scripts can be used to automate workflows, but the drawback is that scripts are unaware of dependencies between steps 
+  and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes 
+- Makefiles are a good choice when there is a need to store the workflow information and create a replicable workflow
+
+#### Writing a Makefile
+ 
+**Step 1**: calculate frequency distribution of words used in a text
+
+```makefile
+processed_data/abyss.dat: data/abyss.txt
+        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
+```
+
+The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
+script and the `data/abyss.txt` inputfile.
+
+**Step 2**: generate the bar chart
+```makefile
+results/abyss.png: processed_data/abyss.dat
+        python source/plotcount.py processed_data/abyss.dat results/abyss.png
+```
+
+**Step 3**: calculate the ratio between the two most common words:
+```makefile
+results/results.txt: processed_data/abyss.dat
+        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
+
+**Final step**: we need to build all three steps
+```makefile
+all: processed_data/abyss.dat results/abyss.png results/results.txt
+```
+   
+**Makefile for running the analysis for one input file:**
+```makefile
+all: processed_data/abyss.dat results/abyss.png results/results.txt
+
+processed_data/abyss.dat: data/abyss.txt
+        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
+
+results/abyss.png: processed_data/abyss.dat
+        python source/plotcount.py processed_data/abyss.dat results/abyss.png
+
+results/results.txt: processed_data/abyss.dat
+        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
+
+The Makefile is executed by running make:
+```
+$ make 
+```
+This executes the first rule in the Makefile by default, which will trigger the 
+execution of all the other rules to build the dependencies of `all`.
+
+#### Advantages of make
+ - Ability to conduct partial steps of the workflow, skipping any unnecessary steps
+ - Ability to parallelize the jobs, e.g. `$ make -j 2`
+ - `Makefile` itself can act as a documentation for data generation
+ - With a single command we can generate all or parts of the results 
+
+### Makefile to process all data files
+
+In this project we have three more books to analyze, and in reality we may have many 
+more input files and more complicated dependencies.
+
+A more general Makefile for this project can look like this (see `Makefile_all`):
+
+```makefile
+SRCDIR := data
+TMPDIR := processed_data
+RESDIR := results
+
+SRCS = $(wildcard $(SRCDIR)/*.txt)
+OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
+OBJS += $(RESDIR)/results.txt
+DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+
+all: $(OBJS)
+
+$(TMPDIR)/%.dat: $(SRCDIR)/%.txt
+        python source/wordcount.py $<  $@
+
+$(RESDIR)/%.png: $(TMPDIR)/%.dat
+        python source/plotcount.py $<  $@
+
+$(RESDIR)/results.txt: $(DATA)
+        python source/zipf_test.py $^ > $@
+
+clean:
+        @$(RM) $(TMPDIR)/*
+        @$(RM) $(RESDIR)/*
+
+.PHONY: clean directories
+```
+
+#### Short exercise
+- Build all the results using `$ make -f Makefile_all`
+- Try removing one of the plots (e.g. `results/abyss.png`) and re-build by re-running `make`. What happens?
+- Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and re-build. Did you expect this to happen?
+- Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
+
 
 ## Managing workflows with [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 

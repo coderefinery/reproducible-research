@@ -1,19 +1,19 @@
 ---
 layout: episode
-title: "Creating a reproducible workflow"
+title: "Reproducible research projects"
 teaching: 10
-exercises: 10
+exercises: 0
 questions:  
-  - "How can we create a reproducible workflow?"
-  - "How do we repeat an experiment with different data one year later?"
+  - "How should we organize files in a research project?"
+  - "How can we share and collaborate on research data?"
 objectives:
-  - "Get an overview of different approaches for creating reproducible workflows"
-  - "Learn the basics of make"
+  - "Get ideas for how to organize research projects"
+  - "Discuss the pros and cons of open science"
 keypoints:
-  - Create useful project directory structure
-  - Set up version control for your projects
-  - Preserve the workflow of generating results
-  
+  - "Create useful project directory structure"
+  - "Set up version control for your projects"
+  - "Consider sharing other research outputs"
+
 ---
 
 ## Directory structure for projects
@@ -74,7 +74,6 @@ $ git tag -a <tagname> -m "comment"
   - [Authorea](https://www.authorea.com/)
   - Google Docs
 
-
 ## Documenting and automating your workflow
 
 Reproducible workflows enable you to figure out precisely what data and what code were used to generate a result:
@@ -83,200 +82,46 @@ Reproducible workflows enable you to figure out precisely what data and what cod
  - Can be used to ensure quality of data based on ancestral data, or find sources of errors
  - Allow automated recreation of data
  - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
+ - We will practice reproducible workflows in the next episode
 
-### Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
+## Sharing research data
 
-- Make is a tool at the heart of many software build systems, but is more general than that
-- Uses specific syntax that the user writes in a Makefile
-- Makefile specifies how to build targets from their dependencies
-- Example of command-line automation - can be easier to ensure reproducibility compared to GUIs
+The Open Science movement encourages researchers 
+to share research output beyond the contents of a 
+published academic article (and possibly supplementary information).
 
-The target/dependencies/command are called rules
+ <img src="/reproducible-research/img/Open_Science_Principles.png" style="height: 200px;"/>
 
-For example:
+Sharing research data has pros and cons [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
+- Open access publication of research reports and data allows for rigorous peer-review
+- Science is publicly funded so all results of the research should be publicly available
+- Open Science will make science more reproducible and transparent
+- Open Science has more impact
+- Open Science will help answer uniquely complex questions
+- Too much unsorted information overwhelms scientists
+- Potential misuse
+- The public will misunderstand science data
+- Increasing the scale of science will make verification of any discovery more difficult
+- Low-quality science
 
-```makefile
-# rule (mind the tab)
-target: dependencies
-	command(s)
-```
-
-We can think of it as follows:
-```makefile
-outputs: inputs
-	command(s)
-```
+### Exercise: Discuss Open Science
+- Do you share any other research outputs besides published articles and possibly source code?
+- Discuss pros and cons of sharing research data. 
 
 
-### Type-along exercise: Simple workflow with Git and Make
-
-Let's look at an example project which follows the guidelines given above. 
-The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
-[Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
-
-> To follow along, clone this [repository](https://github.com/coderefinery/word-count)
-
-The example project directory is like this:
-```bash
-word_count/
-|-- data/                                
-|-- processed_data/                                
-|-- manuscript                           
-|-- results/                             
-|-- source/
-|-- ...                              
-```
-
-The texts that we want to analyze for the project is in the `data/` directory (four books in plain text).
-
-In addition, we have a LICENSE_TEXTS.md file which contains the license for the texts and their origins. 
-
-The data directory is like this:
-```bash
-word_count/
-|-- data/
-|   |--LICENSE_TEXTS.md
-|   |--abyss.txt
-|   |--isles.txt
-|   |--last.txt
-|   |--sierra.txt
-|-- ...                            
-```
-
-In the `source` directory  we have three scripts:
- - wordcount.py, finds the frequency distribution of words used in a text 
- - plotcount.py, plots a bar chart of the results
- - zipf_test.py, calculates the ratio between the counts of the two most common words
-
-The project's `source` directory is like this:
-```bash
-word_count/
-|-- source
-|   |--plotcount.py
-|   |--wordcount.py
-|   |--zipf_test.py
-|-- ...                              
-```
-
-#### Generating results
-
-We count the number of times each word appears by:
-
-```bash
-$ python source/wordcount.py data/abyss.txt  processed_data/abyss.dat
-```
-
-and generate a plot by:
-```bash
-$ python source/plotcount.py processed_data/abyss.dat results/abyss.png
-```
-
-and finally compute the ratio between the frequencies of the two most common words (Zipf's law predicts this ratio to be 2)
-```bash
-$ python source/zipf_test.py processed_data/abyss.dat > results/results.txt
-```
-
-- In simple cases it's easy to figure out what the input is and how results are computed from it
-- As projects grow, it becomes more difficult to keep track of all steps of a workflow 
-- Shell scripts can be used to automate workflows, but the drawback is that scripts are unaware of dependencies between steps 
-  and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes 
-- Makefiles are a good choice when there is a need to store the workflow information and create a replicable workflow
-
-#### Writing a Makefile
- 
-**Step 1**: calculate frequency distribution of words used in a text
-
-```makefile
-processed_data/abyss.dat: data/abyss.txt
-        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
-```
-
-The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
-script and the `data/abyss.txt` inputfile.
-
-**Step 2**: generate the bar chart
-```makefile
-results/abyss.png: processed_data/abyss.dat
-        python source/plotcount.py processed_data/abyss.dat results/abyss.png
-```
-
-**Step 3**: calculate the ratio between the two most common words:
-```makefile
-results/results.txt: processed_data/abyss.dat
-        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
-```
-
-**Final step**: we need to build all three steps
-```makefile
-all: processed_data/abyss.dat results/abyss.png results/results.txt
-```
-   
-**Makefile for running the analysis for one input file:**
-```makefile
-all: processed_data/abyss.dat results/abyss.png results/results.txt
-
-processed_data/abyss.dat: data/abyss.txt
-        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
-
-results/abyss.png: processed_data/abyss.dat
-        python source/plotcount.py processed_data/abyss.dat results/abyss.png
-
-results/results.txt: processed_data/abyss.dat
-        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
-```
-
-The Makefile is executed by running make:
-```
-$ make 
-```
-This executes the first rule in the Makefile by default, which will trigger the 
-execution of all the other rules to build the dependencies of `all`.
-
-#### Advantages of make
- - Ability to conduct partial steps of the workflow, skipping any unnecessary steps
- - Ability to parallelize the jobs, e.g. `$ make -j 2`
- - `Makefile` itself can act as a documentation for data generation
- - With a single command we can generate all or parts of the results 
-
-### Makefile to process all data files
-
-In this project we have three more books to analyze, and in reality we may have many 
-more input files and more complicated dependencies.
-
-A more general Makefile for this project can look like this (see `Makefile_all`):
-
-```makefile
-SRCDIR := data
-TMPDIR := processed_data
-RESDIR := results
-
-SRCS = $(wildcard $(SRCDIR)/*.txt)
-OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
-OBJS += $(RESDIR)/results.txt
-DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-
-all: $(OBJS)
-
-$(TMPDIR)/%.dat: $(SRCDIR)/%.txt
-        python source/wordcount.py $<  $@
-
-$(RESDIR)/%.png: $(TMPDIR)/%.dat
-        python source/plotcount.py $<  $@
-
-$(RESDIR)/results.txt: $(DATA)
-        python source/zipf_test.py $^ > $@
-
-clean:
-        @$(RM) $(TMPDIR)/*
-        @$(RM) $(RESDIR)/*
-
-.PHONY: clean directories
-```
-
-#### Short exercise
-- Build all the results using `$ make -f Makefile_all`
-- Try removing one of the plots (e.g. `results/abyss.png`) and re-build by re-running `make`. What happens?
-- Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and re-build. Did you expect this to happen?
-- Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
+### Services for sharing and collaborating on research data
+- [Zenodo](https://zenodo.org/): A general-purpose open access repository 
+  created by OpenAIRE and CERN. Integration with GitHub, allows 
+  researchers to upload files up to 50 GB.
+- [Figshare](https://figshare.com/): Online digital repository where researchers 
+  can preserve and share their research outputs (figures, datasets, images and videos).
+  Users can make all of their research outputs available in a citable, 
+  shareable and discoverable manner
+- [Dryad](https://datadryad.org/): A general-purpose home for a wide diversity of datatypes, 
+  governed by a nonprofit membership organization.
+  A curated resource that makes the data underlying scientific publications discoverable, 
+  freely reusable, and citable.  
+- [The Open Science Framework](https://osf.io/): Gives free accounts for collaboration 
+  around files and other research artifacts. Each account can have up to 5 GB of files 
+  without any problem, and it remains private until you make it public.
 
