@@ -40,15 +40,15 @@ project_name/
 ## Tracking source code and data
 
 #### `source/`
-- Write the core scientific code to perform the analysis, including tests
-- Keep the code in the `source` sub-folder
-- Track all code used in a project in a version control system, for example Git
+- All code goes in the `source` directory
+- Track code using a version control system, for example Git
 - Include appropriate LICENSE file
+- Include information on software requirements 
 
 #### `data/`
 - You can also track raw data files or input files in version control, placed in the `data` sub-folder 
-- Include a README file to describe the data (helping us later)
-- If data files are too large (or too sensitive) to track, one can untrack them using `.gitignore`
+- Include a README file to describe the data and its origins
+- If data files are too large (or sensitive) to track, one can untrack them using `.gitignore`
 
 As files are added and modified in the project directory, commit your changes frequently as discussed in the [Git introduction](https://coderefinery.github.io/git-intro/).
 

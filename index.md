@@ -11,7 +11,7 @@ This demonstration will use Python snippets but all tools work equally well for 
 
 ## Prerequisites
 
-1. You need to install [Git, Python, Make](https://coderefinery.github.io/installation/).
+1. You need to install [Git, Python, Make, Snakemake](https://coderefinery.github.io/installation/).
 
 2. [Docker]((https://coderefinery.github.io/installation/)) is optional.
 

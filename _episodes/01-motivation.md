@@ -5,18 +5,19 @@ teaching: 5
 exercises: 0
 questions:
   - "Why should research be reproducible?"
-  - "What factors influence reproducibility?"
+  - "Why is research sometimes irreproducible?"
 objectives:
-  - "Discuss reasons for why research should be reproducible"
-  - "Get a basic idea of different levels of reproducibility"   
-
+  - "Discuss factors affecting reproducibility in research"
+keypoints:
+  - "Many factors on multiple levels influence reproducibility"
 ---
 
 ## Food for thought
 
-Mark and Mary are researchers at a university. They got some great results, which they submitted to a high-profile journal. The reviews were positive, but reviewers asked for some new figures, alternative analysis and a change to existing figures.
-Mark and Mary started to work on revisions, but when they tried to generate modified figures, it didn't match with previous results. The new figures were different from what they found before and didn't show the same trends. Mary usually keeps track of which code has generated which figures, but she was in a rush to submit the paper before a deadline. She forgot to keep track of the files as usual.
-Mary has left university for a job in industry and ever since the manuscript is languishing in the drawer.
+- A couple of researchers get great results and submit to a high-profile journal.
+- Reviewers ask for new figures and alternative analysis.
+- The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
+- The manuscript is still languishing in the drawer...
   
 ---
 
@@ -39,14 +40,6 @@ In many cases, we have to start from existing work.
 
 ---
 
-## Factors behind irreproducible research 
-
-- Not enough documentation on how experiment is conducted and data is generated 
-- Data used to generate original results unavailable
-- Software used to generate original results unavailable
-- Difficult to recreate software environment (libraries, versions) used to generate original results
-
-
 <!--
    <img src="/reproducible-research/img/reproducibility_figure.jpg" style="height: 200px;"/>
 -->
@@ -55,18 +48,23 @@ In many cases, we have to start from existing work.
    - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
  
  <img src="/reproducible-research/img/reproducibility_nature.png" style="height: 400px;"/>
+
+---
+
+## Factors behind irreproducible research 
+
+- Not enough documentation on how experiment is conducted and data is generated 
+- Data used to generate original results unavailable
+- Software used to generate original results unavailable
+- Difficult to recreate software environment (libraries, versions) used to generate original results
    
  
-## Multiple levels of reproducibility
+## Levels of reproducibility
+
+Ensuring that one's research is fully reproducible can be a challenging task, 
+but multiple tools exist to make it easier.
 
 <img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
 
-- Environment levels (containers): [Docker](https://docs.docker.com/), 
-  [Singularity](http://singularity.lbl.gov)
-- Code level: Git, Mercurial, ...
-- Data level: Git, [Zenodo](https://zenodo.org/), [figshare](https://figshare.com/), ...
-- Documentation level: [make](https://www.gnu.org/software/make/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), ...
-- Article/result level: [Jupyter notebooks](http://jupyter.org/), [R Markdown](http://rmarkdown.rstudio.com/)
- 
    
    
