@@ -15,10 +15,12 @@ keypoints:
    
 ---
 
-## Scientific workflows
+# Scientific workflows
 
-- Home-made workflows: scripts that call in data, programs and other inputs and produce outputs
-- Make can be used to manage workflows, but it has limitations
+What are scientific workflows and how are they used?
+
+- Orchestrated and repeatable pattern for a series of computational or data manipulation steps
+- Typical bespoke workflows: series of scripts that read data and input, call programs and produce outputs
 - Many specialized frameworks exist for managing scientific workflows
   - user-friendly environment to create workflows
   - automatic job execution
@@ -41,10 +43,12 @@ keypoints:
     "Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."
 - Different workflow engines are generally not interchangeable -> vendor lock-in
   - A community-led effort to overcome this limitation is the [common workflow language (CWL)](http://www.commonwl.org)
+- We will now look closer at two lightweight and domain-independent options: Make and Snakemake
+
 
 ## Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
 
-- Make is a tool at the heart of many software build systems, but is more general than that
+- An old tool at the heart of many software build systems, but is more general than that
 - Uses specific syntax that the user writes in a Makefile
 - Makefile specifies how to build targets from their dependencies
 - Example of command-line automation - can be easier to ensure reproducibility compared to GUIs
@@ -82,12 +86,15 @@ word_count/
 |-- manuscript                           
 |-- results/                             
 |-- source/
+|-- README.md
+|-- requirements.txt
+|-- license.md
 |-- ...                              
 ```
 
-The texts that we want to analyze for the project is in the `data/` directory (four books in plain text).
+Note that we include a README, a requirements file with software dependencies, and a license file.
 
-In addition, we have a LICENSE_TEXTS.md file which contains the license for the texts and their origins. 
+The texts that we want to analyze for the project is in the `data/` directory (four books in plain text), along with LICENSE_TEXTS.md which contains the license for the texts and their origins. 
 
 The data directory is like this:
 ```bash
@@ -102,9 +109,9 @@ word_count/
 ```
 
 In the `source` directory  we have three scripts:
- - wordcount.py, finds the frequency distribution of words used in a text 
- - plotcount.py, plots a bar chart of the results
- - zipf_test.py, calculates the ratio between the counts of the two most common words
+ - `wordcount.py`, finds the frequency distribution of words used in a text 
+ - `plotcount.py`, plots a bar chart of the results
+ - `zipf_test.py`, calculates the ratio between the counts of the two most common words
 
 The project's `source` directory is like this:
 ```bash
@@ -136,9 +143,10 @@ $ python source/zipf_test.py processed_data/abyss.dat > results/results.txt
 
 - In simple cases it's easy to figure out what the input is and how results are computed from it
 - As projects grow, it becomes more difficult to keep track of all steps of a workflow 
-- Shell scripts can be used to automate workflows, but the drawback is that scripts are unaware of dependencies between steps 
+- Shell scripts can be used to automate workflows 
+  - drawback: scripts are unaware of dependencies between steps 
   and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes 
-- Makefiles are a good choice when there is a need to store the workflow information and create a replicable workflow
+- Makefiles can store the workflow information and create a replicable workflow
 
 #### Writing a Makefile
  
@@ -235,11 +243,13 @@ clean:
 #### Short exercise
 - Build all the results using `$ make -f Makefile_all`
 - Try removing one of the plots (e.g. `results/abyss.png`) and re-build by re-running `make`. What happens?
-- Try removing one of the intermediate results (e.g. `processed_data/abyss.dat`) and re-build. Did you expect this to happen?
+- Try "touching" one of the intermediate results (e.g. `$ touch processed_data/abyss.dat`) and re-build. Why does this happen?
+- Try touching the final results file, `$ touch results/results.txt`, and re-build. Did you 
+   expect this? 
 - Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
 
 
-## Managing workflows with [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
+## Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to automate workflow
 
 #### Why Snakemake?
 - Gentle learning curve
