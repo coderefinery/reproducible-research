@@ -204,49 +204,20 @@ execution of all the other rules to build the dependencies of `all`.
  - `Makefile` itself can act as a documentation for data generation
  - With a single command we can generate all or parts of the results 
 
-### Makefile to process all data files
+#### Makefile to process all data files
 
-In this project we have three more books to analyze, and in reality we may have many 
+- In this project we have three more books to analyze, and in reality we may have many 
 more input files and more complicated dependencies.
-
-A more general Makefile for this project can look like this (see `Makefile_all`):
-
-```makefile
-SRCDIR := data
-TMPDIR := processed_data
-RESDIR := results
-
-SRCS = $(wildcard $(SRCDIR)/*.txt)
-OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
-OBJS += $(RESDIR)/results.txt
-DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-
-all: $(OBJS)
-
-$(TMPDIR)/%.dat: $(SRCDIR)/%.txt
-        python source/wordcount.py $<  $@
-
-$(RESDIR)/%.png: $(TMPDIR)/%.dat
-        python source/plotcount.py $<  $@
-
-$(RESDIR)/results.txt: $(DATA)
-        python source/zipf_test.py $^ > $@
-
-clean:
-        @$(RM) $(TMPDIR)/*
-        @$(RM) $(RESDIR)/*
-
-.PHONY: clean directories
-```
+- A Makefile to process all the data files can be found in the file `Makefile_all` and run 
+with `$ make -f Makefile_all`. 
+- It contains all kinds of variables, functions and other special syntax which we will not dwell on here.
 
 #### Short exercise
-- Build all the results using `$ make -f Makefile_all`
-- Try removing one of the plots (e.g. `results/abyss.png`) and re-build by re-running `make`. What happens?
-- Try "touching" one of the intermediate results (e.g. `$ touch processed_data/abyss.dat`) and re-build. Why does this happen?
+- Build the results using `$ make`
+- Try removing the generated plot `results/abyss.png` and re-run `make`. What happens?
+- Try "touching" the intermediate result (`$ touch processed_data/abyss.dat`) and re-build. Why does this happen?
 - Try touching the final results file, `$ touch results/results.txt`, and re-build. Did you 
    expect this? 
-- Remove all processed data and results (`$ make -f Makefile_all clean`) and try parallelizing the process with `$ make -j 2`. Is is faster?
 
 
 ## Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to automate workflow
@@ -274,7 +245,7 @@ clean:
 
 ### Type-along exercise: Snakemake for counting words
 
-> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episode
+> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous section
 
 ##### Defining rules
 
