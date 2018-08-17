@@ -10,8 +10,8 @@ objectives:
   - "Get familiar with Make and Snakemake"
 keypoints:
   - "Preserve the workflow of generating results"
-  - "Hundreds of workflow management tools have been developed to make research more replicable and reproducible"
-  - "Snakemake is a comparatively simple option to create transferable and scalable data analyses"
+  - "Hundreds of workflow management tools exist"
+  - "Make and Snakemake are a comparatively simple and lightweight options to create transferable and scalable data analyses"
    
 ---
 

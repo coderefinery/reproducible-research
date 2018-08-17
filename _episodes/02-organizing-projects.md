@@ -1,13 +1,13 @@
 ---
 layout: episode
-title: "Reproducible research projects"
+title: "Organizing your projects"
 teaching: 10
 exercises: 0
 questions:  
   - "How should we organize files in a research project?"
-  - "How can we share and collaborate on research data?"
+  - "How can I share and collaborate on research data?"
 objectives:
-  - "Get ideas for how to organize research projects"
+  - "Get overview on how to organize research projects"
   - "Discuss the pros and cons of open science"
 keypoints:
   - "Create useful project directory structure"
