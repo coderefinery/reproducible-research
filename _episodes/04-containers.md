@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: "Containers for reproducible research"
+title: "Containers"
 teaching: 10
 exercises: 10
 questions:
