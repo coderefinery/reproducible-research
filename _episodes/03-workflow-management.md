@@ -433,7 +433,7 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
 ### Wildcards 
 
 The Snakefile created above contains a lot of unnecessary 
-repetition which requires more typing and is more error-prone.
+repetition which requires lots of typing and is error-prone.
 *Wildcards* can be used to avoid this situation.
 For example, the following code block:
 ```python
@@ -478,8 +478,6 @@ Finished job 0.
 4 of 4 steps (100%) done
 ```
 
-It worked.
-
 #### Naming dependencies
 
 Sometimes one needs to treat different dependencies of a rule differently. This can be done in two ways, either by 
@@ -500,7 +498,7 @@ rule count_words:
     shell: 'python {input.wc} {input.book} processed_data/isles.dat'
 ```
 
-Note that here the source file `wordcount.py` has been made a dependency. This is 
+**Note that here the source file `wordcount.py` has been made a dependency.** This is 
 important since any changes of the source code should trigger a rebuild of all
 targets that depend on it!
 
