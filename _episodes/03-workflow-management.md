@@ -410,12 +410,12 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
 7. Questions
     - What steps does Snakemake perform if you now do the following steps?
     ```bash
-    $ touch processed_data/*.dat
+    $ touch processed_data/abyss.dat
     $ snakemake 
     ```
     - What if you instead do this?
     ```bash
-    $ touch data/*.txt
+    $ touch data/abyss.txt
     $ snakemake 
     ```
     - Are the following three commands equivalent?
@@ -429,8 +429,6 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
     $ touch source/wordcount.py
     $ snakemake
     ```
-8. If you get stuck, you can have a look at the [final version of our Snakefile below](#finalversion)
-
 
 ### Wildcards 
 
