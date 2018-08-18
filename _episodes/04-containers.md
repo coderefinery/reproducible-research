@@ -155,8 +155,9 @@ LABEL - adds metadata to an image and is a key-value pair
 
 > This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episodes
 
+Let's create a Dockerfile for our example project 
+- available in the project repository if you want to experiment with later
 
-Let's create a Dockerfile for our example project (this Dockerfile is available in the project repository)
 ```vim
 #version 0.1
 FROM ubuntu:16.04
@@ -202,7 +203,14 @@ This will take a few minutes...
 Check if the image is created
 ```shell
 $ docker images
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+word_count          0.1                 3103c7bde05b        4 minutes ago       744MB
+ubuntu              16.04               7aa3602ab41e        3 weeks ago         115MB
 ``` 
+
+- We now have two images, the *base image* `ubuntu:16.04` is the *parent image* of our image `word_count:0.1`
+
 
 ## Starting containers from images
 We can run a container using `docker run` command
