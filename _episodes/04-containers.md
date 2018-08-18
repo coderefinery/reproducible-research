@@ -25,44 +25,46 @@ keypoints:
 - Containers can be built to bundle all the necessary ingredients (data, code, environment)
 - A great solution to the problem of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell)
 - Allows for seamlessly moving workflows across different platforms
-- A container provides operating-system-level virtualization, i.e., it shares  the host system’s kernel with other containers
+- A container provides operating-system-level virtualization, i.e. it shares the host system’s kernel with other containers
 - Popular container implementations are **[Docker](https://www.docker.com/)** and **[Singularity](http://singularity.lbl.gov/)**
 - "[the term] is borrowed from Shipping Containers, which define a standard to ship goods globally. Docker defines a standard to ship software." ([from the Docker documentation](https://docs.docker.com/glossary/))
 
 ## Docker
+
 - Docker provides containerization in software level
 - Available for most common operating systems
 - Provides an easy and fast way to bundle all the necessary libraries and data together
-- DockerHub is a platform to share docker images (images are stored in repositories - similar to Git repository)
-- Public Docker images available in [Docker Hub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
+- DockerHub is a platform to share Docker images (stored in repositories - similar to Git repository)
+- Public Docker images available on [DockerHub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 
 ---
 
 ## Singularity 
+
 - [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources
 - Docker is compatible with Singularity
-  - main purpose of Docker is for microservices development, which is different 
-  to the purpose of Singularity
   - Docker images can be converted into Singularity images
 
 ---
 
 ## Docker fundamentals
+
 - Docker is a client-server application. The Docker client talks to the Docker server
 or daemon, which, in turn, does all the work.
 
 <img src="/reproducible-research/img/docker_architecture.svg" style="height: 400px;"/>
 
 - Docker client
-   - End user uses docker client to communicate with docker daemon 
+   - End user uses Docker client to communicate with Docker daemon 
 - Docker daemon
-   - Executes the commands sent to the docker client. It manages containers, images, builds, etc. <!--The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.--> 
+   - Executes the commands sent to the Docker client. Manages containers, images, builds, etc.
 - Docker registry
-   - Stores Docker images. Docker Hub and Docker Cloud are public registries that anyone can use, and Docker is configured to look for images on Docker Hub by default.
+   - Stores Docker images. DockerHub and Docker Cloud are public registries that anyone can use, and Docker is configured to look for images on DockerHub by default.
    - You can even run your own private registry
 
 
 ## What are Docker images and containers
+
 - A Docker *image* is executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
 - When you start the image, you have a running *container* of this image
 
@@ -71,15 +73,15 @@ Getting help:
 $ docker help <command>
 ```
 
-Listing docker images:
+Listing Docker images:
 ```shell
 $ docker images
 ```
-Searching docker images from Docker Hub:
+Searching Docker images from DockerHub:
 ```shell
 $ docker search ubuntu
 ```
-Pulling from Docker Hub (pulls the latest one by default if no tag is mentioned):
+Pulling from DockerHub (pulls the latest one by default if no tag is mentioned):
 ```shell
 $ docker pull ubuntu
 ```
@@ -103,23 +105,21 @@ Stop the container:
 ```shell
 $ docker stop container_id or name
 ```
-
 Start (in interactive mode) a stopped container:
 ```shell
 $ docker start -i container_id or name
 ```
-
 Remove a container:
 ```shell
 $ docker rm <container name>
 ```
-
 Remove an image:
 ```shell
 $ docker rmi <image name>
 ```
 
 ## Building Docker images
+
 - An image is built based on a Dockerfile
 - A Dockerfile contains a series of instructions paired with arguments
 
@@ -142,6 +142,14 @@ LABEL - adds metadata to an image and is a key-value pair
 ..
 ..
 ```
+
+#### Mnemonics
+
+- The Dockerfile is like a cooking recipe, building an image from the Dockerfile 
+  is like doing the actual cooking
+- Running the Docker image to create a container doesn't have a good cooking analogy, but
+  - a Docker image is like a *class* in OOP, a Docker container is like an instance of the class
+
   
 ## Type-along exercise: Containerizing our workflow
 
@@ -222,7 +230,7 @@ The -p flag manages which network ports Docker exposes at runtime.
 ## Managing data
 - Note that Docker containers should be disposable: the data must be saved elsewhere
 - A volume allows data to persist, even when a container is deleted. Volumes are also a convenient way to share data between the host and the container.
-- For details on volumes, please visit [docker volumes](https://docs.docker.com/engine/admin/volumes/) page
+- For details on volumes, please visit [Docker volumes](https://docs.docker.com/engine/admin/volumes/) page
 
 **sharing a host directory with container**
  
@@ -238,14 +246,14 @@ The `results_directory` folder will have the results of our word count example p
 
 We can also specify snakemake (or  any other command) as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
 
-## Sharing a docker image
-- Docker Hub - A platform to share docker images
-- Login to dockerhub
+## Sharing a Docker image
+- DockerHub - A platform to share Docker images
+- Login to DockerHub
 
  ```shell
 $ docker login
   ```
-- Push to dockerhub. The image name has to be in **youruser/yourimage** format 
+- Push to DockerHub. The image name has to be in **youruser/yourimage** format 
 (thus instead of the name `word_count`, 
 we should have used `<dockerhub-username>/word_count` above)
 
