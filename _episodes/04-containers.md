@@ -4,16 +4,17 @@ title: "Containers"
 teaching: 10
 exercises: 10
 questions:
-   - "How to capture the environment under which experiment was made?"
-   - "How do you communicate different versions of dependencies you need?" 
+   - "How to capture the software environment of a computational experiment?"
+   - "How can we communicate different versions of software dependencies?" 
 objectives:
-  - "Get a basic idea of using containers to capture research environments"
+  - "Get a basic idea of using containers to capture research software environments"
 keypoints:
-  - Use containers to share research environments
+  - Use containers to share research software environments
 
 ---
 
 # Reproducible environments
+
 - Software may have lots of dependencies which may be difficult to recreate 
 - Results should be possible to reproduce regardless of platform and with minimal effort
 - Many research codes can be problematic to install and configure without experts
