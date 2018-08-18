@@ -209,7 +209,7 @@ word_count          0.1                 3103c7bde05b        4 minutes ago       
 ubuntu              16.04               7aa3602ab41e        3 weeks ago         115MB
 ``` 
 
-- We now have two images, the *base image* `ubuntu:16.04` is the *parent image* of our image `word_count:0.1`
+- We now have two images, the *base image* `ubuntu:16.04` is the parent of our `word_count:0.1` image
 
 
 ## Starting containers from images
@@ -236,9 +236,9 @@ The -p flag manages which network ports Docker exposes at runtime.
 
 ---
 ## Managing data
-- Note that Docker containers should be disposable: the data must be saved elsewhere
-- A volume allows data to persist, even when a container is deleted. Volumes are also a convenient way to share data between the host and the container.
-- For details on volumes, please visit [Docker volumes](https://docs.docker.com/engine/admin/volumes/) page
+- Docker containers should be disposable - the data must be saved elsewhere
+- A Docker volume allows data to persist, even when a container is deleted. Volumes are also a convenient way to share data between the host and the container.
+- For details on volumes, [refer to the documentation](https://docs.docker.com/engine/admin/volumes/) page
 
 **sharing a host directory with container**
  
