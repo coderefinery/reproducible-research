@@ -210,14 +210,70 @@ execution of all the other rules to build the dependencies of `all`.
 more input files and more complicated dependencies.
 - A Makefile to process all the data files can be found in the file `Makefile_all` and run 
 with `$ make -f Makefile_all`. 
-- It contains all kinds of variables, functions and other special syntax which we will not dwell on here.
+- It contains all kinds of variables, functions and other special syntax:
 
-#### Short exercise
-- Build the results using `$ make`
-- Try removing the generated plot `results/abyss.png` and re-run `make`. What happens?
-- Try "touching" the intermediate result (`$ touch processed_data/abyss.dat`) and re-build. Why does this happen?
-- Try touching the final results file, `$ touch results/results.txt`, and re-build. Did you 
-   expect this? 
+```makefile
+SRCDIR := data
+TMPDIR := processed_data
+RESDIR := results
+
+SRCS = $(wildcard $(SRCDIR)/*.txt)
+OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
+OBJS += $(RESDIR)/results.txt
+DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+
+all: $(OBJS)
+
+$(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
+	python source/wordcount.py $<  $@
+
+$(RESDIR)/%.png: $(TMPDIR)/%.dat source/plotcount.py
+	python source/plotcount.py $<  $@
+
+$(RESDIR)/results.txt: $(DATA) source/zipf_test.py
+	python source/zipf_test.py $(DATA) > $@
+
+clean:
+	@$(RM) $(TMPDIR)/*
+	@$(RM) $(RESDIR)/*
+
+.PHONY: clean directories
+```
+
+#### Exercise: Seeing how make operates
+ - Try running the above Makefile (file `Makefile_all` in the example project repository)
+  using
+   ```bash
+   $ make -f Makefile_all
+   ```
+ - Try to figure out how to run the `clean` rule, and run it.
+ - Try running the Makefile in parallel. Is it faster? 
+   You can use the `time` command in the terminal:
+   ```bash
+   $ time make -j 2 -f Makefile_all
+   ```
+ - What steps does make perform if you now do the following steps?
+ ```bash
+ $ touch processed_data/abyss.dat
+ $ make -f Makefile_all
+ ```
+ - What if you instead do this?
+ ```bash
+ $ touch data/abyss.txt
+ $ make -f Makefile_all
+ ```
+ - Are the following three commands equivalent?
+ ```bash
+ $ make -f Makefile_all
+ $ make -f Makefile_all results/results.txt
+ $ make -f Makefile_all all
+ ```
+ - What happens if you do the following? (why is this a good idea?)
+ ```bash
+ $ touch source/wordcount.py
+ $ make -f Makefile_all
+ ```
 
 
 ## Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to automate workflow
