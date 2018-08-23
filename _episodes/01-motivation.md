@@ -12,11 +12,15 @@ keypoints:
   - "Many factors on multiple levels influence reproducibility"
 ---
 
+<img src="/reproducible-research/img/research_comic_phd.gif" style="height: 300px;"/>
+
 ## Food for thought
 
 - A couple of researchers get great results and submit to a high-profile journal.
 - Reviewers ask for new figures and alternative analysis.
 - The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
+- The researchers can't find some of the data they used to generate the original results, and 
+  can't figure out which parameters they used when running their analyses.
 - The manuscript is still languishing in the drawer...
   
 ---
@@ -31,12 +35,6 @@ keypoints:
   - the same results should be obtained under the same contitions
   - it should be possible to recreate the same conditions!
 - "Experiment" is interpreted in a wide sense, encompassing also computational work
-
----
-
-In many cases, we have to start from existing work.
-
-<img src="/reproducible-research/img/research_comic_phd.gif" style="height: 300px;"/>
 
 ---
 
