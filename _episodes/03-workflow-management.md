@@ -19,39 +19,25 @@ keypoints:
 
 What are scientific workflows and how are they used?
 
-- Orchestrated and repeatable pattern for a series of computational or data manipulation steps
-- Typical bespoke workflows: series of scripts that read data and input, call programs and produce outputs
-- Many specialized frameworks exist for managing scientific workflows
-  - user-friendly environment to create workflows
-  - automatic job execution
-  - interactive tools to execute workflows and view results in real-time
+- Orchestrated and repeatable pattern for a series of computational or data manipulation steps.
+- Typical homemade workflows: series of scripts that read data and input, call programs and produce outputs.
+- [Many specialized frameworks exist](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
+  for managing scientific workflow:s
+  - environments to create and execute workflows and monitor results
   - enable sharing and reusing workflows
   - enable tracking the provenance of workflow results 
   - can enable scaling across nodes, clusters, cloud
-
-## Tools
-
-- [Hundreds of workflow tools have been 
-  developed](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems)
-- Each has its own specialities, benefits and user communities
-- Some open-source, multi-disciplinary alternatives:
-  - [Taverna](https://taverna.incubator.apache.org/):
-  "open source multi-platform tool for designing and executing workflows. Taverna is discipline independent and used in many domains, such as bioinformatics, cheminformatics, medicine, astronomy, social science, music, and digital preservation"
-  - [Pegasus](https://pegasus.isi.edu/):
-    "runs on various environments including personal computers, campus clusters, grids, and clouds. It is quite flexible, but more difficult to learn than Taverna. No graphical design tool is available."
-  - [NextFlow](https://www.nextflow.io/):
-    "Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."
-- Different workflow engines are generally not interchangeable -> vendor lock-in
-  - A community-led effort to overcome this limitation is the [common workflow language (CWL)](http://www.commonwl.org)
-- We will now look closer at two lightweight and domain-independent options: Make and Snakemake
-
+  - each has its own specialities, benefits and user communities
+  - the [common workflow language (CWL)](http://www.commonwl.org) tries to 
+    overcome "vendor lock-in"
+    
 
 ## Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
 
-- An old tool at the heart of many software build systems, but is more general than that
-- Uses specific syntax that the user writes in a Makefile
-- Makefile specifies how to build targets from their dependencies
-- Example of command-line automation - can be easier to ensure reproducibility compared to GUIs
+- Old tool often used to build software.
+- Uses specific syntax that the user writes in a Makefile.
+- Makefile specifies how to build targets from their dependencies.
+- Example of command-line automation - can be easier to ensure reproducibility compared to GUIs.
 
 The target/dependencies/command are called rules
 
