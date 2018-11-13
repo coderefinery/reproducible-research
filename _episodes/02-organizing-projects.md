@@ -2,7 +2,7 @@
 layout: episode
 title: "Organizing your projects"
 teaching: 10
-exercises: 0
+exercises: 5
 questions:  
   - "How should we organize files in a research project?"
   - "How can I share and collaborate on research data?"
