@@ -163,17 +163,25 @@ results/results.txt: processed_data/abyss.dat
 all: processed_data/abyss.dat results/abyss.png results/results.txt
 ```
    
-**Makefile for running the analysis for one input file:**
+#### Question 
+
+What is missing from the rules given above?
+
+#### A complete Makefile 
 ```makefile
+        # Build both steps required for executing the character count example
 all: processed_data/abyss.dat results/abyss.png results/results.txt
 
-processed_data/abyss.dat: data/abyss.txt
+# Count words (Step 1)
+processed_data/abyss.dat: data/abyss.txt source/wordcount.py
         python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 
-results/abyss.png: processed_data/abyss.dat
+# Create Bar chart (Step 2)
+results/abyss.png: processed_data/abyss.dat source/plotcount.py
         python source/plotcount.py processed_data/abyss.dat results/abyss.png
 
-results/results.txt: processed_data/abyss.dat
+# Test Zipf's law
+results/results.txt: processed_data/abyss.dat source/zipf_test.py
         python source/zipf_test.py processed_data/abyss.dat > results/results.txt
 ```
 
@@ -255,7 +263,7 @@ clean:
  $ make -f Makefile_all results/results.txt
  $ make -f Makefile_all all
  ```
- - What happens if you do the following? (why is this a good idea?)
+ - What happens if you do the following, and why?
  ```bash
  $ touch source/wordcount.py
  $ make -f Makefile_all
