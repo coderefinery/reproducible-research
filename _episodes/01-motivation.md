@@ -62,7 +62,7 @@ keypoints:
 Ensuring that one's research is fully reproducible can be a challenging task, 
 but multiple tools exist to make it easier.
 
-<img src="/reproducible-research/img/reproducibility_tools.png" style="height: 400px;"/>
+<img src="/reproducible-research/img/repro-pyramid.png" style="height: 300px;"/>
 
    
    
