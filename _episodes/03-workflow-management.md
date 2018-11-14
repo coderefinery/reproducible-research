@@ -238,7 +238,8 @@ rule alldata:
          'processed_data/abyss.dat'
 ```
 
-- Dependencies of this rule are targets of other rules. Snakemake will 
+- Dependencies (inputs) of this rule are targets (outputs) of other rules. 
+  Snakemake will 
   check to see if the dependencies exist and, if not, will check if rules 
   are defined that will create them and invoke those first. 
 - An example of a rule that has no actions - used only to trigger the build of its dependencies if needed
@@ -352,6 +353,14 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
    is the number of cores used. Try timing `snakemake` with the `time` 
    command (`time snakemake ...`) and compare running with 1, 2 and 3 cores 
    (remember to clean the output in between).
+
+5. (OPTIONAL) Create a new rule to plot one of the processed 
+   datafiles using the command 
+   ```python
+   python source/plotcount.py processed_data/abyss.dat results/abyss.png
+   ```
+   - Make sure that when you run the workflow from scratch (after cleaning), 
+     both the plot and the results.txt file get generated.
 
 ### Wildcards 
 
