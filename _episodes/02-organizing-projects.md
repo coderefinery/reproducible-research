@@ -2,7 +2,7 @@
 layout: episode
 title: "Organizing your projects"
 teaching: 10
-exercises: 0
+exercises: 5
 questions:  
   - "How should we organize files in a research project?"
   - "How can I share and collaborate on research data?"
@@ -116,7 +116,8 @@ Sharing research data has pros and cons [(from Wikipedia)](https://en.wikipedia.
 - [Figshare](https://figshare.com/): Online digital repository where researchers 
   can preserve and share their research outputs (figures, datasets, images and videos).
   Users can make all of their research outputs available in a citable, 
-  shareable and discoverable manner
+  shareable and discoverable manner.
+- [EUDAT](https://eudat.eu): European platform for researchers and practitioners from any research discipline to preserve, find, access, and process data in a trusted environment.
 - [Dryad](https://datadryad.org/): A general-purpose home for a wide diversity of datatypes, 
   governed by a nonprofit membership organization.
   A curated resource that makes the data underlying scientific publications discoverable, 
