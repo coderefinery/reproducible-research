@@ -243,10 +243,7 @@ clean:
    ```
  - Try to figure out how to run the `clean` rule, and run it.
  - Try running the Makefile in parallel. Is it faster? 
-   You can use the `time` command in the terminal:
-   ```bash
-   $ time make -j 2 -f Makefile_all
-   ```
+   You can use the `time` command in front of the `make` command.
  - What steps does make perform if you now do the following steps?
  ```bash
  $ touch processed_data/abyss.dat
@@ -291,7 +288,7 @@ clean:
 <br>
 <img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
 
-> The following material is based on a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
+> The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
 ### Type-along exercise: Snakemake for counting words
 
@@ -446,39 +443,42 @@ Job counts:
 ### Exercise
 
 
-1. Write a new rule for `last.dat,` created from `data/last.txt`
-2. Update the `alldata` rule with this target.
-3. Write a new rule for `results.txt,` which creates a table from the Zipf analysis. The rule needs to:
-  - Depend upon each of the three .dat files.
-  - Invoke the action:
-  ```python
-python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
-  ```
-4. Put this rule at the top of the Snakefile so that it is the default target.
-5. Update clean so that it removes results.txt.
-6. Now run `snakemake` (you can test it with a dry-run first)
-7. Questions
-    - What steps does Snakemake perform if you now do the following steps?
+1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
+   update the `alldata` rule with this target. Run `snakemake`.
+2. The `touch` command updates the modification time of a file, in the 
+   same way as if you modified and saved the file.
+    - What steps does Snakemake perform if you modify the processed data?
     ```bash
     $ touch processed_data/abyss.dat
     $ snakemake 
     ```
-    - What if you instead do this?
+    - What if you instead modify the raw data?
     ```bash
     $ touch data/abyss.txt
     $ snakemake 
     ```
-    - Are the following three commands equivalent?
-    ```bash
-    $ snakemake
-    $ snakemake zipf_test
-    $ snakemake results/results.txt
-    ```
-    - What happens if you do the following? (and should we do something about that?)
+    - What if you modify the source code? Is this correct?
     ```bash
     $ touch source/wordcount.py
     $ snakemake
     ```
+      - Add the missing dependency to the appropriate rules!
+
+3. Write a new rule for `results.txt,` which creates a table with results from 
+   analysis of Zipf's law.
+  - It needs to depend upon each of the three .dat files, and the source file.
+  - It should invoke the action:
+  ```python
+python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
+  ```
+  - Put this rule at the top of the Snakefile so that it is the default target.
+  - Update clean so that it removes results.txt.
+  - Now run `snakemake` (you can test it with a dry-run first)
+
+4. Snakemake can execute rules in parallel with the flag `-j N`, where `N` 
+   is the number of cores used. Try timing `snakemake` with the `time` 
+   command (`time snakemake ...`) and compare running with 1, 2 and 3 cores 
+   (remember to clean the output in between).
 
 ### Wildcards 
 
