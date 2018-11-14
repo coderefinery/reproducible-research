@@ -32,7 +32,7 @@ What are scientific workflows and how are they used?
     overcome "vendor lock-in"
     
 
-## Using [GNU Make](https://www.gnu.org/software/make/) to automate workflow
+## [GNU Make](https://www.gnu.org/software/make/)
 
 - Old tool often used to build software.
 - Uses specific syntax that the user writes in a Makefile.
@@ -55,10 +55,42 @@ outputs: inputs
 	command(s)
 ```
 
+#### Advantages of make
+ - Ability to conduct partial steps of the workflow, skipping any unnecessary steps
+ - Ability to parallelize the jobs, e.g. `$ make -j 2`
+ - Makefile itself can act as a documentation for data generation
+ - With a single command we can generate all or parts of the results 
 
-### Type-along exercise: Simple workflow with Git and Make
+We will now switch to Snakemake, but a similar step-by-step guide to Make is given below.
 
-Let's look at an example project which follows the guidelines given above. 
+## Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to automate workflow
+
+#### Why Snakemake?
+- Gentle learning curve.
+- Free, open-source, and installs easily via pip.
+- Cross-platform (Windows, MacOS, Linux) and compatible with all HPC schedulers
+  - same workflow works without modification and scales appropriately whether on a laptop or cluster .
+- Heavily used in bioinformatics, but is completely general.
+
+#### Snakemake vs. make
+
+- Workflows defined in Python scripts extended by declarative code to define rules:
+  - anything that can be done in Python can be done with Snakemake
+  - rules work much like in GNU Make (can call any commands/executables)
+- Possible to define isolated software environments per rule.
+- Also possible to run workflows in Docker or Singularity containers.
+- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
+
+<br>
+<img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
+
+
+
+### Type-along exercise: Snakemake for counting words
+
+> The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
+
+Let's look at an example project which follows the project structure guidelines given in the previous episode.
 The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
 [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
 
@@ -80,7 +112,8 @@ word_count/
 
 Note that we include a README, a requirements file with software dependencies, and a license file.
 
-The texts that we want to analyze for the project is in the `data/` directory (four books in plain text), along with LICENSE_TEXTS.md which contains the license for the texts and their origins. 
+The texts that we want to analyze for the project is in the `data/` directory (four books in plain text), 
+along with LICENSE_TEXTS.md which contains the license for the texts and their origins. 
 
 The data directory is like this:
 ```bash
@@ -127,174 +160,14 @@ and finally compute the ratio between the frequencies of the two most common wor
 $ python source/zipf_test.py processed_data/abyss.dat > results/results.txt
 ```
 
-- In simple cases it's easy to figure out what the input is and how results are computed from it
-- As projects grow, it becomes more difficult to keep track of all steps of a workflow 
-- Shell scripts can be used to automate workflows 
+- In simple cases it's easy to figure out what the input is and how results are computed from it.
+- As projects grow, it becomes more difficult to keep track of all steps of a workflow.
+- Shell scripts can be used to automate workflows
   - drawback: scripts are unaware of dependencies between steps 
-  and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes 
-- Makefiles can store the workflow information and create a replicable workflow
+    and typically all (possibly time-consuming) steps need to be rerun whenever a single file changes.
+- Build files for make and snakemake can store the workflow information and create a replicable workflow.
 
-#### Writing a Makefile
- 
-**Step 1**: calculate frequency distribution of words used in a text
-
-```makefile
-processed_data/abyss.dat: data/abyss.txt
-        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
-```
-
-The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
-script and the `data/abyss.txt` inputfile.
-
-**Step 2**: generate the bar chart
-```makefile
-results/abyss.png: processed_data/abyss.dat
-        python source/plotcount.py processed_data/abyss.dat results/abyss.png
-```
-
-**Step 3**: calculate the ratio between the two most common words:
-```makefile
-results/results.txt: processed_data/abyss.dat
-        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
-```
-
-**Final step**: we need to build all three steps
-```makefile
-all: processed_data/abyss.dat results/abyss.png results/results.txt
-```
-   
-#### Question 
-
-What is missing from the rules given above?
-
-#### A complete Makefile 
-```makefile
-        # Build both steps required for executing the character count example
-all: processed_data/abyss.dat results/abyss.png results/results.txt
-
-# Count words (Step 1)
-processed_data/abyss.dat: data/abyss.txt source/wordcount.py
-        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
-
-# Create Bar chart (Step 2)
-results/abyss.png: processed_data/abyss.dat source/plotcount.py
-        python source/plotcount.py processed_data/abyss.dat results/abyss.png
-
-# Test Zipf's law
-results/results.txt: processed_data/abyss.dat source/zipf_test.py
-        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
-```
-
-The Makefile is executed by running make:
-```
-$ make 
-```
-This executes the first rule in the Makefile by default, which will trigger the 
-execution of all the other rules to build the dependencies of `all`.
-
-#### Advantages of make
- - Ability to conduct partial steps of the workflow, skipping any unnecessary steps
- - Ability to parallelize the jobs, e.g. `$ make -j 2`
- - `Makefile` itself can act as a documentation for data generation
- - With a single command we can generate all or parts of the results 
-
-#### Makefile to process all data files
-
-- In this project we have three more books to analyze, and in reality we may have many 
-more input files and more complicated dependencies.
-- A Makefile to process all the data files can be found in the file `Makefile_all` and run 
-with `$ make -f Makefile_all`. 
-- It contains all kinds of variables, functions and other special syntax:
-
-```makefile
-SRCDIR := data
-TMPDIR := processed_data
-RESDIR := results
-
-SRCS = $(wildcard $(SRCDIR)/*.txt)
-OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
-OBJS += $(RESDIR)/results.txt
-DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-
-all: $(OBJS)
-
-$(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
-	python source/wordcount.py $<  $@
-
-$(RESDIR)/%.png: $(TMPDIR)/%.dat source/plotcount.py
-	python source/plotcount.py $<  $@
-
-$(RESDIR)/results.txt: $(DATA) source/zipf_test.py
-	python source/zipf_test.py $(DATA) > $@
-
-clean:
-	@$(RM) $(TMPDIR)/*
-	@$(RM) $(RESDIR)/*
-
-.PHONY: clean directories
-```
-
-#### Exercise: Seeing how make operates
- - Try running the above Makefile (file `Makefile_all` in the example project repository)
-  using
-   ```bash
-   $ make -f Makefile_all
-   ```
- - Try to figure out how to run the `clean` rule, and run it.
- - Try running the Makefile in parallel. Is it faster? 
-   You can use the `time` command in front of the `make` command.
- - What steps does make perform if you now do the following steps?
- ```bash
- $ touch processed_data/abyss.dat
- $ make -f Makefile_all
- ```
- - What if you instead do this?
- ```bash
- $ touch data/abyss.txt
- $ make -f Makefile_all
- ```
- - Are the following three commands equivalent?
- ```bash
- $ make -f Makefile_all
- $ make -f Makefile_all results/results.txt
- $ make -f Makefile_all all
- ```
- - What happens if you do the following, and why?
- ```bash
- $ touch source/wordcount.py
- $ make -f Makefile_all
- ```
-
-
-## Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to automate workflow
-
-#### Why Snakemake?
-- Gentle learning curve
-- Free, open-source, and installs easily via pip
-- Cross-platform (Windows, MacOS, Linux) and compatible with all HPC schedulers
-  - same workflow works without modification and scales appropriately whether on a laptop or cluster 
-- Heavily used in bioinformatics, but is completely general
-
-#### Snakemake vs. make
-
-- Workflows defined in Python scripts extended by declarative code to define rules 
-  - anything that can be done in Python can be done with Snakemake
-- Rules work much like in GNU Make
-- Possible to define isolated software environments per rule
-- Also possible to run workflows in Docker or Singularity containers
-- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up
-
-<br>
-<img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
-
-> The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
-
-### Type-along exercise: Snakemake for counting words
-
-> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous section
-
-##### Defining rules
+#### Defining rules
 
 We create a file called `Snakefile` with the following contents:
 ```python
@@ -346,14 +219,14 @@ and try running `snakemake` again. It gives
 Nothing to be done.
 ```
 
-This is because, just like make, snakemake only tries to build the first rule in the Snakefile. 
+This is because `snakemake` (like `make`) only tries to build the first rule in the Snakefile. 
 But we can build the new target by
 
 ```bash
 $ snakemake processed_data/abyss.dat
 ```
 
-##### Building all targets
+#### Building all targets
 
 To generalize, we need a rule to create all the data files. 
 This rule should be at the top of the Snakefile so that it is the default target:
@@ -371,7 +244,7 @@ rule alldata:
 - An example of a rule that has no actions - used only to trigger the build of its dependencies if needed
 - Dependencies must form a directed acyclic graph (DAG) - cyclic dependencies will not work
 
-##### Cleaning up
+#### Cleaning up
 
 It's useful to have a rule to remove all data files to be able to explicitly recreate them. 
 It can be called `clean`, as this is a common name for rules that delete auto-generated files:
@@ -383,7 +256,7 @@ rule clean:
 
 This rule can be run by `$ snakemake clean`.
 
-##### Visualizing the workflow
+#### Visualizing the workflow
 
 We can visualize the DAG of our current Snakefile using the `--dag` option, which will output the DAG 
 in `dot` language (a plain-text format for describing graphs used by [Graphviz software](https://www.graphviz.org/), 
@@ -396,7 +269,7 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 
 <img src="/reproducible-research/img/snakemake_simpledag.png" style="height: 150px;"/>
 
-##### Testing before running
+#### Testing before running
 
 There is also an option to print out all commands that will be run (`-p`), and 
 another to perform a dry-run (`-n`):
@@ -548,7 +421,7 @@ rule count_words:
     shell: 'python {input.wc} {input.book} processed_data/isles.dat'
 ```
 
-**Note that here the source file `wordcount.py` has been made a dependency.** This is 
+**Note that here the source file `wordcount.py` is a dependency.** This is 
 important since any changes of the source code should trigger a rebuild of all
 targets that depend on it!
 
@@ -821,3 +694,138 @@ rule make_archive:
 #### Further documentation
 
 Visit [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
+
+
+### Simple workflow with Make
+
+> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous section.
+
+
+#### Writing a Makefile
+ 
+**Step 1**: calculate frequency distribution of words used in a text
+
+```makefile
+processed_data/abyss.dat: data/abyss.txt
+        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
+```
+
+The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
+script and the `data/abyss.txt` inputfile.
+
+**Step 2**: generate the bar chart
+```makefile
+results/abyss.png: processed_data/abyss.dat
+        python source/plotcount.py processed_data/abyss.dat results/abyss.png
+```
+
+**Step 3**: calculate the ratio between the two most common words:
+```makefile
+results/results.txt: processed_data/abyss.dat
+        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
+
+**Final step**: we need to build all three steps
+```makefile
+all: processed_data/abyss.dat results/abyss.png results/results.txt
+```
+   
+#### Question 
+
+What is missing from the rules given above?
+
+#### A complete Makefile 
+```makefile
+        # Build both steps required for executing the character count example
+all: processed_data/abyss.dat results/abyss.png results/results.txt
+
+# Count words (Step 1)
+processed_data/abyss.dat: data/abyss.txt source/wordcount.py
+        python source/wordcount.py data/abyss.txt processed_data/abyss.dat
+
+# Create Bar chart (Step 2)
+results/abyss.png: processed_data/abyss.dat source/plotcount.py
+        python source/plotcount.py processed_data/abyss.dat results/abyss.png
+
+# Test Zipf's law
+results/results.txt: processed_data/abyss.dat source/zipf_test.py
+        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
+
+The Makefile is executed by running make:
+```
+$ make 
+```
+This executes the first rule in the Makefile by default, which will trigger the 
+execution of all the other rules to build the dependencies of `all`.
+
+
+#### Makefile to process all data files
+
+- In this project we have three more books to analyze, and in reality we may have many 
+more input files and more complicated dependencies.
+- A Makefile to process all the data files can be found in the file `Makefile_all` and run 
+with `$ make -f Makefile_all`. 
+- It contains all kinds of variables, functions and other special syntax:
+
+```makefile
+SRCDIR := data
+TMPDIR := processed_data
+RESDIR := results
+
+SRCS = $(wildcard $(SRCDIR)/*.txt)
+OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
+OBJS += $(RESDIR)/results.txt
+DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
+
+all: $(OBJS)
+
+$(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
+	python source/wordcount.py $<  $@
+
+$(RESDIR)/%.png: $(TMPDIR)/%.dat source/plotcount.py
+	python source/plotcount.py $<  $@
+
+$(RESDIR)/results.txt: $(DATA) source/zipf_test.py
+	python source/zipf_test.py $(DATA) > $@
+
+clean:
+	@$(RM) $(TMPDIR)/*
+	@$(RM) $(RESDIR)/*
+
+.PHONY: clean directories
+```
+
+#### Exercise: Seeing how make operates
+ - Try running the above Makefile (file `Makefile_all` in the example project repository)
+  using
+   ```bash
+   $ make -f Makefile_all
+   ```
+ - Try to figure out how to run the `clean` rule, and run it.
+ - Try running the Makefile in parallel. Is it faster? 
+   You can use the `time` command in front of the `make` command.
+ - What steps does make perform if you now do the following steps?
+ ```bash
+ $ touch processed_data/abyss.dat
+ $ make -f Makefile_all
+ ```
+ - What if you instead do this?
+ ```bash
+ $ touch data/abyss.txt
+ $ make -f Makefile_all
+ ```
+ - Are the following three commands equivalent?
+ ```bash
+ $ make -f Makefile_all
+ $ make -f Makefile_all results/results.txt
+ $ make -f Makefile_all all
+ ```
+ - What happens if you do the following, and why?
+ ```bash
+ $ touch source/wordcount.py
+ $ make -f Makefile_all
+ ```
+
+
