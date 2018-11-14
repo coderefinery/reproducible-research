@@ -314,7 +314,7 @@ Job counts:
     3
 ```
 
-### Exercise
+### Exercise: Getting to know Snakemake
 
 
 1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
@@ -436,17 +436,10 @@ targets that depend on it!
 
 ### Pattern rules
 
-The Snakefile at this point looks something like the following:
+Even after introducing wildcards, our Snakefile still contains a lot 
+of repetitions. Particularly, each .dat target has a separate rule:
 
 ```python
-rule zipf_test:
-     input: 'processed_data/isles.dat', 'processed_data/abyss.dat', 'processed_data/last.dat'
-     output: 'results/results.txt'
-     shell: 'python source/zipf_test.py {input} > {output}'
-
-rule alldata:
-     input: 'processed_data/isles.dat',	'processed_data/abyss.dat', 'processed_data/last.dat'
-
 # Count words.
 rule count_words:
     input:
@@ -456,22 +449,22 @@ rule count_words:
     shell: 'python {input.wc} {input.book} {output}'
 
 rule count_words_abyss:
-     input:  'data/abyss.txt'
+     input: 
+           wc = 'source/wordcount.py',
+           book = 'data/abyss.txt'
      output: 'processed_data/abyss.dat'
-     shell:  'python source/wordcount.py data/abyss.txt processed_data/abyss.dat'
+     shell:  'python {input.wc} {input.book} {output}'
 
 rule count_words_last:
-     input:  'data/last.txt'
+     input:  
+           wc = 'source/wordcount.py',
+           book = 'data/last.txt'
      output: 'processed_data/last.dat'
-     shell:  'python source/wordcount.py data/last.txt processed_data/last.dat'
-
-rule clean:
-    shell: 'rm -f processed_data/*.dat results/results.txt'
+     shell:  'python {input.wc} {input.book} {output}'
 ```
  
-It still contains lots of repetition, i.e. there's a separate rule for each `.dat` target. 
-We can replace all these rules with a single *pattern rule* which can be used to build 
-any `.dat` file from a `.txt` file in `data/`:
+We can replace all these rules with a single *pattern rule* which 
+can be used to build any `.dat` file from a `.txt` file in `data/`:
 ```python
 rule count_words:
     input:
@@ -482,6 +475,11 @@ rule count_words:
 ```
 
 This general rule uses the wildcard `{file}` as a placeholder for any book in the `data/` directory.
+
+### Exercise: Introducing wildcards and pattern rules
+
+Starting from your Snakefile at this point, introduce wildcards and 
+pattern rules to remove all repetitions!
 
 
 ### OPTIONAL: further topics
