@@ -516,7 +516,8 @@ This is particularly useful if a rule has lots of dependencies.
 
 #### Resources and parallelism
 
-Just like GNU Make, Snakemake can run in parallel:
+If multiple rules can be run independently of each other,
+Snakemake can run a workflow in parallel:
 ```bash
 $ snakemake -j 4
 ```
@@ -609,7 +610,7 @@ In this case, rules will by default use 5 minute jobs requiring 1 GB, while the 
 more time and memory. 
 
 Some rules do not need to run in a separate job on the cluster (since they take only seconds to complete),
-and should rather be completedd locallywhere the `snakemake` command is run (e.g. login node).
+and should rather be completed locally where the `snakemake` command is run (e.g. login node).
 One can add such exceptions with the `localrules` rule:
 ```python
 localrules: all, clean, make_archive
