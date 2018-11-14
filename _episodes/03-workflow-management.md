@@ -626,11 +626,43 @@ number of jobs that Snakemake is allowed to have submitted at the same time.
 The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
 the command used to submit jobs on the particular cluster.
 
-#### GUI
+#### Various other features
 
-Snakemake has an experimental GUI feature which can be invoked by:
-```bash
-$ snakemake --gui
+- Snakemake has an experimental GUI feature which can be invoked by:
+  ```bash
+  $ snakemake --gui
+  ```
+- Isolated software environments per rule using conda. Invoke by 
+  `snakemake --use-conda`. Example:
+```python
+rule NAME:
+    input:
+        "table.txt"
+    output:
+        "plots/myplot.pdf"
+    conda:
+        "envs/ggplot.yaml"
+    script:
+        "scripts/plot-stuff.R"
+```
+
+- Jobs can be run in containers. Execute with `snakemake --use-singularity`.
+  Example:
+```python
+rule NAME:
+    input:
+        "table.txt"
+    output:
+        "plots/myplot.pdf"
+    singularity:
+        "docker://joseespinosa/docker-r-ggplot2"
+    script:
+        "scripts/plot-stuff.R"
+```
+
+- Archive a workflow into a tarball:
+```shell  
+$ snakemake --archive my-workflow.tar.gz
 ```
 
 #### Final version of our Snakefile {#finalversion}
