@@ -63,7 +63,7 @@ outputs: inputs
 
 We will now switch to Snakemake, but a similar step-by-step guide to Make is given below.
 
-## Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html) to automate workflow
+## [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
 #### Why Snakemake?
 - Gentle learning curve.
@@ -86,7 +86,7 @@ We will now switch to Snakemake, but a similar step-by-step guide to Make is giv
 
 
 
-### Type-along exercise: Snakemake for counting words
+### Simple workflow with Snakemake
 
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
@@ -314,8 +314,7 @@ Job counts:
     3
 ```
 
-### Exercise: Getting to know Snakemake
-
+### Exercise: Building a workflow with Snakemake
 
 1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
    update the `alldata` rule with this target. Run `snakemake`.
@@ -740,73 +739,129 @@ Visit [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
 > This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous section.
 
+The workflow for a single raw data file is composed of the following commands:
+
+```bash
+$ python source/wordcount.py data/abyss.txt  processed_data/abyss.dat
+$ python source/plotcount.py processed_data/abyss.dat results/abyss.png
+$ python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+```
 
 #### Writing a Makefile
  
-**Step 1**: calculate frequency distribution of words used in a text
+In Makefile syntax, a rule to run the first step of the workflow looks like this:
+
+```makefile
+processed_data/isles.dat: data/isles.txt
+        python source/wordcount.py data/isles.txt processed_data/isles.dat
+```
+
+Mind the tab! The action to be executed needs to be indented with exactly one tab character.
+
+Another rule can be added for a second datafile:
 
 ```makefile
 processed_data/abyss.dat: data/abyss.txt
         python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 ```
 
-The above rule says: This is how to build `processed_data/abyss.dat` if I have the `source/wordcount.py` 
-script and the `data/abyss.txt` inputfile.
+To run both of these rules, we need to define a new rule and place it at the top of the Makefile:
 
-**Step 2**: generate the bar chart
 ```makefile
-results/abyss.png: processed_data/abyss.dat
-        python source/plotcount.py processed_data/abyss.dat results/abyss.png
+all: processed_data/isles.dat processed_data/abyss.dat
 ```
 
-**Step 3**: calculate the ratio between the two most common words:
+We can also add a rule to clean the output:
+
 ```makefile
-results/results.txt: processed_data/abyss.dat
-        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
-```
+clean:
+        @$(RM) processed_data/*
+```   
 
-**Final step**: we need to build all three steps
+The Makefile now looks like this:
+
 ```makefile
-all: processed_data/abyss.dat results/abyss.png results/results.txt
-```
-   
-#### Question 
+all: processed_data/isles.dat processed_data/abyss.dat
 
-What is missing from the rules given above?
+processed_data/isles.dat: data/isles.txt
+        python source/wordcount.py data/isles.txt processed_data/isles.dat
 
-#### A complete Makefile 
-```makefile
-        # Build both steps required for executing the character count example
-all: processed_data/abyss.dat results/abyss.png results/results.txt
-
-# Count words (Step 1)
-processed_data/abyss.dat: data/abyss.txt source/wordcount.py
+processed_data/abyss.dat: data/abyss.txt
         python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 
-# Create Bar chart (Step 2)
-results/abyss.png: processed_data/abyss.dat source/plotcount.py
-        python source/plotcount.py processed_data/abyss.dat results/abyss.png
+clean:
+        @$(RM) processed_data/*
+```   
 
-# Test Zipf's law
-results/results.txt: processed_data/abyss.dat source/zipf_test.py
-        python source/zipf_test.py processed_data/abyss.dat > results/results.txt
+and it can be run with:
+
+```shell
+$ make
 ```
 
-The Makefile is executed by running make:
+and to clean the output:
+```shell
+$ make clean
 ```
-$ make 
+
+### Exercise: Building a workflow with GNU Make
+
+1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
+   update the `all` rule with this target. Run `make`.
+2. The `touch` command updates the modification time of a file, in the 
+   same way as if you modified and saved the file.
+    - What steps does Make perform if you modify the processed data?
+    ```bash
+    $ touch processed_data/abyss.dat
+    $ make 
+    ```
+    - What if you instead modify the raw data?
+    ```bash
+    $ touch data/abyss.txt
+    $ make 
+    ```
+    - What if you modify the source code? Is this correct?
+    ```bash
+    $ touch source/wordcount.py
+    $ make
+    ```
+      - Add the missing dependency to the appropriate rules!
+
+3. Write a new rule for `results.txt,` which creates a table with results from 
+   analysis of Zipf's law.
+  - It needs to depend upon each of the three .dat files, and the source file.
+  - It should invoke the action:
+  ```python
+python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
+  ```
+  - Put this rule at the top of the Makefile so that it is the default target.
+  - Update clean so that it removes results.txt.
+  - Now run `make` (you can test it with a dry-run first using `make -n`)
+
+4. Make can execute rules in parallel with the flag `-j N`, where `N` 
+   is the number of cores used. Try timing `make` with the `time` 
+   command (`time make ...`) and compare running with 1, 2 and 3 cores 
+   (remember to clean the output in between).
+
+5. (OPTIONAL) Create a new rule to plot one of the processed 
+   datafiles using the command 
+   ```python
+   python source/plotcount.py processed_data/abyss.dat results/abyss.png
+   ```
+   - Make sure that when you run the workflow from scratch (after cleaning), 
+     both the plot and the results.txt file get generated.
+
+### Wildcards
+
+Just as with Snakemake, Make supports wildcards to reduce repetition.  
+For example, the following block:
+
+```makefile
+results/zipf_test: processed_data/isles.dat processed_data/abyss.dat processed_data/last.dat
+	python source/zipf_test.py processed_data/isles.dat processed_data/abyss.dat processed_data/last.dat > results/results.txt
 ```
-This executes the first rule in the Makefile by default, which will trigger the 
-execution of all the other rules to build the dependencies of `all`.
 
-
-#### Makefile to process all data files
-
-- In this project we have three more books to analyze, and in reality we may have many 
-more input files and more complicated dependencies.
-- A Makefile to process all the data files can be found in the file `Makefile_all` and run 
-with `$ make -f Makefile_all`. 
-- It contains all kinds of variables, functions and other special syntax:
+can be replaced by:
 
 ```makefile
 SRCDIR := data
@@ -814,58 +869,46 @@ TMPDIR := processed_data
 RESDIR := results
 
 SRCS = $(wildcard $(SRCDIR)/*.txt)
-OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
-OBJS += $(RESDIR)/results.txt
 DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
 
-all: $(OBJS)
-
-$(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
-	python source/wordcount.py $<  $@
-
-$(RESDIR)/%.png: $(TMPDIR)/%.dat source/plotcount.py
-	python source/plotcount.py $<  $@
-
 $(RESDIR)/results.txt: $(DATA) source/zipf_test.py
-	python source/zipf_test.py $(DATA) > $@
-
-clean:
-	@$(RM) $(TMPDIR)/*
-	@$(RM) $(RESDIR)/*
-
-.PHONY: clean directories
+       python source/zipf_test.py $(DATA) > $@
 ```
 
-#### Exercise: Seeing how make operates
- - Try running the above Makefile (file `Makefile_all` in the example project repository)
-  using
-   ```bash
-   $ make -f Makefile_all
-   ```
- - Try to figure out how to run the `clean` rule, and run it.
- - Try running the Makefile in parallel. Is it faster? 
-   You can use the `time` command in front of the `make` command.
- - What steps does make perform if you now do the following steps?
- ```bash
- $ touch processed_data/abyss.dat
- $ make -f Makefile_all
- ```
- - What if you instead do this?
- ```bash
- $ touch data/abyss.txt
- $ make -f Makefile_all
- ```
- - Are the following three commands equivalent?
- ```bash
- $ make -f Makefile_all
- $ make -f Makefile_all results/results.txt
- $ make -f Makefile_all all
- ```
- - What happens if you do the following, and why?
- ```bash
- $ touch source/wordcount.py
- $ make -f Makefile_all
- ```
+Note that we have used the functions `wildcard` and `pathsubst`, and also introduced the variables 
+`SRCDIR`, `TMPDIR` and `RESDIR`.
 
+### Pattern rules
 
+Implicit rules can be defined by writing pattern rules. A pattern rule looks like an ordinary rule, 
+except that its target contains the character `%`. 
+
+For example, the following three rules (where we have introduced the variables `TMPDIR` 
+and `SRCDIR` and used the wildcards, as described above):
+
+```makefile
+$(TMPDIR)/isles.dat: $(SRCDIR)/isles.txt source/wordcount.py
+        python source/wordcount.py $<  $@
+
+$(TMPDIR)/abyss.dat: $(SRCDIR)/abyss.txt source/wordcount.py
+        python source/wordcount.py $<  $@
+
+$(TMPDIR)/last.dat: $(SRCDIR)/last.txt source/wordcount.py
+        python source/wordcount.py $<  $@
+```
+
+can be replaced by a single *pattern rule* which will build any `.dat` file from a `.txt` file:
+
+```makefile
+$(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
+		 python source/wordcount.py $<  $@
+```
+
+### Exercise: Introducing wildcards and pattern rules in the Makefile
+
+Starting from your Makefile at this point, introduce wildcards and pattern rules to remove all repetitions!
+
+#### Makefile to process all data files
+
+- A Makefile to process all the data files can be found in the file `Makefile_all` and run 
+with `$ make -f Makefile_all`. 
