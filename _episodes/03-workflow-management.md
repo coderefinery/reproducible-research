@@ -17,12 +17,10 @@ keypoints:
 
 # Scientific workflows
 
-What are scientific workflows and how are they used?
-
 - Orchestrated and repeatable pattern for a series of computational or data manipulation steps.
 - Typical homemade workflows: series of scripts that read data and input, call programs and produce outputs.
 - [Many specialized frameworks exist](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
-  for managing scientific workflow:s
+  for managing scientific workflows
   - environments to create and execute workflows and monitor results
   - enable sharing and reusing workflows
   - enable tracking the provenance of workflow results 
@@ -61,7 +59,7 @@ outputs: inputs
  - Makefile itself can act as a documentation for data generation
  - With a single command we can generate all or parts of the results 
 
-We will now switch to Snakemake, but a similar step-by-step guide to Make is given below.
+> We will now switch to Snakemake, but a similar step-by-step guide to Make is [given below](#make).
 
 ## [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
@@ -94,7 +92,10 @@ Let's look at an example project which follows the project structure guidelines 
 The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
 [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
 
-> To follow along, clone this [repository](https://github.com/coderefinery/word-count)
+> To follow along, clone this [repository](https://github.com/coderefinery/word-count):
+> ```shell
+> $ git clone https://github.com/coderefinery/word-count.git
+> ```
 
 The example project directory is like this:
 ```bash
@@ -735,7 +736,7 @@ rule make_archive:
 Visit [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
 
-### Simple workflow with Make
+### Simple workflow with Make {#make}
 
 > This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous section.
 
