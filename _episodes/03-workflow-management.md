@@ -92,9 +92,9 @@ Let's look at an example project which follows the project structure guidelines 
 The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing 
 [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
 
-> To follow along, clone this [repository](https://github.com/coderefinery/word-count):
+> To follow along, **fork and clone** this [repository](https://github.com/coderefinery/word-count):
 > ```shell
-> $ git clone https://github.com/coderefinery/word-count.git
+> $ git clone https://github.com/user/word-count.git
 > ```
 
 The example project directory is like this:
