@@ -20,8 +20,10 @@ keypoints:
 
 - It is good to keep all files associated with a project in a single folder
 - Different projects should have separate folders
-- Use consistent and informative directory structure 
+- Use consistent and informative directory structure
+- If part public/part private/part secret, separate these by folder (and git repo)
 - Add a README file to describe the project and instructions on reproducing the results
+- Talk to others in the project about what you do.  Write it down!
 - But your mileage may vary, it's not a one-size-fits-all
 
 A project directory can look something like this:
@@ -70,8 +72,8 @@ $ git tag -a <tagname> -m "comment"
 
 - It's a good idea to also put your manuscript under version control
 - Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
-  - [Overleaf](https://www.overleaf.com/)
-  - [Authorea](https://www.authorea.com/)
+  - [Overleaf](https://www.overleaf.com/) (has git integration!)
+  - [Authorea](https://www.authorea.com/) (apparently also has git integration)
   - Google Docs
 
 ## Documenting and automating your workflow
@@ -103,6 +105,29 @@ Sharing research data has pros and cons [(from Wikipedia)](https://en.wikipedia.
 - The public will misunderstand science data
 - Increasing the scale of science will make verification of any discovery more difficult
 - Low-quality science
+
+### Research data buzzwords
+
+"FAIR" is the current buzzword for data management.  You may be asked
+about it in, for example, making data management plans for grants
+
+- **F**indable
+  - Will anyone else know that your data exists?
+  - Solutions: put it in a standard repository, or at least a
+    description of the data.
+- **A**ccessible
+  - Once someone can know data exists, can they get it?
+  - Usually solved by being in a repository, but for non-open data,
+    may require more procedures.
+- **I**nteroperable
+  - Is your data in a format that can be used by others, like csv
+    instead of PDF?
+  - Or better than csv: Example: [5-star open data](https://5stardata.info/en/)
+- **R**eusable
+  - Is there a license allowing others to re-use?
+
+Even though this is usually referred to as "open data", it means
+considering and making good decisions, even if non-open.
 
 ### Exercise: Discuss Open Science
 - Do you share any other research outputs besides published articles and possibly source code?
