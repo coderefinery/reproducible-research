@@ -230,7 +230,7 @@ $ snakemake processed_data/abyss.dat
 #### Building all targets
 
 To generalize, we need a rule to create all the data files. 
-This rule should be at the top of the Snakefile so that it is the default target:
+This rule should be at the *top* of the Snakefile so that it is the default target:
 
 ```python
 rule alldata:
