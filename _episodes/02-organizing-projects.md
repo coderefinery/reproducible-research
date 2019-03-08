@@ -27,49 +27,35 @@ keypoints:
 - But your mileage may vary, it's not a one-size-fits-all
 
 A project directory can look something like this:
-```bash
+```
 project_name/
-|-- data/                        contains input data files of the project
-|   |-- README.md                describes where input data came from
-|   |-- sub-folder/              may contain subdirectories as well
+|-- README.md                    overview of the project
+|-- data/                        data files used in the project
+|   |-- README.md                describes where data came from
+|   |-- sub-folder/              may contain subdirectories
 |   |-- ...
-|-- processed_data/              will contain intermediate files from the analysis
-|-- manuscript/                  will contain the manuscript describing the results
-|-- results/                     will contain the results of the analysis (including tables and figures)
-|-- source/                      will contain all code
+|-- processed_data/              intermediate files from the analysis
+|-- manuscript/                  your manuscript describing the results
+|-- results/                     results of the analysis (including tables and figures)
+|-- source/                      contains all code in the project
+|   |-- LICENSE                  license for your code
+|   |-- requirements.txt         software requirements and dependencies
+|   |-- ...
+
 ```
 
-## Tracking source code and data
+## Tracking source code, data and results
 
-#### `source/`
-- All code goes in the `source` directory
-- Track code using a version control system, for example Git
-- Include appropriate LICENSE file
-- Include information on software requirements 
-
-#### `data/`
-- You can also track raw data files or input files in version control, placed in the `data` sub-folder 
-- Include a README file to describe the data and its origins
-- If data files are too large (or sensitive) to track, one can untrack them using `.gitignore`
-
-As files are added and modified in the project directory, commit your changes frequently as discussed in the [Git introduction](https://coderefinery.github.io/git-intro/).
-
-#### `processed_data/`
-- Intermediate files from the analysis are kept here
-- Does it make sense to track generated/processed data?
-
-#### `results/`
-
-- Store the results of the analysis (data files, figures, ...) in the `results` folder
+- All code is version controlled and goes in the `source/` directory
+- Include appropriate LICENSE file and information on software requirements 
+- You can also version control data files or input files under `data/`
+- If data files are too large (or sensitive) to track, untrack them using `.gitignore`
+- Intermediate files from the analysis are kept in `processed_data/`
 - Consider using Git tags to track specific versions of results (and/or the code that gives the particular results)
   - version submitted to a journal, the dissertation version, the poster version, etc.
-
-```bash
-$ git tag -a <tagname> -m "comment" 
-```
-
-#### `manuscript/`
-
+  ```bash
+  $ git tag -a <tagname> -m "comment" 
+  ```
 - It's a good idea to also put your manuscript under version control
 - Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
   - [Overleaf](https://www.overleaf.com/) (has git integration!)
