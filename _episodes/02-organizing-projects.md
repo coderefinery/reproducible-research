@@ -2,17 +2,17 @@
 layout: episode
 title: "Organizing your projects"
 teaching: 10
-exercises: 5
+exercises: 10
 questions:  
   - "How should we organize files in a research project?"
-  - "How can I share and collaborate on research data?"
+  - "How can I share research code and data?"
 objectives:
   - "Get overview on how to organize research projects"
   - "Discuss the pros and cons of open science"
+  - "Learn how to mint a DOI for your project"
 keypoints:
-  - "Create useful project directory structure"
-  - "Set up version control for your projects"
-  - "Consider sharing other research outputs"
+  - "An organized project directory structure can help with reproducibility"
+  - "Consider sharing other research outputs than articles"
 
 ---
 
@@ -102,22 +102,25 @@ about it in, for example, making data management plans for grants
   - Solutions: put it in a standard repository, or at least a
     description of the data.
 - **A**ccessible
-  - Once someone can know data exists, can they get it?
+  - Once someone knows that the data exists, can they get it?
   - Usually solved by being in a repository, but for non-open data,
     may require more procedures.
 - **I**nteroperable
   - Is your data in a format that can be used by others, like csv
     instead of PDF?
-  - Or better than csv: Example: [5-star open data](https://5stardata.info/en/)
+  - Or better than csv. Example: [5-star open data](https://5stardata.info/en/)
 - **R**eusable
   - Is there a license allowing others to re-use?
 
 Even though this is usually referred to as "open data", it means
 considering and making good decisions, even if non-open.
+> FAIR principles are usually discussed in the context of data,
+> but they apply also for research software.
 
-### Exercise: Discuss Open Science
-- Do you share any other research outputs besides published articles and possibly source code?
-- Discuss pros and cons of sharing research data. 
+> ## Exercise: Discuss Open Science
+> - Do you share any other research outputs besides published articles and possibly source code?
+> - Discuss pros and cons of sharing research data. 
+{: .task}
 
 
 ### Services for sharing and collaborating on research data
@@ -137,3 +140,28 @@ considering and making good decisions, even if non-open.
   around files and other research artifacts. Each account can have up to 5 GB of files 
   without any problem, and it remains private until you make it public.
 
+> ## Exercise: Get a DOI by connecting your repository to Zenodo
+>
+> Digital Object Identifiers (DOI) are the backbone of the academic 
+> reference and metrics system. In this exercise we will see how to 
+> make a GitHub repository citable by archiving it on the 
+> [Zenodo](http://about.zenodo.org/) archiving service.
+> 
+> 1. Sign in to Zenodo using your GitHub account. For this exercise, use the 
+>   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
+> 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/)
+> 3. Find the repository you wish to publish, and flip the switch to ON.
+> 4. Go to GitHub and create a **release**  by clicking the `release` tab and 
+>   `Create a new release`  (a release is based on a Git tag, 
+>    but is a higher-level GitHub feature),
+> 5. Creating a new release will trigger Zenodo into archiving your repository,
+>   and a DOI badge will be displayed next to your repository after a minute
+>   or two. You can include it in your GitHub README file (click the 
+>   DOI badge and copy the relevant format (Markdown, RST, HTML)).
+{: .task}
+
+
+### Further reading on reproducibility and open science
+
+- [The Turing way](https://github.com/alan-turing-institute/the-turing-way/blob/master/chapters/open_research.md)
+- [Reproduciblity syllabus](http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/)
