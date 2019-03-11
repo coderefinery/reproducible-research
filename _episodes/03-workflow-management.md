@@ -32,7 +32,7 @@ keypoints:
 
 ## [GNU Make](https://www.gnu.org/software/make/)
 
-- Old tool often used to build software.
+- A tool from the 70s often used to build software.
 - Uses specific syntax that the user writes in a Makefile.
 - Makefile specifies how to build targets from their dependencies.
 - Example of command-line automation - can be easier to ensure reproducibility compared to GUIs.
@@ -65,10 +65,10 @@ outputs: inputs
 
 #### Why Snakemake?
 - Gentle learning curve.
-- Free, open-source, and installs easily via pip.
+- Free, open-source, and installs easily via conda or pip.
 - Cross-platform (Windows, MacOS, Linux) and compatible with all HPC schedulers
-  - same workflow works without modification and scales appropriately whether on a laptop or cluster .
-- Heavily used in bioinformatics, but is completely general.
+  - same workflow works without modification and scales appropriately whether on a laptop or cluster.
+- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is completely general.
 
 #### Snakemake vs. make
 
@@ -100,15 +100,16 @@ The project is about counting the frequency distribution of words in a given tex
 The example project directory is like this:
 ```bash
 word_count/
-|-- data/                                
-|-- processed_data/                                
-|-- manuscript                           
-|-- results/                             
-|-- source/
-|-- README.md
-|-- requirements.txt
-|-- license.md
-|-- ...                              
+.
+├── data
+├── processed_data
+├── manuscript
+├── results
+├── doc
+├── source
+├── README.md
+├── requirements.txt
+└── license.md
 ```
 
 Note that we include a README, a requirements file with software dependencies, and a license file.
@@ -119,13 +120,12 @@ along with LICENSE_TEXTS.md which contains the license for the texts and their o
 The data directory is like this:
 ```bash
 word_count/
-|-- data/
-|   |--LICENSE_TEXTS.md
-|   |--abyss.txt
-|   |--isles.txt
-|   |--last.txt
-|   |--sierra.txt
-|-- ...                            
+└── data
+    ├── LICENSE_TEXTS.md
+    ├── abyss.txt
+    ├── isles.txt
+    ├── last.txt
+    └── sierra.txt
 ```
 
 In the `source` directory  we have three scripts:
@@ -136,11 +136,10 @@ In the `source` directory  we have three scripts:
 The project's `source` directory is like this:
 ```bash
 word_count/
-|-- source
-|   |--plotcount.py
-|   |--wordcount.py
-|   |--zipf_test.py
-|-- ...                              
+└── source
+    ├── plotcount.py
+    ├── wordcount.py
+    └── zipf_test.py
 ```
 
 #### Generating results
@@ -174,15 +173,22 @@ We create a file called `Snakefile` with the following contents:
 ```python
 # Count words.
 rule count_words:
-    input: 'data/isles.txt'
-    output: 'processed_data/isles.dat'
-    shell: 'python source/wordcount.py data/isles.txt processed_data/isles.dat'
+    input: 'data/abyss.txt'
+    output: 'processed_data/abyss.dat'
+    shell: 'python source/wordcount.py data/abyss.txt processed_data/abyss.dat'
 ```
-and run it with
+
+Let's first remove the results we created earlier:
+```shell
+$ rm processed_data/abyss.dat
+$ rm results/abyss.png
+$ rm results/results.txt
+```
+and then run the Snakefile with
 ```bash
 $ snakemake
 ```
-and get
+We get:
 ```bash
 Building DAG of jobs...
 Using shell: /bin/bash
@@ -194,8 +200,8 @@ Job counts:
     1
 
 rule count_words:
-    input: data/isles.txt
-    output: processed_data/isles.dat
+    input: data/abyss.txt
+    output: processed_data/abyss.dat
     jobid: 0
 
 Finished job 0.
@@ -203,16 +209,16 @@ Finished job 0.
 ```
 
 What just happened? 
-The rule told Snakemake how to build the **target** `processed_data/isles.dat` using the **action** `source/wordcount.py` 
-and the **dependency** `data/isles.txt`.
+The rule told Snakemake how to build the **target** `processed_data/abyss.dat` using the **action** `source/wordcount.py` 
+and the **dependency** `data/abyss.txt`.
 
 Let's try to build another target by adding a new rule (with a unique name) to the Snakefile:
 
 ```python
-rule count_words_abyss:
-     input:  'data/abyss.txt'
-     output: 'processed_data/abyss.dat'
-     shell:  'python source/wordcount.py data/abyss.txt processed_data/abyss.dat'
+rule count_words_isles:
+     input:  'data/isles.txt'
+     output: 'processed_data/isles.dat'
+     shell:  'python source/wordcount.py data/isles.txt processed_data/isles.dat'
 ```
 and try running `snakemake` again. It gives
 
@@ -224,7 +230,7 @@ This is because `snakemake` (like `make`) only tries to build the first rule in 
 But we can build the new target by
 
 ```bash
-$ snakemake processed_data/abyss.dat
+$ snakemake processed_data/isles.dat
 ```
 
 #### Building all targets
@@ -243,7 +249,7 @@ rule alldata:
   Snakemake will 
   check to see if the dependencies exist and, if not, will check if rules 
   are defined that will create them and invoke those first. 
-- An example of a rule that has no actions - used only to trigger the build of its dependencies if needed
+- An example of a rule that has no actions - used only to trigger the build of its dependencies if needed.
 - Dependencies must form a directed acyclic graph (DAG) - cyclic dependencies will not work
 
 #### Cleaning up
@@ -315,82 +321,110 @@ Job counts:
     3
 ```
 
-### Exercise: Building a workflow with Snakemake
+> ## Exercise: Snakemake rules, dependencies and parallelism
+> 
+> Here you will practice by adding another rule to the Snakefile, and 
+> explore how Snakemake treats dependencies and parallelization.
+> We will soon see how to avoid all the repetition!
+>
+> 1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
+>    update the `alldata` rule with this target. Run `snakemake`.
+> 2. The `touch` command updates the modification time of a file, in the 
+>    same way as if you modified and saved the file.
+>     - What steps does Snakemake perform if you modify the processed data?
+>     ```bash
+>     $ touch processed_data/abyss.dat
+>     $ snakemake 
+>     ```
+>     - What if you instead modify the raw data?
+>     ```bash
+>     $ touch data/abyss.txt
+>     $ snakemake 
+>     ```
+>     - What if you modify the source code? Is this correct?
+>     ```bash
+>     $ touch source/wordcount.py
+>     $ snakemake
+>     ```
+>       - **Add the missing dependency to the appropriate rules!**
+> 
+> 3. Snakemake can execute rules in parallel with the flag `-j N`, where `N` 
+>    is the number of cores used. Try timing `snakemake` with the `time` 
+>    command (`time snakemake ...`) and compare running with 1, 2 and 3 cores 
+>    (remember to clean the output in between). 
+{: .task}
 
-1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
-   update the `alldata` rule with this target. Run `snakemake`.
-2. The `touch` command updates the modification time of a file, in the 
-   same way as if you modified and saved the file.
-    - What steps does Snakemake perform if you modify the processed data?
-    ```bash
-    $ touch processed_data/abyss.dat
-    $ snakemake 
-    ```
-    - What if you instead modify the raw data?
-    ```bash
-    $ touch data/abyss.txt
-    $ snakemake 
-    ```
-    - What if you modify the source code? Is this correct?
-    ```bash
-    $ touch source/wordcount.py
-    $ snakemake
-    ```
-      - Add the missing dependency to the appropriate rules!
 
-3. Write a new rule for `results.txt,` which creates a table with results from 
-   analysis of Zipf's law.
-  - It needs to depend upon each of the three .dat files, and the source file.
-  - It should invoke the action:
-  ```python
-python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
-  ```
-  - Put this rule at the top of the Snakefile so that it is the default target.
-  - Update clean so that it removes results.txt.
-  - Now run `snakemake` (you can test it with a dry-run first)
 
-4. Snakemake can execute rules in parallel with the flag `-j N`, where `N` 
-   is the number of cores used. Try timing `snakemake` with the `time` 
-   command (`time snakemake ...`) and compare running with 1, 2 and 3 cores 
-   (remember to clean the output in between).
+> ## Optional exercise: create a new rule for plotting
+> 
+> Create a new rule to plot one of the processed 
+> datafiles using the command 
+> ```python
+> python source/plotcount.py processed_data/abyss.dat results/abyss.png
+> ```
+> - You can try a dry-run first.
+> - Remember to update the `clean` rule.
+> - Make sure that when you run the workflow from scratch (after cleaning), 
+>   the plot gets generated.
+{: .task}
 
-5. (OPTIONAL) Create a new rule to plot one of the processed 
-   datafiles using the command 
-   ```python
-   python source/plotcount.py processed_data/abyss.dat results/abyss.png
-   ```
-   - Make sure that when you run the workflow from scratch (after cleaning), 
-     both the plot and the results.txt file get generated.
+### A new default target 
 
-### Wildcards 
+We will now write a new rule for the target `results.txt,` which will
+create a table with results from analysis of Zipf's law.
+ - It needs to depend upon each of the three .dat files, **and the source file**.
+- It should be at the top of the Snakefile so that it is the default target.
+- We shouldn't forget to update the `clean` rule.
+
+```python
+rule zipf_test:
+     input:
+         'processed_data/isles.dat',
+         'processed_data/abyss.dat',
+         'processed_data/last.dat',
+         'source/zipf_test.py'
+     output: 
+         'results/results.txt'
+     shell: 
+         'python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt'
+```
+
+We finally run `snakemake` and have a look at the results:
+```shell
+$ snakemake
+...
+$ cat results/results.txt
+Book  First	Second	Ratio
+abyss 4044	2807	1.44
+isles 3822	2460	1.55
+last  12244	5566	2.20
+```
+
+
+> Changing code might also change the output, so source files
+> should be treated as dependencies.
+
+### Wildcards and named dependencies
 
 The Snakefile created above contains a lot of unnecessary 
 repetition which requires lots of typing and is error-prone.
-*Wildcards* can be used to avoid this situation.
-For example, the following code block:
-```python
-rule zipf_test:
-     input:
-         'processed_data/isles.dat',
-         'processed_data/abyss.dat',
-         'processed_data/last.dat'
-     output:
-         'results/results.txt'
-     shell:
-         'python source/zipf_test.py processed_data/isles.dat processed_data/abyss.dat processed_data/last.dat > results/results.txt'
-```
+*Wildcards* can be used to avoid this situation. We also often have 
+to treat different dependencies to a rule differently, e.g. the input 
+data files and the source file.  
 
-can be replaced by 
+For example, the rule `zipf_test` can be replaced by:
 ```python
 rule zipf_test:
-     input:
-         'processed_data/isles.dat',
-         'processed_data/abyss.dat',
-         'processed_data/last.dat'
-     output:
-         'results/results.txt'
-     shell:
-         'python source/zipf_test.py {input} > {output}'
+    input:
+        zipf =  'source/zipf_test.py',
+        book1 = 'processed_data/isles.dat',
+        book2 = 'processed_data/abyss.dat',
+        book3 = 'processed_data/last.dat'
+    output:
+        'results/results.txt'
+    shell:
+        'python {input.zipf} {input.book1} {input.book2} {input.book3} > {output}'
 ```
 
 Let's test if this works:
@@ -410,29 +444,27 @@ Finished job 0.
 4 of 4 steps (100%) done
 ```
 
-#### Naming dependencies
+### Globbing and expanding wildcards
 
-Sometimes one needs to treat different dependencies of a rule differently. This can be done in two ways, either by 
-enumeration:
+The `snakemake.io` module comes with a set of useful functions. To 
+generalize our Snakefile further, we can use the `glob_wildcards()` 
+and `expand()` functions. 
+Remember also that Snakefiles are more or less just Python code:
 ```python
-rule count_words:
-    input: 'source/wordcount.py', 'data/isles.txt'
-    output: 'processed_data/isles.dat'
-    shell: 'python {input[0]} {input[1]} processed_data/isles.dat'
-```
-or by naming:
-```python
-rule count_words:
+DATA = glob_wildcards('data/{book}.txt').book
+
+print('These are all the book names:')
+for book in DATA:
+    print(book)
+
+rule zipf_test:
     input:
-           wc = 'source/wordcount.py',
-           book = 'data/isles.txt'
-    output: 'processed_data/isles.dat'
-    shell: 'python {input.wc} {input.book} processed_data/isles.dat'
+        zipf='source/zipf_test.py',
+        books=expand('processed_data/{book}.dat', book=DATA)
+    output: 'results/results.txt'
+    shell:  'python {input.zipf} {input.books} > {output}'
 ```
-
-**Note that here the source file `wordcount.py` is a dependency.** This is 
-important since any changes of the source code should trigger a rebuild of all
-targets that depend on it!
+This is particularly useful if a rule has lots of dependencies.
 
 ### Pattern rules
 
@@ -443,22 +475,22 @@ of repetitions. Particularly, each .dat target has a separate rule:
 # Count words.
 rule count_words:
     input:
-           wc = 'source/wordcount.py',
-           book = 'data/isles.txt'
+        wc = 'source/wordcount.py',
+        book = 'data/isles.txt'
     output: 'processed_data/isles.dat'
     shell: 'python {input.wc} {input.book} {output}'
 
 rule count_words_abyss:
      input: 
-           wc = 'source/wordcount.py',
-           book = 'data/abyss.txt'
+         wc = 'source/wordcount.py',
+         book = 'data/abyss.txt'
      output: 'processed_data/abyss.dat'
      shell:  'python {input.wc} {input.book} {output}'
 
 rule count_words_last:
      input:  
-           wc = 'source/wordcount.py',
-           book = 'data/last.txt'
+         wc = 'source/wordcount.py',
+         book = 'data/last.txt'
      output: 'processed_data/last.dat'
      shell:  'python {input.wc} {input.book} {output}'
 ```
@@ -468,51 +500,23 @@ can be used to build any `.dat` file from a `.txt` file in `data/`:
 ```python
 rule count_words:
     input:
-           wc = 'source/wordcount.py',
-           book = 'data/{file}.txt'
+        wc = 'source/wordcount.py',
+        book = 'data/{file}.txt'
     output: 'processed_data/{file}.dat'
     shell: 'python {input.wc} {input.book} {output}'
 ```
 
 This general rule uses the wildcard `{file}` as a placeholder for any book in the `data/` directory.
 
-### Exercise: Introducing wildcards and pattern rules
-
-Starting from your Snakefile at this point, introduce wildcards and 
-pattern rules to remove all repetitions!
-
+> ## Exercise: Introducing wildcards and pattern rules
+>
+> Starting from your Snakefile at this point, introduce wildcards, named 
+> dependencies and pattern rules to remove all repetitions!
+{: .task}
 
 ### OPTIONAL: further topics
 
-#### Python functions
 
-Snakefiles are more or less just Python code, and we can add Python code anywhere:
-```python
-# at the top of the file
-import os
-import glob
-
-# add this wherever
-rule print_book_names:
-    run:
-        print('These are all the book names:')
-        for book in glob.glob('data/*.txt'):
-            print(book)
-```
-
-The `snakemake.io` modules comes with a set of useful functions. To generalize our Snakefile further,
-we can use the `glob_wildcards()` an `expand()` functions:
-```python
-DATA = glob_wildcards('data/{book}.txt').book
-...
-rule zipf_test:
-    input:
-        zipf='source/zipf_test.py',
-	books=expand('processed_data/{book}.dat', book=DATA)
-    output: 'results/results.txt'
-    shell:  'python {input.zipf} {input.books} > {output}'
-```
-This is particularly useful if a rule has lots of dependencies.
 
 #### Resources and parallelism
 
@@ -805,52 +809,53 @@ and to clean the output:
 $ make clean
 ```
 
-### Exercise: Building a workflow with GNU Make
-
-1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
-   update the `all` rule with this target. Run `make`.
-2. The `touch` command updates the modification time of a file, in the 
-   same way as if you modified and saved the file.
-    - What steps does Make perform if you modify the processed data?
-    ```bash
-    $ touch processed_data/abyss.dat
-    $ make 
-    ```
-    - What if you instead modify the raw data?
-    ```bash
-    $ touch data/abyss.txt
-    $ make 
-    ```
-    - What if you modify the source code? Is this correct?
-    ```bash
-    $ touch source/wordcount.py
-    $ make
-    ```
-      - Add the missing dependency to the appropriate rules!
-
-3. Write a new rule for `results.txt,` which creates a table with results from 
-   analysis of Zipf's law.
-  - It needs to depend upon each of the three .dat files, and the source file.
-  - It should invoke the action:
-  ```python
-python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
-  ```
-  - Put this rule at the top of the Makefile so that it is the default target.
-  - Update clean so that it removes results.txt.
-  - Now run `make` (you can test it with a dry-run first using `make -n`)
-
-4. Make can execute rules in parallel with the flag `-j N`, where `N` 
-   is the number of cores used. Try timing `make` with the `time` 
-   command (`time make ...`) and compare running with 1, 2 and 3 cores 
-   (remember to clean the output in between).
-
-5. (OPTIONAL) Create a new rule to plot one of the processed 
-   datafiles using the command 
-   ```python
-   python source/plotcount.py processed_data/abyss.dat results/abyss.png
-   ```
-   - Make sure that when you run the workflow from scratch (after cleaning), 
-     both the plot and the results.txt file get generated.
+> ## Exercise: Building a workflow with GNU Make
+> 
+> 1. Write a new rule for `last.dat,` created from `data/last.txt`, and 
+>    update the `all` rule with this target. Run `make`.
+> 2. The `touch` command updates the modification time of a file, in the 
+>    same way as if you modified and saved the file.
+>     - What steps does Make perform if you modify the processed data?
+>     ```bash
+>     $ touch processed_data/abyss.dat
+>     $ make 
+>     ```
+>     - What if you instead modify the raw data?
+>     ```bash
+>     $ touch data/abyss.txt
+>     $ make 
+>     ```
+>     - What if you modify the source code? Is this correct?
+>     ```bash
+>     $ touch source/wordcount.py
+>     $ make
+>     ```
+>       - Add the missing dependency to the appropriate rules!
+> 
+> 3. Write a new rule for `results.txt,` which creates a table with results from 
+>    analysis of Zipf's law.
+>   - It needs to depend upon each of the three .dat files, and the source file.
+>   - It should invoke the action:
+>   ```python
+> python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat processed_data/last.dat > results/results.txt
+>   ```
+>   - Put this rule at the top of the Makefile so that it is the default target.
+>   - Update clean so that it removes results.txt.
+>   - Now run `make` (you can test it with a dry-run first using `make -n`)
+> 
+> 4. Make can execute rules in parallel with the flag `-j N`, where `N` 
+>    is the number of cores used. Try timing `make` with the `time` 
+>    command (`time make ...`) and compare running with 1, 2 and 3 cores 
+>    (remember to clean the output in between).
+> 
+> 5. (OPTIONAL) Create a new rule to plot one of the processed 
+>    datafiles using the command 
+>    ```python
+>    python source/plotcount.py processed_data/abyss.dat results/abyss.png
+>    ```
+>    - Make sure that when you run the workflow from scratch (after cleaning), 
+>      both the plot and the results.txt file get generated.
+{: .task}
 
 ### Wildcards
 
@@ -905,9 +910,10 @@ $(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
 		 python source/wordcount.py $<  $@
 ```
 
-### Exercise: Introducing wildcards and pattern rules in the Makefile
-
-Starting from your Makefile at this point, introduce wildcards and pattern rules to remove all repetitions!
+> ## Exercise: Introducing wildcards and pattern rules in the Makefile
+> 
+> Starting from your Makefile at this point, introduce wildcards and pattern rules to remove all repetitions!
+{: .task}
 
 #### Makefile to process all data files
 
