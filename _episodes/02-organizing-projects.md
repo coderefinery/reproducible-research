@@ -29,19 +29,20 @@ keypoints:
 A project directory can look something like this:
 ```
 project_name/
-|-- README.md                    overview of the project
-|-- data/                        data files used in the project
-|   |-- README.md                describes where data came from
-|   |-- sub-folder/              may contain subdirectories
-|   |-- ...
-|-- processed_data/              intermediate files from the analysis
-|-- manuscript/                  your manuscript describing the results
-|-- results/                     results of the analysis (including tables and figures)
-|-- source/                      contains all code in the project
-|   |-- LICENSE                  license for your code
-|   |-- requirements.txt         software requirements and dependencies
-|   |-- ...
-
+├── README.md			# overview of the project
+├── data			# data files used in the project
+│   ├── README.md		# describes where data came from
+│   └── sub-folder/		# may contain subdirectories
+├── processed_data/		# intermediate files from the analysis
+├── manuscript/			# manuscript describing the results
+├── results/			# results of the analysis (data, tables, figures)
+├── source			# contains all code in the project
+│   ├── LICENSE			# license for your code
+│   ├── requirements.txt	# software requirements and dependencies
+│   └── ...
+└── doc/			# documentation for your project
+    ├── mydocs.rst
+    └── ...
 ```
 
 ## Tracking source code, data and results
