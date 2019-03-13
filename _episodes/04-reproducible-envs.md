@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Virtual environments"
-teaching: 20
+teaching: 30
 exercises: 10
 questions:
    - "How to capture the software environment of a computational experiment?"
@@ -542,11 +542,3 @@ However, containers may also have some drawbacks:
 > - Do you think containers contribute to reproducible research?
 > - Do you see a use case for your own work?
 {: .task}
-
-
----
-
-### Where you might want to go from here
-
-- New platforms for doing reproducible research are emerging, see for example [**reana**](http://www.reana.io/).
-- Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).

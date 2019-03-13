@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Motivation"
-teaching: 5
+teaching: 10
 exercises: 0
 questions:
   - "Why should research be reproducible?"

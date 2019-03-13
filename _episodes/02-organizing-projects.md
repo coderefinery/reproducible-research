@@ -2,7 +2,7 @@
 layout: episode
 title: "Organizing your projects"
 teaching: 10
-exercises: 10
+exercises: 15
 questions:  
   - "How should we organize files in a research project?"
   - "How can I share research code and data?"
@@ -44,6 +44,7 @@ project_name/
     ├── mydocs.rst
     └── ...
 ```
+---
 
 ## Tracking source code, data and results
 
@@ -63,6 +64,8 @@ project_name/
   - [Authorea](https://www.authorea.com/) (apparently also has git integration)
   - Google Docs
 
+---
+
 ## Documenting and automating your workflow
 
 Reproducible workflows enable you to figure out precisely what data and what code were used to generate a result:
@@ -72,6 +75,8 @@ Reproducible workflows enable you to figure out precisely what data and what cod
  - Allow automated recreation of data
  - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
  - We will practice reproducible workflows in the next episode
+
+---
 
 ## Sharing research data
 
@@ -92,6 +97,8 @@ Sharing research data has pros and cons [(from Wikipedia)](https://en.wikipedia.
 - The public will misunderstand science data
 - Increasing the scale of science will make verification of any discovery more difficult
 - Low-quality science
+
+---
 
 ### Research data buzzwords
 
@@ -123,6 +130,7 @@ considering and making good decisions, even if non-open.
 > - Discuss pros and cons of sharing research data. 
 {: .task}
 
+---
 
 ### Services for sharing and collaborating on research data
 - [Zenodo](https://zenodo.org/): A general-purpose open access repository 
@@ -161,8 +169,11 @@ considering and making good decisions, even if non-open.
 >   DOI badge and copy the relevant format (Markdown, RST, HTML)).
 {: .task}
 
+---
 
 ### Further reading on reproducibility and open science
 
 - [The Turing way](https://github.com/alan-turing-institute/the-turing-way/blob/master/chapters/open_research.md)
 - [Reproduciblity syllabus](http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/)
+- The [reproducible research data analysis platform](http://www.reana.io/).
+- Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).

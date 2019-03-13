@@ -29,6 +29,7 @@ keypoints:
   - the [common workflow language (CWL)](http://www.commonwl.org) tries to 
     overcome "vendor lock-in"
     
+---
 
 ## [GNU Make](https://www.gnu.org/software/make/)
 
@@ -61,6 +62,8 @@ outputs: inputs
 
 > We will now switch to Snakemake, but a similar step-by-step guide to Make is [given below](#make).
 
+---
+
 ## [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
 #### Why Snakemake?
@@ -82,7 +85,7 @@ outputs: inputs
 <br>
 <img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
 
-
+---
 
 ### Simple workflow with Snakemake
 
@@ -369,6 +372,8 @@ Job counts:
 >   the plot gets generated.
 {: .task}
 
+---
+
 ### A new default target 
 
 We will now write a new rule for the target `results.txt,` which will
@@ -404,6 +409,8 @@ last  12244	5566	2.20
 
 > Changing code might also change the output, so source files
 > should be treated as dependencies.
+
+---
 
 ### Wildcards and named dependencies
 
@@ -444,6 +451,8 @@ Finished job 0.
 4 of 4 steps (100%) done
 ```
 
+---
+
 ### Globbing and expanding wildcards
 
 The `snakemake.io` module comes with a set of useful functions. To 
@@ -465,6 +474,8 @@ rule zipf_test:
     shell:  'python {input.zipf} {input.books} > {output}'
 ```
 This is particularly useful if a rule has lots of dependencies.
+
+---
 
 ### Pattern rules
 
@@ -514,9 +525,9 @@ This general rule uses the wildcard `{file}` as a placeholder for any book in th
 > dependencies and pattern rules to remove all repetitions!
 {: .task}
 
+---
+
 ### OPTIONAL: further topics
-
-
 
 #### Resources and parallelism
 
@@ -739,6 +750,7 @@ rule make_archive:
 
 Visit [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
+---
 
 ### Simple workflow with Make {#make}
 
@@ -857,6 +869,8 @@ $ make clean
 >      both the plot and the results.txt file get generated.
 {: .task}
 
+---
+
 ### Wildcards
 
 Just as with Snakemake, Make supports wildcards to reduce repetition.  
@@ -883,6 +897,8 @@ $(RESDIR)/results.txt: $(DATA) source/zipf_test.py
 
 Note that we have used the functions `wildcard` and `pathsubst`, and also introduced the variables 
 `SRCDIR`, `TMPDIR` and `RESDIR`.
+
+---
 
 ### Pattern rules
 
