@@ -46,6 +46,10 @@ dependencies into a virtual environment:
 - Manages isolated software environments.
 - Allows you to create and share conda packages.
 
+<a href="https://medium.freecodecamp.org/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c">
+<img src="/reproducible-research/img/conda_cartoon.jpeg" style="height: 300px;"/>
+</a>
+
 ### Conda as a package manager
 
 With conda it is easy to list, search for, install, remove and update packages.
