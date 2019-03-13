@@ -167,33 +167,31 @@ $ conda remove snakemake-minimal
 
 - Our colleague emails us a code which depends on specific versions of 
   several packages.
-- We have the packages installed but not in the right versions.
-- Can we create an isolated environment to run our colleague's code, 
-  without interfering with dependencies of other software we have installed?
+- We have some of the packages installed but not in the right versions.
+- Can we create an isolated environment to run the code, 
+  without breaking other software we have installed?
 
 Conda allows us to create isolated environments for different 
 software projects. For simplicity's sake, let's say our colleague 
 is using pandas version 0.20.3, while we have pandas 0.24.1.
-We create a new conda environment, and specify the versions of pandas 
-and Python:
+We create a new conda environment, and specify the versions of pandas:
 
 ```shell
 $ conda create -n pd20 pandas=0.20
 
 ## Package Plan ##
 
-  environment location: /Users/ktw/anaconda3/envs/pd20_py27
+  environment location: /Users/ktw/anaconda3/envs/pd20
 
   added / updated specs:
     - pandas=0.20
-    - python=2.7
 
 The following packages will be downloaded:
 ...
 
 # To activate this environment, use
 #
-#     $ conda activate pd20_py27
+#     $ conda activate pd20
 ...
 ```
 
@@ -202,7 +200,7 @@ versions:
 ```shell
 $ conda activate pd20
 
-(pd20_py27) $ python -c "import pandas ; print(pandas.__version__)"
+(pd20)$ python -c "import pandas ; print(pandas.__version__)"
 0.20.3
 ```
 
@@ -217,17 +215,17 @@ pd20                  *  /Users/ktw/anaconda3/envs/pd20
 #### Reproducibility
 
 Specifying a single version number of a package is simple, but 
-normally, for increased control, portability and reproducibility, 
+for increased control, portability and reproducibility, 
 we should use a file (in yaml or txt format) specifying packages, 
 versions and channels needed to create the environment for a project.
 
-Conda can create this file for you, in one of two ways:
+Conda can generate this file for you, in one of two ways:
 ```shell
 $ conda env export > environment.yml      # exports in yaml format
 $ conda list --export > requirements.txt  # exports in simple text
 ```
 
-**The environment/requirements file should be tracked in the same 
+- **The environment/requirements file should be tracked in the same 
 repository as the source code!**
 
 In the [word-count project](https://github.com/coderefinery/word-count) 
@@ -244,19 +242,46 @@ $ conda activate word-count
 ### Using conda to share a package
 
 Conda packages can be built from a *recipe* and shared on 
-[anaconda.org](https://anaconda.org/) via e.g. conda-forge, 
-[or your own private or public channel](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/create-custom-channels.html).
+[anaconda.org](https://anaconda.org/) via
+[your own private or public channel](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/create-custom-channels.html), or
+via [conda-forge](https://conda-forge.org).
 
-- [conda-forge](https://conda-forge.org) is a GitHub organization containing repositories of conda recipes. 
+- conda-forge is a GitHub organization containing repositories of conda 
+  recipes. 
+- Has become the de facto standard channel for packages.
 - Several continuous integration providers ensure that each repository 
   ("feedstock") automatically builds its own recipe on Windows, Linux and OSX.
 
+A step-by-step guide on how to contribute packages can be found in the
+[conda-forge documentation](http://conda-forge.org/docs/maintainer/adding_pkgs.html). 
 
-- conda-build, conda skeleton
-- bld.bat and/or build.sh usually not needed for Python packages
+To get an idea of what's needed, let's have a look at the 
+[boost feedstock](https://github.com/conda-forge/boost-feedstock/tree/2ceef9da69969ab3c0ae42817574b6c5b3219c99) (a set of C++ libraries). We see that:
+- Every commit is tested on every platform.
+- There's a list of maintainers.
+- There's a [meta.yaml file](https://github.com/conda-forge/boost-feedstock/blob/2ceef9da69969ab3c0ae42817574b6c5b3219c99/recipe/meta.yaml) under the `recipe/` directory, along with (optional) `build.sh` and `bld.bat` files for building 
+  non-python code on OSX/Linux and Windows platforms.
 
+---
 
+### Conda vs pip vs virtualenv vs pipenv vs poetry...
 
+- Conda arose from the Python (PyData) community, but is designed to 
+  manage packages and dependencies within any software stack (less like pip, 
+  more like a cross-platform version of apt or yum).
+
+- When it comes to packaging and dependency management in Python 
+  (which can be rather convoluted and hard to understand) many alternative 
+  tools exist.
+
+| Tool | Purpose | Comments |
+| ----- | ------ | -------- |
+| [pip](https://pypi.org/project/pip/) | Python package installer | Can be used with conda. | 
+| [virtualenv](https://virtualenv.pypa.io/en/latest/) | Tool to create isolated Python environments | Partly integrated into standard library under `venv` module. |
+| [pipenv](https://pipenv.readthedocs.io/en/latest/) | Python package and virtualenv management | Official PyPA recommendation, replaces `pip` and `virtualenv`. |
+| [poetry](https://poetry.eustace.io/) | Handle dependency installation, building/packaging of Python packages | Competitor to `pipenv`. | 
+
+---
 
 ## Containers
 
