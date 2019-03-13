@@ -309,6 +309,8 @@ To get an idea of what's needed, let's have a look at the
 - Docker provides containerization in software level.
 - Available for most common operating systems.
 - Provides an easy and fast way to bundle all the necessary libraries and data together.
+- A mechanism to "send the computer to the data", when data is too large 
+  or too sensitive to travel over network.
 - DockerHub is a platform to share Docker images (stored in repositories - similar to Git repository).
 - Public Docker images available on [DockerHub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 
