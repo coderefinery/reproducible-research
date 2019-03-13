@@ -20,8 +20,16 @@ keypoints:
 - Many research codes can be problematic to install and configure without experts.
 - Can we bundle all the necessary dependencies together, making it easier to run the software?
 
-Here we will look into two rather different ways to bundle together 
-dependencies into a *virtual environment*:
+There are many ways to accomplish this, which differ in the scope
+of virtualization:
+
+| --- | --- |
+| Virtual environments | Isolated *software environments* provided by environment management systems. |
+| Operating-system-level virtualization | *Containers* sharing the host system's kernel. |
+| Full virtualization | *Virtual machines* (VMs) emulating a computer system, providing functionality to run entire operating system. |
+
+Here we will look into the first two approaches to bundle together 
+dependencies into a virtual environment:
 - **[Conda](https://docs.conda.io/en/latest/)**, a language agnostic, 
   cross-platform package, dependency and environment manager.
 - **[Docker](https://www.docker.com/)**, a tool for creating, deploying, 
