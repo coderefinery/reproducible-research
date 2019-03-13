@@ -281,6 +281,10 @@ To get an idea of what's needed, let's have a look at the
 | [pipenv](https://pipenv.readthedocs.io/en/latest/) | Python package and virtualenv management | Official PyPA recommendation, replaces `pip` and `virtualenv`. |
 | [poetry](https://poetry.eustace.io/) | Handle dependency installation, building/packaging of Python packages | Competitor to `pipenv`. | 
 
+<a href="https://xkcd.com/1987/">
+<img src="/reproducible-research/img/python_environment.png" style="height: 300px;" class="center">
+</a>
+
 ---
 
 ## Containers
