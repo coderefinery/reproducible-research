@@ -17,7 +17,7 @@ keypoints:
 
 - Software may have lots of dependencies which may be difficult to recreate.
 - Results should be possible to reproduce regardless of platform and with minimal effort.
-- Many research codes can be problematic to install and configure without experts.
+- Many research codes can be problematic to install and configure without experts (see ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell)).
 - Can we bundle all the necessary dependencies together, making it easier to run the software?
 
 There are many ways to accomplish this, which differ in the scope
@@ -39,8 +39,8 @@ dependencies into a virtual environment:
 
 <img src="/reproducible-research/img/conda_logo.svg" style="height: 40px;"/>
 
-- Created by Continuum Analytics, part of the Anaconda/Miniconda 
-  Python distributions.
+- Created by Continuum Analytics, part of Anaconda/Miniconda 
+  but can be installed standalone.
 - Open source BSD license.
 - Installs binary conda packages.
 - Manages isolated software environments.
@@ -82,8 +82,8 @@ $ conda config --get channels
 ```
 
 Ok, so we might need to look into other conda channels. This we can do 
-either via the `anaconda` command, or through the 
-[Anaconda Cloud](https://anaconda.org/).
+either via [Anaconda Cloud](https://anaconda.org/) or through
+the `anaconda` command:
 
 ```shell
 $ anaconda search snakemake
@@ -105,7 +105,7 @@ in the bioconda channel, display it's information, and compare it to
 the full snakemake package. We'll also limit ourselves to version 5.4.3:
 
 ```shell
-$ conda search -c bioconda snakemake-minimal --info
+$ conda search -c bioconda snakemake-minimal=5.4.3 --info
 
 snakemake-minimal 5.4.3 py_0
 ----------------------------
@@ -301,20 +301,19 @@ To get an idea of what's needed, let's have a look at the
 
 ## Containers
 
-- Containers can be built to bundle all the necessary ingredients (data, code, environment).
-- A great solution to the problem of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
+A deeper level of virtualization is provided by container technology.
+
+- Containers can be built to bundle *all the necessary ingredients* (data, code, environment).
 - Allows for seamlessly moving workflows across different platforms.
-- A container provides operating-system-level virtualization, i.e. it shares the host system’s kernel with other containers.
+- A container provides operating-system-level virtualization, sharing the host system’s kernel with other containers.
 - Popular container implementations are **[Docker](https://www.docker.com/)** and **[Singularity](http://singularity.lbl.gov/)**.
 - "[the term] is borrowed from Shipping Containers, which define a standard to ship goods globally. Docker defines a standard to ship software." ([from the Docker documentation](https://docs.docker.com/glossary/)).
 
 ### Docker
 
-- Docker provides containerization in software level.
 - Available for most common operating systems.
-- Provides an easy and fast way to bundle all the necessary libraries and data together.
-- A mechanism to "send the computer to the data", when data is too large 
-  or too sensitive to travel over network.
+- A mechanism to "send the computer to the data" when data is too 
+  large/sensitive to travel over network.
 - DockerHub is a platform to share Docker images (stored in repositories - similar to Git repository).
 - Public Docker images available on [DockerHub](https://hub.docker.com/) but a word of warning: <span style="color: red">not all images can be trusted! There have been examples of contaminated images so investigate before using images blindly</span>.
 
@@ -323,8 +322,7 @@ To get an idea of what's needed, let's have a look at the
 ### Singularity 
 
 - [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources.
-- Docker is compatible with Singularity:
-  - Docker images can be converted into Singularity images.
+- Docker images can be converted into Singularity images.
 
 ---
 
@@ -341,63 +339,33 @@ or daemon, which, in turn, does all the work.
    - Executes the commands sent to the Docker client. Manages containers, images, builds, etc.
 - Docker registry
    - Stores Docker images. DockerHub and Docker Cloud are public registries that anyone can use, and Docker is configured to look for images on DockerHub by default.
-   - You can even run your own private registry.
 
+---
 
 ### What are Docker images and containers
 
 - A Docker *image* is executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings.
 - When you start the image, you have a running *container* of this image.
 
-Getting help:
-```shell
-$ docker help <command>
-```
+--- 
 
-Listing Docker images:
-```shell
-$ docker images
-```
-Searching Docker images from DockerHub:
-```shell
-$ docker search ubuntu
-```
-Pulling from DockerHub (pulls the latest one by default if no tag is mentioned):
-```shell
-$ docker pull ubuntu
-```
-Starting container from the pulled image:
-```shell
-$ docker run -i -t ubuntu
-  
--i flag keeps STDIN open from the container
--t flag provides an interactive shell to the container
-```
-   
-Check running containers:
-```shell
-$ docker ps
-```
-Check all containers (also those not running):
-```shell
-$ docker ps -a
-```
-Stop the container:
-```shell
-$ docker stop container_id or name
-```
-Start (in interactive mode) a stopped container:
-```shell
-$ docker start -i container_id or name
-```
-Remove a container:
-```shell
-$ docker rm <container name>
-```
-Remove an image:
-```shell
-$ docker rmi <image name>
-```
+### Docker commands
+
+| Command  | Effect  |
+| -------- | ------- |
+| `docker help <command>` | Get help |
+| `docker images` | List Docker images |
+| `docker search ubuntu` | Search Docker images from DockerHub |
+| `docker pull ubuntu` | Pull from DockerHub |
+| `docker run -i -t ubuntu` | Start container from pulled image (-i keeps STDIN open, -t provides an interactive shell) |
+| `docker ps` | Check running containers |
+| `docker ps -a` | Check all containers (also those not running) |
+| `docker stop container_id/name` | Stop the container |
+| `docker start -i container_id/name` | Start (in interactive mode) a stopped container |
+| `docker rm <container name>` | Remove a container |
+| `docker rmi <image name>` | Remove an image |
+
+---
 
 ### Building Docker images
 
@@ -424,15 +392,18 @@ LABEL - adds metadata to an image and is a key-value pair
 ..
 ```
 
-#### Mnemonics
+> ## Mnemonics
+> 
+> - The Dockerfile is like a cooking recipe, building an image from the 
+>   Dockerfile is like doing the actual cooking.
+> - Running the Docker image to create a container doesn't have a good 
+>   cooking analogy, but:
+>   - a Docker image is like a *class* in OOP, a Docker container is like an instance of the class.
+{: .callout}
 
-- The Dockerfile is like a cooking recipe, building an image from the Dockerfile 
-  is like doing the actual cooking.
-- Running the Docker image to create a container doesn't have a good cooking analogy, but:
-  - a Docker image is like a *class* in OOP, a Docker container is like an instance of the class.
-
+---
   
-## Type-along exercise: Containerizing our workflow
+### Containerizing our workflow
 
 > This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episodes
 
@@ -493,8 +464,9 @@ ubuntu              16.04               7aa3602ab41e        3 weeks ago         
 
 - We now have two images, the *base image* `ubuntu:16.04` is the parent of our `word_count:0.1` image.
 
+---
 
-## Starting containers from images
+### Starting containers from images
 
 We can run a container using `docker run` command:
 
@@ -510,7 +482,7 @@ $ docker ps
 
 ---
 
-## Managing data
+### Managing data
 
 - Docker containers should be disposable - the data must be saved elsewhere.
 - A Docker volume allows data to persist, even when a container is deleted. Volumes are also a convenient way to share data between the host and the container.
@@ -530,7 +502,9 @@ The `results_directory` folder will have the results of our word count example p
 
 We can also specify snakemake (or  any other command) as the default command to run when our container starts, by giving it as parameter for CMD in Dockerfile. 
 
-## Sharing a Docker image
+---
+
+### Sharing a Docker image
 - DockerHub - A platform to share Docker images.
 - Login to DockerHub:
 
