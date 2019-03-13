@@ -9,7 +9,7 @@ questions:
 objectives:
   - "Get a basic idea of how virtualization tools can be used to capture research software environments"
 keypoints:
-  - Use virtual environments or containers to share reproducible software environments
+  - Virtual environments and containers can enable researchers to share reproducible software environments
 
 ---
 
@@ -290,7 +290,7 @@ To get an idea of what's needed, let's have a look at the
 | ----- | ------ | -------- |
 | [pip](https://pypi.org/project/pip/) | Python package installer | Can be used with conda. | 
 | [virtualenv](https://virtualenv.pypa.io/en/latest/) | Tool to create isolated Python environments | Partly integrated into standard library under `venv` module. |
-| [pipenv](https://pipenv.readthedocs.io/en/latest/) | Python package and virtualenv management | Official PyPA recommendation, replaces `pip` and `virtualenv`. |
+| [pipenv](https://pipenv.readthedocs.io/en/latest/) | Python package and virtualenv management | Official PyPA recommendation, combines functionality of `pip` and `virtualenv`. |
 | [poetry](https://poetry.eustace.io/) | Handle dependency installation, building/packaging of Python packages | Competitor to `pipenv`. | 
 
 <a href="https://xkcd.com/1987/">
@@ -304,10 +304,10 @@ To get an idea of what's needed, let's have a look at the
 A deeper level of virtualization is provided by container technology.
 
 - Containers can be built to bundle *all the necessary ingredients* (data, code, environment).
-- Allows for seamlessly moving workflows across different platforms.
 - A container provides operating-system-level virtualization, sharing the host system’s kernel with other containers.
 - Popular container implementations are **[Docker](https://www.docker.com/)** and **[Singularity](http://singularity.lbl.gov/)**.
 - "[the term] is borrowed from Shipping Containers, which define a standard to ship goods globally. Docker defines a standard to ship software." ([from the Docker documentation](https://docs.docker.com/glossary/)).
+
 
 ### Docker
 
@@ -519,6 +519,30 @@ we should have used `<dockerhub-username>/word_count` above):
 $ docker push image_name
   ```
 - For proprietary/sensitive images private Docker registries can be used
+
+---
+
+### Pros and cons of containers
+
+Containers are popular for a reason - they solve a number of 
+important problems:
+- Allow for seamlessly moving workflows across different platforms.
+- Much more lightweight than virtual machines.
+- Eliminates the "works on my machine" situation
+
+However, containers may also have some drawbacks:
+- Containers can have security vulnerabilities which can be exploited.
+- Can be used to hide away software installation problems and thereby 
+  discourage good software development practices.
+- A "super-glued" container image is not good for reproducibility 
+  - a *recipe* for creating the image is better
+
+> ## Exercise: reproducibility aspects of virtual environments
+>
+> - Do you think containers contribute to reproducible research?
+> - Do you see a use case for your own work?
+{: .task}
+
 
 ---
 
