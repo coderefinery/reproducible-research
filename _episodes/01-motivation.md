@@ -56,6 +56,7 @@ keypoints:
 - Software used to generate original results unavailable
 - Difficult to recreate software environment (libraries, versions) used to generate original results
    
+ <img src="/reproducible-research/img/Miracle.jpg" style="height: 200px;"/>
  
 ## Levels of reproducibility
 
