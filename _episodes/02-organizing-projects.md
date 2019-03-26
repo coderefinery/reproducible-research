@@ -132,7 +132,7 @@ considering and making good decisions, even if non-open.
 
 ---
 
-### Services for sharing and collaborating on research data
+### International services for sharing and collaborating on research data
 - [Zenodo](https://zenodo.org/): A general-purpose open access repository 
   created by OpenAIRE and CERN. Integration with GitHub, allows 
   researchers to upload files up to 50 GB.
@@ -148,6 +148,11 @@ considering and making good decisions, even if non-open.
 - [The Open Science Framework](https://osf.io/): Gives free accounts for collaboration 
   around files and other research artifacts. Each account can have up to 5 GB of files 
   without any problem, and it remains private until you make it public.
+
+To find a research data repository for your data, you can search on the
+[Registry of Research Data Repositories (re3data)](https://www.re3data.org/) 
+platform and filter by country, content type, discipline, etc.
+
 
 > ## Exercise: Get a DOI by connecting your repository to Zenodo
 >
