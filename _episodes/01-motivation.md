@@ -65,5 +65,16 @@ but multiple tools exist to make it easier.
 
 <img src="/reproducible-research/img/repro-pyramid.png" style="height: 300px;"/>
 
-   
-   
+
+
+> ## Exercise: Examples of non-reproducibility
+>
+> Computer programs are supposed to be exact and always give the same
+> output for the same inputs, so we have perfect reproducibility.  Is
+> that true in science?
+>
+> Discuss with your neighbors.  What are some examples of how software
+> can be non-reproducible?  What can be done about it?
+>
+{: .task}
+
