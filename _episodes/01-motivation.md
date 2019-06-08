@@ -22,17 +22,17 @@ keypoints:
 - The researchers can't find some of the data they used to generate the original results, and
   can't figure out which parameters they used when running their analyses.
 - The manuscript is still languishing in the drawer ...
-  
+
 ---
 
 ## What is reproducible research?
 
-> “reproducibility refers to the ability of a researcher to duplicate the
-> results of a prior study using the same materials as were used by the
+> “reproducibility refers to the ability of a researcher to **duplicate the
+> results** of a prior study using the same materials as were used by the
 > original investigator. That is, a second researcher might use the same raw
 > data to build the same analysis files and implement the same statistical
 > analysis in an attempt to yield the same results. Reproducibility is a
-> minimum necessary condition for a finding to be believable and informative.” 
+> **minimum necessary condition** for a finding to be believable and informative.”
 >
 > -- <cite> U.S. National Science Foundation (NSF) subcommittee on replicability in science</cite>
 
@@ -49,7 +49,7 @@ keypoints:
 
 ## Why all the talk about reproducible research?
    - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
- 
+
  <img src="{{ site.baseurl }}/img/reproducibility_nature.png" style="height: 400px;"/>
 
 ---
@@ -60,9 +60,9 @@ keypoints:
 - Data used to generate original results unavailable
 - Software used to generate original results unavailable
 - Difficult to recreate software environment (libraries, versions) used to generate original results
-   
+
  <img src="{{ site.baseurl }}/img/Miracle.jpg" style="height: 200px;"/>
- 
+
 ## Levels of reproducibility
 
 Ensuring that one's research is fully reproducible can be a challenging task,
