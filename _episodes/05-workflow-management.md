@@ -1,17 +1,19 @@
 ---
 layout: episode
-title: "Workflow management tools"
+title: "Recording computational steps"
 teaching: 15
 exercises: 25
 questions:
-  - "How can we create a reproducible workflow?"
-  - "What are scientific workflow management systems?"
+  - How can we create a reproducible workflow?
+  - When to use scientific workflow management systems.
 objectives:
-  - "Get familiar with Make and Snakemake"
+  - Discuss pros/cons of GUI vs. manual steps vs. scripted vs. workflow tools.
+  - Get familiar with Snakemake.
 keypoints:
-  - "Preserve the workflow of generating results"
-  - "Hundreds of workflow management tools exist"
-  - "Make and Snakemake are a comparatively simple and lightweight options to create transferable and scalable data analyses"
+  - Preserve the workflow of generating results.
+  - Hundreds of workflow management tools exist.
+  - Make and Snakemake are a comparatively simple and lightweight options to create transferable and scalable data analyses.
+  - Sometimes a script is enough.
 
 ---
 

@@ -1,15 +1,15 @@
 ---
 layout: episode
-title: "Virtual environments"
+title: "Recording dependencies and environments"
 teaching: 30
 exercises: 10
 questions:
-   - "How to capture the software environment of a computational experiment?"
-   - "How can we communicate different versions of software dependencies?"
+  - How can we communicate different versions of software dependencies?
+  - How to capture the software environment of a computational experiment?
 objectives:
-  - "Get a basic idea of how virtualization tools can be used to capture research software environments"
+  - Get a basic idea of how virtualization tools can be used to capture research software environments.
 keypoints:
-  - Virtual environments and containers can enable researchers to share reproducible software environments
+  - Capturing software dependencies is a must.
 
 ---
 
