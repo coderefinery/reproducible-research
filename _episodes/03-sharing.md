@@ -73,6 +73,7 @@ Note that FAIR principles do not require data/software to be open.
 ---
 
 ### International services for sharing and collaborating on research data
+
 - [Zenodo](https://zenodo.org/): A general-purpose open access repository
   created by OpenAIRE and CERN. Integration with GitHub, allows
   researchers to upload files up to 50 GB.
@@ -96,22 +97,22 @@ platform and filter by country, content type, discipline, etc.
 
 > ## Exercise: Get a DOI by connecting your repository to Zenodo
 >
-> Digital Object Identifiers (DOI) are the backbone of the academic
+> Digital object identifiers (DOI) are the backbone of the academic
 > reference and metrics system. In this exercise we will see how to
 > make a GitHub repository citable by archiving it on the
-> [Zenodo](http://about.zenodo.org/) archiving service.
+> [Zenodo](http://about.zenodo.org/) archiving service:
 >
 > 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
 >   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
-> 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/)
+> 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
 > 3. Find the repository you wish to publish, and flip the switch to ON.
 > 4. Go to GitHub and create a **release**  by clicking the `release` tab and
 >   `Create a new release`  (a release is based on a Git tag,
 >    but is a higher-level GitHub feature),
 > 5. Creating a new release will trigger Zenodo into archiving your repository,
 >   and a DOI badge will be displayed next to your repository after a minute
->   or two. You can include it in your GitHub README file (click the
->   DOI badge and copy the relevant format (Markdown, RST, HTML)).
+>   or two. You can include it in your GitHub README file: click the
+>   DOI badge and copy the relevant format (Markdown, RST, HTML).
 {: .task}
 
 ---
