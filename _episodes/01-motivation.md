@@ -43,10 +43,6 @@ keypoints:
 
 ---
 
-<!--
-   <img src="{{ site.baseurl }}/img/reproducibility_figure.jpg" style="height: 200px;"/>
--->
-
 ## Why all the talk about reproducible research?
    - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
 
