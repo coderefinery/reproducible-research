@@ -21,12 +21,14 @@ published academic article (and possibly supplementary information).
 
  <img src="{{ site.baseurl }}/img/Open_Science_Principles.png" style="height: 200px;"/>
 
-Sharing research data has pros and cons [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
+Arguments in favor [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
 - Open access publication of research reports and data allows for rigorous peer-review
 - Science is publicly funded so all results of the research should be publicly available
 - Open Science will make science more reproducible and transparent
 - Open Science has more impact
 - Open Science will help answer uniquely complex questions
+
+Arguments against [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
 - Too much unsorted information overwhelms scientists
 - Potential misuse
 - The public will misunderstand science data
