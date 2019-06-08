@@ -37,7 +37,7 @@ dependencies into a virtual environment:
 
 ---
 
-<img src="/reproducible-research/img/conda_logo.svg" style="height: 40px;"/>
+<img src="{{ site.baseurl }}/img/conda_logo.svg" style="height: 40px;"/>
 
 - Created by Continuum Analytics, part of Anaconda/Miniconda
   but can be installed standalone.
@@ -47,7 +47,7 @@ dependencies into a virtual environment:
 - Allows you to create and share conda packages.
 
 <a href="https://medium.freecodecamp.org/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c">
-<img src="/reproducible-research/img/conda_cartoon.jpeg" style="height: 300px;"/>
+<img src="{{ site.baseurl }}/img/conda_cartoon.jpeg" style="height: 300px;"/>
 </a>
 
 ### Conda as a package manager
@@ -294,7 +294,7 @@ To get an idea of what's needed, let's have a look at the
 | [poetry](https://poetry.eustace.io/) | Handle dependency installation, building/packaging of Python packages | Competitor to `pipenv`. |
 
 <a href="https://xkcd.com/1987/">
-<img src="/reproducible-research/img/python_environment.png" style="height: 300px;" class="center">
+<img src="{{ site.baseurl }}/img/python_environment.png" style="height: 300px;" class="center">
 </a>
 
 ---
@@ -331,7 +331,7 @@ A deeper level of virtualization is provided by container technology.
 - Docker is a client-server application. The Docker client talks to the Docker server
 or daemon, which, in turn, does all the work.
 
-<img src="/reproducible-research/img/docker_architecture.svg" style="height: 400px;"/>
+<img src="{{ site.baseurl }}/img/docker_architecture.svg" style="height: 400px;"/>
 
 - Docker client
    - End user uses Docker client to communicate with Docker daemon .

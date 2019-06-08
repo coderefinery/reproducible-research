@@ -12,7 +12,7 @@ keypoints:
   - "Many factors on multiple levels influence reproducibility"
 ---
 
-<img src="/reproducible-research/img/research_comic_phd.gif" style="height: 300px;"/>
+<img src="{{ site.baseurl }}/img/research_comic_phd.gif" style="height: 300px;"/>
 
 ## Food for thought
 
@@ -39,13 +39,13 @@ keypoints:
 ---
 
 <!--
-   <img src="/reproducible-research/img/reproducibility_figure.jpg" style="height: 200px;"/>
+   <img src="{{ site.baseurl }}/img/reproducibility_figure.jpg" style="height: 200px;"/>
 -->
 
 ## Why all the talk about reproducible research?
    - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
-
- <img src="/reproducible-research/img/reproducibility_nature.png" style="height: 400px;"/>
+ 
+ <img src="{{ site.baseurl }}/img/reproducibility_nature.png" style="height: 400px;"/>
 
 ---
 
@@ -55,15 +55,15 @@ keypoints:
 - Data used to generate original results unavailable
 - Software used to generate original results unavailable
 - Difficult to recreate software environment (libraries, versions) used to generate original results
-
- <img src="/reproducible-research/img/Miracle.jpg" style="height: 200px;"/>
-
+   
+ <img src="{{ site.baseurl }}/img/Miracle.jpg" style="height: 200px;"/>
+ 
 ## Levels of reproducibility
 
 Ensuring that one's research is fully reproducible can be a challenging task,
 but multiple tools exist to make it easier.
 
-<img src="/reproducible-research/img/repro-pyramid.png" style="height: 300px;"/>
+<img src="{{ site.baseurl }}/img/repro-pyramid.png" style="height: 300px;"/>
 
 
 

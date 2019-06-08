@@ -84,7 +84,7 @@ The Open Science movement encourages researchers
 to share research output beyond the contents of a
 published academic article (and possibly supplementary information).
 
- <img src="/reproducible-research/img/Open_Science_Principles.png" style="height: 200px;"/>
+ <img src="{{ site.baseurl }}/img/Open_Science_Principles.png" style="height: 200px;"/>
 
 Sharing research data has pros and cons [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
 - Open access publication of research reports and data allows for rigorous peer-review

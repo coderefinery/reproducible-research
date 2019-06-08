@@ -83,7 +83,7 @@ outputs: inputs
 - Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
 
 <br>
-<img src="/reproducible-research/img/snakemake.png" style="height: 250px;"/>
+<img src="{{ site.baseurl }}/img/snakemake.png" style="height: 250px;"/>
 
 ---
 
@@ -278,7 +278,7 @@ $ snakemake --dag | dot -Tpng > dag.png
 ```
 Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
 
-<img src="/reproducible-research/img/snakemake_simpledag.png" style="height: 150px;"/>
+<img src="{{ site.baseurl }}/img/snakemake_simpledag.png" style="height: 150px;"/>
 
 #### Testing before running
 
@@ -744,7 +744,7 @@ rule make_archive:
     shell: 'tar -czvf {output} {input}'
 ```
 
-<img src="/reproducible-research/img/snakemake_dag.png" style="height: 300px;"/>
+<img src="{{ site.baseurl }}/img/snakemake_dag.png" style="height: 300px;"/>
 
 #### Further documentation
 
