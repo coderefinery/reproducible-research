@@ -27,7 +27,12 @@ keypoints:
 
 ## What is reproducible research?
 
-> “reproducibility refers to the ability of a researcher to duplicate the results of a prior study using the same materials as were used by the original investigator. That is, a second researcher might use the same raw data to build the same analysis files and implement the same statistical analysis in an attempt to yield the same results. Reproducibility is a minimum necessary condition for a finding to be believable and informative.”
+> “reproducibility refers to the ability of a researcher to duplicate the
+> results of a prior study using the same materials as were used by the
+> original investigator. That is, a second researcher might use the same raw
+> data to build the same analysis files and implement the same statistical
+> analysis in an attempt to yield the same results. Reproducibility is a
+> minimum necessary condition for a finding to be believable and informative.” 
 >
 > -- <cite> U.S. National Science Foundation (NSF) subcommittee on replicability in science</cite>
 
