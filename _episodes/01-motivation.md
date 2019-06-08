@@ -36,7 +36,7 @@ keypoints:
 >
 > -- <cite> U.S. National Science Foundation (NSF) subcommittee on replicability in science</cite>
 
-- For any research project, an independent researcher should be able to replicate an experiment under the same conditions and obtain the same results
+- For any research project, an independent researcher should be able to replicate an experiment:
   - the same results should be obtained under the same contitions
   - it should be possible to recreate the same conditions!
 - "Experiment" is interpreted in a wide sense, encompassing also computational work
