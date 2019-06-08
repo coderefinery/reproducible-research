@@ -4,8 +4,8 @@ title: "Motivation"
 teaching: 10
 exercises: 0
 questions:
-  - "Why should research be reproducible?"
-  - "Why is research sometimes irreproducible?"
+  - "Should research software and data be reproducible?"
+  - "Are they?"
 objectives:
   - "Discuss factors affecting reproducibility in research"
 keypoints:
