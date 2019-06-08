@@ -15,6 +15,18 @@ keypoints:
 
 ---
 
+# Documenting and automating your workflow
+
+Reproducible workflows enable you to figure out precisely what data and what code were used to generate a result:
+
+ - Provide a historical record (provenance) of data, its origins and causal relationships
+ - Can be used to ensure quality of data based on ancestral data, or find sources of errors
+ - Allow automated recreation of data
+ - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems)
+ - We will practice reproducible workflows in the next episode
+
+---
+
 # Scientific workflows
 
 - Orchestrated and repeatable pattern for a series of computational or data manipulation steps.
