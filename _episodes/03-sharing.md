@@ -37,10 +37,10 @@ Arguments against [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science)
 
 ---
 
-### Research data buzzwords
+### FAIR principles
 
-"FAIR" is the current buzzword for data management.  You may be asked
-about it in, for example, making data management plans for grants
+"FAIR" is the current buzzword for data management. You may be asked
+about it in, for example, making data management plans for grants:
 
 - **F**indable
   - Will anyone else know that your data exists?
@@ -59,10 +59,13 @@ about it in, for example, making data management plans for grants
 
 Even though this is usually referred to as "open data", it means
 considering and making good decisions, even if non-open.
-> FAIR principles are usually discussed in the context of data,
-> but they apply also for research software.
 
-> ## Exercise: Discuss Open Science
+FAIR principles are usually discussed in the context of data,
+but they apply also for research software.
+
+Note that FAIR principles do not require data/software to be open.
+
+> ## Exercise: Discuss open science
 > - Do you share any other research outputs besides published articles and possibly source code?
 > - Discuss pros and cons of sharing research data.
 {: .task}
