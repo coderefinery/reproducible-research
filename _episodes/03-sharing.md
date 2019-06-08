@@ -120,5 +120,6 @@ platform and filter by country, content type, discipline, etc.
 
 - [The Turing way](https://github.com/alan-turing-institute/the-turing-way/blob/master/chapters/open_research.md)
 - [Reproduciblity syllabus](http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/)
-- The [reproducible research data analysis platform](http://www.reana.io/).
+- The [reproducible research data analysis platform](http://www.reana.io/)
 - Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).
+- ["FAIR is not fair enough"]([https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/)
