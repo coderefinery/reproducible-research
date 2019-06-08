@@ -44,9 +44,13 @@ keypoints:
 ---
 
 ## Why all the talk about reproducible research?
-   - A recent [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) in Nature revealed that irreproducible experiments are a problem across all domains of science.
 
- <img src="{{ site.baseurl }}/img/reproducibility_nature.png" style="height: 400px;"/>
+A recent
+[survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
+in Nature revealed that irreproducible experiments are a problem across all
+domains of science:
+
+<img src="{{ site.baseurl }}/img/reproducibility_nature.png" style="height: 400px;"/>
 
 ---
 
