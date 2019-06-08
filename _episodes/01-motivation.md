@@ -8,8 +8,6 @@ questions:
   - "Are they?"
 objectives:
   - "Discuss factors affecting reproducibility in research"
-keypoints:
-  - "Many factors on multiple levels influence reproducibility"
 ---
 
 <img src="{{ site.baseurl }}/img/research_comic_phd.gif" style="height: 300px;"/>
@@ -63,6 +61,7 @@ domains of science:
 
  <img src="{{ site.baseurl }}/img/Miracle.jpg" style="height: 200px;"/>
 
+
 ## Levels of reproducibility
 
 Ensuring that one's research is fully reproducible can be a challenging task,
@@ -71,15 +70,13 @@ but multiple tools exist to make it easier.
 <img src="{{ site.baseurl }}/img/repro-pyramid.png" style="height: 300px;"/>
 
 
+## Discussion
 
-> ## Exercise: Examples of non-reproducibility
+> ## Discuss with your neighbors or among all participants
 >
-> Computer programs are supposed to be exact and always give the same
-> output for the same inputs, so we have perfect reproducibility.  Is
-> that true in science?
+> Computer programs are expected to produce the same
+> output for the same inputs. Is
+> that true for research software?
 >
-> Discuss with your neighbors.  What are some examples of how software
-> can be non-reproducible?  What can be done about it?
->
+> Can you give some examples? What can we do about it?
 {: .task}
-
