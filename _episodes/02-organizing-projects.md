@@ -3,7 +3,7 @@ layout: episode
 title: "Organizing your projects"
 teaching: 10
 exercises: 15
-questions:  
+questions:
   - "How should we organize files in a research project?"
   - "How can I share research code and data?"
 objectives:
@@ -49,14 +49,14 @@ project_name/
 ## Tracking source code, data and results
 
 - All code is version controlled and goes in the `source/` directory
-- Include appropriate LICENSE file and information on software requirements 
+- Include appropriate LICENSE file and information on software requirements
 - You can also version control data files or input files under `data/`
 - If data files are too large (or sensitive) to track, untrack them using `.gitignore`
 - Intermediate files from the analysis are kept in `processed_data/`
 - Consider using Git tags to track specific versions of results (and/or the code that gives the particular results)
   - version submitted to a journal, the dissertation version, the poster version, etc.
   ```bash
-  $ git tag -a <tagname> -m "comment" 
+  $ git tag -a <tagname> -m "comment"
   ```
 - It's a good idea to also put your manuscript under version control
 - Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
@@ -73,15 +73,15 @@ Reproducible workflows enable you to figure out precisely what data and what cod
  - Provide a historical record (provenance) of data, its origins and causal relationships
  - Can be used to ensure quality of data based on ancestral data, or find sources of errors
  - Allow automated recreation of data
- - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) 
+ - Implemented in many [workflow management tools](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems)
  - We will practice reproducible workflows in the next episode
 
 ---
 
 ## Sharing research data
 
-The Open Science movement encourages researchers 
-to share research output beyond the contents of a 
+The Open Science movement encourages researchers
+to share research output beyond the contents of a
 published academic article (and possibly supplementary information).
 
  <img src="/reproducible-research/img/Open_Science_Principles.png" style="height: 200px;"/>
@@ -127,50 +127,50 @@ considering and making good decisions, even if non-open.
 
 > ## Exercise: Discuss Open Science
 > - Do you share any other research outputs besides published articles and possibly source code?
-> - Discuss pros and cons of sharing research data. 
+> - Discuss pros and cons of sharing research data.
 {: .task}
 
 ---
 
 ### International services for sharing and collaborating on research data
-- [Zenodo](https://zenodo.org/): A general-purpose open access repository 
-  created by OpenAIRE and CERN. Integration with GitHub, allows 
+- [Zenodo](https://zenodo.org/): A general-purpose open access repository
+  created by OpenAIRE and CERN. Integration with GitHub, allows
   researchers to upload files up to 50 GB.
-- [Figshare](https://figshare.com/): Online digital repository where researchers 
+- [Figshare](https://figshare.com/): Online digital repository where researchers
   can preserve and share their research outputs (figures, datasets, images and videos).
-  Users can make all of their research outputs available in a citable, 
+  Users can make all of their research outputs available in a citable,
   shareable and discoverable manner.
 - [EUDAT](https://eudat.eu): European platform for researchers and practitioners from any research discipline to preserve, find, access, and process data in a trusted environment.
-- [Dryad](https://datadryad.org/): A general-purpose home for a wide diversity of datatypes, 
+- [Dryad](https://datadryad.org/): A general-purpose home for a wide diversity of datatypes,
   governed by a nonprofit membership organization.
-  A curated resource that makes the data underlying scientific publications discoverable, 
-  freely reusable, and citable.  
-- [The Open Science Framework](https://osf.io/): Gives free accounts for collaboration 
-  around files and other research artifacts. Each account can have up to 5 GB of files 
+  A curated resource that makes the data underlying scientific publications discoverable,
+  freely reusable, and citable.
+- [The Open Science Framework](https://osf.io/): Gives free accounts for collaboration
+  around files and other research artifacts. Each account can have up to 5 GB of files
   without any problem, and it remains private until you make it public.
 
 To find a research data repository for your data, you can search on the
-[Registry of Research Data Repositories (re3data)](https://www.re3data.org/) 
+[Registry of Research Data Repositories (re3data)](https://www.re3data.org/)
 platform and filter by country, content type, discipline, etc.
 
 
 > ## Exercise: Get a DOI by connecting your repository to Zenodo
 >
-> Digital Object Identifiers (DOI) are the backbone of the academic 
-> reference and metrics system. In this exercise we will see how to 
-> make a GitHub repository citable by archiving it on the 
+> Digital Object Identifiers (DOI) are the backbone of the academic
+> reference and metrics system. In this exercise we will see how to
+> make a GitHub repository citable by archiving it on the
 > [Zenodo](http://about.zenodo.org/) archiving service.
-> 
-> 1. Sign in to Zenodo using your GitHub account. For this exercise, use the 
+>
+> 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
 >   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
 > 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/)
 > 3. Find the repository you wish to publish, and flip the switch to ON.
-> 4. Go to GitHub and create a **release**  by clicking the `release` tab and 
->   `Create a new release`  (a release is based on a Git tag, 
+> 4. Go to GitHub and create a **release**  by clicking the `release` tab and
+>   `Create a new release`  (a release is based on a Git tag,
 >    but is a higher-level GitHub feature),
 > 5. Creating a new release will trigger Zenodo into archiving your repository,
 >   and a DOI badge will be displayed next to your repository after a minute
->   or two. You can include it in your GitHub README file (click the 
+>   or two. You can include it in your GitHub README file (click the
 >   DOI badge and copy the relevant format (Markdown, RST, HTML)).
 {: .task}
 
