@@ -100,10 +100,10 @@ $ pip freeze > requirements.txt
 ```
 $ pip install -r requirements.txt
 ```
-- Creating and sharing your own package: https://packaging.python.org/tutorials/packaging-projects/
+- Creating and sharing your own package: [https://packaging.python.org/tutorials/packaging-projects/](https://packaging.python.org/tutorials/packaging-projects/)
 - It is possible to pip install from GitHub or other places:
 ```
-$ pip install https://packaging.python.org/tutorials/packaging-projects/
+$ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
 ```
 
 ---
