@@ -8,6 +8,7 @@ questions:
 keypoints:
   - Capturing software dependencies is a must for reproducibility.
   - Files like `requirements.txt`, `environment.yml`, `Pipenv`, ..., should be part of the source repository.
+  - Be skeptical when you see dependency lists without versions.
 ---
 
 ## Dependencies
