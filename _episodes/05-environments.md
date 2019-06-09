@@ -41,7 +41,15 @@ questions:
 
 ---
 
-### Pros and cons of containers
+## Container vs. image vs. recipe (Dockerfile)
+
+- Image is like a blueprint. It is immutable.
+- Container is an instance of an image.
+- Dockerfile is a recipe which creates a container based on an image and applies small changes to it.
+
+---
+
+## Pros and cons of containers
 
 Containers are popular for a reason - they solve a number of
 important problems:
@@ -55,7 +63,7 @@ However, containers may also have some drawbacks:
 - Containers can have security vulnerabilities which can be exploited.
 - Can be used to hide away software installation problems and thereby
   discourage good software development practices.
-- It may not be clear whether to record the environment as image or as recipe (Dockerfile).
+- It may not be clear whether to record the environment in the image part or the recipe part.
 
 
 > ## Discussion: reproducibility aspects of container images
