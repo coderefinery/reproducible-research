@@ -48,7 +48,7 @@ A recent
 in Nature revealed that irreproducible experiments are a problem across all
 domains of science:
 
-<img src="{{ site.baseurl }}/img/reproducibility_nature.png" style="height: 400px;"/>
+<img src="{{ site.baseurl }}/img/reproducibility_nature.jpg" style="height: 400px;"/>
 
 ---
 
