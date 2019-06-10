@@ -321,7 +321,9 @@ rule make_archive:
     shell: 'tar -czvf {output} {input}'
 ```
 
-Also Snakemake uses **declarative style**.
+Also Snakemake uses **declarative style**:
+
+<img src="{{ site.baseurl }}/img/snakemake.png" style="height: 250px;"/>
 
 Try it out:
 ```
@@ -371,9 +373,6 @@ $ snakemake -j 4
 - Possible to define isolated software environments per rule.
 - Also possible to run workflows in Docker or Singularity containers.
 - Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
-
-<br>
-<img src="{{ site.baseurl }}/img/snakemake.png" style="height: 250px;"/>
 
 
 ### Visualizing the workflow
