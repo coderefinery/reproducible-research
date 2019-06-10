@@ -475,11 +475,11 @@ rule NAME:
 
 ## Comparison and summary
 
-- GUIs may or may not be reproducible
-- Some GUIs can be automated, many cannot
-- Typing the same series of commands for 100 similar inputs is tedious and error prone: script
-- Imperative scripts are reproducible and great for automation
-- Declarative workflows such as Snakemake are great for longer multi-step analyses
-- Declarative workflows are often easy to parallelize without you changing anything
-- With declarative workflows it is no problem to add/change things late in the project
-- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist
+- GUIs may or may not be reproducible.
+- Some GUIs can be automated, many cannot.
+- Typing the same series of commands for 100 similar inputs is tedious and error prone.
+- Imperative scripts are reproducible and great for automation.
+- Declarative workflows such as Snakemake are great for longer multi-step analyses.
+- Declarative workflows are often easy to parallelize without you changing anything.
+- With declarative workflows it is no problem to add/change things late in the project.
+- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
