@@ -83,7 +83,7 @@ This was for one book - how about 3 books? How about 3000 books?
 Disclaimer: not all GUIs behave this way - there exist very good GUI solutions which enable
 reproducibility and automation.
 
-Imagine we have programmed a GUI with a nicer interface with icons where you can select scripts and input files by clicking:
+Imagine we have programmed a GUI with a nice interface with icons where you can select scripts and input files by clicking:
 - Click on counting script
 - Select book txt file
 - Give a name for the dat file
