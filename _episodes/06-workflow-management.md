@@ -168,17 +168,25 @@ This is still **imperative style**: we tell the script to run these steps in pre
 
 First study the `Makefile`:
 ```makefile
+# directory containing source data
 SRCDIR := data
+
+# directory containing intermediate data
 TMPDIR := processed_data
+
+# results directory
 RESDIR := results
 
+# all source files (book texts)
 SRCS = $(wildcard $(SRCDIR)/*.txt)
-OBJS = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
-OBJS += $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
-OBJS += $(RESDIR)/results.txt
+
+# all intermediate data files
 DATA = $(patsubst $(SRCDIR)/%.txt,$(TMPDIR)/%.dat,$(SRCS))
 
-all: $(OBJS)
+# all images
+IMAGES = $(patsubst $(SRCDIR)/%.txt,$(RESDIR)/%.png,$(SRCS))
+
+all: $(DATA) $(IMAGES) $(RESDIR)/results.txt
 
 $(TMPDIR)/%.dat: $(SRCDIR)/%.txt source/wordcount.py
         python source/wordcount.py $< $@
