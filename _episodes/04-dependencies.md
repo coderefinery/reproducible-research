@@ -36,6 +36,9 @@ These tools try to solve the following problems:
 - Using different Python versions per project
 - Provide tools and services to share packages
 
+Isolated environments are also useful because they help you make sure 
+that you know your dependencies!
+
 ---
 
 > ## Exercise/discussion
