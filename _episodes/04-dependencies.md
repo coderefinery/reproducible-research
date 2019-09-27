@@ -143,7 +143,7 @@ $ conda create --name myenvironment --file requirements.txt
 - On e.g. HPC systems where you don't have write access to central 
   installation directory:
 ```
-$ conda create --path /some/path/to/env
+$ conda create --prefix /some/path/to/env
 ```
 - Activate a specific environment:
 ```
