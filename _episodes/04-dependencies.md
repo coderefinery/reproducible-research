@@ -140,6 +140,11 @@ $ conda create --name myenvironment
 ```
 $ conda create --name myenvironment --file requirements.txt
 ```
+- On e.g. HPC systems where you don't have write access to central 
+  installation directory:
+```
+$ conda create --path /some/path/to/env
+```
 - Activate a specific environment:
 ```
 $ conda activate myenvironment
@@ -160,7 +165,10 @@ $ conda list --export > requirements.txt
 ```
 $ conda env export > environment.yml
 ```
-
+- To clean unnecessary cached files (which grow quickly over time):
+```
+$ conda clean
+```
 
 ### Using conda to share a package
 
