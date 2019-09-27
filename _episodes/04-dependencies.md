@@ -38,44 +38,45 @@ These tools try to solve the following problems:
 
 ---
 
-## Exercise/discussion
-
-Compare these four `requirements.txt` solutions:
-
-**A**:
-
-Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
-
-
-**B**:
-```
-scipy
-numpy
-sympy
-click
-git+https://github.com/someuser/someproject.git@master
-git+https://github.com/anotheruser/anotherproject.git@master
-```
-
-**C**:
-```
-scipy==1.3.1
-numpy==1.16.4
-sympy==1.4
-click==7.0
-git+https://github.com/someuser/someproject.git@d7b2c7e
-git+https://github.com/anotheruser/anotherproject.git@sometag
-```
-
-**D**:
-```
-scipy==1.3.1
-numpy==1.16.4
-sympy==1.4
-click==7.0
-someproject==1.2.3
-anotherproject==2.3.4
-```
+> ## Exercise/discussion
+> 
+> Compare these four `requirements.txt` solutions:
+> 
+> **A**:
+> 
+> Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
+> 
+> 
+> **B**:
+> ```
+> scipy
+> numpy
+> sympy
+> click
+> git+https://github.com/someuser/someproject.git@master
+> git+https://github.com/anotheruser/anotherproject.git@master
+> ```
+> 
+> **C**:
+> ```
+> scipy==1.3.1
+> numpy==1.16.4
+> sympy==1.4
+> click==7.0
+> git+https://github.com/someuser/someproject.git@d7b2c7e
+> git+https://github.com/anotheruser/anotherproject.git@sometag
+> ```
+> 
+> **D**:
+> ```
+> scipy==1.3.1
+> numpy==1.16.4
+> sympy==1.4
+> click==7.0
+> someproject==1.2.3
+> anotherproject==2.3.4
+> ```
+{: .task}
 
 ---
 
