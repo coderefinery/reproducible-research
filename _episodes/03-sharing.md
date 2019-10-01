@@ -65,6 +65,8 @@ but they apply also for research software.
 
 Note that FAIR principles do not require data/software to be open.
 
+
+
 > ## Exercise: Discuss open science
 > - Do you share any other research outputs besides published articles and possibly source code?
 > - Discuss pros and cons of sharing research data.
@@ -124,3 +126,4 @@ platform and filter by country, content type, discipline, etc.
 - The [reproducible research data analysis platform](http://www.reana.io/)
 - Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).
 - ["FAIR is not fair enough"]([https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/)
+- ["Top 10 FAIR Data & Software Things"](https://librarycarpentry.org/Top-10-FAIR/) are brief guides that can be used by the research community to understand how they can make their research (data and software) more FAIR.

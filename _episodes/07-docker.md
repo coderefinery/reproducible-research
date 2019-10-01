@@ -85,7 +85,10 @@ LABEL - adds metadata to an image and is a key-value pair
 
 ### Containerizing our workflow
 
-> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episodes
+> This exercise is based on the [same example project](https://github.com/coderefinery/word-count) as in the previous episodes.
+
+> If you would like to type along but you don't have Docker installed, you 
+> can log in to the ["Play with Docker Classroom"](https://training.play-with-docker.com/) which gives you access to Docker in the cloud.
 
 Let's create a Dockerfile for our example project.
 It is available in the project repository if you want to experiment with

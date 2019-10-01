@@ -36,46 +36,50 @@ These tools try to solve the following problems:
 - Using different Python versions per project
 - Provide tools and services to share packages
 
+Isolated environments are also useful because they help you make sure 
+that you know your dependencies!
+
 ---
 
-## Exercise/discussion
-
-Compare these four `requirements.txt` solutions:
-
-**A**:
-
-Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
-
-
-**B**:
-```
-scipy
-numpy
-sympy
-click
-git+https://github.com/someuser/someproject.git@master
-git+https://github.com/anotheruser/anotherproject.git@master
-```
-
-**C**:
-```
-scipy==1.3.1
-numpy==1.16.4
-sympy==1.4
-click==7.0
-git+https://github.com/someuser/someproject.git@d7b2c7e
-git+https://github.com/anotheruser/anotherproject.git@sometag
-```
-
-**D**:
-```
-scipy==1.3.1
-numpy==1.16.4
-sympy==1.4
-click==7.0
-someproject==1.2.3
-anotherproject==2.3.4
-```
+> ## Exercise/discussion
+> 
+> Compare these four `requirements.txt` solutions:
+> 
+> **A**:
+> 
+> Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
+> 
+> 
+> **B**:
+> ```
+> scipy
+> numpy
+> sympy
+> click
+> git+https://github.com/someuser/someproject.git@master
+> git+https://github.com/anotheruser/anotherproject.git@master
+> ```
+> 
+> **C**:
+> ```
+> scipy==1.3.1
+> numpy==1.16.4
+> sympy==1.4
+> click==7.0
+> git+https://github.com/someuser/someproject.git@d7b2c7e
+> git+https://github.com/anotheruser/anotherproject.git@sometag
+> ```
+> 
+> **D**:
+> ```
+> scipy==1.3.1
+> numpy==1.16.4
+> sympy==1.4
+> click==7.0
+> someproject==1.2.3
+> anotherproject==2.3.4
+> ```
+{: .task}
 
 ---
 
@@ -136,6 +140,11 @@ $ conda create --name myenvironment
 ```
 $ conda create --name myenvironment --file requirements.txt
 ```
+- On e.g. HPC systems where you don't have write access to central 
+  installation directory:
+```
+$ conda create --prefix /some/path/to/env
+```
 - Activate a specific environment:
 ```
 $ conda activate myenvironment
@@ -156,7 +165,10 @@ $ conda list --export > requirements.txt
 ```
 $ conda env export > environment.yml
 ```
-
+- To clean unnecessary cached files (which grow quickly over time):
+```
+$ conda clean
+```
 
 ### Using conda to share a package
 

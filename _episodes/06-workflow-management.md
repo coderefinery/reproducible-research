@@ -339,6 +339,12 @@ $ snakemake clean
 $ snakemake
 ```
 
+Instead of explicitly defining a `clean` rule, one can also remove all 
+output by:
+```
+$ snakemake --delete-all-output
+```
+
 Try running `snakemake` again and observe that and discuss why it refused to rerun all steps:
 ```
 $ snakemake
