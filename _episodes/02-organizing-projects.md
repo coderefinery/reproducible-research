@@ -55,7 +55,21 @@ project_name/
 ```bash
 $ git tag -a <tagname> -m "comment"
 ```
+
+---
+
+## Reproducible publications
+
 - Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
   - [Overleaf](https://www.overleaf.com) (has Git integration)
   - [Authorea](https://www.authorea.com) (apparently also has Git integration)
   - Google Docs can be a good alternative
+
+- Many tools exist to assist in making scholarly output reproducible:
+  - [rttols](https://github.com/benmarwick/rrtools): Instructions, templates, and functions for making a basic compendium suitable for writing a reproducible journal article or report with R.
+  - [Jupyter Notebooks](https://jupyter.org): Web-based interactive 
+    computational environment for creating notebook documents. Can be used for 
+    supplementary material with journal articles.
+  - [mybinder.org](https://mybinder.org): Make a repository with Jupyter 
+    notebooks available in an executable environment.
+   
