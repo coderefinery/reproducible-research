@@ -74,7 +74,36 @@ Note that FAIR principles do not require data/software to be open.
 
 ---
 
-### International services for sharing and collaborating on research data
+> ## Exercise: Get a DOI by connecting your repository to Zenodo
+>
+> Digital object identifiers (DOI) are the backbone of the academic
+> reference and metrics system. In this exercise we will see how to
+> make a GitHub repository citable by archiving it on the
+> [Zenodo](http://about.zenodo.org/) archiving service. Zenodo is a 
+> general-purpose open access repository created by OpenAIRE and CERN.
+>
+> 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
+>   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
+> 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
+> 3. Find the repository you wish to publish, and flip the switch to ON.
+> 4. Go to GitHub and create a **release**  by clicking the `release` tab and
+>   `Create a new release`  (a release is based on a Git tag,
+>    but is a higher-level GitHub feature),
+> 5. Creating a new release will trigger Zenodo into archiving your repository,
+>   and a DOI badge will be displayed next to your repository after a minute
+>   or two. You can include it in your GitHub README file: click the
+>   DOI badge and copy the relevant format (Markdown, RST, HTML).
+{: .task}
+
+---
+
+### Services for sharing and collaborating on research data
+
+To find a research data repository for your data, you can search on the
+[Registry of Research Data Repositories (re3data)](https://www.re3data.org/)
+platform and filter by country, content type, discipline, etc.
+
+**International:**
 
 - [Zenodo](https://zenodo.org/): A general-purpose open access repository
   created by OpenAIRE and CERN. Integration with GitHub, allows
@@ -92,30 +121,26 @@ Note that FAIR principles do not require data/software to be open.
   around files and other research artifacts. Each account can have up to 5 GB of files
   without any problem, and it remains private until you make it public.
 
-To find a research data repository for your data, you can search on the
-[Registry of Research Data Repositories (re3data)](https://www.re3data.org/)
-platform and filter by country, content type, discipline, etc.
+**Sweden:**
 
+- [ICOS for climate data](http://www.icos-sweden.se/)
+- [Bolin center climate / geodata](https://bolin.su.se/data/)
+- [NBIS for life science, sequence –omics data](https://nbis.se/infrastructure)
 
-> ## Exercise: Get a DOI by connecting your repository to Zenodo
->
-> Digital object identifiers (DOI) are the backbone of the academic
-> reference and metrics system. In this exercise we will see how to
-> make a GitHub repository citable by archiving it on the
-> [Zenodo](http://about.zenodo.org/) archiving service:
->
-> 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
->   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
-> 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
-> 3. Find the repository you wish to publish, and flip the switch to ON.
-> 4. Go to GitHub and create a **release**  by clicking the `release` tab and
->   `Create a new release`  (a release is based on a Git tag,
->    but is a higher-level GitHub feature),
-> 5. Creating a new release will trigger Zenodo into archiving your repository,
->   and a DOI badge will be displayed next to your repository after a minute
->   or two. You can include it in your GitHub README file: click the
->   DOI badge and copy the relevant format (Markdown, RST, HTML).
-{: .task}
+**Norway:**
+
+- [NIRD archive is also widely used by some communities](https://archive.norstore.no/)
+
+**Denmark:**
+
+- [opendata.dk nationwide portal](http://www.opendata.dk)
+- [Danish portal for sharing geographical data](http://brugstedet.dk/)
+
+**Finland:**
+
+- [IDA, for general data](https://ida.fairdata.fi/login)
+- [FSD for social data](https://www.fsd.uta.fi/en/)
+- [more information on Finnish resources for open data](https://www.fairdata.fi/en/)
 
 ---
 
