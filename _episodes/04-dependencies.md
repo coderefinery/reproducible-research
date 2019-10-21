@@ -195,56 +195,46 @@ To get an idea of what's needed, let's have a look at the
 
 ---
 
-## Virtualenv
+## Other dependency management tools
 
-- Isolated Python environments: [https://docs.python-guide.org/dev/virtualenvs/](https://docs.python-guide.org/dev/virtualenvs/)
-- Create a new environment:
-```
-$ virtualenv myenvironment
-```
-- Create a new environment with a specific Python version:
-```
-$ virtualenv --python=python3 myenvironment
-```
-- Create a new environment in a path outside of current directory:
-```
-$ virtualenv /path/to/myenvironment
-```
-- Activate a specific environment (in Bash):
-```
-$ source myenvironment/bin/activate
-```
-- Install into the current environment:
-```
-$ pip install somepackage
-```
-- Deactivate current environment:
-```
-$ deactivate
-```
+### Python
 
----
+- [Virtualenv](https://docs.python-guide.org/dev/virtualenvs/)
+  - Example use:
+  ```
+  # creating a new env
+  $ virtualenv myenvironment
+  $ virtualenv --python=python3 myenvironment
+  $ virtualenv /path/to/myenvironment
+  # activating env, installing package and deactivating
+  $ source myenvironment/bin/activate
+  $ pip install somepackage
+  $ deactivate
+  ```
+- [Pipenv](https://pipenv.readthedocs.io)
+  - Alternative to virtualenv: you can activate and install in one step
+  - Tool to easily manage per-project/per-directory Python **packages**
+  - Easier than virtualenv to separate dependencies for development and usage
+- [Poetry](https://poetry.eustace.io)
+  - Alternative to virtualenv and Pipenv
+- [Pyenv](https://github.com/pyenv/pyenv)
+  - Tool to easily manage per-project/per-directory Python **versions**
 
-## Pipenv
 
-- [https://pipenv.readthedocs.io](https://pipenv.readthedocs.io)
-- Alternative to virtualenv: you can activate and install in one step
-- Tool to easily manage per-project/per-directory Python **packages**
-- One dependency file and one lock file: `Pipenv` and `Pipenv.lock`
-- Records checksums of dependencies
-- Easier than virtualenv to separate dependencies for development and usage
+### R
 
----
+Good overview of use cases, strategies and tools for reproducible 
+environment at 
+[https://environments.rstudio.com](https://environments.rstudio.com)
 
-## Poetry
+There are many tools available:
+- [packrat](https://rstudio.github.io/packrat/)
+  - Package from RStudio to isolate environment. Uses a packrat.lock file for storing dependencies
+- [Jetpack](https://github.com/ankane/jetpack)
+  - Designed as a CLI on top of packrat. Uses the DESCRIPTION file to store your project dependencies
+- [RSuite](https://rsuite.io/)
+- [automagic](https://github.com/cole-brokamp/automagic)
+- [deplearning](https://github.com/MilesMcBain/deplearning)
+- Are you using something else? Please send a 
+  [pull request](https://github.com/coderefinery/reproducible-research)!
 
-- [https://poetry.eustace.io](https://poetry.eustace.io)
-- Alternative to virtualenv and Pipenv
-- [If you use this tool, please send a pull request with your experiences]
-
----
-
-## Pyenv
-
-- [https://github.com/pyenv/pyenv](https://github.com/pyenv/pyenv)
-- Tool to easily manage per-project/per-directory Python **versions**
