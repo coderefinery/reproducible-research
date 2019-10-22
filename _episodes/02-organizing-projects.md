@@ -72,4 +72,10 @@ $ git tag -a <tagname> -m "comment"
     supplementary material with journal articles.
   - [mybinder.org](https://mybinder.org): Make a repository with Jupyter 
     notebooks available in an executable environment.
-   
+
+> ## How do you collaborate on writing academic papers?
+> 
+> - Are you using version control?
+> - How do you handle collaborative issues?
+> - How would you like it to work if you could decide?
+{: .task}
