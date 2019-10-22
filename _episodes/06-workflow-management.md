@@ -20,11 +20,8 @@ keypoints:
 
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
-Let's look at an example project which follows the project structure guidelines given in the previous episode.
-The project is about counting the frequency distribution of words in a given text, plotting bar charts and testing
-[Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
-
-To follow along, clone this [repository](https://github.com/coderefinery/word-count):
+If you haven't already done so, please clone the 
+[word-count project](https://github.com/coderefinery/word-count):
 ```shell
 $ git clone https://github.com/coderefinery/word-count.git
 ```
