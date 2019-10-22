@@ -26,7 +26,7 @@ The project is about counting the frequency distribution of words in a given tex
 
 To follow along, clone this [repository](https://github.com/coderefinery/word-count):
 ```shell
-$ git clone https://github.com/coderefinery/word-count-aalborg.git
+$ git clone https://github.com/coderefinery/word-count.git
 ```
 
 The example project directory listing is:
