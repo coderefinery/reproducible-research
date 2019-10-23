@@ -278,14 +278,6 @@ rule all:
     input:
         'zipf_analysis.tar.gz'
 
-# delete everything so we can re-run things
-rule clean:
-    shell:
-        '''
-        rm -rf source/__pycache__
-        rm -f zipf_analysis.tar.gz processed_data/* results/*
-        '''
-
 # count words in one of our books
 # logfiles from each run are put in .log files"
 rule count_words:
@@ -332,15 +324,11 @@ Also Snakemake uses **declarative style**:
 
 Try it out:
 ```
-$ snakemake clean
+$ snakemake --delete-all-output
 $ snakemake
 ```
 
-Instead of explicitly defining a `clean` rule, one can also remove all 
-output by:
-```
-$ snakemake --delete-all-output
-```
+
 
 Try running `snakemake` again and observe that and discuss why it refused to rerun all steps:
 ```
