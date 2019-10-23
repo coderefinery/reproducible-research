@@ -2,7 +2,7 @@
 layout: episode
 title: "Recording dependencies"
 teaching: 15
-exercises: 0
+exercises: 15
 questions:
   - How can we communicate different versions of software dependencies?
 keypoints:

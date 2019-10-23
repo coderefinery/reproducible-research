@@ -2,7 +2,7 @@
 layout: episode
 title: "Recording computational steps"
 teaching: 15
-exercises: 25
+exercises: 15
 questions:
   - How can we create a reproducible workflow?
   - When to use scientific workflow management systems.
