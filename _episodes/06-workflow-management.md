@@ -271,20 +271,12 @@ First study the `Snakefile`:
 DATA = glob_wildcards('data/{book}.txt').book
 
 # this is for running on HPC resources
-localrules: all, clean, make_archive
+localrules: all, make_archive
 
 # the default rule
 rule all:
     input:
         'zipf_analysis.tar.gz'
-
-# delete everything so we can re-run things
-rule clean:
-    shell:
-        '''
-        rm -rf source/__pycache__
-        rm -f zipf_analysis.tar.gz processed_data/* results/*
-        '''
 
 # count words in one of our books
 # logfiles from each run are put in .log files"
@@ -332,15 +324,11 @@ Also Snakemake uses **declarative style**:
 
 Try it out:
 ```
-$ snakemake clean
+$ snakemake --delete-all-output
 $ snakemake
 ```
 
-Instead of explicitly defining a `clean` rule, one can also remove all 
-output by:
-```
-$ snakemake --delete-all-output
-```
+
 
 Try running `snakemake` again and observe that and discuss why it refused to rerun all steps:
 ```
@@ -355,17 +343,9 @@ what you see. One way to modify files is to use the `touch` command which will
 only update its timestamp:
 
 ```
-$ touch data/sierra.txt
+$ touch results/results.txt
 $ snakemake
 ```
-
-Finally try to run the pipeline on several cores in parallel (here we will try 4):
-
-```
-$ snakemake clean
-$ snakemake -j 4
-```
-
 
 ### Why Snakemake?
 
@@ -405,14 +385,27 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 > Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
 {: .task}
 
-
+> ## Using Snakemake
+>
+> - Start by cleaning all output, and run snakemake. 
+>   How many jobs are run?
+> - Try "touching" the file `data/sierra.txt` and rerun snakemake. 
+>   Which steps of the workflow are run now, and why?
+> - Now touch the file `processed_data/sierra.dat`, and run 
+>   `snakemake -S`. Can you make sense of the output? 
+> - Rerun snakemake. Which steps are run, and why?
+> - Finally try touching `source/wordcount.py` and rerun snakemake.
+>   Which steps are run, and why? Should source codes be considered 
+>   dependencies?
+> - Use the `time` command to see if you get any speedup from 
+>   executing snakemake rules on multiple cores. For example to run 
+>   4 parallel threads, use `time snakemake -j 4`.
+> - Try archiving the entire workflow with 
+>   `snakemake --archive my-workflow.tar.gz`
+{: .task}
 
 ### More Snakemake goodies
 
-- Archive a workflow into a tarball:
-```
-$ snakemake --archive my-workflow.tar.gz
-```
 - Snakemake has an experimental GUI feature which can be invoked by:
 ```
 $ snakemake --gui
