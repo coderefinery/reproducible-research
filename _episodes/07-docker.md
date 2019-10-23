@@ -89,6 +89,9 @@ LABEL - adds metadata to an image and is a key-value pair
 
 > If you would like to type along but you don't have Docker installed, you 
 > can log in to the ["Play with Docker Classroom"](https://training.play-with-docker.com/) which gives you access to Docker in the cloud.
+> You can first click [Stage 1: The Basics](https://training.play-with-docker.com/ops-stage1)
+> and then [Your First Linux Containers](https://training.play-with-docker.com/ops-s1-hello),
+> and finally "Log in to access"
 
 Let's create a Dockerfile for our example project.
 It is available in the project repository if you want to experiment with

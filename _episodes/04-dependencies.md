@@ -195,6 +195,31 @@ To get an idea of what's needed, let's have a look at the
 
 ---
 
+> ## Creating and exporting conda environments
+> 
+> Recreate the software environment provided by the 
+> `requirements.txt` file of the 
+> [word-count project](https://github.com/coderefinery/word-count). 
+> The `snakemake-minimal` package is only available in the `bioconda` 
+> channel, which needs to be specified:
+> ```shell
+> $ conda create -c bioconda --name wordcount --file requirements.txt
+> ```
+> This will download all the packages listed in the `requirements.txt` 
+> file (with matching versions) along with all dependencies.  
+> We now have (roughly) the same environment as specified by the 
+> developers of the word-count project. But let's say we want to 
+> extend this environment, and share it with colleagues:
+> - Install the `pandas` package using `conda install`
+> - Export the environment using `conda env export > environment.yaml`
+> - Export the environment in a different way using 
+>   `conda list --export > new-requirements.txt`.
+> - Inspect the `environment.yaml` and `new-requirements.txt` files. 
+>   How does it compare with the original `requirements.txt` file?
+{: .task}
+
+---
+
 ## Other dependency management tools
 
 ### Python
