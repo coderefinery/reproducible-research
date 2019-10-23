@@ -207,6 +207,10 @@ To get an idea of what's needed, let's have a look at the
 > ```
 > This will download all the packages listed in the `requirements.txt` 
 > file (with matching versions) along with all dependencies.  
+> The new environment also needs to be activated:
+> ```shell
+> $ conda activate wordcount
+> ```
 > We now have (roughly) the same environment as specified by the 
 > developers of the word-count project. But let's say we want to 
 > extend this environment, and share it with colleagues:
