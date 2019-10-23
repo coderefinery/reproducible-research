@@ -5,6 +5,30 @@ permalink: /guide/
 
 # Instructor guide
 
+## Why we teach this lesson
+
+WRITEME
+
+## Intended learning outcomes
+
+By the end of this lesson, learners should:
+- understand why it's important that research is reproducible
+- know that there are multiple levels of reproducibility and multiple 
+  factors which can lead to irreproducible research
+- be motivated to use well organized directory structure for their project
+- know that there are multiple tools available for collaborating on 
+  writing manuscripts 
+- understand the concept of command-line automation (scripts/make) 
+  and know  is usually more difficult in GUIs
+- know that multiple tools exist to assist researchers with creating automatic and reproducible workflows which preserve the provenance of data 
+- get familiar with one such tool (Snakemake)
+- understand that using workflow tools can enhance the quality of research and save time
+- unlike shell scripts, make/snakemake knows job dependencies and only rebuilds necessary steps
+
+WRITEME
+
+## How to teach this lesson
+
 ### How to start
 
 Everyone knows that scientific results need to be reproducible, but not everyone is using 
@@ -29,27 +53,6 @@ Depending on workshop schedule, this lesson can become short on time.
   can take several minutes. The instructor should in most cases do this before the workshop and 
   only demonstrate how to launch a container based on the existing image
 
-
-### Core aspects
-
-#### General
-
-Multiple tools exist to assist researchers with creating automatic and reproducible workflows 
-which preserve the provenance of data. Using such tools can enhance the quality of research 
-and save a lot of time!
-
-#### Make
-
-We do not go into details about Make, but it's important to emphasize:
-- command-line tools (with e.g. make) are easier to automate that GUIs
-- unlike shell scripts, make knows job dependencies and only rebuild necessary steps
-- make can be parallelized to speed up building the targets
-
-#### Snakemake
-
-- basically very similar to make, but much more general and portable
-- anything that can be done in Python can be done in Snakemake
-- Snakemake is still just one out of many options, learners might want to use something their colleagues are using
 
 ### Sessions which can be skipped if time is tight
 
@@ -85,4 +88,5 @@ input:
 
 #### Containers are confusing
 
-Some pedagogical way to demystify containers needs to be found and the lesson updated accordingly...
+Try to use good analogies to explain the concepts of containers, 
+images and Dockerfiles.
