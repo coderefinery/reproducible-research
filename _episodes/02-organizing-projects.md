@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Organizing your projects"
-teaching: 5
+teaching: 10
 exercises: 0
 questions:
   - "How should we organize files in a research project?"
