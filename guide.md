@@ -54,19 +54,20 @@ both simplify workflows and make them more reproducible.
 
 By the end of this lesson, learners should:
 - understand why it's important that research is reproducible
-- know that there are multiple levels of reproducibility and multiple 
+- define multiple levels of reproducibility and the multiple 
   factors which can lead to irreproducible research
-- be motivated to use well organized directory structure for their project
-- know that there are multiple tools available for collaborating on 
-  writing manuscripts 
-- understand the concept of command-line automation (scripts/make) 
-  and know  is usually more difficult in GUIs
-- know that multiple tools exist to assist researchers with creating automatic and reproducible workflows which preserve the provenance of data 
-- get familiar with one such tool (Snakemake)
-- understand that using workflow tools can enhance the quality of research and save time
-- unlike shell scripts, make/snakemake knows job dependencies and only rebuilds necessary steps
-
-WRITEME
+- be able to apply well organized directory structure for their project
+- remember the FAIR principles
+- be able to create a DOI for research output like code or data
+- understand that code can have dependencies, and know how to create a requirements file
+- describe how to use conda (or another tool) to manage isolated software environments
+- have an idea about how containers work
+- remember the pros and cons of containers for reproducibility 
+- understand that a series of computational steps can be defined as a workflow and 
+  that many tools exist to manage workflows
+- describe the pros and cons of different methods of performing scientific workflows
+- understand the benefits of using a tool like make or snakemake compared to bespoke scripts
+- be able to create a simple Makefile or Snakefile to manage a workflow
 
 ## How to teach this lesson
 
