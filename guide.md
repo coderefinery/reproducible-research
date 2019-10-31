@@ -7,7 +7,48 @@ permalink: /guide/
 
 ## Why we teach this lesson
 
-WRITEME
+Reproducibility in research is something that publishers, funding agencies, universities,
+research leaders and the general public worries about and much is being written about it.
+It is also something that researchers care deeply about - this lesson is typically one of the 
+most popular lessons in the pre-workshop survey.
+
+Even though most PhD students, postdocs and researchers (i.e. typical workshop participants)
+know about the importance of reproducibility in research, they often lack both a general 
+overview of what different aspects there are to reproducibility, and the knowledge of 
+specific tools that can be used for improving reproducibility.
+
+Many participants may not adhere to good practices when organizing their projects, 
+and the "Organizing your projects" episode is meant to encourage participants to 
+structure their projects better. This may be obvious to some participants but it 
+doesn't harm to preach to the choir.
+
+Many participants do not share data or code, and in particular they are often 
+unaware that research output other than published articles can be assigned 
+digital object identifiers (DOIs). 
+The "Sharing code and data" is meant to bring awareness about FAIRness and Open Science
+and to show how DOIs can be obtained for Git repositories..
+
+Even though many participants know that code can have many dependencies (e.g. they 
+may have experienced difficulties in getting other people's code to run), they 
+often don't know or use good practices when it comes to recording dependencies. 
+Most participants also don't use isolated environments for different projects and 
+don't know why that can be important.
+The episode "Recording dependencies" tries to convey the importance of recording 
+dependencies accurately for your projects, and shows how tools like conda can be 
+used both as a package and software environment manager.
+
+Many participants have heard about containers and find them interesting, but 
+lack an understanding of how they work or how they can be used. The episode 
+"Recording environments" introduces the concept of containers, and the optional 
+episode "Creating and sharing a container image" goes into details.
+
+Many participants use complicated series of computational steps in their research 
+without realizing that this work falls into the category of "scientific workflows", 
+and that there actually exist tools that help make such workflows reproducible.
+The episode "Recording computational steps" introduces the concept of scientific 
+workflows, discusses various ways of managing workflows with varying degrees of 
+reproducibility, and shows how tools like make and snakemake can be used to 
+both simplify workflows and make them more reproducible.
 
 ## Intended learning outcomes
 
