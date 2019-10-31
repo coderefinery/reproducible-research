@@ -5,6 +5,72 @@ permalink: /guide/
 
 # Instructor guide
 
+## Why we teach this lesson
+
+Reproducibility in research is something that publishers, funding agencies, universities,
+research leaders and the general public worries about and much is being written about it.
+It is also something that researchers care deeply about - this lesson is typically one of the 
+most popular lessons in the pre-workshop survey.
+
+Even though most PhD students, postdocs and researchers (i.e. typical workshop participants)
+know about the importance of reproducibility in research, they often lack both a general 
+overview of what different aspects there are to reproducibility, and the knowledge of 
+specific tools that can be used for improving reproducibility.
+
+Many participants may not adhere to good practices when organizing their projects, 
+and the "Organizing your projects" episode is meant to encourage participants to 
+structure their projects better. This may be obvious to some participants but it 
+doesn't harm to preach to the choir.
+
+Many participants do not share data or code, and in particular they are often 
+unaware that research output other than published articles can be assigned 
+digital object identifiers (DOIs). 
+The "Sharing code and data" is meant to bring awareness about FAIRness and Open Science
+and to show how DOIs can be obtained for Git repositories..
+
+Even though many participants know that code can have many dependencies (e.g. they 
+may have experienced difficulties in getting other people's code to run), they 
+often don't know or use good practices when it comes to recording dependencies. 
+Most participants also don't use isolated environments for different projects and 
+don't know why that can be important.
+The episode "Recording dependencies" tries to convey the importance of recording 
+dependencies accurately for your projects, and shows how tools like conda can be 
+used both as a package and software environment manager.
+
+Many participants have heard about containers and find them interesting, but 
+lack an understanding of how they work or how they can be used. The episode 
+"Recording environments" introduces the concept of containers, and the optional 
+episode "Creating and sharing a container image" goes into details.
+
+Many participants use complicated series of computational steps in their research 
+without realizing that this work falls into the category of "scientific workflows", 
+and that there actually exist tools that help make such workflows reproducible.
+The episode "Recording computational steps" introduces the concept of scientific 
+workflows, discusses various ways of managing workflows with varying degrees of 
+reproducibility, and shows how tools like make and snakemake can be used to 
+both simplify workflows and make them more reproducible.
+
+## Intended learning outcomes
+
+By the end of this lesson, learners should:
+- understand why it's important that research is reproducible
+- define multiple levels of reproducibility and the multiple 
+  factors which can lead to irreproducible research
+- be able to apply well organized directory structure for their project
+- remember the FAIR principles
+- be able to create a DOI for research output like code or data
+- understand that code can have dependencies, and know how to create a requirements file
+- describe how to use conda (or another tool) to manage isolated software environments
+- have an idea about how containers work
+- remember the pros and cons of containers for reproducibility 
+- understand that a series of computational steps can be defined as a workflow and 
+  that many tools exist to manage workflows
+- describe the pros and cons of different methods of performing scientific workflows
+- understand the benefits of using a tool like make or snakemake compared to bespoke scripts
+- be able to create a simple Makefile or Snakefile to manage a workflow
+
+## How to teach this lesson
+
 ### How to start
 
 Everyone knows that scientific results need to be reproducible, but not everyone is using 
@@ -29,27 +95,6 @@ Depending on workshop schedule, this lesson can become short on time.
   can take several minutes. The instructor should in most cases do this before the workshop and 
   only demonstrate how to launch a container based on the existing image
 
-
-### Core aspects
-
-#### General
-
-Multiple tools exist to assist researchers with creating automatic and reproducible workflows 
-which preserve the provenance of data. Using such tools can enhance the quality of research 
-and save a lot of time!
-
-#### Make
-
-We do not go into details about Make, but it's important to emphasize:
-- command-line tools (with e.g. make) are easier to automate that GUIs
-- unlike shell scripts, make knows job dependencies and only rebuild necessary steps
-- make can be parallelized to speed up building the targets
-
-#### Snakemake
-
-- basically very similar to make, but much more general and portable
-- anything that can be done in Python can be done in Snakemake
-- Snakemake is still just one out of many options, learners might want to use something their colleagues are using
 
 ### Sessions which can be skipped if time is tight
 
@@ -85,4 +130,5 @@ input:
 
 #### Containers are confusing
 
-Some pedagogical way to demystify containers needs to be found and the lesson updated accordingly...
+Try to use good analogies to explain the concepts of containers, 
+images and Dockerfiles.
