@@ -286,11 +286,7 @@ rule count_words:
         book='data/{file}.txt'
     output: 'processed_data/{file}.dat'
     log: 'processed_data/{file}.log'
-    shell:
-        '''
-        echo "Running {input.wc} on {input.book}." &> {log} &&
-            python {input.wc} {input.book} {output} >> {log} 2>&1
-        '''
+    shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
 
 # create a plot for each book
 rule make_plot:
