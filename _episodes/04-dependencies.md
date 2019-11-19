@@ -213,8 +213,8 @@ To get an idea of what's needed, let's have a look at the
 > ```shell
 > $ conda activate wordcount
 > ```
-> In GitBash under Windows, it's instead recommended to activate the 
-> environment in the graphical Anaconda Navigator interface.  
+> In GitBash under Windows, it's instead recommended to 
+> [activate the environment in the graphical Anaconda Navigator interface](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/).  
 > We now have (roughly) the same environment as specified by the 
 > developers of the word-count project. But let's say we want to 
 > extend this environment, and share it with colleagues:
