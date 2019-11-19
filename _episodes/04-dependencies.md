@@ -197,6 +197,8 @@ To get an idea of what's needed, let's have a look at the
 
 > ## Creating and exporting conda environments
 > 
+> > On Windows, it's recommended to do this exercise in Anaconda Prompt.
+> 
 > Recreate the software environment provided by the 
 > `requirements.txt` file of the 
 > [word-count project](https://github.com/coderefinery/word-count). 
@@ -207,14 +209,10 @@ To get an idea of what's needed, let's have a look at the
 > ```
 > This will download all the packages listed in the `requirements.txt` 
 > file (with matching versions) along with all dependencies.  
-> The new environment also needs to be activated. In MacOS 
-> and Linux terminals, as well as in Anaconda Powershell on Windows, 
-> this is done by:
+> The new environment also needs to be activated:
 > ```shell
 > $ conda activate wordcount
 > ```
-> In GitBash under Windows, it's instead recommended to 
-> [activate the environment in the graphical Anaconda Navigator interface](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/).  
 > We now have (roughly) the same environment as specified by the 
 > developers of the word-count project. But let's say we want to 
 > extend this environment, and share it with colleagues:
