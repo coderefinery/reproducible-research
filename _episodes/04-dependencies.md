@@ -197,6 +197,8 @@ To get an idea of what's needed, let's have a look at the
 
 > ## Creating and exporting conda environments
 > 
+> > On Windows, it's recommended to do this exercise in Anaconda Prompt.
+> 
 > Recreate the software environment provided by the 
 > `requirements.txt` file of the 
 > [word-count project](https://github.com/coderefinery/word-count). 
