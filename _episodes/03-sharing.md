@@ -153,5 +153,5 @@ platform and filter by country, content type, discipline, etc.
 - [Reproduciblity syllabus](http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/)
 - The [reproducible research data analysis platform](http://www.reana.io/)
 - Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).
-- ["FAIR is not fair enough"]([https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/)
+- ["FAIR is not fair enough"](https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/)
 - ["Top 10 FAIR Data & Software Things"](https://librarycarpentry.org/Top-10-FAIR/) are brief guides that can be used by the research community to understand how they can make their research (data and software) more FAIR.
