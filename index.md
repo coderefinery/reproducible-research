@@ -15,4 +15,5 @@ reproducible environments and workflows.
 
 1. You need to install [Git, Python, and Snakemake](https://coderefinery.github.io/installation/).
 
-2. [Docker and make]((https://coderefinery.github.io/installation/)) are optional.
+2. [Docker](https://coderefinery.github.io/installation/docker/) 
+   and [make](https://coderefinery.github.io/installation/make/) are optional.
