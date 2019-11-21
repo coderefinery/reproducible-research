@@ -154,4 +154,5 @@ platform and filter by country, content type, discipline, etc.
 - The [reproducible research data analysis platform](http://www.reana.io/)
 - Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).
 - ["FAIR is not fair enough"](https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/)
+- ["A FAIRer future"](https://www.nature.com/articles/s41567-019-0624-3)
 - ["Top 10 FAIR Data & Software Things"](https://librarycarpentry.org/Top-10-FAIR/) are brief guides that can be used by the research community to understand how they can make their research (data and software) more FAIR.
