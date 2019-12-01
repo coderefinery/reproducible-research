@@ -90,6 +90,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 > testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law):
 > ```shell
 > $ git clone https://github.com/coderefinery/word-count.git
+> $ cd word-count
 > ```
 > We can explore the directory structure with the `tree` command (this command
 > is not available by default on all systems):
