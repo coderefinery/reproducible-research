@@ -9,7 +9,7 @@ objectives:
   - "Discuss the pros and cons of open science"
   - "Learn how to mint a DOI for your project"
 keypoints:
-  - "Consider sharing other research outputs than articles"
+  - "Consider sharing other research outputs than articles."
 
 ---
 
