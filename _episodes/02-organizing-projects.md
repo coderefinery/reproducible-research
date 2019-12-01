@@ -91,7 +91,8 @@ $ git tag -a <tagname> -m "comment"
 > ```shell
 > $ git clone https://github.com/coderefinery/word-count.git
 > ```
-> We can explore the directory structure with the `tree` command:
+> We can explore the directory structure with the `tree` command (this command
+> is not available by default on all systems):
 > ```shell
 > $ tree
 > ```
