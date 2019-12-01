@@ -45,7 +45,7 @@ project_name/
 
 ## Tracking source code, data, and results
 
-- All code is version controlled and goes in the `src/` directory
+- All code is version controlled and goes in the `src/` or `source/` directory
 - Include appropriate LICENSE file and information on software requirements
 - You can also version control data files or input files under `data/`
 - If data files are too large (or sensitive) to track, untrack them using `.gitignore`
