@@ -70,4 +70,4 @@ However, containers may also have some drawbacks:
 >
 > - Do you think containers contribute to reproducible research?
 > - Do you see a use case for your own work?
-{: .task}
+{: .discussion}
