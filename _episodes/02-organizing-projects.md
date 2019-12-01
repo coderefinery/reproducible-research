@@ -70,7 +70,7 @@ $ git tag -a <tagname> -m "comment"
   - [Jupyter Notebooks](https://jupyter.org): Web-based interactive
     computational environment for creating notebook documents. Can be used for
     supplementary material with journal articles.
-  - [mybinder.org](https://mybinder.org): Make a repository with Jupyter
+  - [Binder](https://mybinder.org): Make a repository with Jupyter
     notebooks available in an executable environment.
 
 ---
