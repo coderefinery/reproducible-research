@@ -481,4 +481,5 @@ rule NAME:
 - Declarative workflows such as Snakemake are great for longer multi-step analyses.
 - Declarative workflows are often easy to parallelize without you changing anything.
 - With declarative workflows it is no problem to add/change things late in the project.
+- Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
