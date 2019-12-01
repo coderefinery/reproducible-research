@@ -20,7 +20,7 @@ keypoints:
 
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
-If you haven't already done so, please clone the 
+If you haven't already done so, please clone the
 [word-count project](https://github.com/coderefinery/word-count):
 ```shell
 $ git clone https://github.com/coderefinery/word-count.git
@@ -383,20 +383,20 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 
 > ## Using Snakemake
 >
-> - Start by cleaning all output, and run snakemake. 
+> - Start by cleaning all output, and run snakemake.
 >   How many jobs are run?
-> - Try "touching" the file `data/sierra.txt` and rerun snakemake. 
+> - Try "touching" the file `data/sierra.txt` and rerun snakemake.
 >   Which steps of the workflow are run now, and why?
-> - Now touch the file `processed_data/sierra.dat`, and run 
->   `snakemake -S`. Can you make sense of the output? 
+> - Now touch the file `processed_data/sierra.dat`, and run
+>   `snakemake -S`. Can you make sense of the output?
 > - Rerun snakemake. Which steps are run, and why?
 > - Finally try touching `source/wordcount.py` and rerun snakemake.
->   Which steps are run, and why? Should source codes be considered 
+>   Which steps are run, and why? Should source codes be considered
 >   dependencies?
-> - Use the `time` command to see if you get any speedup from 
->   executing snakemake rules on multiple cores. For example to run 
+> - Use the `time` command to see if you get any speedup from
+>   executing snakemake rules on multiple cores. For example to run
 >   4 parallel threads, use `time snakemake -j 4`.
-> - Try archiving the entire workflow with 
+> - Try archiving the entire workflow with
 >   `snakemake --archive my-workflow.tar.gz`
 {: .task}
 

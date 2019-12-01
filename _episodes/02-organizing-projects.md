@@ -67,26 +67,26 @@ $ git tag -a <tagname> -m "comment"
 
 - Many tools exist to assist in making scholarly output reproducible:
   - [rttols](https://github.com/benmarwick/rrtools): Instructions, templates, and functions for making a basic compendium suitable for writing a reproducible journal article or report with R.
-  - [Jupyter Notebooks](https://jupyter.org): Web-based interactive 
-    computational environment for creating notebook documents. Can be used for 
+  - [Jupyter Notebooks](https://jupyter.org): Web-based interactive
+    computational environment for creating notebook documents. Can be used for
     supplementary material with journal articles.
-  - [mybinder.org](https://mybinder.org): Make a repository with Jupyter 
+  - [mybinder.org](https://mybinder.org): Make a repository with Jupyter
     notebooks available in an executable environment.
 
 ---
 
 > ## How do you collaborate on writing academic papers?
-> 
+>
 > - Are you using version control?
 > - How do you handle collaborative issues?
 > - How would you like it to work if you could decide?
 {: .task}
 
 > ## Word count - an example project
-> 
-> Let's look at an [example project](https://github.com/coderefinery/word-count) which follows the project structure guidelines given above. 
-> This project is about counting the frequency 
-> distribution of words in a given text, plotting results and 
+>
+> Let's look at an [example project](https://github.com/coderefinery/word-count) which follows the project structure guidelines given above.
+> This project is about counting the frequency
+> distribution of words in a given text, plotting results and
 > testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law):
 > ```shell
 > $ git clone https://github.com/coderefinery/word-count.git
@@ -95,8 +95,8 @@ $ git tag -a <tagname> -m "comment"
 > ```shell
 > $ tree
 > ```
-> We have subdirectories for raw data, source files, documentation, 
-> processsed data and results, and README and LICENSE files. 
+> We have subdirectories for raw data, source files, documentation,
+> processsed data and results, and README and LICENSE files.
 > - What are the requirements.txt, Dockerfile and Snakefile files for?
 > - Do you think this project is reproducible?
 {: .task}

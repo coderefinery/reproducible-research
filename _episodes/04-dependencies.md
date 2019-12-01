@@ -36,20 +36,20 @@ These tools try to solve the following problems:
 - Using different Python versions per project
 - Provide tools and services to share packages
 
-Isolated environments are also useful because they help you make sure 
+Isolated environments are also useful because they help you make sure
 that you know your dependencies!
 
 ---
 
 > ## Exercise/discussion
-> 
+>
 > Compare these four `requirements.txt` solutions:
-> 
+>
 > **A**:
-> 
+>
 > Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
-> 
-> 
+>
+>
 > **B**:
 > ```
 > scipy
@@ -59,7 +59,7 @@ that you know your dependencies!
 > git+https://github.com/someuser/someproject.git@master
 > git+https://github.com/anotheruser/anotherproject.git@master
 > ```
-> 
+>
 > **C**:
 > ```
 > scipy==1.3.1
@@ -69,7 +69,7 @@ that you know your dependencies!
 > git+https://github.com/someuser/someproject.git@d7b2c7e
 > git+https://github.com/anotheruser/anotherproject.git@sometag
 > ```
-> 
+>
 > **D**:
 > ```
 > scipy==1.3.1
@@ -140,7 +140,7 @@ $ conda create --name myenvironment
 ```
 $ conda create --name myenvironment --file requirements.txt
 ```
-- On e.g. HPC systems where you don't have write access to central 
+- On e.g. HPC systems where you don't have write access to central
   installation directory:
 ```
 $ conda create --prefix /some/path/to/env
@@ -196,31 +196,31 @@ To get an idea of what's needed, let's have a look at the
 ---
 
 > ## Creating and exporting conda environments
-> 
+>
 > > On Windows, it's recommended to do this exercise in Anaconda Prompt.
-> 
-> Recreate the software environment provided by the 
-> `requirements.txt` file of the 
-> [word-count project](https://github.com/coderefinery/word-count). 
-> The `snakemake-minimal` package is only available in the `bioconda` 
+>
+> Recreate the software environment provided by the
+> `requirements.txt` file of the
+> [word-count project](https://github.com/coderefinery/word-count).
+> The `snakemake-minimal` package is only available in the `bioconda`
 > channel, which needs to be specified:
 > ```shell
 > $ conda create -c bioconda --name wordcount --file requirements.txt
 > ```
-> This will download all the packages listed in the `requirements.txt` 
-> file (with matching versions) along with all dependencies.  
+> This will download all the packages listed in the `requirements.txt`
+> file (with matching versions) along with all dependencies.
 > The new environment also needs to be activated:
 > ```shell
 > $ conda activate wordcount
 > ```
-> We now have (roughly) the same environment as specified by the 
-> developers of the word-count project. But let's say we want to 
+> We now have (roughly) the same environment as specified by the
+> developers of the word-count project. But let's say we want to
 > extend this environment, and share it with colleagues:
 > - Install the `pandas` package using `conda install`
 > - Export the environment using `conda env export > environment.yaml`
-> - Export the environment in a different way using 
+> - Export the environment in a different way using
 >   `conda list --export > new-requirements.txt`.
-> - Inspect the `environment.yaml` and `new-requirements.txt` files. 
+> - Inspect the `environment.yaml` and `new-requirements.txt` files.
 >   How does it compare with the original `requirements.txt` file?
 {: .task}
 
@@ -254,8 +254,8 @@ To get an idea of what's needed, let's have a look at the
 
 ### R
 
-Good overview of use cases, strategies and tools for reproducible 
-environment at 
+Good overview of use cases, strategies and tools for reproducible
+environment at
 [https://environments.rstudio.com](https://environments.rstudio.com)
 
 There are many tools available:
@@ -266,6 +266,6 @@ There are many tools available:
 - [RSuite](https://rsuite.io/)
 - [automagic](https://github.com/cole-brokamp/automagic)
 - [deplearning](https://github.com/MilesMcBain/deplearning)
-- Are you using something else? Please send a 
+- Are you using something else? Please send a
   [pull request](https://github.com/coderefinery/reproducible-research)!
 
