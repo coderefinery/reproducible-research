@@ -8,7 +8,7 @@ questions:
 objectives:
   - "Get overview on how to organize research projects"
 keypoints:
-  - "An organized project directory structure can help with reproducibility"
+  - "An organized project directory structure can help with reproducibility."
 
 ---
 
@@ -98,6 +98,6 @@ $ git tag -a <tagname> -m "comment"
 > ```
 > We have subdirectories for raw data, source files, documentation,
 > processsed data and results, and README and LICENSE files.
-> - What are the requirements.txt, Dockerfile and Snakefile files for?
+> - What are the `requirements.txt`, `Dockerfile`, and `Snakefile` files for?
 > - Do you think this project is reproducible?
 {: .challenge}
