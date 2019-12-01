@@ -148,6 +148,7 @@ platform and filter by country, content type, discipline, etc.
 ## Further reading on reproducibility and open science
 
 - [The Turing way](https://github.com/alan-turing-institute/the-turing-way/)
+- [Illustrations from the Turing Way book dashes](https://zenodo.org/record/3332808)
 - [Reproduciblity syllabus](http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/)
 - The [reproducible research data analysis platform](http://www.reana.io/)
 - Good talks on open reproducible research can be found [here](http://inundata.org/talks/index.html).
