@@ -8,7 +8,7 @@ permalink: /
 In this lesson we will discuss different methods and tools for better
 reproducibility in research software and data. We will demonstrate how version
 control, workflows, containers, and package managers can be used to record
-reproducible environments and workflows.
+reproducible environments and computational steps.
 
 
 > ## Prerequisites
