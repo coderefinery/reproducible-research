@@ -79,10 +79,20 @@ preserving the provenance of data and reproducibility on different levels, rangi
 workflow automation to software environment (containers).
 
 
+### Focus on concepts, and when to use which tool
+
+Try to explain better what the different tools are useful for, but don't go
+into details.  In this lesson we are not trying to gain expertise in the
+various tools and master the details but rather we want to give an overview and
+show that many tools exist and try to give participant the right feel for which
+set of tools to approach for which type of problem.
+
+
 ### Questions to involve participants
 
 - Have you ever been unable to reproduce a scientific results from previous research by yourself or others?
 - What technical solutions do you use to manage repetitive tasks and/or complicated workflows?
+
 
 ### Timing
 
@@ -100,6 +110,7 @@ Depending on workshop schedule, this lesson can become short on time.
 
 - The motivation can be gone through quickly. Researchers know the importance of
   reproducibility and we don't need to spend many words on it
+
 
 ### Typical pitfalls
 
