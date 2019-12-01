@@ -205,7 +205,7 @@ To get an idea of what's needed, let's have a look at the
 > The `snakemake-minimal` package is only available in the `bioconda`
 > channel, which needs to be specified:
 > ```shell
-> $ conda create --name wordcount --file requirements.txt -c bioconda -c conda-forge
+> $ conda create --name wordcount --file requirements.txt --channel bioconda --channel conda-forge
 > ```
 > This will download all the packages listed in the `requirements.txt`
 > file (with matching versions) along with all dependencies.
