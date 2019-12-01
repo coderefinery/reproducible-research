@@ -37,7 +37,7 @@ Arguments against [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science)
 
 ---
 
-### FAIR principles
+## FAIR principles
 
 "FAIR" is the current buzzword for data management. You may be asked
 about it in, for example, making data management plans for grants:
@@ -45,7 +45,7 @@ about it in, for example, making data management plans for grants:
 - **F**indable
   - Will anyone else know that your data exists?
   - Solutions: put it in a standard repository, or at least a
-    description of the data.
+    description of the data. Get a digital object identifier (DOI).
 - **A**ccessible
   - Once someone knows that the data exists, can they get it?
   - Usually solved by being in a repository, but for non-open data,
@@ -65,12 +65,10 @@ but they apply also for research software.
 
 Note that FAIR principles do not require data/software to be open.
 
-
-
-> ## Exercise: Discuss open science
+> ## Discussion: Discuss open science
 > - Do you share any other research outputs besides published articles and possibly source code?
 > - Discuss pros and cons of sharing research data.
-{: .task}
+{: .discussion}
 
 ---
 
@@ -93,11 +91,11 @@ Note that FAIR principles do not require data/software to be open.
 >   and a DOI badge will be displayed next to your repository after a minute
 >   or two. You can include it in your GitHub README file: click the
 >   DOI badge and copy the relevant format (Markdown, RST, HTML).
-{: .task}
+{: .challenge}
 
 ---
 
-### Services for sharing and collaborating on research data
+## Services for sharing and collaborating on research data
 
 To find a research data repository for your data, you can search on the
 [Registry of Research Data Repositories (re3data)](https://www.re3data.org/)
@@ -147,7 +145,7 @@ platform and filter by country, content type, discipline, etc.
 
 ---
 
-### Further reading on reproducibility and open science
+## Further reading on reproducibility and open science
 
 - [The Turing way](https://github.com/alan-turing-institute/the-turing-way/)
 - [Reproduciblity syllabus](http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/)
