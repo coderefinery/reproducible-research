@@ -29,12 +29,12 @@ Our codes often depend on other codes that in turn depend on other codes ...
 ## Conda, Anaconda, pip, Virtualenv, Pipenv, pyenv, Poetry, requirements.txt ...
 
 These tools try to solve the following problems:
-- Installing a specific set of dependencies, possibly with well defined versions
-- Recording the versions for all dependencies
-- Isolate environments on your computer for projects that have conflicting dependencies
+- Installing a **specific set of dependencies**, possibly with well defined versions
+- **Recording the versions** for all dependencies
+- **Isolate environments** on your computer for projects that have conflicting dependencies
 - Isolate environments on computers with many users
-- Using different Python versions per project
-- Provide tools and services to share packages
+- Using **different Python/R versions** per project
+- Provide tools and services to **share packages**
 
 Isolated environments are also useful because they help you make sure
 that you know your dependencies!
@@ -79,7 +79,7 @@ that you know your dependencies!
 > someproject==1.2.3
 > anotherproject==2.3.4
 > ```
-{: .task}
+{: .discussion}
 
 ---
 
@@ -195,9 +195,9 @@ To get an idea of what's needed, let's have a look at the
 
 ---
 
-> ## Creating and exporting conda environments
+> ## Exercise: Creating and exporting conda environments
 >
-> > On Windows, it's recommended to do this exercise in Anaconda Prompt.
+> On Windows, we recommend to do this exercise in the Anaconda Prompt.
 >
 > Recreate the software environment provided by the
 > `requirements.txt` file of the
@@ -216,13 +216,13 @@ To get an idea of what's needed, let's have a look at the
 > We now have (roughly) the same environment as specified by the
 > developers of the word-count project. But let's say we want to
 > extend this environment, and share it with colleagues:
-> - Install the `pandas` package using `conda install`
-> - Export the environment using `conda env export > environment.yaml`
+> - Install the `pandas` package using `conda install`.
+> - Export the environment using `conda env export > environment.yaml`.
 > - Export the environment in a different way using
 >   `conda list --export > new-requirements.txt`.
 > - Inspect the `environment.yaml` and `new-requirements.txt` files.
 >   How does it compare with the original `requirements.txt` file?
-{: .task}
+{: .challenge}
 
 ---
 
@@ -232,7 +232,7 @@ To get an idea of what's needed, let's have a look at the
 
 - [Virtualenv](https://docs.python-guide.org/dev/virtualenvs/)
   - Example use:
-  ```
+  ```shell
   # creating a new env
   $ virtualenv myenvironment
   $ virtualenv --python=python3 myenvironment
@@ -256,7 +256,7 @@ To get an idea of what's needed, let's have a look at the
 
 Good overview of use cases, strategies and tools for reproducible
 environment at
-[https://environments.rstudio.com](https://environments.rstudio.com)
+[Reproducible Environments](https://environments.rstudio.com).
 
 There are many tools available:
 - [packrat](https://rstudio.github.io/packrat/)
