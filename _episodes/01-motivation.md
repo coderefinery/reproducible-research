@@ -61,7 +61,7 @@ domains of science:
 - Difficult to recreate software environment (libraries, versions) used to generate original results
 - Difficult to rerun the computational steps
 
- <img src="{{ site.baseurl }}/img/Miracle.jpg" style="height: 200px;"/>
+<img src="{{ site.baseurl }}/img/Miracle.jpg" style="height: 200px;"/>
 
 ---
 
