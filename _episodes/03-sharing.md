@@ -19,7 +19,7 @@ The Open Science movement encourages researchers
 to share research output beyond the contents of a
 published academic article (and possibly supplementary information).
 
- <img src="{{ site.baseurl }}/img/Open_Science_Principles.png" style="height: 200px;"/>
+<img src="{{ site.baseurl }}/img/Open_Science_Principles.png" style="height: 200px;"/>
 
 Arguments in favor [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
 - Open access publication of research reports and data allows for rigorous peer-review
@@ -35,9 +35,21 @@ Arguments against [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science)
 - Increasing the scale of science will make verification of any discovery more difficult
 - Low-quality science
 
+<img src="{{ site.baseurl }}/img/turing-way/36-data-research-cycle.jpg" style="width: 600px;"/>
+
+(This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
+Turing Way](https://the-turing-way.netlify.com) community and is used under a
+CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](https://zenodo.org/record/3332808).)
+
 ---
 
 ## FAIR principles
+
+<img src="{{ site.baseurl }}/img/turing-way/8-fair-principles.jpg" style="width: 600px;"/>
+
+(This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
+Turing Way](https://the-turing-way.netlify.com) community and is used under a
+CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](https://zenodo.org/record/3332808).)
 
 "FAIR" is the current buzzword for data management. You may be asked
 about it in, for example, making data management plans for grants:

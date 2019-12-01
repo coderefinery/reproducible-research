@@ -65,6 +65,16 @@ domains of science:
 
 ---
 
+## Reproducible, replicable, robust, generalisable
+
+<img src="{{ site.baseurl }}/img/turing-way/39-reproducible-replicable-robust-generalisable.jpg" style="width: 700px;"/>
+
+(This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
+Turing Way](https://the-turing-way.netlify.com) community and is used under a
+CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](https://zenodo.org/record/3332808).)
+
+---
+
 ## Levels of reproducibility
 
 Ensuring that one's research is fully reproducible can be a challenging task,
