@@ -14,11 +14,11 @@ keypoints:
 
 ## Directory structure for projects
 
-- A good starting point is to keep all files associated with a project in a single folder
-- Different projects should have separate folders
-- Use consistent and informative directory structure
+- A good starting point is to keep all files associated with a project in a **single folder**
+- **Different projects** should have **separate folders**
+- Use **consistent and informative directory structure**
 - If you need to separate public/private/secret, separate these by folder (and Git repo)
-- Add a README file to describe the project and instructions on reproducing the results
+- Add a **README file** to describe the project and instructions on reproducing the results
 - Talk to others in the project about what you do and write it down
 - Your mileage may vary: it's not a one-size-fits-all
 - When software is reused in several projects it can make sense to put them in own repo
