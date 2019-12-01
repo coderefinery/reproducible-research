@@ -75,12 +75,12 @@ $ git tag -a <tagname> -m "comment"
 
 ---
 
-> ## How do you collaborate on writing academic papers?
+> ## Discussion: How do you collaborate on writing academic papers?
 >
 > - Are you using version control?
 > - How do you handle collaborative issues?
 > - How would you like it to work if you could decide?
-{: .task}
+{: .discussion}
 
 > ## Word count - an example project
 >
@@ -99,5 +99,4 @@ $ git tag -a <tagname> -m "comment"
 > processsed data and results, and README and LICENSE files.
 > - What are the requirements.txt, Dockerfile and Snakefile files for?
 > - Do you think this project is reproducible?
-{: .task}
-
+{: .challenge}
