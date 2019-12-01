@@ -36,14 +36,14 @@ objectives:
 
 - For any research project, an independent researcher should be able to replicate an experiment:
   - the same results should be obtained under the same contitions
-  - it should be possible to recreate the same conditions!
+  - it should be possible to recreate the same conditions
 - "Experiment" is interpreted in a wide sense, encompassing also computational work
 
 ---
 
 ## Why all the talk about reproducible research?
 
-A recent
+A 2016
 [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
 in Nature revealed that irreproducible experiments are a problem across all
 domains of science:
