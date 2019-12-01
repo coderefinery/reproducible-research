@@ -24,6 +24,7 @@ If you haven't already done so, please clone the
 [word-count project](https://github.com/coderefinery/word-count):
 ```shell
 $ git clone https://github.com/coderefinery/word-count.git
+$ cd word-count
 ```
 
 The example project directory listing is:
@@ -55,9 +56,9 @@ The example project directory listing is:
 ```
 
 In this example we wish to:
-1. Analyze word frequencies using `wordcount.py` for 4 books (they are all in the `data` directory)
-2. Plot a histogram using `plotcount.py`
-3. Print the ratio between most common and second most common word for all books
+1. Analyze word frequencies using `wordcount.py` for 4 books (they are all in the `data` directory).
+2. Plot a histogram using `plotcount.py`.
+3. Print the ratio between most common and second most common word for all books.
 
 Example (for one book only) - let us test this out:
 
@@ -95,10 +96,10 @@ Imagine we have programmed a GUI with a nice interface with icons where you can 
 - Select book txt file
 - ...
 
-> ## Exercise/discussion
+> ## Discussion
 >
 > Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .task}
+{: .challenge}
 
 ---
 
@@ -123,10 +124,10 @@ $ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat p
 
 This is **imperative style**: first do this, then to that, then do that, finally do ...
 
-> ## Exercise/discussion
+> ## Discussion
 >
 > Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .task}
+{: .challenge}
 
 ---
 
@@ -153,11 +154,11 @@ $ bash script.sh
 
 This is still **imperative style**: we tell the script to run these steps in precisely this order.
 
-> ## Exercise/discussion
+> ## Discussion
 >
 > Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
 > What if you modify only one book and do not wish to rerun the pipeline for all books again?
-{: .task}
+{: .challenge}
 
 ---
 
@@ -255,10 +256,10 @@ $ make clean
 $ make -j 4
 ```
 
-> ## Exercise/discussion
+> ## Discussion
 >
 > Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .task}
+{: .challenge}
 
 ---
 
@@ -376,12 +377,12 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 
 <img src="{{ site.baseurl }}/img/snakemake_dag.png" style="height: 300px;"/>
 
-> ## Exercise/discussion
+> ## Discussion
 >
 > Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .task}
+{: .challenge}
 
-> ## Using Snakemake
+> ## Exercise using Snakemake
 >
 > - Start by cleaning all output, and run snakemake.
 >   How many jobs are run?
@@ -397,8 +398,8 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   executing snakemake rules on multiple cores. For example to run
 >   4 parallel threads, use `time snakemake -j 4`.
 > - Try archiving the entire workflow with
->   `snakemake --archive my-workflow.tar.gz`
-{: .task}
+>   `snakemake --archive my-workflow.tar.gz`.
+{: .challenge}
 
 ### More Snakemake goodies
 
