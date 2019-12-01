@@ -53,7 +53,7 @@ project_name/
 - Consider using Git tags to mark specific versions of results (version
   submitted to a journal, dissertation version, poster version, etc.):
 ```bash
-$ git tag -a <tagname> -m "comment"
+$ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 ```
 
 ---
