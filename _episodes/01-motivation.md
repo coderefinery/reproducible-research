@@ -58,9 +58,11 @@ domains of science:
 - Data used to generate original results unavailable
 - Software used to generate original results unavailable
 - Difficult to recreate software environment (libraries, versions) used to generate original results
+- Difficult to rerun the computational steps
 
  <img src="{{ site.baseurl }}/img/Miracle.jpg" style="height: 200px;"/>
 
+---
 
 ## Levels of reproducibility
 
@@ -70,8 +72,6 @@ but multiple tools exist to make it easier.
 <img src="{{ site.baseurl }}/img/repro-pyramid.png" style="height: 300px;"/>
 
 
-## Discussion
-
 > ## Discuss with your neighbors or among all participants
 >
 > Computer programs are expected to produce the same
@@ -79,4 +79,4 @@ but multiple tools exist to make it easier.
 > that true for research software?
 >
 > Can you give some examples? What can we do about it?
-{: .task}
+{: .challenge}
