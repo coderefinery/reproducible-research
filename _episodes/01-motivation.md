@@ -12,14 +12,15 @@ objectives:
 
 <img src="{{ site.baseurl }}/img/research_comic_phd.gif" style="height: 300px;"/>
 
-## A scary anecdote
-
-- A group of researchers obtain great results and submit their work to a high-profile journal.
-- Reviewers ask for new figures and additional analysis.
-- The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
-- The researchers can't find some of the data they used to generate the original results, and
-  can't figure out which parameters they used when running their analyses.
-- The manuscript is still languishing in the drawer ...
+> ## Discussion: A scary anecdote
+>
+> - A group of researchers obtain great results and submit their work to a high-profile journal.
+> - Reviewers ask for new figures and additional analysis.
+> - The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
+> - The researchers can't find some of the data they used to generate the original results, and
+>   can't figure out which parameters they used when running their analyses.
+> - The manuscript is still languishing in the drawer ...
+{: .discussion}
 
 ---
 
