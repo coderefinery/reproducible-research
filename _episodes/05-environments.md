@@ -33,6 +33,22 @@ questions:
   </p>
 </div>
 
+#### Examples of useful Docker images
+1) Run a specific version of *Rstudio* 
+
+`docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio`
+
+Then open your browser to `http://localhost:8787` with login rstudio and password "yourpasswordhere" used in the previous command.
+If you want to try an older version you can check the tags at https://hub.docker.com/r/rocker/rstudio/tags and run for example
+
+`docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio:3.3`
+
+2) Run a specific version of *Anaconda3* https://hub.docker.com/r/continuumio/anaconda3
+
+`docker run -i -t continuumio/anaconda3 /bin/bash`
+
+and similarly one can also pick an image for *Anaconda2* https://hub.docker.com/r/continuumio/anaconda2/tags
+
 
 ### Singularity
 
