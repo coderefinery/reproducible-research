@@ -107,7 +107,7 @@ LABEL maintainer="kthw@kth.se"
 # update the apt package manager
 RUN apt-get update
 RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:jonathonf/python-3.6
+RUN add-apt-repository ppa:deadsnakes/python-3.6
 RUN apt-get update
 
 # install make
@@ -118,6 +118,7 @@ RUN apt-get install -y nano
 
 # install python
 RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
+RUN pip3 install --upgrade pip
 RUN yes | pip3 install numpy
 RUN yes | pip3 install matplotlib
 RUN yes | pip3 install snakemake
@@ -197,11 +198,13 @@ We can also specify snakemake (or  any other command) as the default command to 
  ```shell
 $ docker login
   ```
-- Push to DockerHub. The image name has to be in **youruser/yourimage** format
-(thus instead of the name `word_count`,
-we should have used `<dockerhub-username>/word_count` above):
+- Push to DockerHub. The image name has to be in **youruser/yourimage** format:
+ ```shell
+$ docker tag TAGID YOURUSER/word_count
+ ```
 
  ```shell
-$ docker push image_name
+$ docker push docker.io/YOURUSER/word_count
   ```
+
 - For proprietary/sensitive images private Docker registries can be used
