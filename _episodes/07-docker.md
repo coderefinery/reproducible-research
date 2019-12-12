@@ -199,11 +199,9 @@ We can also specify snakemake (or  any other command) as the default command to 
 $ docker login
   ```
 - Push to DockerHub. The image name has to be in **youruser/yourimage** format:
+ 
  ```shell
 $ docker tag TAGID YOURUSER/word_count
- ```
-
- ```shell
 $ docker push docker.io/YOURUSER/word_count
   ```
 
