@@ -67,6 +67,8 @@ domains of science:
 
 ## Reproducible, replicable, robust, generalisable
 
+While reproducibility is the minimum requirement and can be solved with "good enough" computational practices, replicability/robustness/generalisability of scientific findings are an even greater concern involving research misconduct, questionable research practices (p-hacking, HARKing, cherry-picking), sloppy methods, and other conscious and unconscious biases. 
+
 <img src="{{ site.baseurl }}/img/turing-way/39-reproducible-replicable-robust-generalisable.jpg" style="width: 700px;"/>
 
 (This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
