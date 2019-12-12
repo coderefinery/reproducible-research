@@ -208,3 +208,14 @@ $ docker push docker.io/YOURUSER/word_count
   ```
 
 - For proprietary/sensitive images private Docker registries can be used
+- Sometimes you don't want to push the image but you want to freeze it locally
+
+ ```shell
+$ docker save word_count > word_count_0.1.tar
+ ```
+
+and then you can reload it with
+
+ ```shell
+$ docker load --input word_count_0.1.tar
+ ```
