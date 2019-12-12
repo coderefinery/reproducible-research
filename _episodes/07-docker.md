@@ -107,11 +107,11 @@ LABEL maintainer="kthw@kth.se"
 # update the apt package manager
 RUN apt-get update
 RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:deadsnakes/python-3.6
-RUN apt-get update
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update && apt-get -y install locales
 
 # install make
-RUN apt-get install -y build-essential
+RUN apt-get install -y build-essential 
 
 # install nano
 RUN apt-get install -y nano
