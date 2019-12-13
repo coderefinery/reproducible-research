@@ -11,8 +11,6 @@ control, workflows, containers, and package managers can be used to record
 reproducible environments and computational steps.
 
 
-
-
 > ## Prerequisites
 >
 > 1. You need to install [Git, Python, and Snakemake](https://coderefinery.github.io/installation/).
