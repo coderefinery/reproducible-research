@@ -107,17 +107,18 @@ LABEL maintainer="kthw@kth.se"
 # update the apt package manager
 RUN apt-get update
 RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:jonathonf/python-3.6
-RUN apt-get update
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update && apt-get -y install locales
 
 # install make
-RUN apt-get install -y build-essential
+RUN apt-get install -y build-essential 
 
 # install nano
 RUN apt-get install -y nano
 
 # install python
 RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
+RUN pip3 install --upgrade pip
 RUN yes | pip3 install numpy
 RUN yes | pip3 install matplotlib
 RUN yes | pip3 install snakemake
@@ -197,11 +198,22 @@ We can also specify snakemake (or  any other command) as the default command to 
  ```shell
 $ docker login
   ```
-- Push to DockerHub. The image name has to be in **youruser/yourimage** format
-(thus instead of the name `word_count`,
-we should have used `<dockerhub-username>/word_count` above):
+- Push to DockerHub. The image name has to be in **youruser/yourimage** format:
+ 
+ ```shell
+$ docker tag TAGID YOURUSER/word_count
+$ docker push docker.io/YOURUSER/word_count
+  ```
+
+- For proprietary/sensitive images private Docker registries can be used
+- Sometimes you don't want to push the image but you want to freeze it locally
 
  ```shell
-$ docker push image_name
-  ```
-- For proprietary/sensitive images private Docker registries can be used
+$ docker save word_count > word_count_0.1.tar
+ ```
+
+and then you can reload it with
+
+ ```shell
+$ docker load --input word_count_0.1.tar
+ ```
