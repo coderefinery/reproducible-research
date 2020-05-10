@@ -87,16 +87,8 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 > Let's look at an [example project](https://github.com/coderefinery/word-count) which follows the project structure guidelines given above.
 > This project is about counting the frequency
 > distribution of words in a given text, plotting results and
-> testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law):
-> ```shell
-> $ git clone https://github.com/coderefinery/word-count.git
-> $ cd word-count
-> ```
-> We can explore the directory structure with the `tree` command (this command
-> is not available by default on all systems):
-> ```shell
-> $ tree
-> ```
+> testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).  
+> Let's begin by Forking the repository to our own GitHub account. 
 > We have subdirectories for raw data, source files, documentation,
 > processsed data and results, and README and LICENSE files.
 > - What are the `requirements.txt`, `Dockerfile`, and `Snakefile` files for?
