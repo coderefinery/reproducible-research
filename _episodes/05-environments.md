@@ -72,8 +72,9 @@ important problems:
 - Allow for seamlessly moving workflows across different platforms.
 - Much more lightweight than virtual machines.
 - Eliminates the "works on my machine" situation.
-- For software with many dependencies with it turn own dependencies possibly the only (?) way
-  to preserve the computational experiment for future reproducibility.
+- For software with many dependencies, in turn with its own dependencies,
+  containers offer possibly the only way to preserve the
+  computational experiment for future reproducibility.
 
 However, containers may also have some drawbacks:
 - Containers can have security vulnerabilities which can be exploited.
