@@ -112,7 +112,7 @@ $ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
 
 ---
 
-## Conda, Anaconda, and Miniconda
+## [Conda](https://docs.conda.io/en/latest/)
 
 <a href="https://medium.freecodecamp.org/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c">
 <img src="{{ site.baseurl }}/img/conda_cartoon.jpeg" style="height: 300px;"/>
@@ -269,3 +269,16 @@ There are many tools available:
 - Are you using something else? Please send a
   [pull request](https://github.com/coderefinery/reproducible-research)!
 
+### C/C++
+
+There are no standard methods or tools to handle dependencies in
+C/C++, but useful tools include: 
+
+- [CMake](https://cmake.org/) 
+  - Open-source, cross-platform family of tools designed to build,
+    test and package software (see also the [CodeRefinery lesson on
+    CMake](https://coderefinery.github.io/cmake/))
+- [Conan](https://conan.io/)
+  - A C/C++ package manager for Developers
+- [Conda](https://docs.conda.io/en/latest/)
+  - Works with any language, in principle
