@@ -72,6 +72,8 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
     supplementary material with journal articles.
   - [Binder](https://mybinder.org): Make a repository with Jupyter
     notebooks available in an executable environment.
+  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): A set of good practices for 
+    reproducible data analysis in R, but much is transferable to other languages.
 
 ---
 
