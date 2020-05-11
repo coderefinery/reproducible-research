@@ -75,6 +75,9 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
   - ["Research compendia"](http://inundata.org/talks/rstd19/#/): A set of good practices for 
     reproducible data analysis in R, but much is transferable to other languages.
 
+- Do you want to practice your reproducibility skills and get inspired by working with other 
+  people's code/data? Join a [ReproHack event](https://github.com/reprohack/reprohack-hq)!
+
 ---
 
 > ## Discussion: How do you collaborate on writing academic papers?
