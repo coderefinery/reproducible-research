@@ -202,9 +202,22 @@ rule make_archive:
     shell: 'tar -czvf {output} {input}'
 ```
 
-Also Snakemake uses **declarative style**:
-
 <img src="{{ site.baseurl }}/img/snakemake.png" style="height: 250px;"/>
+
+Snakemake contains rules that relate targets to dependencies and commands:
+
+```makefile
+# rule (mind the tab)
+target: dependencies
+	command(s)
+```
+
+We can think of it as follows:
+```makefile
+outputs: inputs
+	command(s)
+```
+
 
 Try it out:
 ```
@@ -212,7 +225,9 @@ $ snakemake --delete-all-output
 $ snakemake
 ```
 
-
+Snakemake uses **declarative style**: we describe dependencies but we
+let Snakemake figure out the series of steps to produce results
+(targets). Fun fact: Excel is also declarative, not imperative.
 
 Try running `snakemake` again and observe that and discuss why it refused to rerun all steps:
 ```
