@@ -96,11 +96,6 @@ Imagine we have programmed a GUI with a nice interface with icons where you can 
 - Select book txt file
 - ...
 
-> ## Discussion
->
-> Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .challenge}
-
 ---
 
 ## Solution 2: Manual steps
@@ -123,11 +118,6 @@ $ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat p
 ```
 
 This is **imperative style**: first do this, then to that, then do that, finally do ...
-
-> ## Discussion
->
-> Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .challenge}
 
 ---
 
@@ -153,12 +143,6 @@ $ bash script.sh
 ```
 
 This is still **imperative style**: we tell the script to run these steps in precisely this order.
-
-> ## Discussion
->
-> Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-> What if you modify only one book and do not wish to rerun the pipeline for all books again?
-{: .challenge}
 
 ---
 
@@ -282,7 +266,7 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 
 > ## Discussion
 >
-> Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
+> Discuss the pros and cons of these different approaches. Which are reproducible? Which scale to hundreds of books and which can it be automated?
 {: .challenge}
 
 > ## Exercise using Snakemake
