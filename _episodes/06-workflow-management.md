@@ -150,7 +150,7 @@ This is still **imperative style**: we tell the script to run these steps in pre
 
 Snakemake is inspired by [GNU Make](https://www.gnu.org/software/make/),
 but based on Python and is more general and has easier syntax.
-The workflow below can also be [implemented using make](../make-alternative).
+The workflow below can also be [implemented using make](../extra/make-alternative).
 
 First study the `Snakefile`:
 
