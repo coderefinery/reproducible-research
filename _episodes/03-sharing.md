@@ -95,7 +95,8 @@ Note that FAIR principles do not require data/software to be open.
 > 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
 >   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
 > 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
-> 3. Find the repository you wish to publish, and flip the switch to ON.
+> 3. Find the repository you wish to publish (e.g. the word-count repo that you forked), 
+>    and flip the switch to ON.
 > 4. Go to GitHub and create a **release**  by clicking the `release` tab and
 >   `Create a new release`  (a release is based on a Git tag,
 >    but is a higher-level GitHub feature),
