@@ -303,12 +303,35 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   `snakemake --archive my-workflow.tar.gz`.
 {: .challenge}
 
-### More Snakemake goodies
+> ## (Optional) Using Snakemake with conda environments
+> 
+> Let's say that the `make_plot` rule, which runs the 
+> `source/plotcount.py` script, requires a separate 
+> software environment. 
+> - Create an environment file `plotting.yml` in a new directory `envs/`.
+>   It should contain `conda-forge` in the `channels` section and the packages
+>   `numpy=1.17.3` and `matplotlib=3.1.1` in the `dependencies` section.
+> - In the `make_plot` rule in the Snakefile, add a `conda` directive 
+>   where you provide the path to the new environment file.
+> - First clear all output and then rerun `snakemake` with the `--use-conda` 
+>   flag. Observe how snakemake downloads and installs packages and 
+>   activates the environment. 
+> - The new environment is stored in `.snakemake/conda/$hash` where $hash is 
+>   the MD5 hash of the environment file content. Updates to the environment 
+>   definition are thus automatically detected.
+{: .challenge}
+
+
+
+### Graphical user interface
 
 - Snakemake has an experimental GUI feature which can be invoked by:
 ```
 $ snakemake --gui
 ```
+
+### Integrated package management
+
 - Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
 ```python
 rule NAME:
@@ -321,11 +344,15 @@ rule NAME:
     script:
         "scripts/plot-stuff.R"
 ```
+
+### Snakemake in HPC
+
 - It is possible to address and offload to non-CPU resources:
 ```
-$ snakemake clean
+$ snakemake --delete-all-output
 $ snakemake -j 4 --resources gpu=1
 ```
+
 - Transferring your workflow to a cluster:
 ```
 $ snakemake --archive myworkflow.tar.gz
@@ -335,6 +362,7 @@ $ tar zxf myworkflow.tar.gz
 $ cd myworkflow
 $ snakemake -n --use-conda
 ```
+
 - Interoperability with Slurm:
 ```json
 {
@@ -351,14 +379,21 @@ $ snakemake -n --use-conda
     }
 }
 ```
+
   The workflow can now be executed by:
 ```bash
 $ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
 ```
-  Note that in this case `-j` does not correspond to the number of cores used, instead it represents the maximum
-  number of jobs that Snakemake is allowed to have submitted at the same time.
-  The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
-  the command used to submit jobs on the particular cluster.
+
+Note that in this case `-j` does not correspond to the number of cores
+used, instead it represents the maximum number of jobs that Snakemake
+is allowed to have submitted at the same time.  The `--cluster-config`
+flag specifies the config file for the particular cluster, and the
+`--cluster` flag specifies the command used to submit jobs on the
+particular cluster.
+
+### Running jobs in containers
+
 - Jobs can be run in containers. Execute with `snakemake --use-singularity`. Example:
 ```python
 rule NAME:
@@ -371,6 +406,9 @@ rule NAME:
     script:
         "scripts/plot-stuff.R"
 ```
+
+---
+
 - There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
 ---
