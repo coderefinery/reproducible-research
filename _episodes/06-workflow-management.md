@@ -303,6 +303,26 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   `snakemake --archive my-workflow.tar.gz`.
 {: .challenge}
 
+> ## (Optional) Using Snakemake with conda environments
+> 
+> Let's say that the `make_plot` rule, which runs the 
+> `source/plotcount.py` script, requires a separate 
+> software environment. 
+> - Create an environment file `plotting.yml` in a new directory `envs/`.
+>   It should contain `conda-forge` in the `channels` section and the packages
+>   `numpy=1.17.3` and `matplotlib=3.1.1` in the `dependencies` section.
+> - In the `make_plot` rule in the Snakefile, add a `conda` directive 
+>   where you provide the path to the new environment file.
+> - First clear all output and then rerun `snakemake` with the `--use-conda` 
+>   flag. Observe how snakemake downloads and installs packages and 
+>   activates the environment. 
+> - The new environment is stored in `.snakemake/conda/$hash` where $hash is 
+>   the MD5 hash of the environment file content. Updates to the environment 
+>   definition are thus automatically detected.
+{: .challenge}
+
+
+
 ### Graphical user interface
 
 - Snakemake has an experimental GUI feature which can be invoked by:
