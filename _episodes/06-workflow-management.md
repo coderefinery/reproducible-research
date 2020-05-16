@@ -323,7 +323,7 @@ rule NAME:
 ```
 - It is possible to address and offload to non-CPU resources:
 ```
-$ snakemake clean
+$ snakemake --delete-all-output
 $ snakemake -j 4 --resources gpu=1
 ```
 - Transferring your workflow to a cluster:
