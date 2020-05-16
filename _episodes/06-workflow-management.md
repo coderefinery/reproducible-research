@@ -303,12 +303,15 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   `snakemake --archive my-workflow.tar.gz`.
 {: .challenge}
 
-### More Snakemake goodies
+### Graphical user interface
 
 - Snakemake has an experimental GUI feature which can be invoked by:
 ```
 $ snakemake --gui
 ```
+
+### Integrated package management
+
 - Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
 ```python
 rule NAME:
@@ -321,11 +324,15 @@ rule NAME:
     script:
         "scripts/plot-stuff.R"
 ```
+
+### Snakemake in HPC
+
 - It is possible to address and offload to non-CPU resources:
 ```
 $ snakemake --delete-all-output
 $ snakemake -j 4 --resources gpu=1
 ```
+
 - Transferring your workflow to a cluster:
 ```
 $ snakemake --archive myworkflow.tar.gz
@@ -335,6 +342,7 @@ $ tar zxf myworkflow.tar.gz
 $ cd myworkflow
 $ snakemake -n --use-conda
 ```
+
 - Interoperability with Slurm:
 ```json
 {
@@ -351,14 +359,21 @@ $ snakemake -n --use-conda
     }
 }
 ```
+
   The workflow can now be executed by:
 ```bash
 $ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
 ```
-  Note that in this case `-j` does not correspond to the number of cores used, instead it represents the maximum
-  number of jobs that Snakemake is allowed to have submitted at the same time.
-  The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
-  the command used to submit jobs on the particular cluster.
+
+Note that in this case `-j` does not correspond to the number of cores
+used, instead it represents the maximum number of jobs that Snakemake
+is allowed to have submitted at the same time.  The `--cluster-config`
+flag specifies the config file for the particular cluster, and the
+`--cluster` flag specifies the command used to submit jobs on the
+particular cluster.
+
+### Running jobs in containers
+
 - Jobs can be run in containers. Execute with `snakemake --use-singularity`. Example:
 ```python
 rule NAME:
@@ -371,6 +386,9 @@ rule NAME:
     script:
         "scripts/plot-stuff.R"
 ```
+
+---
+
 - There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
 ---
