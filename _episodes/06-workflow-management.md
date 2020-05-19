@@ -21,9 +21,10 @@ keypoints:
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
 If you haven't already done so, please clone the
-[word-count project](https://github.com/coderefinery/word-count):
+[word-count project that you imported earlier](../02-organizing-projects/#word-count---an-example-project)
+(replace "username"):
 ```shell
-$ git clone https://github.com/coderefinery/word-count.git
+$ git clone https://github.com/username/word-count.git
 $ cd word-count
 ```
 
@@ -284,6 +285,97 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 > Discuss the pros and cons of these different approaches. Which are reproducible? Which scale to hundreds of books and which can it be automated?
 {: .challenge}
 
+
+### Graphical user interface
+
+- Snakemake has an experimental GUI feature which can be invoked by:
+```
+$ snakemake --gui
+```
+
+### Integrated package management
+
+- Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
+```python
+rule NAME:
+    input:
+        "table.txt"
+    output:
+        "plots/myplot.pdf"
+    conda:
+        "envs/ggplot.yaml"
+    script:
+        "scripts/plot-stuff.R"
+```
+
+### Snakemake in HPC
+
+- It is possible to address and offload to non-CPU resources:
+```
+$ snakemake --delete-all-output
+$ snakemake -j 4 --resources gpu=1
+```
+
+- Transferring your workflow to a cluster:
+```
+$ snakemake --archive myworkflow.tar.gz
+$ scp myworkflow.tar.gz <some-cluster>
+$ ssh <some-cluster>
+$ tar zxf myworkflow.tar.gz
+$ cd myworkflow
+$ snakemake -n --use-conda
+```
+
+- Interoperability with Slurm:
+```json
+{
+    "__default__":
+    {
+        "account": "a_slurm_submission_account",
+        "mem": "1G",
+        "time": "0:5:0"
+    },
+    "count_words":
+    {
+        "time": "0:10:0",
+        "mem": "2G"
+    }
+}
+```
+
+  The workflow can now be executed by:
+```bash
+$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
+```
+
+Note that in this case `-j` does not correspond to the number of cores
+used, instead it represents the maximum number of jobs that Snakemake
+is allowed to have submitted at the same time.  The `--cluster-config`
+flag specifies the config file for the particular cluster, and the
+`--cluster` flag specifies the command used to submit jobs on the
+particular cluster.
+
+### Running jobs in containers
+
+- Jobs can be run in containers. Execute with `snakemake --use-singularity`. Example:
+```python
+rule NAME:
+    input:
+        "table.txt"
+    output:
+        "plots/myplot.pdf"
+    singularity:
+        "docker://joseespinosa/docker-r-ggplot2"
+    script:
+        "scripts/plot-stuff.R"
+```
+
+---
+
+- There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
+
+---
+
 > ## Exercise using Snakemake
 >
 > - Start by cleaning all output, and run snakemake.
@@ -305,75 +397,23 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   `snakemake --archive my-workflow.tar.gz`.
 {: .challenge}
 
-### More Snakemake goodies
-
-- Snakemake has an experimental GUI feature which can be invoked by:
-```
-$ snakemake --gui
-```
-- Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
-```python
-rule NAME:
-    input:
-        "table.txt"
-    output:
-        "plots/myplot.pdf"
-    conda:
-        "envs/ggplot.yaml"
-    script:
-        "scripts/plot-stuff.R"
-```
-- It is possible to address and offload to non-CPU resources:
-```
-$ snakemake clean
-$ snakemake -j 4 --resources gpu=1
-```
-- Transferring your workflow to a cluster:
-```
-$ snakemake --archive myworkflow.tar.gz
-$ scp myworkflow.tar.gz <some-cluster>
-$ ssh <some-cluster>
-$ tar zxf myworkflow.tar.gz
-$ cd myworkflow
-$ snakemake -n --use-conda
-```
-- Interoperability with Slurm:
-```json
-{
-    "__default__":
-    {
-        "account": "a_slurm_submission_account",
-        "mem": "1G",
-        "time": "0:5:0"
-    },
-    "count_words":
-    {
-        "time": "0:10:0",
-        "mem": "2G"
-    }
-}
-```
-  The workflow can now be executed by:
-```bash
-$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
-```
-  Note that in this case `-j` does not correspond to the number of cores used, instead it represents the maximum
-  number of jobs that Snakemake is allowed to have submitted at the same time.
-  The `--cluster-config` flag specifies the config file for the particular cluster, and the `--cluster` flag specifies
-  the command used to submit jobs on the particular cluster.
-- Jobs can be run in containers. Execute with `snakemake --use-singularity`. Example:
-```python
-rule NAME:
-    input:
-        "table.txt"
-    output:
-        "plots/myplot.pdf"
-    singularity:
-        "docker://joseespinosa/docker-r-ggplot2"
-    script:
-        "scripts/plot-stuff.R"
-```
-- There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
+> ## (Optional) Using Snakemake with conda environments
+> 
+> Let's say that the `make_plot` rule, which runs the 
+> `source/plotcount.py` script, requires a separate 
+> software environment. 
+> - Create an environment file `plotting.yml` in a new directory `envs/`.
+>   It should contain `conda-forge` in the `channels` section and the packages
+>   `numpy=1.17.3` and `matplotlib=3.1.1` in the `dependencies` section.
+> - In the `make_plot` rule in the Snakefile, add a `conda` directive 
+>   where you provide the path to the new environment file.
+> - First clear all output and then rerun `snakemake` with the `--use-conda` 
+>   flag. Observe how snakemake downloads and installs packages and 
+>   activates the environment. 
+> - The new environment is stored in `.snakemake/conda/$hash` where $hash is 
+>   the MD5 hash of the environment file content. Updates to the environment 
+>   definition are thus automatically detected.
+{: .challenge}
 
 ---
 

@@ -201,7 +201,8 @@ To get an idea of what's needed, let's have a look at the
 >
 > Recreate the software environment provided by the
 > `requirements.txt` file of the
-> [word-count project](https://github.com/coderefinery/word-count).
+> [word-count project that you imported](../02-organizing-projects/#word-count---an-example-project).
+> You can first clone the repository to your computer.
 > The `snakemake-minimal` package is only available in the `bioconda`
 > channel, which needs to be specified:
 > ```shell
