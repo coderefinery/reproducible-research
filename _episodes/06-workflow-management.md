@@ -380,9 +380,11 @@ rule NAME:
 >
 > - Start by cleaning all output, and run snakemake.
 >   How many jobs are run?
-> - Try "touching" the file `data/sierra.txt` and rerun snakemake.
+> - Try "touching" the file `data/sierra.txt` and rerun snakemake
+>   (`touch data/sierra.txt`).
 >   Which steps of the workflow are run now, and why?
-> - Now touch the file `processed_data/sierra.dat`, and run
+> - Now touch the file `processed_data/sierra.dat` to update the
+>   timestamp, and run
 >   `snakemake -S`. Can you make sense of the output?
 > - Rerun snakemake. Which steps are run, and why?
 > - Finally try touching `source/wordcount.py` and rerun snakemake.
