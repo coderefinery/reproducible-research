@@ -199,9 +199,10 @@ To get an idea of what's needed, let's have a look at the
 >
 > On Windows, we recommend to do this exercise in the Anaconda Prompt.
 >
-> Recreate the software environment provided by the
-> `requirements.txt` file of the
+> Begin by **first importing** and then cloning the 
 > [word-count project](https://github.com/coderefinery/word-count).
+> Then recreate the software environment provided by the
+> `requirements.txt` file in the repository. 
 > The `snakemake-minimal` package is only available in the `bioconda`
 > channel, which needs to be specified:
 > ```shell
