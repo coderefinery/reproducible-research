@@ -217,12 +217,18 @@ To get an idea of what's needed, let's have a look at the
 > We now have (roughly) the same environment as specified by the
 > developers of the word-count project. But let's say we want to
 > extend this environment, and share it with colleagues:
+> - Inspect your available environments with `conda info -e`.
 > - Install the `pandas` package using `conda install`.
-> - Export the environment using `conda env export > environment.yaml`.
-> - Export the environment in a different way using
->   `conda list --export > new-requirements.txt`.
-> - Inspect the `environment.yaml` and `new-requirements.txt` files.
->   How does it compare with the original `requirements.txt` file?
+> - Add `pandas` with the version you installed to the `requirements.txt` file.
+> - Export the full environment using `conda env export > full_env.yml`, and 
+>   compare the `.yml` file format to the `.txt` file format.
+> - Translate your `requirements.txt` file to `yml` format in a 
+>   `environments.yml` file. 
+> - If you want to make sure your new `environment.yml` is correct, 
+>   you can use it to create a new 
+>   test environment using `conda create`. You can then delete it with 
+>   `conda env remove <envname>` or simply remove the directory of the 
+>   environment (that you can find using `conda info -e`).
 {: .challenge}
 
 ---
