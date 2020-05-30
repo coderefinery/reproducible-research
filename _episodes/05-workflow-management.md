@@ -264,6 +264,20 @@ $ snakemake
 - Also possible to run workflows in Docker or Singularity containers.
 - Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
 
+### Integrated package management
+
+- Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
+```python
+rule NAME:
+    input:
+        "table.txt"
+    output:
+        "plots/myplot.pdf"
+    conda:
+        "envs/ggplot.yaml"
+    script:
+        "scripts/plot-stuff.R"
+```
 
 ### Visualizing the workflow
 
@@ -328,21 +342,6 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 - Snakemake has an experimental GUI feature which can be invoked by:
 ```
 $ snakemake --gui
-```
-
-### Integrated package management
-
-- Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
-```python
-rule NAME:
-    input:
-        "table.txt"
-    output:
-        "plots/myplot.pdf"
-    conda:
-        "envs/ggplot.yaml"
-    script:
-        "scripts/plot-stuff.R"
 ```
 
 ### Snakemake in HPC
