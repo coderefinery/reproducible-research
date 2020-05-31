@@ -65,6 +65,15 @@ domains of science:
 
 ---
 
+## Levels of reproducibility
+
+A published article is like the top of a pyramid. It rests on multiple
+levels that each contributes to its reproducibility.
+
+<img src="{{ site.baseurl }}/img/repro-pyramid.png" style="height: 300px;"/>
+
+---
+
 ## Reproducible, replicable, robust, generalisable
 
 While reproducibility is the minimum requirement and can be solved with "good enough" computational practices, replicability/robustness/generalisability of scientific findings are an even greater concern involving research misconduct, questionable research practices (p-hacking, HARKing, cherry-picking), sloppy methods, and other conscious and unconscious biases. 
@@ -74,15 +83,6 @@ While reproducibility is the minimum requirement and can be solved with "good en
 (This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
 Turing Way](https://the-turing-way.netlify.com) community and is used under a
 CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](https://zenodo.org/record/3332808).)
-
----
-
-## Levels of reproducibility
-
-Ensuring that one's research is fully reproducible can be a challenging task,
-but multiple tools exist to make it easier.
-
-<img src="{{ site.baseurl }}/img/repro-pyramid.png" style="height: 300px;"/>
 
 
 > ## Discuss with your neighbors or among all participants
