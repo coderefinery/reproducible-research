@@ -219,10 +219,11 @@ outputs: inputs
 ```
 
 
-Try it out:
+Let's try it out. Since version 5.11 one needs to specify number 
+of cores (or jobs) using `-j`, `--jobs` or `--cores`:
 ```
-$ snakemake --delete-all-output
-$ snakemake
+$ snakemake --delete-all-output -j 1
+$ snakemake -j 1
 ```
 
 Snakemake uses **declarative style**: we describe dependencies but we
@@ -231,7 +232,7 @@ let Snakemake figure out the series of steps to produce results
 
 Try running `snakemake` again and observe that and discuss why it refused to rerun all steps:
 ```
-$ snakemake
+$ snakemake -j 1
 
 Building DAG of jobs...
 Nothing to be done.
@@ -243,7 +244,7 @@ only update its timestamp:
 
 ```
 $ touch results/results.txt
-$ snakemake
+$ snakemake -j 1
 ```
 
 ### Why Snakemake?
@@ -287,7 +288,7 @@ plain-text format for describing graphs used by [Graphviz software](https://www.
 which can be installed by `conda install graphviz`)
 
 ```bash
-$ snakemake --dag | dot -Tpng > dag.png
+$ snakemake -j 1 --dag | dot -Tpng > dag.png
 ```
 Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
 
@@ -303,25 +304,25 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 
 - Snakemake has an experimental GUI feature which can be invoked by:
 ```
-$ snakemake --gui
+$ snakemake --gui -j 1
 ```
 
 ### Snakemake in HPC
 
 - It is possible to address and offload to non-CPU resources:
 ```
-$ snakemake --delete-all-output
+$ snakemake --delete-all-output -j 1
 $ snakemake -j 4 --resources gpu=1
 ```
 
 - Transferring your workflow to a cluster:
 ```
-$ snakemake --archive myworkflow.tar.gz
+$ snakemake --archive myworkflow.tar.gz -j 1
 $ scp myworkflow.tar.gz <some-cluster>
 $ ssh <some-cluster>
 $ tar zxf myworkflow.tar.gz
 $ cd myworkflow
-$ snakemake -n --use-conda
+$ snakemake -n --use-conda -j 1
 ```
 
 - Interoperability with Slurm:
@@ -355,7 +356,7 @@ particular cluster.
 
 ### Running jobs in containers
 
-- Jobs can be run in containers. Execute with `snakemake --use-singularity`. Example:
+- Jobs can be run in containers. Execute with `snakemake -j 1 --use-singularity`. Example:
 ```python
 rule NAME:
     input:
@@ -392,7 +393,7 @@ rule NAME:
 >   executing snakemake rules on multiple cores. For example to run
 >   4 parallel threads, use `time snakemake -j 4`.
 > - Try archiving the entire workflow with
->   `snakemake --archive my-workflow.tar.gz`.
+>   `snakemake -j 1 --archive my-workflow.tar.gz`.
 {: .challenge}
 
 > ## (Optional) Using Snakemake with conda environments
