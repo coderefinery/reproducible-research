@@ -225,6 +225,11 @@ $ snakemake --delete-all-output
 $ snakemake
 ```
 
+Recent versions of Snakemake require the use of the `--cores` flag:
+```
+$ snakemake --cores=1
+```
+
 Snakemake uses **declarative style**: we describe dependencies but we
 let Snakemake figure out the series of steps to produce results
 (targets). Fun fact: Excel is also declarative, not imperative.
