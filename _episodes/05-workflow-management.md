@@ -20,9 +20,8 @@ keypoints:
 
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
-If you haven't already done so, please clone the
-[word-count project that you imported earlier](../02-organizing-projects/#word-count---an-example-project)
-(replace "username"):
+If you haven't already done so, please import and clone the
+[word-count project](https://github.com/coderefinery/word-count):
 ```shell
 $ git clone https://github.com/username/word-count.git
 $ cd word-count
@@ -265,6 +264,20 @@ $ snakemake
 - Also possible to run workflows in Docker or Singularity containers.
 - Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
 
+### Integrated package management
+
+- Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
+```python
+rule NAME:
+    input:
+        "table.txt"
+    output:
+        "plots/myplot.pdf"
+    conda:
+        "envs/ggplot.yaml"
+    script:
+        "scripts/plot-stuff.R"
+```
 
 ### Visualizing the workflow
 
@@ -291,21 +304,6 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 - Snakemake has an experimental GUI feature which can be invoked by:
 ```
 $ snakemake --gui
-```
-
-### Integrated package management
-
-- Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
-```python
-rule NAME:
-    input:
-        "table.txt"
-    output:
-        "plots/myplot.pdf"
-    conda:
-        "envs/ggplot.yaml"
-    script:
-        "scripts/plot-stuff.R"
 ```
 
 ### Snakemake in HPC
