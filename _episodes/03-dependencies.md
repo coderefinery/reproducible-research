@@ -223,11 +223,14 @@ To get an idea of what's needed, let's have a look at the
 > - Add `pandas` with the version you installed to the `requirements.txt` file.
 > - Export the full environment using `conda env export > full_env.yml`, and 
 >   compare the `.yml` file format to the `.txt` file format.
-> - Translate your `requirements.txt` file to `yml` format in a 
->   `environments.yml` file. 
-> - If you want to make sure your new `environment.yml` is correct, 
+> - Create a new environment.yml file with the packages from the 
+>   requirements.txt file. You only need the `channels` and `dependencies`
+>   sections, and dependencies can be listed as `package=1.2.3` or simply 
+>   `package`.
+> - If you want to make sure your new environment.yml is correct, 
 >   you can use it to create a new 
->   test environment using `conda create`. You can then delete it with 
+>   test environment using `conda env create -n <name> -f <file.yml>`. 
+>   You can then delete it with 
 >   `conda env remove <envname>` or simply remove the directory of the 
 >   environment (that you can find using `conda info -e`).
 {: .challenge}
