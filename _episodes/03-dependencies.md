@@ -199,7 +199,8 @@ To get an idea of what's needed, let's have a look at the
 >
 > On Windows, we recommend to do this exercise in the Anaconda Prompt.
 >
-> Begin by **first importing** and then cloning the 
+> Begin by **first importing** (by clicking "Use this template")
+> and then cloning the 
 > [word-count project](https://github.com/coderefinery/word-count).
 > Then recreate the software environment provided by the
 > `requirements.txt` file in the repository. 
