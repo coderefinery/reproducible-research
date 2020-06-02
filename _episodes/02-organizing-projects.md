@@ -66,7 +66,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
   - Google Docs can be a good alternative
 
 - Many tools exist to assist in making scholarly output reproducible:
-  - [rttols](https://github.com/benmarwick/rrtools): Instructions, templates, and functions for making a basic compendium suitable for writing a reproducible journal article or report with R.
+  - [rrtools](https://github.com/benmarwick/rrtools): Instructions, templates, and functions for making a basic compendium suitable for writing a reproducible journal article or report with R.
   - [Jupyter Notebooks](https://jupyter.org): Web-based interactive
     computational environment for creating notebook documents. Can be used for
     supplementary material with journal articles.
