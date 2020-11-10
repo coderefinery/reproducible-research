@@ -377,26 +377,39 @@ rule NAME:
 
 > ## Exercise using Snakemake
 >
-> - Start by cleaning all output, and run snakemake 
+> 1. Start by cleaning all output, and run snakemake 
 >   (`snakemake`, you may have to add `-j 1` to the call).
 >   How many jobs are run?
-> - Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
+> 2. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
 >   (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) ) 
 >   and rerun snakemake.
 >   Which steps of the workflow are run now, and why? 
-> - Now touch the file `processed_data/sierra.dat` to update the
+> 3. Now touch the file `processed_data/sierra.dat` to update the
 >   timestamp, and run
 >   `snakemake -S` (-S stands for summary). Can you make sense of the output?
-> - Rerun snakemake. Which steps are run, and why?
-> - Finally try touching `source/wordcount.py` and rerun snakemake.
+> 4. Rerun snakemake. Which steps are run, and why?
+> 5. Finally try touching `source/wordcount.py` and rerun snakemake.
 >   Which steps are run, and why? Should source codes be considered
 >   dependencies?
-> - Use the `time` command to see if you get any speedup from
+> 6. Use the `time` command to see if you get any speedup from
 >   executing snakemake rules on multiple cores. For example to run
 >   4 parallel threads, use `time snakemake -j 4`.
-> - Try archiving the entire workflow with
+> 7. Try archiving the entire workflow with
 >   `snakemake -j 1 --archive my-workflow.tar.gz`.
+
+
+>> ## Solution
+>> 1. `snakemake --delete-all-output -j 1`, where `-j 1` (you could also use `--cores 1` instead) specifies the number of CPU cores used for execution. It should display something like *deleting x*, while deleting previously created files (if you ran this before, otherwise nothing). Then run the process again with `snakemake -j 1`. When it is done, scroll back up to ~line 5 of the output. Here the job counts are shown. If everything went well, it should have run 11 jobs, everything once, but count_words and make_plot, which was run 4 times each (once for each input book). Below you can see when each job was run and what was done in each job. You can also see the number of jobs shown as *11 of 11 steps (100%) done* in the end of the output.
+>> 2. `touch data/sierra.txt` (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt): this command updates the timestamp of the file, for the program it looks like the file has been updated and will need to be reprocessed. So, once you call `snakemake -j 1` again, only the jobs concerning the sierra dataset will be rerun, not all the processes of unchanged files. Snakemake determines which of the following processing steps will need to be rerun once an input file is updated. Hence eg make_plot is also rerun, since its input (the output of count_words) 'changed'.
+>> 3.  `touch processed_data/sierra.dat` (unix/git bash) or `copy /b processed_data/sierra.dat +,,` (windows cmd /anaconda prompt), then run `snakemake -S` (-S stands for summary). This does not run any jobs but gives an overview of what is the status (status column) of each step and what will be run the next time snakemake is run (plan column). Note that the column headers may appear not right above the columns below, check spaces to connect columns with their column names). Note the default rule 'all' is not shown in summary.
+>> 4. `snakemake -j 1`. 4 jobs are run. You may have expected 3 as in the summary only 3 steps had the *upadte pending* planned. However, as mentioned above, the default rule 'all' was not shown in summary and also needs to be executed in order to run the following steps. 
+>> 5.  `touch source/wordcount.py` (unix/git bash) or `copy /b source/wordcount.py +,,` (windows cmd /anaconda prompt), then `snakemake -j 1`. Until now we only 'changed' the output files. Here we actually 'change' a script that produces these output files. Since the wordcount.py is the very first script in the workflow on whose results all other processes depend on, everything is run again. By updating the scripts timestamp of scripts run during the workflow, snakemake assumes something has changed in the scripts that may influence the output of the script. Therefore it must run all the following steps again. In this case if you would actually change something in the wordcount.py script it would change the output, which means if you want your research to be rproducible the source code as is has to be a dependency to get the same results as you did. 
+>> 6. The speedup achieved with running on 4 instead of 1 core might be small but it should still exist. The example is only small, but when running tasks, where steps take much longer, this is one possible way of speeding things up.
+>> 7. For more information, see [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
+>{: .solution}
 {: .challenge}
+
+
 
 > ## (Optional) Using Snakemake with conda environments
 > 
