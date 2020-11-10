@@ -20,16 +20,21 @@ keypoints:
 
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
-If you haven't already done so, please import and clone the
-[word-count project](https://github.com/coderefinery/word-count):
-```shell
-$ git clone https://github.com/username/word-count.git
-$ cd word-count
-```
+For this episode, we will be using [Binder](https://mybinder.org/) 
+a cloud service to make sure we all have the same computing environment. 
+This is interesting from a reproducible research point of view and we will explain
+later how this is even possible!
+
+- Go to [https://mybinder.org/](https://mybinder.org)
+- **GitHub repository name or URL**: [https://github.com//coderefinery/word-count](https://github.com//coderefinery/word-count)
+- Click on the **Launch** button.
+- Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
 
 The example project directory listing is:
 ```
 .
+├── binder
+│   ├── environment.yml
 ├── data
 │   ├── abyss.txt
 │   ├── isles.txt
@@ -299,75 +304,53 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 > Discuss the pros and cons of these different approaches. Which are reproducible? Which scale to hundreds of books and which can it be automated?
 {: .challenge}
 
-
-### Graphical user interface
-
-- Snakemake has an experimental GUI feature which can be invoked by:
-```
-$ snakemake --gui -j 1
-```
-
-### Snakemake in HPC
-
-- It is possible to address and offload to non-CPU resources:
-```
-$ snakemake --delete-all-output -j 1
-$ snakemake -j 4 --resources gpu=1
-```
-
-- Transferring your workflow to a cluster:
-```
-$ snakemake --archive myworkflow.tar.gz -j 1
-$ scp myworkflow.tar.gz <some-cluster>
-$ ssh <some-cluster>
-$ tar zxf myworkflow.tar.gz
-$ cd myworkflow
-$ snakemake -n --use-conda -j 1
-```
-
-- Interoperability with Slurm:
-```json
-{
-    "__default__":
-    {
-        "account": "a_slurm_submission_account",
-        "mem": "1G",
-        "time": "0:5:0"
-    },
-    "count_words":
-    {
-        "time": "0:10:0",
-        "mem": "2G"
-    }
-}
-```
-
-  The workflow can now be executed by:
-```bash
-$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
-```
-
-Note that in this case `-j` does not correspond to the number of cores
-used, instead it represents the maximum number of jobs that Snakemake
-is allowed to have submitted at the same time.  The `--cluster-config`
-flag specifies the config file for the particular cluster, and the
-`--cluster` flag specifies the command used to submit jobs on the
-particular cluster.
-
-### Running jobs in containers
-
-- Jobs can be run in containers. Execute with `snakemake -j 1 --use-singularity`. Example:
-```python
-rule NAME:
-    input:
-        "table.txt"
-    output:
-        "plots/myplot.pdf"
-    singularity:
-        "docker://joseespinosa/docker-r-ggplot2"
-    script:
-        "scripts/plot-stuff.R"
-```
+> ## (optional) Snakemake in HPC
+>
+> - It is possible to address and offload to non-CPU resources:
+> ```
+> $ snakemake --delete-all-output -j 1
+> $ snakemake -j 4 --resources gpu=1
+> ```
+> 
+> - Transferring your workflow to a cluster:
+> ```
+> $ snakemake --archive myworkflow.tar.gz -j 1
+> $ scp myworkflow.tar.gz <some-cluster>
+> $ ssh <some-cluster>
+> $ tar zxf myworkflow.tar.gz
+> $ cd myworkflow
+> $ snakemake -n --use-conda -j 1
+> ```
+> 
+> - Interoperability with Slurm:
+> ```json
+> {
+>     "__default__":
+>     {
+>         "account": "a_slurm_submission_account",
+>         "mem": "1G",
+>         "time": "0:5:0"
+>     },
+>     "count_words":
+>     {
+>         "time": "0:10:0",
+>         "mem": "2G"
+>     }
+> }
+> ```
+> 
+>   The workflow can now be executed by:
+> ```bash
+> $ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
+> ```
+> 
+> Note that in this case `-j` does not correspond to the number of cores
+> used, instead it represents the maximum number of jobs that Snakemake
+> is allowed to have submitted at the same time.  The `--cluster-config`
+> flag specifies the config file for the particular cluster, and the
+> `--cluster` flag specifies the command used to submit jobs on the
+> particular cluster.
+{: .callout}
 
 ---
 
