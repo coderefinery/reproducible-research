@@ -357,7 +357,6 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 - There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
 ---
-
 > ## Exercise using Snakemake
 >
 > 1. Start by cleaning all output, and run snakemake 
@@ -379,37 +378,59 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   4 parallel threads, use `time snakemake -j 4`.
 > 7. Try archiving the entire workflow with
 >   `snakemake -j 1 --archive my-workflow.tar.gz`.
-
-
->> ## Solution
->> 1. `snakemake --delete-all-output -j 1`, where `-j 1` (you could also use `--cores 1` instead) specifies the number of CPU cores used for execution. It should display something like *deleting x*, while deleting previously created files (if you ran this before, otherwise nothing). Then run the process again with `snakemake -j 1`. When it is done, scroll back up to ~line 5 of the printed information. Here, the job counts are shown. If everything went well, it should have run 11 jobs, everything once, but count_words and make_plot, which was run 4 times each (once for each input book). In the text printed below this in your terminal you can see when each job was run and what was done in each job. You can also see the number of jobs shown as *11 of 11 steps (100%) done* in the end of the output.
->> 2. `touch data/sierra.txt` (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt): this command updates the timestamp of the file, for the program it looks like the file has been updated/changed and will need to be reprocessed by all following steps that are depending on this output (i.e. that use this output to do something else with it). So, once you call `snakemake -j 1` again, only the jobs concerning the sierra dataset will be rerun, not all the processes of unchanged files. Snakemake determines which of the following processing steps will need to be rerun once an input file is updated. Hence e.g. make_plot is also rerun, since its input (the output of count_words) 'changed'.
->> 3.  `touch processed_data/sierra.dat` (unix/git bash) or `copy /b processed_data/sierra.dat +,,` (windows cmd /anaconda prompt), then run `snakemake -S` (-S stands for summary). This does not run any jobs but gives an overview of what is the status (status column) of each step and what will be run the next time snakemake is run (plan column). Note that the column headers may appear not right above the columns below, check spaces to connect columns with their column names). Also note, that the default rule 'all' is not shown in summary.
->> 4. `snakemake -j 1`. 4 jobs are run. You may have expected 3 as in the summary only 3 steps had the *upadte pending* planned. However, as mentioned above, the default rule 'all' was not shown in summary and also needs to be executed in order to run the following steps. 
->> 5.  `touch source/wordcount.py` (unix/git bash) or `copy /b source/wordcount.py +,,` (windows cmd /anaconda prompt), then `snakemake -j 1`. Until now we only 'changed' the output files. Here we actually 'change' a script that produces these output files. Since the wordcount.py is the very first script in the workflow on whose results all other processes depend on, everything is run again. By updating the scripts timestamp, snakemake assumes something has changed in the scripts that may influence the output of the script, ans therefore also the output of every following step. Therefore it will run all the following steps again. In this case if you would actually change something in the wordcount.py script it would change the output, which means if you want your research to be rproducible, the source code as is has to be a dependency to get the same results as you did now. 
->> 6. The speedup achieved with running on 4 instead of 1 core might be small but it should still exist is terms of time. The example is only small, but when running tasks where each step takes much longer to run, this is one possible way of speeding things up.
->> 7. For more information, see [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
->{: .solution}
+>
+> > ## Solution
+> >
+> > 1. `snakemake --delete-all-output -j 1`, where `-j 1` (you could also use `--cores 1` instead) specifies the number of CPU cores used for execution. It should display something like *deleting x*, while deleting previously created files (if you ran this before, otherwise nothing). Then run the process again with `snakemake -j 1`. When it is done, scroll back up to ~line 5 of the printed information. Here, the job counts are shown. If everything went well, it should have run 11 jobs, everything once, but count_words and make_plot, which was run 4 times each (once for each input book). In the text printed below this in your terminal you can see when each job was run and what was done in each job. You can also see the number of jobs shown as *11 of 11 steps (100%) done* in the end of the output.
+> > 2. `touch data/sierra.txt` (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt): this command updates the timestamp of the file, for the program it looks like the file has been updated/changed and will need to be reprocessed by all following steps that are depending on this output (i.e. that use this output to do something else with it). So, once you call `snakemake -j 1` again, only the jobs concerning the sierra dataset will be rerun, not all the processes of unchanged files. Snakemake determines which of the following processing steps will need to be rerun once an input file is updated. Hence e.g. make_plot is also rerun, since its input (the output of count_words) 'changed'.
+> > 3.  `touch processed_data/sierra.dat` (unix/git bash) or `copy /b processed_data/sierra.dat +,,` (windows cmd /anaconda prompt), then run `snakemake -S` (-S stands for summary). This does not run any jobs but gives an overview of what is the status (status column) of each step and what will be run the next time snakemake is run (plan column). Note that the column headers may appear not right above the columns below, check spaces to connect columns with their column names). Also note, that the default rule 'all' is not shown in summary.
+> > 4. `snakemake -j 1`. 4 jobs are run. You may have expected 3 as in the summary only 3 steps had the *upadte pending* planned. However, as mentioned above, the default rule 'all' was not shown in summary and also needs to be executed in order to run the following steps. 
+> > 5.  `touch source/wordcount.py` (unix/git bash) or `copy /b source/wordcount.py +,,` (windows cmd /anaconda prompt), then `snakemake -j 1`. Until now we only 'changed' the output files. Here we actually 'change' a script that produces these output files. Since the wordcount.py is the very first script in the workflow on whose results all other processes depend on, everything is run again. By updating the scripts timestamp, snakemake assumes something has changed in the scripts that may influence the output of the script, ans therefore also the output of every following step. Therefore it will run all the following steps again. In this case if you would actually change something in the wordcount.py script it would change the output, which means if you want your research to be rproducible, the source code as is has to be a dependency to get the same results as you did now. 
+> > 6. The speedup achieved with running on 4 instead of 1 core might be small but it should still exist is terms of time. The example is only small, but when running tasks where each step takes much longer to run, this is one possible way of speeding things up.
+> > 7. For more information, see [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
+> {: .solution}
 {: .challenge}
-
-
 
 > ## (Optional) Using Snakemake with conda environments
 > 
 > Let's say that the `make_plot` rule, which runs the 
 > `source/plotcount.py` script, requires a separate 
 > software environment. 
-> - Create an environment file `plotting.yml` in a new directory `envs/`.
+> 1. Create an environment file `plotting.yml` in a new directory `envs/`.
 >   It should contain `conda-forge` in the `channels` section and the packages
 >   `numpy=1.17.3` and `matplotlib=3.1.1` in the `dependencies` section.
-> - In the `make_plot` rule in the Snakefile, add a `conda` directive 
+> 2. In the `make_plot` rule in the Snakefile, add a `conda` directive 
 >   where you provide the path to the new environment file.
-> - First clear all output and then rerun `snakemake` with the `--use-conda` 
+> 3. First clear all output and then rerun `snakemake` with the `--use-conda` 
 >   flag. Observe how snakemake downloads and installs packages and 
->   activates the environment. 
-> - The new environment is stored in `.snakemake/conda/$hash` where $hash is 
->   the MD5 hash of the environment file content. Updates to the environment 
->   definition are thus automatically detected.
+>   activates the environment. The new environment is stored in `.snakemake/conda/$hash` where $hash is the MD5 hash of the environment file content. Updates to the environment definition are thus automatically detected.
+>
+> > ## Solution
+> > 1. Checkout the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) on how to manually create a yml file. Make sure to create the `plotting.yml` file in the right directory. Open your preferred editor, and add the following:
+> > ```
+> > name: plotting
+> > channels:
+> >   - conda-forge
+> > dependencies:
+> >   - numpy=1.17.3
+> >  - matplotlib=3.1.1
+> > ```
+> > 2. The make plot part of the snakemake file should be something like this:
+> > ```
+> > ...
+> > # create a plot for each book
+> > rule make_plot:
+> >    input:
+> >        plotcount='source/plotcount.py',
+> >        book='processed_data/{file}.dat'
+> >    output: 'results/{file}.png'
+> >    conda:
+> >        "envs/plotting.yaml"
+> >    shell: 'python {input.plotcount} {input.book} {output}'
+> > ...
+> > ```
+> > 3. First, run `snakemake --delete-all-output -j 1` to clear all output. Then, run `snakemake --use-conda -j 1`. Snakemake now, finds the
+> {: . solution}
 {: .challenge}
 
 ---
