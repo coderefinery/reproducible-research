@@ -64,6 +64,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
   - [Overleaf](https://www.overleaf.com) (has Git integration)
   - [Authorea](https://www.authorea.com) (apparently also has Git integration)
   - [HackMD](https://hackmd.io/) A realtime web-based collaborative Markdown editor
+  - [Manuscripts.io](https://www.manuscripts.io/) Manuscripts is a collaborative authoring tool that support scientific content and reproducibility.
   - Google Docs can be a good alternative
 
 - Many tools exist to assist in making scholarly output reproducible:
