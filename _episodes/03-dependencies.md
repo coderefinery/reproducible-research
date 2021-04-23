@@ -277,6 +277,7 @@ There are many tools available:
 - [RSuite](https://rsuite.io/)
 - [automagic](https://github.com/cole-brokamp/automagic)
 - [deplearning](https://github.com/MilesMcBain/deplearning)
+- [devtools](https://github.com/r-lib/devtools)
 - Are you using something else? Please send a
   [pull request](https://github.com/coderefinery/reproducible-research)!
 
