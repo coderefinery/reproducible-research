@@ -359,7 +359,7 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 ---
 > ## Exercise using Snakemake
 >
-> 1. Start by cleaning all output `snakemake --delete-all-output`, and run
+> 1. Start by cleaning all output with `snakemake --delete-all-output`, and run
 >   `snakemake` (you may have to add `-j 1` to the calls).
 >   How many jobs are run?
 > 2. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
