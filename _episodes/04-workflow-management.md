@@ -359,8 +359,8 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 ---
 > ## Exercise using Snakemake
 >
-> 1. Start by cleaning all output, and run snakemake 
->   (`snakemake`, you may have to add `-j 1` to the call).
+> 1. Start by cleaning all output with `snakemake --delete-all-output`, and run
+>   `snakemake` (you may have to add `-j 1` to the calls).
 >   How many jobs are run?
 > 2. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
 >   (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) ) 
@@ -406,6 +406,7 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 >   activates the environment. The new environment is stored in `.snakemake/conda/$hash` where $hash is the MD5 hash of the environment file content. Updates to the environment definition are thus automatically detected.
 >
 > > ## Solution
+> >
 > > 1. Checkout the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) on how to manually create a yml file. Make sure to create the `plotting.yml` file in the right directory. Open your preferred editor, and add the following:
 > > ```
 > > name: plotting
