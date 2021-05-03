@@ -96,11 +96,12 @@ set of tools to approach for which type of problem.
 
 ### Timing
 
-Depending on workshop schedule, this lesson can become short on time. 
-- The Snakemake episode is long, but the first steps in constructing the 
-  Snakefile can be covered quickly. Enough time should be devoted to the exercise though. 
-  Wildcards and pattern rules should be discussed, but the optional further topics can be skipped
-  or just very briefly described
+Depending on workshop schedule, this lesson can become short on time.
+- The Snakemake episode is long. The instructor needs to explain what is snakemake, and why use it.
+  Snakefile can be covered quickly. Wildcards and pattern rules should be discussed,
+  but the optional further topics can be skipped or just very briefly described.
+  The exercise(s) in breakoutroom session is then there for the participants to play around
+  and get an understanding of the how.
 - Building the container from scratch (fetching the ubuntu image, installing all packages in it)
   can take several minutes. The instructor should in most cases do this before the workshop and 
   only demonstrate how to launch a container based on the existing image
