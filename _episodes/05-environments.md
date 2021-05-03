@@ -22,6 +22,10 @@ questions:
   large or too sensitive to travel over network.
 - [DockerHub](https://hub.docker.com/) is a platform to share Docker images (stored in repositories - similar to a Git repository).
 - Public Docker images available on [DockerHub](https://hub.docker.com/).
+- A docker container is like a piece of paper with all the operating system on it. When you run it,
+a transparent sheet is placed on top to form a container. The container runs and writes only on
+that transparent sheet (and what other mounts have been layered on top). When you are done,
+transparency is thrown away. It can be repeated as often as you want, and base is always the same.
 
 <div class="alert alert-dismissible alert-warning">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
