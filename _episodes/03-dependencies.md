@@ -294,3 +294,12 @@ C/C++, but useful tools include:
   - A C/C++ package manager for Developers
 - [Conda](https://docs.conda.io/en/latest/)
   - Works with any language, in principle
+
+### Julia
+
+The inbuilt package manager in Julia,
+[Pkg.jl](https://pkgdocs.julialang.org/v1/), is designed around using
+isolated environments with independent sets of packages. Environments
+can either be local to a particular project or shared and selected by
+name.
+
