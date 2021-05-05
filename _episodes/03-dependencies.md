@@ -195,42 +195,26 @@ To get an idea of what's needed, let's have a look at the
 
 ---
 
-> ## Exercise: Creating and exporting conda environments
+> ## Exercise: Exploring conda environments
 >
-> On Windows, we recommend to do this exercise in the Anaconda Prompt.
->
-> Begin by **first importing** (by clicking "Use this template")
-> and then cloning the 
-> [word-count project](https://github.com/coderefinery/word-count).
-> Then recreate the software environment provided by the
-> `requirements.txt` file in the repository. 
-> The `snakemake-minimal` package is only available in the `bioconda`
-> channel, which needs to be specified:
-> ```shell
-> $ conda create --name wordcount --file requirements.txt --channel bioconda --channel conda-forge
-> ```
-> This will download all the packages listed in the `requirements.txt`
-> file (with matching versions) along with all dependencies.
-> The new environment also needs to be activated:
-> ```shell
-> $ conda activate wordcount
-> ```
-> We now have (roughly) the same environment as specified by the
-> developers of the word-count project. But let's say we want to
-> extend this environment, and share it with colleagues:
 > - Inspect your available environments with `conda info -e`.
-> - Install the `pandas` package using `conda install`.
-> - Add `pandas` with the version you installed to the `requirements.txt` file.
-> - Export the full environment using `conda env export > full_env.yml`, and 
+> - Activate the base directory with `conda deactivate`.
+> - List the packages in the base environment with `conda list`. How many packages are there?
+> - Activate the coderefinery environment with `conda activate coderefinery`.
+>   List the packages with `conda list`.
+> - Details of the conda installation can be shown with `conda info`.
+>   Which is the active environment? Where are the packages stored?
+>   Where are the environments stored?
+> - Create a new environment with `conda create --name myenvironment`.
+> - Install the `pandas` package using `conda install pandas`.
+> - Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
+> - Export the full environment using `conda env export > environment.yml`, and 
 >   compare the `.yml` file format to the `.txt` file format.
-> - Create a new environment.yml file with the packages from the 
->   requirements.txt file. You only need the `channels` and `dependencies`
->   sections, and dependencies can be listed as `package=1.2.3` or simply 
->   `package`.
 > - If you want to make sure your new environment.yml is correct, 
 >   you can use it to create a new 
->   test environment using `conda env create -n <name> -f <file.yml>`. 
->   You can then delete it with 
+>   test environment using `conda env create -n <name> -f <file.yml>`.
+>   Where any new packages installed?
+>   You can delete the test environment with 
 >   `conda env remove <envname>` or simply remove the directory of the 
 >   environment (that you can find using `conda info -e`).
 {: .challenge}
