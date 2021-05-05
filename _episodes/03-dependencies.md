@@ -213,7 +213,7 @@ To get an idea of what's needed, let's have a look at the
 > - If you want to make sure your new environment.yml is correct, 
 >   you can use it to create a new 
 >   test environment using `conda env create -n <name> -f <file.yml>`.
->   Where any new packages installed?
+>   Were any new packages installed?
 >   You can delete the test environment with 
 >   `conda env remove <envname>` or simply remove the directory of the 
 >   environment (that you can find using `conda info -e`).
