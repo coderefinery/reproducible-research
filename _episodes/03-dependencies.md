@@ -198,7 +198,8 @@ To get an idea of what's needed, let's have a look at the
 > ## Exercise: Exploring conda environments
 >
 > - Inspect your available environments with `conda info -e`.
-> - Activate the base directory with `conda deactivate`.
+> - Deactivate the current environment with `conda deactivate`.
+> - Use `conda activate base` to change to the base environment.
 > - List the packages in the base environment with `conda list`. How many packages are there?
 > - Activate the coderefinery environment with `conda activate coderefinery`.
 >   List the packages with `conda list`.
