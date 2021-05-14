@@ -283,3 +283,11 @@ C/C++, but useful tools include:
 ### Fortran
 
 - [Fortran Package Manager](https://github.com/fortran-lang/fpm) A package manager and build system for Fortran.
+
+### Julia
+
+The inbuilt package manager in Julia,
+[Pkg.jl](https://pkgdocs.julialang.org/v1/), is designed around using
+isolated environments with independent sets of packages. Environments
+can either be local to a particular project or shared and selected by
+name.
