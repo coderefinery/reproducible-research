@@ -20,17 +20,28 @@ keypoints:
 
 > The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
-For this episode, we will be using [Binder](https://mybinder.org/) 
-a cloud service to make sure we all have the same computing environment. 
-This is interesting from a reproducible research point of view and we will explain
-later how this is even possible!
+In this episode we will work with reproducible workflows for the programs and data in the repository [word-count](https://github.com//coderefinery/word-count). The computing environment needed for performing the exercises can be performed on your own computer as well as on a cloud service.
 
-- Go to [https://mybinder.org/](https://mybinder.org)
-- **GitHub repository name or URL**: [https://github.com//coderefinery/word-count](https://github.com//coderefinery/word-count)
-- Click on the **Launch** button.
-- Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
+> ## Exercise preparation
+>  **On your own computer**:
+> - Activate the [coderefinery conda environment]https://coderefinery.github.io/installation/conda-environment/ with `conda activate coderefinery`.
+> - Create an exercise repository by
+>   [generating from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
+>   using this template: <https://github.com//coderefinery/word-count>
+>   called `word-count`
+> - Clone the word-count repository with `git clone `.
 
-The example project directory listing is:
+>  **On Binder**:
+> We will be using [Binder](https://mybinder.org/)
+> a cloud service to make sure we all have the same computing environment.
+> This is interesting from a reproducible research point of view and we will explain
+> later how this is even possible!
+> - Go to [https://mybinder.org/](https://mybinder.org)
+> - In the box **GitHub repository name or URL** enter: [https://github.com/coderefinery/word-count](https://github.com/coderefinery/word-count)
+> - Click on the **Launch** button.
+> - Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
+
+The word count project directory listing is:
 ```
 .
 ├── binder
