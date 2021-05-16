@@ -216,7 +216,7 @@ To get an idea of what's needed, let's have a look at the
 >   test environment using `conda env create -n <name> -f <file.yml>`.
 >   Were any new packages installed?
 >   You can delete the test environment with 
->   `conda env remove <envname>` or simply remove the directory of the 
+>   `conda env remove -n <envname>` or simply remove the directory of the 
 >   environment (that you can find using `conda info -e`).
 {: .challenge}
 
