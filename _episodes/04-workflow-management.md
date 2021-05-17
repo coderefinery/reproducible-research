@@ -55,14 +55,13 @@ The word count project directory listing is:
 ├── doc
 │   ├── ...
 │   ...
-├── Dockerfile
 ├── LICENSE
 ├── Makefile
 ├── manuscript
 ├── matplotlibrc
 ├── processed_data
 ├── README.md
-├── requirements.txt
+├── environment.yml
 ├── results
 ├── Snakefile
 └── source

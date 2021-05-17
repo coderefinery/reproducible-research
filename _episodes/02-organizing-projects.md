@@ -102,6 +102,6 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 > testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law). 
 > We have subdirectories for raw data, source files, documentation,
 > processsed data and results, and README and LICENSE files.
-> - What are the `requirements.txt`, `Dockerfile`, and `Snakefile` files for?
+> - What are the `environment.yml` and `Snakefile` files for?
 > - Do you think this project is reproducible?
 {: .challenge}
