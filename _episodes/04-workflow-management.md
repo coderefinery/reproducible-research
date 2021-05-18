@@ -369,6 +369,7 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 ---
 > ## Exercise using Snakemake
 >
+> Having followed the [exercise preparation](https://coderefinery.github.io/reproducible-research/04-workflow-management/#exercise-preparation), make sure that you are in the `word-count` repository.
 > 1. Start by cleaning all output with `snakemake --delete-all-output`, and run
 >   `snakemake` (you may have to add `-j 1` to the calls).
 >   How many jobs are run?
