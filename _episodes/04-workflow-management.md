@@ -24,7 +24,7 @@ In this episode we will work with reproducible workflows for the programs and da
 
 > ## Exercise preparation
 >  **On your own computer**:
-> - Activate the [coderefinery conda environment]https://coderefinery.github.io/installation/conda-environment/ with `conda activate coderefinery`.
+> - Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
 > - Create an exercise repository by
 >   [generating from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
 >   using this template: <https://github.com//coderefinery/word-count>
