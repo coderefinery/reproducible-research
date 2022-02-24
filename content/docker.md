@@ -1,12 +1,11 @@
----
-layout: episode
-title: "(Optional) Creating and sharing a container image"
-teaching: 10
-exercises: 10
-
----
+# (Optional) Creating and sharing a container image
 
 ### Docker fundamentals
+
+```{instructor-note}
+- 10 min teaching
+- 10 min exercises
+```
 
 - Docker is a client-server application. The Docker client talks to the Docker server
 or daemon, which, in turn, does all the work.

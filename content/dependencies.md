@@ -1,17 +1,17 @@
----
-layout: episode
-title: "Recording dependencies"
-teaching: 15
-exercises: 15
-questions:
+# Recording dependencies
+
+```{instructor-note}
+- 15 min teaching
+- 15 min exercises
+```
+
+```{questions}
   - How can we communicate different versions of software dependencies?
 keypoints:
   - Capturing software dependencies is a must for reproducibility.
   - Files like `requirements.txt`, `environment.yml`, `Pipenv`, ..., should be part of the source repository.
   - Be skeptical when you see dependency lists without versions.
----
-
-## Dependencies
+```
 
 Our codes often depend on other codes that in turn depend on other codes ...
 

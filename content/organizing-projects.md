@@ -1,16 +1,17 @@
----
-layout: episode
-title: "Organizing your projects"
-teaching: 10
-exercises: 0
-questions:
-  - "How should we organize files in a research project?"
-objectives:
-  - "Get overview on how to organize research projects"
-keypoints:
-  - "An organized project directory structure can help with reproducibility."
+# Organizing your projects
 
----
+```{instructor-note}
+- 10 min teaching
+- 0 min exercises
+``
+
+```{questions}
+- How should we organize files in a research project?
+```
+
+```{objectives}
+- Get overview on how to organize research projects
+```
 
 ## Directory structure for projects
 
@@ -105,3 +106,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 > - What are the `environment.yml` and `Snakefile` files for?
 > - Do you think this project is reproducible?
 {: .challenge}
+
+```{keypoints}
+- An organized project directory structure can help with reproducibility.
+```

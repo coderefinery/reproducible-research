@@ -1,12 +1,13 @@
----
-layout: episode
-title: "Recording environments"
-teaching: 15
-exercises: 0
-questions:
-  - How to capture the software environment of a computational experiment?
+# Recording environments
 
----
+```{instructor-note}
+- 15 min teaching
+- 0 min exercises
+```
+
+```{questions}
+  - How to capture the software environment of a computational experiment?
+```
 
 ## Containers
 

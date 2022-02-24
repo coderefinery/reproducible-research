@@ -1,15 +1,18 @@
----
-layout: episode
-title: "Sharing code and data"
-teaching: 10
-exercises: 15
-questions:
-  - "How can I share research code and data?"
-objectives:
-  - "Discuss the pros and cons of open science"
-  - "Learn how to mint a DOI for your project"
-keypoints:
-  - "Consider sharing other research outputs than articles."
+# Sharing code and data
+
+```{instructor-note}
+- 10 min teaching
+- 15 min exercises
+```
+
+```{questions}
+  - How can I share research code and data?
+```
+
+```{objectives}
+  - Discuss the pros and cons of open science
+  - Learn how to mint a DOI for your project
+```
 
 ---
 
@@ -170,3 +173,7 @@ platform and filter by country, content type, discipline, etc.
 - ["Top 10 FAIR Data & Software Things"](https://librarycarpentry.org/Top-10-FAIR/) are brief guides that can be used by the research community to understand how they can make their research (data and software) more FAIR.
 - [https://fair-software.eu/](https://fair-software.eu/)
 - [Publishing research software](https://libguides.mit.edu/software) A MIT libraries webpage on why to publish software, where to publish software, and how to make software citable.
+
+```{keypoints}
+- Consider sharing other research outputs than articles.
+```

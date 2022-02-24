@@ -1,14 +1,18 @@
----
-layout: episode
-title: "Motivation"
-teaching: 10
-exercises: 0
-questions:
-  - "Should research software and data be reproducible?"
-  - "Are they?"
-objectives:
-  - "Discuss factors affecting reproducibility in research"
----
+# Motivation
+
+```{instructor-note}
+- 10 min teaching
+- 00 min exercises
+```
+
+```{questions}
+  - Should research software and data be reproducible?
+  - Are they?
+```
+
+```{objectives}
+  - Discuss factors affecting reproducibility in research
+```
 
 <img src="{{ site.baseurl }}/img/research_comic_phd.gif" style="height: 300px;"/>
 

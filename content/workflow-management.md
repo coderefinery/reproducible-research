@@ -1,20 +1,19 @@
----
-layout: episode
-title: "Recording computational steps"
-teaching: 15
-exercises: 15
-questions:
-  - How can we create a reproducible workflow?
-  - When to use scientific workflow management systems.
-objectives:
+# "Recording computational steps"
+
+```{instructor-note}
+- 15 min teaching
+- 15 min exercises
+```
+
+```{questions}
+- How can we create a reproducible workflow?
+- When to use scientific workflow management systems.
+```
+
+```{objectives}
   - Discuss pros/cons of GUI vs. manual steps vs. scripted vs. workflow tools.
   - Get familiar with Snakemake.
-keypoints:
-  - Preserve the steps for re-generating published results.
-  - Hundreds of workflow management tools exist.
-  - Snakemake is a comparatively simple and lightweight option to create transferable and scalable data analyses.
-  - Sometimes a script is enough.
----
+```
 
 ## One problem solved in 4 different ways
 
@@ -458,3 +457,10 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 - With declarative workflows it is no problem to add/change things late in the project.
 - Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
+
+```{keypoints}
+  - Preserve the steps for re-generating published results.
+  - Hundreds of workflow management tools exist.
+  - Snakemake is a comparatively simple and lightweight option to create transferable and scalable data analyses.
+  - Sometimes a script is enough.
+```
