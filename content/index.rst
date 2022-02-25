@@ -27,8 +27,14 @@ used to record reproducible environments and computational steps.
    workflow-management.md
    environments.md
    sharing.md
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Optional episodes
+
    docker.md
 
+	     
 .. toctree::
    :maxdepth: 1
    :caption: Reference
