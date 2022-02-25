@@ -69,30 +69,6 @@ By the end of this lesson, learners should:
 - understand the benefits of using a tool like make or snakemake compared to bespoke scripts
 - be able to create a simple Makefile or Snakefile to manage a workflow
 
-## List of exercises
-
-1. **"Motivation" episode, "Discuss with your neighbors or among all participants", 5 minutes:**  
-   This is a discussion exercise. In online workshops the exercise can be performed 
-   using a shared workshop document (e.g. HackMD) where the exercise text is copied to the document and learners are asked to write down their experiences. In in-person workshops learners can discuss in groups around their tables.
-2. **"Organizing your projects" episode, "Word count - an example project", 5 minutes:**   
-   This exercise is performed as a type-along. The instructor slowly and methodically goes through the steps and explains what's happening.
-3. **"Recording dependencies" episode, "Different requirements.txt solutions", 5-10 minutes:**  
-   This exercise can be performed as a general discussion (appropriate for online workshops) or as a group discussion (in in-person workshops). For a general discussion in online workshops the instructor can either walk through the exercise or let learners write down answers in a shared document.
-4. **"Recording dependencies" episode, "Exploring conda environments", 10 minutes:**  
-   This exercise requires learners to perform steps on their own computers. In online workshops it should be done in breakout rooms for around 10 minutes.   
-5. **"Recording computational steps" episode, "(Optional) Snakemake in HPC":**  
-   This is left as homework for learners who are interested.
-6. **"Recording computational steps" episode, "Exercise using Snakemake", 10-15 minutes:**  
-   Hands-on exercise for learners to perform in groups or in breakout rooms. The purpose is for learners to understand how Snakemake operates and develop some muscle memory.
-7. **"Recording computational steps" episode, "(Optional) Using Snakemake with conda environments":**  
-   This is an optional exercise for learners who finish the Snakemake 
-   exercise quickly.
-8. **"Sharing code and data" episode, "Get a DOI by connecting your 
-   repository to Zenodo", 15 minutes:**  
-   Hands-on exercise for learners to do in groups or breakout rooms.
-   The purpose is for learners to realize how easy it is to upload code or data to Zenodo and mint a DOI.
-
-
 
 ## How to teach this lesson
 

@@ -37,9 +37,11 @@ that you know your dependencies!
 
 ---
 
-````{challenge} Different requirements.txt solutions
-Compare these four `requirements.txt` solutions:
+(different-solutions-to-specify-requirements)=
 
+## Different solutions to specify requirements
+
+````{challenge} Compare these four requirements.txt 
 **A**:
 
 Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
@@ -207,7 +209,11 @@ To get an idea of what's needed, let's have a look at the
 
 ---
 
-```{exercise} Exploring conda environments
+(exploring-conda-environments)=
+
+## Exploring conda environments
+
+```{exercise} Working with conda
 - Inspect your available environments with `conda info -e`.
 - Deactivate the current environment with `conda deactivate`.
 - Use `conda activate base` to change to the base environment.

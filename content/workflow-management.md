@@ -316,7 +316,11 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 Discuss the pros and cons of these different approaches. Which are reproducible? Which scale to hundreds of books and which can it be automated?
 ```
 
-````{homework} (optional) Snakemake in HPC
+(snakemake-in-hpc)=
+
+### Snakemake in HPC
+
+````{homework} Optional exercise
 - It is possible to address and offload to non-CPU resources:
 ```
 $ snakemake --delete-all-output -j 1
@@ -368,6 +372,10 @@ particular cluster.
 - There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
 ---
+
+(using-snakemake)=
+
+### Using Snakemake
 
 ````{exercise} Exercise using Snakemake
 Having followed the [exercise preparation](https://coderefinery.github.io/reproducible-research/04-workflow-management/#exercise-preparation), make sure that you are in the `word-count` repository.
@@ -450,6 +458,10 @@ Having followed the [exercise preparation](https://coderefinery.github.io/reprod
 7. For more information, see [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/s   table/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
 ```
 ````
+
+(snakemake-with-conda-environments)=
+
+### Snakemake with conda environments
 
 `````{exercise} (Optional) Using Snakemake with conda environments
 

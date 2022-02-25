@@ -96,6 +96,10 @@ Note that FAIR principles do not require data/software to be open.
 
 ---
 
+(connecting-repositories-to-zenodo)=
+
+## Connecting repositories to Zenodo
+ 
 ```{exercise} Get a DOI by connecting your repository to Zenodo
 
 Digital object identifiers (DOI) are the backbone of the academic
