@@ -185,6 +185,7 @@ platform and filter by country, content type, discipline, etc.
 - [Software Quality Checklist](https://technical-reference.readthedocs.io/en/latest/quality/software-checklist.html)
 - [MolSSI Best Practice Guides](http://molssi.org/education/best-practices/)
 - [Five recommendations for fair software](https://fair-software.eu/)
+- [Awesome Research Software Registries](https://github.com/NLeSC/awesome-research-software-registries)
 
 ```{keypoints}
 - Consider sharing other research outputs than articles.
