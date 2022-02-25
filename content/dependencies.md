@@ -303,6 +303,12 @@ isolated environments with independent sets of packages. Environments
 can either be local to a particular project or shared and selected by
 name.
 
+## See also
+
+- [Semantic Versioning](https://semver.org/)
+- [Alternative opinion: Why not semver?](http://faq.sealedabstract.com/why_not_semver/)
+
+
 ```{keypoints}
   - Capturing software dependencies is a must for reproducibility.
   - Files like `requirements.txt`, `environment.yml`, `Pipenv`, ..., should be part of the source repository.
