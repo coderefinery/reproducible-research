@@ -69,6 +69,7 @@ By the end of this lesson, learners should:
 - understand the benefits of using a tool like make or snakemake compared to bespoke scripts
 - be able to create a simple Makefile or Snakefile to manage a workflow
 
+
 ## How to teach this lesson
 
 ### How to start

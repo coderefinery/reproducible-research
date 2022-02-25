@@ -90,7 +90,11 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 - How would you like it to work if you could decide?
 ```
 
-```{challenge} Word count - an example project
+(an-example-project)=
+
+## An example project
+
+```{challenge} Word count
 Let's look at an [example project](https://github.com/coderefinery/word-count) 
 which follows the project structure guidelines given above. 
 - Since we'll continue working with this repo, **import** it 

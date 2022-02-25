@@ -1,10 +1,5 @@
 # Motivation
 
-```{instructor-note}
-- 10 min teaching
-- 00 min exercises
-```
-
 ```{questions}
   - Should research software and data be reproducible?
   - Are they?
@@ -12,6 +7,11 @@
 
 ```{objectives}
   - Discuss factors affecting reproducibility in research
+```
+
+```{instructor-note}
+- 10 min teaching
+- 0 min exercises
 ```
 
 ```{figure} img/research_comic_phd.gif

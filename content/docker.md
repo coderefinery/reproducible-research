@@ -1,4 +1,4 @@
-# (Optional) Creating and sharing a container image
+# Creating and sharing a container image
 
 ```{instructor-note}
 - 10 min teaching
