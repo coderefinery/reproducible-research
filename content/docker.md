@@ -1,16 +1,19 @@
 # (Optional) Creating and sharing a container image
 
-### Docker fundamentals
-
 ```{instructor-note}
 - 10 min teaching
 - 10 min exercises
 ```
 
+## Docker fundamentals
+
 - Docker is a client-server application. The Docker client talks to the Docker server
 or daemon, which, in turn, does all the work.
 
-<img src="{{ site.baseurl }}/img/docker_architecture.svg" style="height: 400px;"/>
+```{figure} img/docker_architecture.svg
+:alt: Research comic
+:width: 100%
+```
 
 - Docker client
    - End user uses Docker client to communicate with Docker daemon .
@@ -71,14 +74,13 @@ LABEL - adds metadata to an image and is a key-value pair
 ..
 ```
 
-> ## Mnemonics
->
-> - The Dockerfile is like a cooking recipe, building an image from the
->   Dockerfile is like doing the actual cooking.
-> - Running the Docker image to create a container doesn't have a good
->   cooking analogy, but:
->   - a Docker image is like a *class* in OOP, a Docker container is like an instance of the class.
-{: .callout}
+```{discussion} Mnemonics
+- The Dockerfile is like a cooking recipe, building an image from the
+  Dockerfile is like doing the actual cooking.
+- Running the Docker image to create a container doesn't have a good
+  cooking analogy, but:
+  - a Docker image is like a *class* in OOP, a Docker container is like an instance of the class.
+```
 
 ---
 

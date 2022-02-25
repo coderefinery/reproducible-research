@@ -1,10 +1,7 @@
----
-layout: default
----
-
-## Solution 5: Using [GNU Make](https://www.gnu.org/software/make/)
+# Solution 4: Using [GNU Make](https://www.gnu.org/software/make/)
 
 First study the `Makefile`:
+
 ```makefile
 # directory containing source data
 SRCDIR := data
@@ -91,14 +88,13 @@ How did Make know which steps to rerun?
 
 Finally try to run the pipeline on several cores in parallel (here we will try 4):
 
-```
+```shell
 $ make clean
 $ make -j 4
 ```
 
-> ## Discussion
->
-> Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
-{: .challenge}
+```{discussion}
+Discuss the pros and cons of this approach. Is it reproducible? Does it scale to hundreds of books? Can it be automated?
+```
 
----
+

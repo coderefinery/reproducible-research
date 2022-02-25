@@ -1,10 +1,5 @@
 # Organizing your projects
 
-```{instructor-note}
-- 10 min teaching
-- 0 min exercises
-``
-
 ```{questions}
 - How should we organize files in a research project?
 ```
@@ -12,6 +7,12 @@
 ```{objectives}
 - Get overview on how to organize research projects
 ```
+
+```{instructor-note}
+- 10 min teaching
+- 0 min exercises
+```
+
 
 ## Directory structure for projects
 
@@ -53,7 +54,7 @@ project_name/
 - Intermediate files from the analysis are kept in `processed_data/`
 - Consider using Git tags to mark specific versions of results (version
   submitted to a journal, dissertation version, poster version, etc.):
-```bash
+```console
 $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 ```
 
@@ -83,29 +84,28 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 
 ---
 
-> ## Discussion: How do you collaborate on writing academic papers?
->
-> - Are you using version control?
-> - How do you handle collaborative issues?
-> - How would you like it to work if you could decide?
-{: .discussion}
+```{discussion} How do you collaborate on writing academic papers?
+- Are you using version control?
+- How do you handle collaborative issues?
+- How would you like it to work if you could decide?
+```
 
-> ## Word count - an example project
->
-> Let's look at an [example project](https://github.com/coderefinery/word-count) 
-> which follows the project structure guidelines given above. 
-> - Since we'll continue working with this repo, **import** it 
->   to your GitHub namespace by clicking "Use this template". This 
->   generates a fresh repository from a *template*.
->
-> This project is about counting the frequency
-> distribution of words in a given text, plotting results and
-> testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law). 
-> We have subdirectories for raw data, source files, documentation,
-> processsed data and results, and README and LICENSE files.
-> - What are the `environment.yml` and `Snakefile` files for?
-> - Do you think this project is reproducible?
-{: .challenge}
+```{challenge} Word count - an example project
+Let's look at an [example project](https://github.com/coderefinery/word-count) 
+which follows the project structure guidelines given above. 
+- Since we'll continue working with this repo, **import** it 
+  to your GitHub namespace by clicking "Use this template". This 
+  generates a fresh repository from a *template*.
+
+This project is about counting the frequency
+distribution of words in a given text, plotting results and
+testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law). 
+We have subdirectories for raw data, source files, documentation,
+processsed data and results, and README and LICENSE files.
+- What are the `environment.yml` and `Snakefile` files for?
+- Do you think this project is reproducible?
+```
+
 
 ```{keypoints}
 - An organized project directory structure can help with reproducibility.

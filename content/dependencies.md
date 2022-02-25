@@ -1,18 +1,13 @@
 # Recording dependencies
 
+```{questions}
+- How can we communicate different versions of software dependencies?
+```
+
 ```{instructor-note}
 - 15 min teaching
 - 15 min exercises
 ```
-
-```{questions}
-  - How can we communicate different versions of software dependencies?
-keypoints:
-  - Capturing software dependencies is a must for reproducibility.
-  - Files like `requirements.txt`, `environment.yml`, `Pipenv`, ..., should be part of the source repository.
-  - Be skeptical when you see dependency lists without versions.
-```
-
 Our codes often depend on other codes that in turn depend on other codes ...
 
 - **Reproducibility**: We can control our code but how can we control dependencies?
@@ -22,9 +17,10 @@ Our codes often depend on other codes that in turn depend on other codes ...
 
 ---
 
-<a href="https://xkcd.com/1987/">
-<img src="{{ site.baseurl }}/img/python_environment.png" style="height: 400px;" class="center">
-</a>
+```{figure} img/python_environment.png
+:alt: Python environment
+:width: 100%
+```
 
 ## Conda, Anaconda, pip, Virtualenv, Pipenv, pyenv, Poetry, requirements.txt ...
 
@@ -41,45 +37,60 @@ that you know your dependencies!
 
 ---
 
-> ## Exercise/discussion
->
-> Compare these four `requirements.txt` solutions:
->
-> **A**:
->
-> Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
->
->
-> **B**:
-> ```
-> scipy
-> numpy
-> sympy
-> click
-> git+https://github.com/someuser/someproject.git@master
-> git+https://github.com/anotheruser/anotherproject.git@master
-> ```
->
-> **C**:
-> ```
-> scipy==1.3.1
-> numpy==1.16.4
-> sympy==1.4
-> click==7.0
-> git+https://github.com/someuser/someproject.git@d7b2c7e
-> git+https://github.com/anotheruser/anotherproject.git@sometag
-> ```
->
-> **D**:
-> ```
-> scipy==1.3.1
-> numpy==1.16.4
-> sympy==1.4
-> click==7.0
-> someproject==1.2.3
-> anotherproject==2.3.4
-> ```
-{: .discussion}
+````{challenge} Different requirements.txt solutions
+Compare these four `requirements.txt` solutions:
+
+**A**:
+
+Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
+
+
+**B**:
+```
+scipy
+numpy
+sympy
+click
+git+https://github.com/someuser/someproject.git@master
+git+https://github.com/anotheruser/anotherproject.git@master
+```
+
+**C**:
+```
+scipy==1.3.1
+numpy==1.16.4
+sympy==1.4
+click==7.0
+git+https://github.com/someuser/someproject.git@d7b2c7e
+git+https://github.com/anotheruser/anotherproject.git@sometag
+```
+
+**D**:
+```
+scipy==1.3.1
+numpy==1.16.4
+sympy==1.4
+click==7.0
+someproject==1.2.3
+anotherproject==2.3.4
+```
+
+```{solution}
+**A**: If there is no requirements.txt file (or similar), it might become very difficult
+for others to create the software environment required to run your software. This can
+also apply to yourself in the future!
+
+**B**: Having a requirements.txt file is definitely better than nothing. However, if the
+versions are not specified you or someone else might run into problems with dependencies,
+deprecated features, changes in package APIs etc.
+
+**C** and **D**: In both these cases exact versions of all dependencies are specified and
+both others and you yourself can recreate the software environment required for the project.
+**D** is slightly preferable because version numbers are easier to understand than Git
+commit hashes or Git tags.
+```
+
+````
 
 ---
 
@@ -114,9 +125,10 @@ $ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
 
 ## [Conda](https://docs.conda.io/en/latest/)
 
-<a href="https://medium.freecodecamp.org/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c">
-<img src="{{ site.baseurl }}/img/conda_cartoon.jpeg" style="height: 300px;"/>
-</a>
+```{figure} img/conda_cartoon.jpeg
+:width: 100%
+:alt: Conda cartoon
+```
 
 - Not only for Python: any language, also binaries.
 - Created by Continuum Analytics, part of Anaconda/Miniconda, but can be installed standalone.
@@ -195,30 +207,29 @@ To get an idea of what's needed, let's have a look at the
 
 ---
 
-> ## Exercise: Exploring conda environments
->
-> - Inspect your available environments with `conda info -e`.
-> - Deactivate the current environment with `conda deactivate`.
-> - Use `conda activate base` to change to the base environment.
-> - List the packages in the base environment with `conda list`. How many packages are there?
-> - Activate the coderefinery environment with `conda activate coderefinery`.
->   List the packages with `conda list`.
-> - Details of the conda installation can be shown with `conda info`.
->   Which is the active environment? Where are the packages stored?
->   Where are the environments stored?
-> - Create a new environment with `conda create --name myenvironment`.
-> - Install the `pandas` package using `conda install pandas`.
-> - Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
-> - Export the full environment using `conda env export > environment.yml`, and 
->   compare the `.yml` file format to the `.txt` file format.
-> - If you want to make sure your new environment.yml is correct, 
->   you can use it to create a new 
->   test environment using `conda env create -n <name> -f <file.yml>`.
->   Were any new packages installed?
->   You can delete the test environment with 
->   `conda env remove -n <envname>` or simply remove the directory of the 
->   environment (that you can find using `conda info -e`).
-{: .challenge}
+```{exercise} Exploring conda environments
+- Inspect your available environments with `conda info -e`.
+- Deactivate the current environment with `conda deactivate`.
+- Use `conda activate base` to change to the base environment.
+- List the packages in the base environment with `conda list`. How many packages are there?
+- Activate the coderefinery environment with `conda activate coderefinery`.
+  List the packages with `conda list`.
+- Details of the conda installation can be shown with `conda info`.
+  Which is the active environment? Where are the packages stored?
+  Where are the environments stored?
+- Create a new environment with `conda create --name myenvironment`.
+- Install the `pandas` package using `conda install pandas`.
+- Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
+- Export the full environment using `conda env export > environment.yml`, and 
+  compare the `.yml` file format to the `.txt` file format.
+- If you want to make sure your new environment.yml is correct, 
+  you can use it to create a new 
+  test environment using `conda env create -n <name> -f <file.yml>`.
+  Were any new packages installed?
+  You can delete the test environment with 
+  `conda env remove -n <envname>` or simply remove the directory of the 
+  environment (that you can find using `conda info -e`).
+```
 
 ---
 
@@ -291,3 +302,9 @@ The inbuilt package manager in Julia,
 isolated environments with independent sets of packages. Environments
 can either be local to a particular project or shared and selected by
 name.
+
+```{keypoints}
+  - Capturing software dependencies is a must for reproducibility.
+  - Files like `requirements.txt`, `environment.yml`, `Pipenv`, ..., should be part of the source repository.
+  - Be skeptical when you see dependency lists without versions.
+```

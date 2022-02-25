@@ -1,12 +1,12 @@
 # Recording environments
 
+```{questions}
+  - How to capture the software environment of a computational experiment?
+```
+
 ```{instructor-note}
 - 15 min teaching
 - 0 min exercises
-```
-
-```{questions}
-  - How to capture the software environment of a computational experiment?
 ```
 
 ## Containers
@@ -28,31 +28,40 @@ a transparent sheet is placed on top to form a container. The container runs and
 that transparent sheet (and what other mounts have been layered on top). When you are done,
 transparency is thrown away. It can be repeated as often as you want, and base is always the same.
 
-<div class="alert alert-dismissible alert-warning">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <h4 class="alert-heading">Use only official and trusted images!</h4>
-  <p>
-    Not all images can be trusted! There have been examples of contaminated
-    images so investigate before using images blindly. Apply same caution as installing
-    software packages from untrusted package repositories.
-  </p>
-</div>
+```{danger}
+Use only official and trusted images!
+Not all images can be trusted! There have been examples of contaminated
+images so investigate before using images blindly. Apply same caution as installing
+software packages from untrusted package repositories.
+```
 
 #### Examples of useful Docker images
-1) Run a specific version of *Rstudio* 
 
-`docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio`
+1. Run a specific version of *Rstudio* 
+   ```shell
+   docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
+   ```
 
-Then open your browser to [http://localhost:8787](http://localhost:8787) with login rstudio and password "yourpasswordhere" used in the previous command.
-If you want to try an older version you can check the tags at [https://hub.docker.com/r/rocker/rstudio/tags](https://hub.docker.com/r/rocker/rstudio/tags) and run for example
+   Then open your browser to
+   [http://localhost:8787](http://localhost:8787) with login rstudio
+   and password "yourpasswordhere" used in the previous command.  If
+   you want to try an older version you can check the tags at
+   [https://hub.docker.com/r/rocker/rstudio/tags](https://hub.docker.com/r/rocker/rstudio/tags)
+   and run for example
 
-`docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio:3.3`
+   ```shell
+   docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio:3.3
+   ```
 
-2) Run a specific version of *Anaconda3* from [https://hub.docker.com/r/continuumio/anaconda3](https://hub.docker.com/r/continuumio/anaconda3)
+2. Run a specific version of *Anaconda3* from
+   [https://hub.docker.com/r/continuumio/anaconda3](https://hub.docker.com/r/continuumio/anaconda3)
 
-`docker run -i -t continuumio/anaconda3 /bin/bash`
+   ```shell
+   docker run -i -t continuumio/anaconda3 /bin/bash
+   ```
 
-and similarly one can also pick an image for *Anaconda2* at [https://hub.docker.com/r/continuumio/anaconda2/tags](https://hub.docker.com/r/continuumio/anaconda2/tags)
+   and similarly one can also pick an image for *Anaconda2* at
+   [https://hub.docker.com/r/continuumio/anaconda2/tags](https://hub.docker.com/r/continuumio/anaconda2/tags)
 
 
 ### Singularity
@@ -88,8 +97,7 @@ However, containers may also have some drawbacks:
 - It may not be clear whether to record the environment in the image part or the recipe part.
 
 
-> ## Discussion: reproducibility aspects of container images
->
-> - Do you think containers contribute to reproducible research?
-> - Do you see a use case for your own work?
-{: .discussion}
+```{discussion} Reproducibility aspects of container images
+- Do you think containers contribute to reproducible research?
+- Do you see a use case for your own work?
+```

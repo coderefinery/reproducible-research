@@ -1,9 +1,5 @@
 # Sharing code and data
 
-```{instructor-note}
-- 10 min teaching
-- 15 min exercises
-```
 
 ```{questions}
   - How can I share research code and data?
@@ -14,6 +10,10 @@
   - Learn how to mint a DOI for your project
 ```
 
+```{instructor-note}
+- 10 min teaching
+- 15 min exercises
+```
 ---
 
 ## Sharing research data
@@ -22,7 +22,10 @@ The Open Science movement encourages researchers
 to share research output beyond the contents of a
 published academic article (and possibly supplementary information).
 
-<img src="{{ site.baseurl }}/img/Open_Science_Principles.png" style="height: 200px;"/>
+```{figure} img/Open_Science_Principles.png
+:alt: Research comic
+:width: 90%
+```
 
 Arguments in favor [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science):
 - Open access publication of research reports and data allows for rigorous peer-review
@@ -38,7 +41,10 @@ Arguments against [(from Wikipedia)](https://en.wikipedia.org/wiki/Open_science)
 - Increasing the scale of science will make verification of any discovery more difficult
 - Low-quality science
 
-<img src="{{ site.baseurl }}/img/turing-way/36-data-research-cycle.jpg" style="width: 600px;"/>
+```{figure} img/turing-way/36-data-research-cycle.jpg
+:alt: Research comic
+:width: 100%
+```
 
 (This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
 Turing Way](https://the-turing-way.netlify.com) community and is used under a
@@ -48,7 +54,10 @@ CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](h
 
 ## FAIR principles
 
-<img src="{{ site.baseurl }}/img/turing-way/8-fair-principles.jpg" style="width: 600px;"/>
+```{figure} img/turing-way/8-fair-principles.jpg
+:alt: Research comic
+:width: 100%
+```
 
 (This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
 Turing Way](https://the-turing-way.netlify.com) community and is used under a
@@ -80,35 +89,35 @@ but they apply also for research software.
 
 Note that FAIR principles do not require data/software to be open.
 
-> ## Discussion: Discuss open science
-> - Do you share any other research outputs besides published articles and possibly source code?
-> - Discuss pros and cons of sharing research data.
-{: .discussion}
+```{discussion} Discuss open science
+- Do you share any other research outputs besides published articles and possibly source code?
+- Discuss pros and cons of sharing research data.
+```
 
 ---
 
-> ## Exercise: Get a DOI by connecting your repository to Zenodo
->
-> Digital object identifiers (DOI) are the backbone of the academic
-> reference and metrics system. In this exercise we will see how to
-> make a GitHub repository citable by archiving it on the
-> [Zenodo](http://about.zenodo.org/) archiving service. Zenodo is a
-> general-purpose open access repository created by OpenAIRE and CERN.
->
-> 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
->   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
-> 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
-> 3. Find the repository you wish to publish (e.g. the 
->    [`word-count` project that you imported](../02-organizing-projects/#word-count---an-example-project) 
->    or another test repo), and flip the switch to ON.
-> 4. Go to GitHub and create a **release**  by clicking the `release` tab and
->   `Create a new release`  (a release is based on a Git tag,
->    but is a higher-level GitHub feature),
-> 5. Creating a new release will trigger Zenodo into archiving your repository,
->   and a DOI badge will be displayed next to your repository after a minute
->   or two. You can include it in your GitHub README file: click the
->   DOI badge and copy the relevant format (Markdown, RST, HTML).
-{: .challenge}
+```{exercise} Get a DOI by connecting your repository to Zenodo
+
+Digital object identifiers (DOI) are the backbone of the academic
+reference and metrics system. In this exercise we will see how to
+make a GitHub repository citable by archiving it on the
+[Zenodo](http://about.zenodo.org/) archiving service. Zenodo is a
+general-purpose open access repository created by OpenAIRE and CERN.
+
+1. Sign in to Zenodo using your GitHub account. For this exercise, use the
+   sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
+2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
+3. Find the repository you wish to publish (e.g. the 
+   [`word-count` project that you imported](../02-organizing-projects/#word-count---an-example-project) 
+   or another test repo), and flip the switch to ON.
+4. Go to GitHub and create a **release**  by clicking the `release` tab and
+   `Create a new release`  (a release is based on a Git tag,
+   but is a higher-level GitHub feature),
+5. Creating a new release will trigger Zenodo into archiving your repository,
+   and a DOI badge will be displayed next to your repository after a minute
+   or two. You can include it in your GitHub README file: click the
+   DOI badge and copy the relevant format (Markdown, RST, HTML).
+```
 
 ---
 
