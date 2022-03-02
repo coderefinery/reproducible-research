@@ -17,7 +17,7 @@
 
 ## One problem solved in 4 different ways
 
-> The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
+> The following material is partly derived from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
 In this episode we will work with reproducible workflows for the programs and data in the repository [word-count](https://github.com//coderefinery/word-count). The computing environment needed for performing the exercises can be performed on your own computer as well as on a cloud service.
 
@@ -31,10 +31,9 @@ In this episode we will work with reproducible workflows for the programs and da
 - Clone the word-count repository with `git clone `.
 
 **On Binder**:
-We will be using [Binder](https://mybinder.org/)
-a cloud service to make sure we all have the same computing environment.
-This is interesting from a reproducible research point of view and we will explain
-later how this is even possible!
+We can also use the cloud service [Binder](https://mybinder.org/) 
+to make sure we all have the same computing environment.
+This is interesting from a reproducible research point of view and it's explained further in the [Jupyter lesson](https://coderefinery.github.io/jupyter/sharing/) how this is even possible.
 - Go to [https://mybinder.org/](https://mybinder.org)
 - In the box **GitHub repository name or URL** enter: [https://github.com/coderefinery/word-count](https://github.com/coderefinery/word-count)
 - Click on the **Launch** button.
