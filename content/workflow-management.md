@@ -314,62 +314,22 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 :width: 100%
 ```
 
-```{challenge} Discussion
+````{discussion} Discussion
 Discuss the pros and cons of these different approaches. Which are reproducible? Which scale to hundreds of books and which can it be automated?
-```
 
-(snakemake-in-hpc)=
-
-### Snakemake in HPC
-
-````{homework} Optional exercise
-- It is possible to address and offload to non-CPU resources:
+```{solution}
+- GUIs may or may not be reproducible.
+- Some GUIs can be automated, many cannot.
+- Typing the same series of commands for 100 similar inputs is tedious and error prone.
+- Imperative scripts are reproducible and great for automation.
+- Declarative workflows such as Snakemake are great for longer multi-step analyses.
+- Declarative workflows are often easy to parallelize without you changing anything.
+- With declarative workflows it is no problem to add/change things late in the project.
+- Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
+- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 ```
-$ snakemake --delete-all-output -j 1
-$ snakemake -j 4 --resources gpu=1
-```
-
-- Transferring your workflow to a cluster:
-```
-$ snakemake --archive myworkflow.tar.gz -j 1
-$ scp myworkflow.tar.gz <some-cluster>
-$ ssh <some-cluster>
-$ tar zxf myworkflow.tar.gz
-$ cd myworkflow
-$ snakemake -n --use-conda -j 1
-```
-
-- Interoperability with Slurm:
-```json
-{
-    "__default__":
-    {
-        "account": "a_slurm_submission_account",
-        "mem": "1G",
-        "time": "0:5:0"
-    },
-    "count_words":
-    {
-        "time": "0:10:0",
-        "mem": "2G"
-    }
-}
-```
-
-  The workflow can now be executed by:
-```bash
-$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
-```
-
-Note that in this case `-j` does not correspond to the number of cores
-used, instead it represents the maximum number of jobs that Snakemake
-is allowed to have submitted at the same time.  The `--cluster-config`
-flag specifies the config file for the particular cluster, and the
-`--cluster` flag specifies the command used to submit jobs on the
-particular cluster.
 ````
 
----
 
 - There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
@@ -518,19 +478,61 @@ software environment.
 ````
 `````
 
+(snakemake-in-hpc)=
+
+### Snakemake in HPC
+
+````{exercise} (Optional) using Snakemake on HPC
+- It is possible to address and offload to non-CPU resources:
+```
+$ snakemake --delete-all-output -j 1
+$ snakemake -j 4 --resources gpu=1
+```
+
+- Transferring your workflow to a cluster:
+```
+$ snakemake --archive myworkflow.tar.gz -j 1
+$ scp myworkflow.tar.gz <some-cluster>
+$ ssh <some-cluster>
+$ tar zxf myworkflow.tar.gz
+$ cd myworkflow
+$ snakemake -n --use-conda -j 1
+```
+
+- Interoperability with Slurm:
+```json
+{
+    "__default__":
+    {
+        "account": "a_slurm_submission_account",
+        "mem": "1G",
+        "time": "0:5:0"
+    },
+    "count_words":
+    {
+        "time": "0:10:0",
+        "mem": "2G"
+    }
+}
+```
+
+  The workflow can now be executed by:
+```bash
+$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
+```
+
+Note that in this case `-j` does not correspond to the number of cores
+used, instead it represents the maximum number of jobs that Snakemake
+is allowed to have submitted at the same time.  The `--cluster-config`
+flag specifies the config file for the particular cluster, and the
+`--cluster` flag specifies the command used to submit jobs on the
+particular cluster.
+````
+
+
 ---
 
-## Comparison and summary
 
-- GUIs may or may not be reproducible.
-- Some GUIs can be automated, many cannot.
-- Typing the same series of commands for 100 similar inputs is tedious and error prone.
-- Imperative scripts are reproducible and great for automation.
-- Declarative workflows such as Snakemake are great for longer multi-step analyses.
-- Declarative workflows are often easy to parallelize without you changing anything.
-- With declarative workflows it is no problem to add/change things late in the project.
-- Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
-- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 
 ```{keypoints}
   - Preserve the steps for re-generating published results.
