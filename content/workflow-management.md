@@ -17,7 +17,7 @@
 
 ## One problem solved in 4 different ways
 
-> The following material is adapted from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
+> The following material is partly derived from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
 
 In this episode we will work with reproducible workflows for the programs and data in the repository [word-count](https://github.com//coderefinery/word-count). The computing environment needed for performing the exercises can be performed on your own computer as well as on a cloud service.
 
@@ -31,10 +31,9 @@ In this episode we will work with reproducible workflows for the programs and da
 - Clone the word-count repository with `git clone `.
 
 **On Binder**:
-We will be using [Binder](https://mybinder.org/)
-a cloud service to make sure we all have the same computing environment.
-This is interesting from a reproducible research point of view and we will explain
-later how this is even possible!
+We can also use the cloud service [Binder](https://mybinder.org/) 
+to make sure we all have the same computing environment.
+This is interesting from a reproducible research point of view and it's explained further in the [Jupyter lesson](https://coderefinery.github.io/jupyter/sharing/) how this is even possible.
 - Go to [https://mybinder.org/](https://mybinder.org)
 - In the box **GitHub repository name or URL** enter: [https://github.com/coderefinery/word-count](https://github.com/coderefinery/word-count)
 - Click on the **Launch** button.
@@ -258,7 +257,7 @@ what you see. One way to modify files is to use the `touch` command which will
 only update its timestamp:
 
 ```
-$ touch results/results.txt
+$ touch results/results.txt  # make it look like the file has been changed
 $ snakemake -j 1
 ```
 
@@ -298,9 +297,11 @@ rule NAME:
 ### Visualizing the workflow
 
 We can visualize the directed acyclic graph (DAG) of our current Snakefile
-using the `--dag` option, which will output the DAG in `dot` language (a
-plain-text format for describing graphs used by [Graphviz software](https://www.graphviz.org/),
-which can be installed by `conda install graphviz`)
+using the `--dag` option, which will output the DAG in `dot` language.
+
+**Note**: This requires the [Graphviz software](https://www.graphviz.org/),
+which can be installed by `conda install graphviz`). It's not necessary to 
+run this step yourself.
 
 ```bash
 $ snakemake -j 1 --dag | dot -Tpng > dag.png
@@ -312,62 +313,22 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 :width: 100%
 ```
 
-```{challenge} Discussion
+````{discussion} Discussion
 Discuss the pros and cons of these different approaches. Which are reproducible? Which scale to hundreds of books and which can it be automated?
-```
 
-(snakemake-in-hpc)=
-
-### Snakemake in HPC
-
-````{homework} Optional exercise
-- It is possible to address and offload to non-CPU resources:
+```{solution}
+- GUIs may or may not be reproducible.
+- Some GUIs can be automated, many cannot.
+- Typing the same series of commands for 100 similar inputs is tedious and error prone.
+- Imperative scripts are reproducible and great for automation.
+- Declarative workflows such as Snakemake are great for longer multi-step analyses.
+- Declarative workflows are often easy to parallelize without you changing anything.
+- With declarative workflows it is no problem to add/change things late in the project.
+- Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
+- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 ```
-$ snakemake --delete-all-output -j 1
-$ snakemake -j 4 --resources gpu=1
-```
-
-- Transferring your workflow to a cluster:
-```
-$ snakemake --archive myworkflow.tar.gz -j 1
-$ scp myworkflow.tar.gz <some-cluster>
-$ ssh <some-cluster>
-$ tar zxf myworkflow.tar.gz
-$ cd myworkflow
-$ snakemake -n --use-conda -j 1
-```
-
-- Interoperability with Slurm:
-```json
-{
-    "__default__":
-    {
-        "account": "a_slurm_submission_account",
-        "mem": "1G",
-        "time": "0:5:0"
-    },
-    "count_words":
-    {
-        "time": "0:10:0",
-        "mem": "2G"
-    }
-}
-```
-
-  The workflow can now be executed by:
-```bash
-$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
-```
-
-Note that in this case `-j` does not correspond to the number of cores
-used, instead it represents the maximum number of jobs that Snakemake
-is allowed to have submitted at the same time.  The `--cluster-config`
-flag specifies the config file for the particular cluster, and the
-`--cluster` flag specifies the command used to submit jobs on the
-particular cluster.
 ````
 
----
 
 - There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
 
@@ -378,26 +339,26 @@ particular cluster.
 ### Using Snakemake
 
 ````{exercise} Exercise using Snakemake
-Having followed the [exercise preparation](https://coderefinery.github.io/reproducible-research/04-workflow-management/#exercise-preparation), make sure that you are in the `word-count` repository.
+Having followed the "Exercise preparation" above, make sure that you are in the `word-count` repository.
 
-1. Start by cleaning all output with `snakemake --delete-all-output`, and run
-   `snakemake` (you may have to add `-j 1` to the calls).
-   How many jobs are run?
-2. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
+1. Start by cleaning all output with `snakemake --delete-all-output`. 
+2. Run `snakemake -j 1`. How many jobs are run?
+3. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
    (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) ) 
-   and rerun snakemake.
+   and rerun snakemake. This makes it look like the file has changed as its 
+   timestamp is updated.  
    Which steps of the workflow are run now, and why? 
-3. Now touch the file `processed_data/sierra.dat` to update the
+4. Now touch the file `processed_data/sierra.dat` to update the
    timestamp, and run
    `snakemake -S` (-S stands for summary). Can you make sense of the output?
-4. Rerun snakemake. Which steps are run, and why?
-5. Finally try touching `source/wordcount.py` and rerun snakemake.
+5. Rerun snakemake. Which steps are run, and why?
+6. Finally try touching `source/wordcount.py` and rerun snakemake.
    Which steps are run, and why? Should source codes be considered
    dependencies?
-6. Use the `time` command to see if you get any speedup from
+7. Use the `time` command to see if you get any speedup from
    executing snakemake rules on multiple cores. For example to run
    4 parallel threads, use `time snakemake -j 4`.
-7. Try archiving the entire workflow with
+8. Try archiving the entire workflow with
    `snakemake -j 1 --archive my-workflow.tar.gz`.
 
 ```{solution}
@@ -405,15 +366,14 @@ Having followed the [exercise preparation](https://coderefinery.github.io/reprod
    use `--cores 1` instead) specifies the number of CPU cores used for
    execution. It should display something like *deleting x*, while
    deleting previously created files (if you ran this before, otherwise
-   nothing). Then run the process again with `snakemake -j 1`. When it is
-   done, scroll back up to ~line 5 of the printed information. Here, the
-   job counts are shown. If everything went well, it should have run 11
-   jobs, everything once, but count_words and make_plot, which was run 4
-   times each (once for each input book). In the text printed below this
+   nothing). 
+2. Then run the process again with `snakemake -j 1`. 
+   If everything went well, it should have run 11
+   jobs in total. Most rules have run once, but count_words and make_plot 
+   are run 4 times each (once for each input book). In the text printed below this
    in your terminal you can see when each job was run and what was done
-   in each job. You can also see the number of jobs shown as *11 of 11
-   steps (100%) done* in the end of the output.
-2. `touch data/sierra.txt` (unix/git bash) or `copy /b data\sierra.txt
+   in each job. 
+3. `touch data/sierra.txt` (unix/git bash) or `copy /b data\sierra.txt
    +,,` (windows cmd /anaconda prompt): this command updates the
    timestamp of the file, for the program it looks like the file has been
    updated/changed and will need to be reprocessed by all following steps
@@ -424,7 +384,7 @@ Having followed the [exercise preparation](https://coderefinery.github.io/reprod
    following processing steps will need to be rerun once an input file is
    updated. Hence e.g. make_plot is also rerun, since its input (the
    output of count_words) 'changed'.
-3. `touch processed_data/sierra.dat` (unix/git bash) or `copy /b
+4. `touch processed_data/sierra.dat` (unix/git bash) or `copy /b
    processed_data/sierra.dat +,,` (windows cmd /anaconda prompt), then
    run `snakemake -S` (-S stands for summary). This does not run any jobs
    but gives an overview of what is the status (status column) of each
@@ -433,11 +393,11 @@ Having followed the [exercise preparation](https://coderefinery.github.io/reprod
    columns below, check spaces to connect columns with their column
    names). Also note, that the default rule 'all' is not shown in
    summary.
-4. `snakemake -j 1`. 4 jobs are run. You may have expected 3 as in the
+5. `snakemake -j 1`. 4 jobs are run. You may have expected 3 as in the
    summary only 3 steps had the *upadte pending* planned. However, as
    mentioned above, the default rule 'all' was not shown in summary and
    also needs to be executed in order to run the following steps.
-5. `touch source/wordcount.py` (unix/git bash) or `copy /b
+6. `touch source/wordcount.py` (unix/git bash) or `copy /b
    source/wordcount.py +,,` (windows cmd /anaconda prompt), then
    `snakemake -j 1`. Until now we only 'changed' the output files. Here
    we actually 'change' a script that produces these output files. Since
@@ -445,17 +405,17 @@ Having followed the [exercise preparation](https://coderefinery.github.io/reprod
    results all other processes depend on, everything is run again. By
    updating the scripts timestamp, snakemake assumes something has
    changed in the scripts that may influence the output of the script,
-   ans therefore also the output of every following step. Therefore it
+   and therefore also the output of every following step. Therefore it
    will run all the following steps again. In this case if you would
    actually change something in the wordcount.py script it would change
-   the output, which means if you want your research to be rproducible,
+   the output, which means if you want your research to be reproducible,
    the source code as is has to be a dependency to get the same results
    as you did now.
-6. The speedup achieved with running on 4 instead of 1 core might be
+7. The speedup achieved with running on 4 instead of 1 core might be
    small but it should still exist is terms of time. The example is only
    small, but when running tasks where each step takes much longer to
    run, this is one possible way of speeding things up.
-7. For more information, see [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/s   table/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
+8. For more information on archiving, see [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
 ```
 ````
 
@@ -516,19 +476,61 @@ software environment.
 ````
 `````
 
+(snakemake-in-hpc)=
+
+### Snakemake in HPC
+
+````{exercise} (Optional) using Snakemake on HPC
+- It is possible to address and offload to non-CPU resources:
+```
+$ snakemake --delete-all-output -j 1
+$ snakemake -j 4 --resources gpu=1
+```
+
+- Transferring your workflow to a cluster:
+```
+$ snakemake --archive myworkflow.tar.gz -j 1
+$ scp myworkflow.tar.gz <some-cluster>
+$ ssh <some-cluster>
+$ tar zxf myworkflow.tar.gz
+$ cd myworkflow
+$ snakemake -n --use-conda -j 1
+```
+
+- Interoperability with Slurm:
+```json
+{
+    "__default__":
+    {
+        "account": "a_slurm_submission_account",
+        "mem": "1G",
+        "time": "0:5:0"
+    },
+    "count_words":
+    {
+        "time": "0:10:0",
+        "mem": "2G"
+    }
+}
+```
+
+  The workflow can now be executed by:
+```bash
+$ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
+```
+
+Note that in this case `-j` does not correspond to the number of cores
+used, instead it represents the maximum number of jobs that Snakemake
+is allowed to have submitted at the same time.  The `--cluster-config`
+flag specifies the config file for the particular cluster, and the
+`--cluster` flag specifies the command used to submit jobs on the
+particular cluster.
+````
+
+
 ---
 
-## Comparison and summary
 
-- GUIs may or may not be reproducible.
-- Some GUIs can be automated, many cannot.
-- Typing the same series of commands for 100 similar inputs is tedious and error prone.
-- Imperative scripts are reproducible and great for automation.
-- Declarative workflows such as Snakemake are great for longer multi-step analyses.
-- Declarative workflows are often easy to parallelize without you changing anything.
-- With declarative workflows it is no problem to add/change things late in the project.
-- Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
-- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 
 ```{keypoints}
   - Preserve the steps for re-generating published results.

@@ -1,5 +1,7 @@
 # List of exercises
 
+## Summary
+
 **Motivation**:
 - "Discuss with your neighbors or among all participants", 5 minutes  
    Discussion exercise. In online workshops the exercise can be performed 
@@ -32,3 +34,5 @@
 - {ref}`connecting-repositories-to-zenodo`, 15 minutes   
   Hands-on exercise for learners to do in groups or breakout rooms.
   The purpose is for learners to realize how easy it is to upload code or data to Zenodo and mint a DOI.
+
+

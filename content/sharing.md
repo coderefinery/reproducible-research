@@ -183,7 +183,7 @@ platform and filter by country, content type, discipline, etc.
 - ["FAIR is not fair enough"](https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/)
 - ["A FAIRer future"](https://www.nature.com/articles/s41567-019-0624-3)
 - ["Top 10 FAIR Data & Software Things"](https://librarycarpentry.org/Top-10-FAIR/) are brief guides that can be used by the research community to understand how they can make their research (data and software) more FAIR.
-- [https://fair-software.eu/](https://fair-software.eu/)
+- [Five recommendations for fair software](https://fair-software.eu/)
 - [Publishing research software](https://libguides.mit.edu/software) A MIT libraries webpage on why to publish software, where to publish software, and how to make software citable.
 - [Software Quality Checklist](https://technical-reference.readthedocs.io/en/latest/quality/software-checklist.html)
 - [MolSSI Best Practice Guides](http://molssi.org/education/best-practices/)
