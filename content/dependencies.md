@@ -183,7 +183,7 @@ $ conda env export > environment.yml
 ```
 - To clean unnecessary cached files (which grow quickly over time):
 ```
-$ conda clean
+$ conda clean # needs one flag, add --help for available options
 ```
 
 ### Using conda to share a package
