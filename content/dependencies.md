@@ -20,6 +20,8 @@ Our codes often depend on other codes that in turn depend on other codes ...
 ```{figure} img/python_environment.png
 :alt: Python environment
 :width: 100%
+
+From [xkcd](https://xkcd.com/).
 ```
 
 ## Conda, Anaconda, pip, Virtualenv, Pipenv, pyenv, Poetry, requirements.txt ...
