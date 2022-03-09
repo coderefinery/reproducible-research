@@ -101,3 +101,53 @@ However, containers may also have some drawbacks:
 - Do you think containers contribute to reproducible research?
 - Do you see a use case for your own work?
 ```
+
+---
+
+`````{exercise} (Optional) Play with Docker
+1. This exercise requires a DockerHub account. You can sign up on [https://hub.docker.com/signup](https://hub.docker.com/signup).
+2. Go to [Play with Docker](https://labs.play-with-docker.com/) and log in using 
+   your DockerHub account. 
+3. Click on "Add new instance" - you now have a free Alpine Linux Virtual Machine in browser where you can build and run Docker containers
+4. Pull the hello-world image from DockerHub:
+   ```shell
+   docker pull hello-world
+   ```
+5. List local images:
+   ```shell
+   docker image ls
+   ```
+6. Now create a new container from the image and run it:
+   ```shell
+   docker run hello-world
+   ```  
+   This should output "Hello from Docker!" followed by a description of what just happened:
+   ```shell
+   1. The Docker client contacted the Docker daemon.
+   2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+      (amd64)
+   3. The Docker daemon created a new container from that image which runs the
+      executable that produces the output you are currently reading.
+   4. The Docker daemon streamed that output to the Docker client, which sent it
+      to your terminal.
+   ```
+7. The hello-world image can't do much more than this. For a more interesting 
+   challenge, we can run bash in interactive mode using the ubuntu image from DockerHub. The following command automatically pulls the image before creating the container:
+   ```shell
+   docker run -it ubuntu bash
+   ```
+   Notice that the command prompt changed - we are now "inside" a live container. We can double-check that we're indeed in an Ubuntu environment:
+   ```shell
+   cat /etc/os-release
+   ```
+8. Exit the container by typing `exit`.
+9. Challenge: run an ubuntu container and make it print "Hello from Ubuntu!".
+
+````{solution}
+We use `docker run ubuntu` to run a container from the ubuntu image, and give
+it the command `echo "Hello from Ubuntu!"`:
+```shell
+docker run ubuntu echo "Hello from Ubuntu!"
+```
+````
+`````
