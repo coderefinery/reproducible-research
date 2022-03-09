@@ -218,14 +218,14 @@ A step-by-step guide on how to contribute packages can be found in the
 - Details of the conda installation can be shown with `conda info`.
   Which is the active environment? Where are the packages stored?
   Where are the environments stored?
-- Create a new environment with `conda create --name myenvironment`.
+- Create a new environment with `conda create --name myenv` **and activate it**.
 - Install the `pandas` package using `conda install pandas`.
 - Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
 - Export the full environment using `conda env export > environment.yml`, and 
   compare the `.yml` file format to the `.txt` file format.
 - If you want to make sure your new environment.yml is correct, 
   you can use it to create a new 
-  test environment using `conda env create -n <name> -f <file.yml>`.
+  test environment using `conda env create -n <envname> -f <file.yml>`.
   Were any new packages installed?
   You can delete the test environment with 
   `conda env remove -n <envname>` or simply remove the directory of the 
