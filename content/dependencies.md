@@ -202,13 +202,6 @@ via [conda-forge](https://conda-forge.org).
 A step-by-step guide on how to contribute packages can be found in the
 [conda-forge documentation](http://conda-forge.org/docs/maintainer/adding_pkgs.html).
 
-To get an idea of what's needed, let's have a look at the
-[boost feedstock](https://github.com/conda-forge/boost-feedstock/tree/2ceef9da69969ab3c0ae42817574b6c5b3219c99) (a set of C++ libraries). We see that:
-- Every commit is tested on every platform.
-- There's a list of maintainers.
-- There's a [meta.yaml file](https://github.com/conda-forge/boost-feedstock/blob/2ceef9da69969ab3c0ae42817574b6c5b3219c99/recipe/meta.yaml) under the `recipe/` directory, along with (optional) `build.sh` and `bld.bat` files for building
-  non-python code on OSX/Linux and Windows platforms.
-
 ---
 
 (exploring-conda-environments)=
