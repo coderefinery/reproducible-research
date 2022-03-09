@@ -479,12 +479,17 @@ software environment.
 ### Snakemake in HPC
 
 ````{exercise} (Optional) using Snakemake on HPC
-- It is possible to address and offload to non-CPU resources:
+- On a cluster node, Snakemake uses as many cores as available on that node. If a program that is run in a rule can only run efficiently up to a given number of CPU threads, it's possible to manually set a maximum in the rule definition:
 ```
-$ snakemake --delete-all-output -j 1
-$ snakemake -j 4 --resources gpu=1
-```
-
+rule count_words:
+    input:
+        wc='source/wordcount.py',
+        book='data/{file}.txt'
+    output: 'processed_data/{file}.dat'
+    threads: 4
+    log: 'processed_data/{file}.log'
+    shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
+```    
 - Transferring your workflow to a cluster:
 ```
 $ snakemake --archive myworkflow.tar.gz -j 1
