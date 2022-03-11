@@ -94,7 +94,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 
 ## An example project
 
-```{challenge} Word count
+````{challenge} Word count
 Let's look at an [example project](https://github.com/coderefinery/word-count) 
 which follows the project structure guidelines given above. 
 - Since we'll continue working with this repo, **import** it 
@@ -108,7 +108,17 @@ We have subdirectories for raw data, source files, documentation,
 processsed data and results, and README and LICENSE files.
 - What are the `environment.yml` and `Snakefile` files for?
 - Do you think this project is reproducible?
+
+```{solution}
+- `environment.yml` specifies dependencies of the project, i.e. all packages and their version numbers. The `Snakefile` is a record of all computational steps and is used to generate all results with `Snakemake`.
+- The Word-count project ticks most of the reproducibility boxes! 
+  - Clear directory structure  
+  - README file with general project description
+  - Documented, with link to ReadTheDocs 
+  - All dependencies recorded in `environment.yml`
+  - Computational steps recorded in `Makefile` and `Snakefile`
 ```
+````
 
 
 ```{keypoints}

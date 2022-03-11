@@ -20,6 +20,8 @@ Our codes often depend on other codes that in turn depend on other codes ...
 ```{figure} img/python_environment.png
 :alt: Python environment
 :width: 100%
+
+From [xkcd](https://xkcd.com/).
 ```
 
 ## Conda, Anaconda, pip, Virtualenv, Pipenv, pyenv, Poetry, requirements.txt ...
@@ -181,7 +183,7 @@ $ conda env export > environment.yml
 ```
 - To clean unnecessary cached files (which grow quickly over time):
 ```
-$ conda clean
+$ conda clean # needs one flag, add --help for available options
 ```
 
 ### Using conda to share a package
@@ -200,13 +202,6 @@ via [conda-forge](https://conda-forge.org).
 A step-by-step guide on how to contribute packages can be found in the
 [conda-forge documentation](http://conda-forge.org/docs/maintainer/adding_pkgs.html).
 
-To get an idea of what's needed, let's have a look at the
-[boost feedstock](https://github.com/conda-forge/boost-feedstock/tree/2ceef9da69969ab3c0ae42817574b6c5b3219c99) (a set of C++ libraries). We see that:
-- Every commit is tested on every platform.
-- There's a list of maintainers.
-- There's a [meta.yaml file](https://github.com/conda-forge/boost-feedstock/blob/2ceef9da69969ab3c0ae42817574b6c5b3219c99/recipe/meta.yaml) under the `recipe/` directory, along with (optional) `build.sh` and `bld.bat` files for building
-  non-python code on OSX/Linux and Windows platforms.
-
 ---
 
 (exploring-conda-environments)=
@@ -223,14 +218,14 @@ To get an idea of what's needed, let's have a look at the
 - Details of the conda installation can be shown with `conda info`.
   Which is the active environment? Where are the packages stored?
   Where are the environments stored?
-- Create a new environment with `conda create --name myenvironment`.
+- Create a new environment with `conda create --name myenv` **and activate it**.
 - Install the `pandas` package using `conda install pandas`.
 - Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
 - Export the full environment using `conda env export > environment.yml`, and 
   compare the `.yml` file format to the `.txt` file format.
 - If you want to make sure your new environment.yml is correct, 
   you can use it to create a new 
-  test environment using `conda env create -n <name> -f <file.yml>`.
+  test environment using `conda env create -n <envname> -f <file.yml>`.
   Were any new packages installed?
   You can delete the test environment with 
   `conda env remove -n <envname>` or simply remove the directory of the 

@@ -434,7 +434,7 @@ software environment.
 2. In the `make_plot` rule in the Snakefile, add a `conda` directive 
    where you provide the path to the new environment file.
 3. First clear all output and then rerun `snakemake` with the
-   `--use-conda` flag. Observe how snakemake downloads and installs
+   `--use-conda --conda-frontend conda` flags (the latter is needed because `snakemake` prefers to use the `mamba` replacement for `conda`). Observe how snakemake downloads and installs
    packages and activates the environment. The new environment is
    stored in `.snakemake/conda/$hash` where $hash is the MD5 hash of
    the environment file content. Updates to the environment definition
@@ -442,8 +442,7 @@ software environment.
 
 ````{solution}
 1. Checkout the [Anaconda
-   documentation](https://docs.conda.io/projects/conda/en/latest/user-
-   guide/tasks/manage-environments.html#creating-an-environment-file-manually)
+   documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)
    on how to manually create a yml file. Make sure to create the
    `plotting.yml` file in the right directory. Open your preferred
    editor, and add the following:
@@ -453,7 +452,7 @@ software environment.
      - conda-forge
    dependencies:
      - numpy=1.17.3
-    - matplotlib=3.1.1
+     - matplotlib=3.1.1
    ```
 2. The make plot part of the snakemake file should be something like this:
    ```
@@ -464,15 +463,14 @@ software environment.
           plotcount='source/plotcount.py',
           book='processed_data/{file}.dat'
       output: 'results/{file}.png'
-      conda:
-          "envs/plotting.yaml"
+      conda: "envs/plotting.yml"
       shell: 'python {input.plotcount} {input.book} {output}'
    ...
    ```
 
 3. First, run `snakemake --delete-all-output -j 1` to clear all
-   output. Then, run `snakemake --use-conda -j 1`. Snakemake now finds
-   the plotting.yaml file and executes the make_plot rule inside a conda environment.
+   output. Then, run `snakemake --use-conda --conda-frontend conda -j 1`. Snakemake now finds
+   the envs/plotting.yml file and executes the make_plot rule inside a conda environment.
 ````
 `````
 
@@ -481,12 +479,17 @@ software environment.
 ### Snakemake in HPC
 
 ````{exercise} (Optional) using Snakemake on HPC
-- It is possible to address and offload to non-CPU resources:
+- On a cluster node, Snakemake uses as many cores as available on that node. If a program that is run in a rule can only run efficiently up to a given number of CPU threads, it's possible to manually set a maximum in the rule definition:
 ```
-$ snakemake --delete-all-output -j 1
-$ snakemake -j 4 --resources gpu=1
-```
-
+rule count_words:
+    input:
+        wc='source/wordcount.py',
+        book='data/{file}.txt'
+    output: 'processed_data/{file}.dat'
+    threads: 4
+    log: 'processed_data/{file}.log'
+    shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
+```    
 - Transferring your workflow to a cluster:
 ```
 $ snakemake --archive myworkflow.tar.gz -j 1

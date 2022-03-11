@@ -57,7 +57,7 @@ or daemon, which, in turn, does all the work.
 ```vim
 #version 0.1
 FROM ubuntu:16.04 (good to mention the image version being used)
-LABEL maintainer="sriharsha.vathsavayi@csc.fi"
+LABEL maintainer="someone@somewhere.com"
 RUN apt-get update
 ...
 ```
@@ -100,29 +100,19 @@ it later.
 
 ```vim
 #version 0.1
-FROM ubuntu:16.04
+FROM ubuntu:20.04
+# set timezone
+ENV TZ=Europe/Stockholm
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #maintainer information
-LABEL maintainer="kthw@kth.se"
+LABEL maintainer="someone@somewhere.se"
 
-# update the apt package manager
-RUN apt-get update
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get update && apt-get -y install locales
+# update the apt package manager and install python and nano
+RUN apt-get update && apt-get install -y python3.9 python3-pip nano
 
-# install make
-RUN apt-get install -y build-essential 
-
-# install nano
-RUN apt-get install -y nano
-
-# install python
-RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
-RUN pip3 install --upgrade pip
-RUN yes | pip3 install numpy
-RUN yes | pip3 install matplotlib
-RUN yes | pip3 install snakemake
+# install python packages
+RUN pip3 install --no-input numpy==1.20.2 matplotlib==3.4.1 snakemake==7.1.1
 
 # copy project to container
 COPY ./ /opt/word_count/
@@ -150,7 +140,7 @@ word_count          0.1                 3103c7bde05b        4 minutes ago       
 ubuntu              16.04               7aa3602ab41e        3 weeks ago         115MB
 ```
 
-- We now have two images, the *base image* `ubuntu:16.04` is the parent of our `word_count:0.1` image.
+- We now have two images, the *base image* `ubuntu:20.04` is the parent of our `word_count:0.1` image.
 
 ---
 
