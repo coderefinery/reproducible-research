@@ -97,9 +97,6 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 ````{challenge} Word count
 Let's look at an [example project](https://github.com/coderefinery/word-count) 
 which follows the project structure guidelines given above. 
-- Since we'll continue working with this repo, **import** it 
-  to your GitHub namespace by clicking "Use this template". This 
-  generates a fresh repository from a *template*.
 
 This project is about counting the frequency
 distribution of words in a given text, plotting results and
