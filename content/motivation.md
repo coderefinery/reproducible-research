@@ -19,7 +19,7 @@
 :width: 100%
 ```
 
-```{instructor-note} A scary anecdote
+```{note} A scary anecdote
 - A group of researchers obtain great results and submit their work to a high-profile journal.
 - Reviewers ask for new figures and additional analysis.
 - The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
