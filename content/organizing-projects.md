@@ -94,7 +94,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 
 ## Exercise : Word count - An example project
 
-````{challenge} Word count
+````{challenge} Project organization-1: Word count
 Let's look at an [example project](https://github.com/coderefinery/word-count) 
 which follows the project structure guidelines given above. 
 
