@@ -98,10 +98,9 @@ Note that FAIR principles do not require data/software to be open.
 
 (connecting-repositories-to-zenodo)=
 
-## Connecting repositories to Zenodo
+## Exercise - Connecting repositories to Zenodo
  
-```{exercise} Get a DOI by connecting your repository to Zenodo
-
+```{exercise} Sharing-1: Get a DOI from Zenodo
 Digital object identifiers (DOI) are the backbone of the academic
 reference and metrics system. In this exercise we will see how to
 make a GitHub repository citable by archiving it on the
