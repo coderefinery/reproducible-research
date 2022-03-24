@@ -336,9 +336,9 @@ Discuss the pros and cons of these different approaches. Which are reproducible?
 
 (using-snakemake)=
 
-### Using Snakemake
+### Exercise - Using Snakemake
 
-````{exercise} Exercise using Snakemake
+````{exercise} Workflow-1: Using Snakemake
 Having followed the "Exercise preparation" above, make sure that you are in the `word-count` repository.
 
 1. Start by cleaning all output with `snakemake --delete-all-output`. 
@@ -421,9 +421,9 @@ Having followed the "Exercise preparation" above, make sure that you are in the 
 
 (snakemake-with-conda-environments)=
 
-### Snakemake with conda environments
+### Exercise - Snakemake with conda environments
 
-`````{exercise} (Optional) Using Snakemake with conda environments
+`````{exercise} (Optional) Workflow-2: Snakemake and Conda
 
 Let's say that the `make_plot` rule, which runs the 
 `source/plotcount.py` script, requires a separate 
@@ -476,9 +476,9 @@ software environment.
 
 (snakemake-in-hpc)=
 
-### Snakemake in HPC
+### Exercise - Snakemake on High Performance Computers
 
-````{exercise} (Optional) using Snakemake on HPC
+````{exercise} (Optional) Workflow-3: Snakemake on HPC
 - On a cluster node, Snakemake uses as many cores as available on that node. If a program that is run in a rule can only run efficiently up to a given number of CPU threads, it's possible to manually set a maximum in the rule definition:
 ```
 rule count_words:
