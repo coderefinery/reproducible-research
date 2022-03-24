@@ -116,6 +116,7 @@ general-purpose open access repository created by OpenAIRE and CERN.
    or another test repo), and flip the switch to ON.
 4. Go to GitHub and create a **release**  by clicking the `Create a new release` on the 
    right-hand side (a release is based on a Git tag, but is a higher-level GitHub feature).
+   You will need to enter a tag name (e.g. v0.1) in the "Choose a tag" box.
 5. Creating a new release will trigger Zenodo into archiving your repository,
    and a DOI badge will be displayed next to your repository after a minute
    or two. You can include it in your GitHub README file: click the
