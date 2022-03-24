@@ -19,7 +19,7 @@
 :width: 100%
 ```
 
-```{discussion} A scary anecdote
+```{note} A scary anecdote
 - A group of researchers obtain great results and submit their work to a high-profile journal.
 - Reviewers ask for new figures and additional analysis.
 - The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.
@@ -104,7 +104,7 @@ Turing Way](https://the-turing-way.netlify.com) community and is used under a
 CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](https://zenodo.org/record/3332808).)
 
 
-```{challenge} Discuss with your neighbors or among all participants
+```{discussion} Discuss with your neighbors or among all participants
 Computer programs are expected to produce the same
 output for the same inputs. Is
 that true for research software?

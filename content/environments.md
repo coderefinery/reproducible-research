@@ -103,8 +103,9 @@ However, containers may also have some drawbacks:
 ```
 
 ---
+## Exercise - Play with Docker
 
-`````{exercise} (Optional) Play with Docker
+`````{exercise} (Optional) Environment-1: Play with Docker
 1. This exercise requires a DockerHub account. You can sign up on [https://hub.docker.com/signup](https://hub.docker.com/signup).
 2. Go to [Play with Docker](https://labs.play-with-docker.com/) and log in using 
    your DockerHub account. 
