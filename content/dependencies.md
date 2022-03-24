@@ -41,9 +41,11 @@ that you know your dependencies!
 
 (different-solutions-to-specify-requirements)=
 
-## Different solutions to specify requirements
+## Exercise - Different solutions to specify requirements
 
-````{challenge} Compare these four requirements.txt 
+````{challenge} Dependencies-1: Comparing requirements
+Compare these four requirements.txt 
+
 **A**:
 
 Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
@@ -206,9 +208,9 @@ A step-by-step guide on how to contribute packages can be found in the
 
 (exploring-conda-environments)=
 
-## Exploring conda environments
+## Exercise - Exploring conda environments
 
-```{exercise} Working with conda
+```{exercise} Dependencies-2: Working with conda
 - Inspect your available environments with `conda info -e`.
 - Deactivate the current environment with `conda deactivate`.
 - Use `conda activate base` to change to the base environment.
