@@ -103,6 +103,7 @@ However, containers may also have some drawbacks:
 ```
 
 ---
+## Exercise - Play with Docker
 
 `````{exercise} (Optional) Play with Docker
 1. This exercise requires a DockerHub account. You can sign up on [https://hub.docker.com/signup](https://hub.docker.com/signup).
