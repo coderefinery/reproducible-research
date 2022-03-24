@@ -92,7 +92,7 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 
 (an-example-project)=
 
-## An example project
+## Exercise : Word count - An example project
 
 ````{challenge} Word count
 Let's look at an [example project](https://github.com/coderefinery/word-count) 
