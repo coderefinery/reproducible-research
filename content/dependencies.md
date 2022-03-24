@@ -260,6 +260,8 @@ A step-by-step guide on how to contribute packages can be found in the
   - Alternative to virtualenv and Pipenv
 - [Pyenv](https://github.com/pyenv/pyenv)
   - Tool to easily manage per-project/per-directory Python **versions**
+- [Mamba](https://github.com/mamba-org/mamba)
+  - works like conda, but resolves dependencies faster 
 
 
 ### R
