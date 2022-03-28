@@ -341,7 +341,7 @@ Discuss the pros and cons of these different approaches. Which are reproducible?
 ````{exercise} Workflow-1: Using Snakemake
 Having followed the "Exercise preparation" above, make sure that you are in the `word-count` repository.
 
-1. Start by cleaning all output with `snakemake --delete-all-output`. 
+1. Start by cleaning all output with `snakemake --delete-all-output -j 1`. 
 2. Run `snakemake -j 1`. How many jobs are run?
 3. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
    (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) ) 
