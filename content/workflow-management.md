@@ -218,21 +218,8 @@ rule make_archive:
 
 <img src="{{ site.baseurl }}/img/snakemake.png" style="height: 250px;"/>
 
-Snakemake contains rules that relate targets to dependencies and commands:
-
-```makefile
-# rule (mind the tab)
-target: dependencies
-	command(s)
-```
-
-We can think of it as follows:
-```makefile
-outputs: inputs
-	command(s)
-```
-
-
+Snakefiles contain rules that relate targets (`output`) 
+to dependencies (`input`) and commands (`shell`).
 Let's try it out. Since version 5.11 one needs to specify number 
 of cores (or jobs) using `-j`, `--jobs` or `--cores`:
 ```
