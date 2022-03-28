@@ -330,7 +330,7 @@ Discuss the pros and cons of these different approaches. Which are reproducible?
 ````
 
 
-- There is a lot more: [snakemake.readthedocs.io](https://snakemake.readthedocs.io/en/stable/).
+- There is a lot more: [snakemake.github.io](https://snakemake.github.io/).
 
 ---
 
