@@ -38,8 +38,8 @@ software packages from untrusted package repositories.
 #### Examples of useful Docker images
 
 1. Run a specific version of *Rstudio* 
-   ```shell
-   docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
+   ```console
+   $ docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
    ```
 
    Then open your browser to
@@ -49,15 +49,15 @@ software packages from untrusted package repositories.
    [https://hub.docker.com/r/rocker/rstudio/tags](https://hub.docker.com/r/rocker/rstudio/tags)
    and run for example
 
-   ```shell
-   docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio:3.3
+   ```console
+   $ docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio:3.3
    ```
 
 2. Run a specific version of *Anaconda3* from
    [https://hub.docker.com/r/continuumio/anaconda3](https://hub.docker.com/r/continuumio/anaconda3)
 
-   ```shell
-   docker run -i -t continuumio/anaconda3 /bin/bash
+   ```console
+   $ docker run -i -t continuumio/anaconda3 /bin/bash
    ```
 
    and similarly one can also pick an image for *Anaconda2* at
@@ -111,16 +111,16 @@ However, containers may also have some drawbacks:
    your DockerHub account. 
 3. Click on "Add new instance" - you now have a free Alpine Linux Virtual Machine in browser where you can build and run Docker containers
 4. Pull the hello-world image from DockerHub:
-   ```shell
-   docker pull hello-world
+   ```console
+   $ docker pull hello-world
    ```
 5. List local images:
-   ```shell
-   docker image ls
+   ```console
+   $ docker image ls
    ```
 6. Now create a new container from the image and run it:
-   ```shell
-   docker run hello-world
+   ```console
+   $ docker run hello-world
    ```  
    This should output "Hello from Docker!" followed by a description of what just happened:
    ```shell
@@ -134,12 +134,12 @@ However, containers may also have some drawbacks:
    ```
 7. The hello-world image can't do much more than this. For a more interesting 
    challenge, we can run bash in interactive mode using the ubuntu image from DockerHub. The following command automatically pulls the image before creating the container:
-   ```shell
-   docker run -it ubuntu bash
+   ```console
+   $ docker run -it ubuntu bash
    ```
    Notice that the command prompt changed - we are now "inside" a live container. We can double-check that we're indeed in an Ubuntu environment:
-   ```shell
-   cat /etc/os-release
+   ```console
+   $ cat /etc/os-release
    ```
 8. Exit the container by typing `exit`.
 9. Challenge: run an ubuntu container and make it print "Hello from Ubuntu!".
