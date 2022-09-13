@@ -76,7 +76,7 @@ In this example we wish to:
 
 Example (for one book only) - let us test this out:
 
-```
+```console
 $ python source/wordcount.py data/isles.txt processed_data/isles.dat
 $ python source/plotcount.py processed_data/isles.dat processed_data/isles.png
 $ python source/zipf_test.py processed_data/isles.dat
@@ -115,7 +115,7 @@ Imagine we have programmed a GUI with a nice interface with icons where you can 
 ## Solution 2: Manual steps
 
 It is not too much work:
-```
+```console
 $ python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 $ python source/plotcount.py processed_data/abyss.dat processed_data/abyss.png
 
@@ -138,7 +138,7 @@ This is **imperative style**: first do this, then to that, then do that, finally
 ## Solution 3: Script
 
 Let's express it more compactly with a shell script (Bash). Let's call it `script.sh`:
-```
+```bash
 #!/usr/bin/env bash
 
 # loop over all books
@@ -152,7 +152,7 @@ python source/zipf_test.py processed_data/abyss.dat processed_data/isles.dat pro
 ```
 
 We can run it with:
-```
+```console
 $ bash script.sh
 ```
 
@@ -222,7 +222,7 @@ Snakefiles contain rules that relate targets (`output`)
 to dependencies (`input`) and commands (`shell`).
 Let's try it out. Since version 5.11 one needs to specify number 
 of cores (or jobs) using `-j`, `--jobs` or `--cores`:
-```
+```console
 $ snakemake --delete-all-output -j 1
 $ snakemake -j 1
 ```
@@ -232,7 +232,7 @@ let Snakemake figure out the series of steps to produce results
 (targets). Fun fact: Excel is also declarative, not imperative.
 
 Try running `snakemake` again and observe that and discuss why it refused to rerun all steps:
-```
+```console
 $ snakemake -j 1
 
 Building DAG of jobs...
@@ -243,7 +243,7 @@ Make a modification to a txt or a dat file and run `snakemake` again and discuss
 what you see. One way to modify files is to use the `touch` command which will
 only update its timestamp:
 
-```
+```console
 $ touch results/results.txt  # make it look like the file has been changed
 $ snakemake -j 1
 ```
@@ -290,7 +290,7 @@ using the `--dag` option, which will output the DAG in `dot` language.
 which can be installed by `conda install graphviz`). It's not necessary to 
 run this step yourself.
 
-```bash
+```console
 $ snakemake -j 1 --dag | dot -Tpng > dag.png
 ```
 Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
@@ -478,7 +478,7 @@ rule count_words:
     shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
 ```    
 - Transferring your workflow to a cluster:
-```
+```console
 $ snakemake --archive myworkflow.tar.gz -j 1
 $ scp myworkflow.tar.gz <some-cluster>
 $ ssh <some-cluster>
@@ -505,7 +505,7 @@ $ snakemake -n --use-conda -j 1
 ```
 
   The workflow can now be executed by:
-```bash
+```console
 $ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
 ```
 

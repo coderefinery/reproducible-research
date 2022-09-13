@@ -126,13 +126,13 @@ CMD /bin/bash
 
 We can build the image by running docker build in the word_count directory containing Dockerfile:
 
-```shell
+```console
 $ docker build -t word_count:0.1 .
 ```
 This will take a few minutes...
 
 Check if the image is created:
-```shell
+```console
 $ docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -148,13 +148,13 @@ ubuntu              16.04               7aa3602ab41e        3 weeks ago         
 
 We can run a container using `docker run` command:
 
-```shell
+```console
 $ docker run -i -t --name wordcount word_count:0.1
 ```
 Note: Use -d to start a container in the background in a detached mode (to create long-running containers).
 
 We can now see the running container (in another terminal):
-```shell
+```console
 $ docker ps
 ```
 
@@ -168,12 +168,12 @@ $ docker ps
 
 **Sharing a host directory with container**
 
-  ```shell
+  ```console
 $ docker run -it --name my-directory-test -v <path-on-hostmachine>:/opt/data <image_name>
   ```
 
 **Anyone with this image can reproduce the results we have generated**
-  ```shell
+  ```console
 $ docker run -v <path-on-hostmachine/results_directory>:/opt/word_count/results word_count:0.1 snakemake -s Snakefile_all
   ```
 The `results_directory` folder will have the results of our word count example project.
@@ -186,12 +186,12 @@ We can also specify snakemake (or  any other command) as the default command to 
 - DockerHub - A platform to share Docker images.
 - Login to DockerHub:
 
- ```shell
+ ```console
 $ docker login
   ```
 - Push to DockerHub. The image name has to be in **youruser/yourimage** format:
  
- ```shell
+ ```console
 $ docker tag TAGID YOURUSER/word_count
 $ docker push docker.io/YOURUSER/word_count
   ```
@@ -199,12 +199,12 @@ $ docker push docker.io/YOURUSER/word_count
 - For proprietary/sensitive images private Docker registries can be used
 - Sometimes you don't want to push the image but you want to freeze it locally
 
- ```shell
+ ```console
 $ docker save word_count > word_count_0.1.tar
  ```
 
 and then you can reload it with
 
- ```shell
+ ```console
 $ docker load --input word_count_0.1.tar
  ```
