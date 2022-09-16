@@ -44,7 +44,7 @@ that you know your dependencies!
 ## Exercise - Different solutions to specify requirements
 
 ````{challenge} Dependencies-1: Comparing requirements
-Compare these four requirements.txt 
+Compare these four requirements.txt
 
 **A**:
 
