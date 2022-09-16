@@ -14,7 +14,8 @@ used to record reproducible environments and computational steps.
       `Git, Python, and Snakemake <https://coderefinery.github.io/installation/>`__.
 
    2. `Docker <https://coderefinery.github.io/installation/docker/>`__
-      and `make <https://coderefinery.github.io/installation/make/>`__ are optional.
+      and `make <https://coderefinery.github.io/installation/make/>`__
+      are optional (these are usually done as demos with no exercises).
 
 
 .. toctree::

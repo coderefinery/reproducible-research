@@ -5,7 +5,7 @@
 ```
 
 ```{objectives}
-- Get overview on how to organize research projects
+- Get an overview on how to organize research projects
 ```
 
 ```{instructor-note}
