@@ -223,14 +223,14 @@ A step-by-step guide on how to contribute packages can be found in the
 - Create a new environment with `conda create --name myenv` **and activate it**.
 - Install the `pandas` package using `conda install pandas`.
 - Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
-- Export the full environment using `conda env export > environment.yml`, and 
+- Export the full environment using `conda env export > environment.yml`, and
   compare the `.yml` file format to the `.txt` file format.
-- If you want to make sure your new environment.yml is correct, 
-  you can use it to create a new 
+- If you want to make sure your new environment.yml is correct,
+  you can use it to create a new
   test environment using `conda env create -n <envname> -f <file.yml>`.
   Were any new packages installed?
-  You can delete the test environment with 
-  `conda env remove -n <envname>` or simply remove the directory of the 
+  You can delete the test environment with
+  `conda env remove -n <envname>` or simply remove the directory of the
   environment (that you can find using `conda info -e`).
 ```
 
@@ -261,7 +261,7 @@ A step-by-step guide on how to contribute packages can be found in the
 - [Pyenv](https://github.com/pyenv/pyenv)
   - Tool to easily manage per-project/per-directory Python **versions**
 - [Mamba](https://github.com/mamba-org/mamba)
-  - works like conda, but resolves dependencies faster 
+  - works like conda, but resolves dependencies faster
 
 
 ### R
@@ -285,12 +285,12 @@ There are many tools available:
 ### C/C++
 
 There are no standard methods or tools to handle dependencies in
-C/C++, but useful tools include: 
+C/C++, but useful tools include:
 
-- [CMake](https://cmake.org/) 
+- [CMake](https://cmake.org/)
   - Open-source, cross-platform family of tools designed to build,
-    test and package software (see also the [CodeRefinery lesson on
-    CMake](https://coderefinery.github.io/cmake/))
+	test and package software (see also the [CodeRefinery lesson on
+	CMake](https://coderefinery.github.io/cmake/))
 - [Conan](https://conan.io/)
   - A C/C++ package manager for Developers
 - [Conda](https://docs.conda.io/en/latest/)
