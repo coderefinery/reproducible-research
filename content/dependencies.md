@@ -106,26 +106,26 @@ commit hashes or Git tags.
 - Standard place to share Python packages.
 - Also mixed-language packages are possible wrapped in a Python layer.
 - Install a package:
-```console
-$ pip install somepackage
-```
+  ```console
+  $ pip install somepackage
+  ```
 - Install a specific version:
-```console
-$ pip install somepackage==1.2.3
-```
+  ```console
+  $ pip install somepackage==1.2.3
+  ```
 - Freeze the current environment into `requirements.txt`:
-```console
-$ pip freeze > requirements.txt
-```
+  ```console
+  $ pip freeze > requirements.txt
+  ```
 - Install all dependencies listed in `requirements.txt`:
-```console
-$ pip install -r requirements.txt
-```
+  ```console
+  $ pip install -r requirements.txt
+  ```
 - Creating and sharing your own package: [https://packaging.python.org/tutorials/packaging-projects/](https://packaging.python.org/tutorials/packaging-projects/)
 - It is possible to pip install from GitHub or other places:
-```console
-$ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
-```
+  ```console
+  $ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
+  ```
 
 ---
 
@@ -143,50 +143,50 @@ $ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
 - Allows you to create and share conda packages.
 - [Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a lightweight alternative to [Anaconda](https://www.anaconda.com).
 - Install a package:
-```console
-$ conda install somepackage
-```
+  ```console
+  $ conda install somepackage
+  ```
 - Install a specific version:
-```console
-$ conda install somepackage=1.2.3
-```
+  ```console
+  $ conda install somepackage=1.2.3
+  ```
 - Create a new environment:
-```console
-$ conda create --name myenvironment
-```
+  ```console
+  $ conda create --name myenvironment
+  ```
 - Create a new environment from `requirements.txt`:
-```console
-$ conda create --name myenvironment --file requirements.txt
-```
+  ```console
+  $ conda create --name myenvironment --file requirements.txt
+  ```
 - On e.g. HPC systems where you don't have write access to central
   installation directory:
-```console
-$ conda create --prefix /some/path/to/env
-```
+  ```console
+  $ conda create --prefix /some/path/to/env
+  ```
 - Activate a specific environment:
-```console
-$ conda activate myenvironment
-```
+  ```console
+  $ conda activate myenvironment
+  ```
 - Deactivate current environment:
-```console
-$ conda deactivate
-```
+  ```console
+  $ conda deactivate
+  ```
 - List all environments:
-```console
-$ conda info -e
-```
+  ```console
+  $ conda info -e
+  ```
 - Freeze the current environment into `requirements.txt`:
-```console
-$ conda list --export > requirements.txt
-```
+  ```console
+  $ conda list --export > requirements.txt
+  ```
 - Freeze the current environment into `environment.yml`:
-```console
-$ conda env export > environment.yml
-```
+  ```console
+  $ conda env export > environment.yml
+  ```
 - To clean unnecessary cached files (which grow quickly over time):
-```console
-$ conda clean # needs one flag, add --help for available options
-```
+  ```console
+  $ conda clean # needs one flag, add --help for available options
+  ```
 
 ### Using conda to share a package
 
@@ -242,16 +242,16 @@ A step-by-step guide on how to contribute packages can be found in the
 
 - [Virtualenv](https://docs.python-guide.org/dev/virtualenvs/)
   - Example use:
-  ```shell
-  $ # creating a new env
-  $ virtualenv myenvironment
-  $ virtualenv --python=python3 myenvironment
-  $ virtualenv /path/to/myenvironment
-  $ # activating env, installing package and deactivating
-  $ source myenvironment/bin/activate
-  $ pip install somepackage
-  $ deactivate
-  ```
+	```console
+	$ # creating a new env
+	$ virtualenv myenvironment
+	$ virtualenv --python=python3 myenvironment
+	$ virtualenv /path/to/myenvironment
+	$ # activating env, installing package and deactivating
+	$ source myenvironment/bin/activate
+	$ pip install somepackage
+	$ deactivate
+	```
 - [Pipenv](https://pipenv.readthedocs.io)
   - Alternative to virtualenv: you can activate and install in one step
   - Tool to easily manage per-project/per-directory Python **packages**

@@ -186,25 +186,25 @@ We can also specify snakemake (or  any other command) as the default command to 
 - DockerHub - A platform to share Docker images.
 - Login to DockerHub:
 
- ```console
-$ docker login
+  ```console
+  $ docker login
   ```
 - Push to DockerHub. The image name has to be in **youruser/yourimage** format:
- 
- ```console
-$ docker tag TAGID YOURUSER/word_count
-$ docker push docker.io/YOURUSER/word_count
+
+  ```console
+  $ docker tag TAGID YOURUSER/word_count
+  $ docker push docker.io/YOURUSER/word_count
   ```
 
 - For proprietary/sensitive images private Docker registries can be used
 - Sometimes you don't want to push the image but you want to freeze it locally
 
- ```console
-$ docker save word_count > word_count_0.1.tar
- ```
+  ```console
+  $ docker save word_count > word_count_0.1.tar
+  ```
 
-and then you can reload it with
+  and then you can reload it with
 
- ```console
-$ docker load --input word_count_0.1.tar
- ```
+  ```console
+  $ docker load --input word_count_0.1.tar
+  ```
