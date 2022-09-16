@@ -3,6 +3,11 @@
 Reproducible research
 =====================
 
+Have you ever spent days trying to repeat the results that took you
+hours to do the first time last week?  Or you have to do paper
+revisions, but you just can't get the results to match up?  Nothing is
+a worse feeling - either for you or for science itself.
+
 In this lesson we will discuss different methods and tools for better
 reproducibility in research software and data. We will demonstrate how
 version control, workflows, containers, and package managers can be
