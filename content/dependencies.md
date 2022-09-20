@@ -276,6 +276,8 @@ There are many tools available:
 - [Jetpack](https://github.com/ankane/jetpack)
   - Designed as a CLI on top of packrat. Uses the DESCRIPTION file to store your project dependencies
 - [RSuite](https://rsuite.io/)
+- [renv](https://rstudio.github.io/renv/articles/renv.html)
+  - Pitched as a replacement for packrat that aims to provide project-level dependency management integrating with standard R package management commands.
 - [automagic](https://github.com/cole-brokamp/automagic)
 - [deplearning](https://github.com/MilesMcBain/deplearning)
 - [devtools](https://github.com/r-lib/devtools)
