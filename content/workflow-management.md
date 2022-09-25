@@ -31,7 +31,7 @@ In this episode we will work with reproducible workflows for the programs and da
 - Clone the word-count repository with `git clone `.
 
 **On Binder**:
-We can also use the cloud service [Binder](https://mybinder.org/) 
+We can also use the cloud service [Binder](https://mybinder.org/)
 to make sure we all have the same computing environment.
 This is interesting from a reproducible research point of view and it's explained further in the [Jupyter lesson](https://coderefinery.github.io/jupyter/sharing/) how this is even possible.
 - Go to [https://mybinder.org/](https://mybinder.org)
@@ -218,9 +218,9 @@ rule make_archive:
 
 <img src="{{ site.baseurl }}/img/snakemake.png" style="height: 250px;"/>
 
-Snakefiles contain rules that relate targets (`output`) 
+Snakefiles contain rules that relate targets (`output`)
 to dependencies (`input`) and commands (`shell`).
-Let's try it out. Since version 5.11 one needs to specify number 
+Let's try it out. Since version 5.11 one needs to specify number
 of cores (or jobs) using `-j`, `--jobs` or `--cores`:
 ```console
 $ snakemake --delete-all-output -j 1
@@ -287,7 +287,7 @@ We can visualize the directed acyclic graph (DAG) of our current Snakefile
 using the `--dag` option, which will output the DAG in `dot` language.
 
 **Note**: This requires the [Graphviz software](https://www.graphviz.org/),
-which can be installed by `conda install graphviz`). It's not necessary to 
+which can be installed by `conda install graphviz`). It's not necessary to
 run this step yourself.
 
 ```console
@@ -328,13 +328,13 @@ Discuss the pros and cons of these different approaches. Which are reproducible?
 ````{exercise} Workflow-1: Using Snakemake
 Having followed the "Exercise preparation" above, make sure that you are in the `word-count` repository.
 
-1. Start by cleaning all output with `snakemake --delete-all-output -j 1`. 
+1. Start by cleaning all output with `snakemake --delete-all-output -j 1`.
 2. Run `snakemake -j 1`. How many jobs are run?
-3. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt` 
-   (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) ) 
-   and rerun snakemake. This makes it look like the file has changed as its 
-   timestamp is updated.  
-   Which steps of the workflow are run now, and why? 
+3. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt`
+   (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) )
+   and rerun snakemake. This makes it look like the file has changed as its
+   timestamp is updated.
+   Which steps of the workflow are run now, and why?
 4. Now touch the file `processed_data/sierra.dat` to update the
    timestamp, and run
    `snakemake -S` (-S stands for summary). Can you make sense of the output?
@@ -353,13 +353,13 @@ Having followed the "Exercise preparation" above, make sure that you are in the 
    use `--cores 1` instead) specifies the number of CPU cores used for
    execution. It should display something like *deleting x*, while
    deleting previously created files (if you ran this before, otherwise
-   nothing). 
-2. Then run the process again with `snakemake -j 1`. 
+   nothing).
+2. Then run the process again with `snakemake -j 1`.
    If everything went well, it should have run 11
-   jobs in total. Most rules have run once, but count_words and make_plot 
+   jobs in total. Most rules have run once, but count_words and make_plot
    are run 4 times each (once for each input book). In the text printed below this
    in your terminal you can see when each job was run and what was done
-   in each job. 
+   in each job.
 3. `touch data/sierra.txt` (unix/git bash) or `copy /b data\sierra.txt
    +,,` (windows cmd /anaconda prompt): this command updates the
    timestamp of the file, for the program it looks like the file has been
@@ -412,13 +412,13 @@ Having followed the "Exercise preparation" above, make sure that you are in the 
 
 `````{exercise} (Optional) Workflow-2: Snakemake and Conda
 
-Let's say that the `make_plot` rule, which runs the 
-`source/plotcount.py` script, requires a separate 
-software environment. 
+Let's say that the `make_plot` rule, which runs the
+`source/plotcount.py` script, requires a separate
+software environment.
 1. Create an environment file `plotting.yml` in a new directory `envs/`.
    It should contain `conda-forge` in the `channels` section and the packages
    `numpy=1.17.3` and `matplotlib=3.1.1` in the `dependencies` section.
-2. In the `make_plot` rule in the Snakefile, add a `conda` directive 
+2. In the `make_plot` rule in the Snakefile, add a `conda` directive
    where you provide the path to the new environment file.
 3. First clear all output and then rerun `snakemake` with the
    `--use-conda --conda-frontend conda` flags (the latter is needed because `snakemake` prefers to use the `mamba` replacement for `conda`). Observe how snakemake downloads and installs
@@ -476,7 +476,7 @@ rule count_words:
     threads: 4
     log: 'processed_data/{file}.log'
     shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
-```    
+```
 - Transferring your workflow to a cluster:
 ```console
 $ snakemake --archive myworkflow.tar.gz -j 1

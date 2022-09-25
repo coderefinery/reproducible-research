@@ -92,7 +92,7 @@ levels that each contributes to its reproducibility.
 
 ## Reproducible, replicable, robust, generalisable
 
-While reproducibility is the minimum requirement and can be solved with "good enough" computational practices, replicability/robustness/generalisability of scientific findings are an even greater concern involving research misconduct, questionable research practices (p-hacking, HARKing, cherry-picking), sloppy methods, and other conscious and unconscious biases. 
+While reproducibility is the minimum requirement and can be solved with "good enough" computational practices, replicability/robustness/generalisability of scientific findings are an even greater concern involving research misconduct, questionable research practices (p-hacking, HARKing, cherry-picking), sloppy methods, and other conscious and unconscious biases.
 
 ```{figure} img/turing-way/39-reproducible-replicable-robust-generalisable.jpg
 :alt: Reproducible, replicable, robust, generalisable

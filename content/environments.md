@@ -37,7 +37,7 @@ software packages from untrusted package repositories.
 
 #### Examples of useful Docker images
 
-1. Run a specific version of *Rstudio* 
+1. Run a specific version of *Rstudio*
    ```console
    $ docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
    ```
@@ -107,8 +107,8 @@ However, containers may also have some drawbacks:
 
 `````{exercise} (Optional) Environment-1: Play with Docker
 1. This exercise requires a DockerHub account. You can sign up on [https://hub.docker.com/signup](https://hub.docker.com/signup).
-2. Go to [Play with Docker](https://labs.play-with-docker.com/) and log in using 
-   your DockerHub account. 
+2. Go to [Play with Docker](https://labs.play-with-docker.com/) and log in using
+   your DockerHub account.
 3. Click on "Add new instance" - you now have a free Alpine Linux Virtual Machine in browser where you can build and run Docker containers
 4. Pull the hello-world image from DockerHub:
    ```console
@@ -121,7 +121,7 @@ However, containers may also have some drawbacks:
 6. Now create a new container from the image and run it:
    ```console
    $ docker run hello-world
-   ```  
+   ```
    This should output "Hello from Docker!" followed by a description of what just happened:
    ```shell
    1. The Docker client contacted the Docker daemon.
@@ -132,7 +132,7 @@ However, containers may also have some drawbacks:
    4. The Docker daemon streamed that output to the Docker client, which sent it
       to your terminal.
    ```
-7. The hello-world image can't do much more than this. For a more interesting 
+7. The hello-world image can't do much more than this. For a more interesting
    challenge, we can run bash in interactive mode using the ubuntu image from DockerHub. The following command automatically pulls the image before creating the container:
    ```console
    $ docker run -it ubuntu bash

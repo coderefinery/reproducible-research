@@ -99,7 +99,7 @@ Note that FAIR principles do not require data/software to be open.
 (connecting-repositories-to-zenodo)=
 
 ## Exercise - Connecting repositories to Zenodo
- 
+
 ```{exercise} Sharing-1: Get a DOI from Zenodo
 Digital object identifiers (DOI) are the backbone of the academic
 reference and metrics system. In this exercise we will see how to
@@ -110,10 +110,10 @@ general-purpose open access repository created by OpenAIRE and CERN.
 1. Sign in to Zenodo using your GitHub account. For this exercise, use the
    sandbox service: [https://sandbox.zenodo.org/login/](https://sandbox.zenodo.org/login/). This is a test version of the real Zenodo platform.
 2. Go to [https://sandbox.zenodo.org/account/settings/github/](https://sandbox.zenodo.org/account/settings/github/).
-3. Find the repository you wish to publish (e.g. the 
-   [`word-count` project that you imported](https://github.com/coderefinery/word-count) 
+3. Find the repository you wish to publish (e.g. the
+   [`word-count` project that you imported](https://github.com/coderefinery/word-count)
    or another test repo), and flip the switch to ON.
-4. Go to GitHub and create a **release**  by clicking the `Create a new release` on the 
+4. Go to GitHub and create a **release**  by clicking the `Create a new release` on the
    right-hand side (a release is based on a Git tag, but is a higher-level GitHub feature).
    You will need to enter a tag name (e.g. v0.1) in the "Choose a tag" box.
 5. Creating a new release will trigger Zenodo into archiving your repository,

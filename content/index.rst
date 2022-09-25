@@ -40,7 +40,7 @@ used to record reproducible environments and computational steps.
 
    docker.md
 
-	     
+
 .. toctree::
    :maxdepth: 1
    :caption: Reference

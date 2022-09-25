@@ -76,10 +76,10 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
     supplementary material with journal articles.
   - [Binder](https://mybinder.org): Make a repository with Jupyter
     notebooks available in an executable environment.
-  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): A set of good practices for 
+  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): A set of good practices for
     reproducible data analysis in R, but much is transferable to other languages.
 
-- Do you want to practice your reproducibility skills and get inspired by working with other 
+- Do you want to practice your reproducibility skills and get inspired by working with other
   people's code/data? Join a [ReproHack event](https://github.com/reprohack/reprohack-hq)!
 
 ---
@@ -95,12 +95,12 @@ $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
 ## Exercise : Word count - An example project
 
 ````{challenge} Project organization-1: Word count
-Let's look at an [example project](https://github.com/coderefinery/word-count) 
-which follows the project structure guidelines given above. 
+Let's look at an [example project](https://github.com/coderefinery/word-count)
+which follows the project structure guidelines given above.
 
 This project is about counting the frequency
 distribution of words in a given text, plotting results and
-testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law). 
+testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
 We have subdirectories for raw data, source files, documentation,
 processsed data and results, and README and LICENSE files.
 - What are the `environment.yml` and `Snakefile` files for?
@@ -108,10 +108,10 @@ processsed data and results, and README and LICENSE files.
 
 ```{solution}
 - `environment.yml` specifies dependencies of the project, i.e. all packages and their version numbers. The `Snakefile` is a record of all computational steps and is used to generate all results with `Snakemake`.
-- The Word-count project ticks most of the reproducibility boxes! 
-  - Clear directory structure  
+- The Word-count project ticks most of the reproducibility boxes!
+  - Clear directory structure
   - README file with general project description
-  - Documented, with link to ReadTheDocs 
+  - Documented, with link to ReadTheDocs
   - All dependencies recorded in `environment.yml`
   - Computational steps recorded in `Makefile` and `Snakefile`
 ```
