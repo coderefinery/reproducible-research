@@ -13,6 +13,10 @@
 - 0 min exercises
 ```
 
+It may seem simple, but one of the most basic steps to make your work
+reproducible is to organize your projects well.  Let's go over some of
+the basic things which people have found to work (and not work).
+
 
 ## Directory structure for projects
 
@@ -57,6 +61,7 @@ project_name/
   ```console
   $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
   ```
+* We went over all of this in [Git-intro](https://coderefinery.github.io/git-intro/)
 
 ---
 
@@ -75,7 +80,8 @@ project_name/
     computational environment for creating notebook documents. Can be used for
     supplementary material with journal articles.
   - [Binder](https://mybinder.org): Make a repository with Jupyter
-    notebooks available in an executable environment.
+    notebooks available in an executable environment (discussed later
+    in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
   - ["Research compendia"](http://inundata.org/talks/rstd19/#/): A set of good practices for
     reproducible data analysis in R, but much is transferable to other languages.
 
@@ -107,7 +113,12 @@ processsed data and results, and README and LICENSE files.
 - Do you think this project is reproducible?
 
 ```{solution}
-- `environment.yml` specifies dependencies of the project, i.e. all packages and their version numbers. The `Snakefile` is a record of all computational steps and is used to generate all results with `Snakemake`.
+- `environment.yml` specifies dependencies of the project, i.e. all
+  packages and their version numbers (discussed later in
+  {doc}`dependencies`). The `Snakefile` is a record of all
+  computational steps and is used to generate all results with
+  `Snakemake` ({doc}`workflow-management`).
+
 - The Word-count project ticks most of the reproducibility boxes!
   - Clear directory structure
   - README file with general project description
