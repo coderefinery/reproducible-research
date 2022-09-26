@@ -221,7 +221,7 @@ This exercise explores some basic conda commands.  We use conda since
 it is what the CodeRefinery install instructions use.
 
 *This exercise is not needed for the rest of this lesson, but the
-[conda instllation](https://coderefinery.github.io/installation/conda/) and the
+[conda installation](https://coderefinery.github.io/installation/conda/) and the
 [CodeRefinery conda
 environment](https://coderefinery.github.io/installation/conda-environment/)
 is needed for future exercises.*
