@@ -81,7 +81,7 @@ project_name/
     supplementary material with journal articles.
   - [Binder](https://mybinder.org): Make a repository with Jupyter
     notebooks available in an executable environment (discussed later
-    in {doc}`sharing`).
+    in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
   - ["Research compendia"](http://inundata.org/talks/rstd19/#/): A set of good practices for
     reproducible data analysis in R, but much is transferable to other languages.
 
