@@ -15,20 +15,37 @@
 - 15 min exercises
 ```
 
+You have some steps that need to be run to do your work.  How do you
+actually run them?  Does it rely on your own memory and work, or is it
+reproducible?
+
+
+
 ## One problem solved in 4 different ways
 
-> The following material is partly derived from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/)
+*The following material is partly derived from a [HPC Carpentry lesson](https://hpc-carpentry.github.io/hpc-python/).*
 
-In this episode we will work with reproducible workflows for the programs and data in the repository [word-count](https://github.com//coderefinery/word-count). The computing environment needed for performing the exercises can be performed on your own computer as well as on a cloud service.
+In this episode, we will use a sample [word-count
+repository](https://github.com//coderefinery/word-count) which counts
+the number of words in various books and makes some simple plots from
+those statistics.
 
 ```{prereq} Exercise preparation
+The exercise (below) and pre-exercise discussion uses a simple
+word-count repository
+(<https://github.com//coderefinery/word-count>). We should clone the
+repository already to prepare to work on it.
+
+You could do the exercise either on your own computer, or the MyBinder
+cloud service:
+
 **On your own computer**:
 - Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
 - Create an exercise repository in your own namespace by
   [generating from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
   using this template: <https://github.com//coderefinery/word-count>
   called `word-count`
-- Clone the word-count repository with `git clone `.
+- Clone the word-count repository with `git clone`.
 
 **On Binder**:
 We can also use the cloud service [Binder](https://mybinder.org/)
@@ -86,14 +103,11 @@ Can you relate? Are you using similar setups in your research?
 
 This was for one book - how about 3 books? How about 3000 books?
 
-**We will solve this in four different ways and discuss pros and cons.**
+**We will imagine solving this in four different ways and discuss pros and cons.**
 
 ---
 
 ## Solution 1: Graphical user interface (GUI)
-
-Disclaimer: not all GUIs behave this way - there exist very good GUI solutions which enable
-reproducibility and automation.
 
 Imagine we have programmed a GUI with a nice interface with icons where you can select scripts and input files by clicking:
 - Click on counting script
@@ -110,12 +124,19 @@ Imagine we have programmed a GUI with a nice interface with icons where you can 
 - Select book txt file
 - ...
 
+Disclaimer: not all GUIs behave this way - there exist very good GUI solutions which enable
+reproducibility and automation.
+
 ---
 
 ## Solution 2: Manual steps
 
-It is not too much work:
-```console
+It is not too much work for four files:
+```{code-block} console
+---
+emphasize-lines: 1-2, 13
+---
+
 $ python source/wordcount.py data/abyss.txt processed_data/abyss.dat
 $ python source/plotcount.py processed_data/abyss.dat processed_data/abyss.png
 
@@ -138,7 +159,11 @@ This is **imperative style**: first do this, then to that, then do that, finally
 ## Solution 3: Script
 
 Let's express it more compactly with a shell script (Bash). Let's call it `script.sh`:
-```bash
+```{code-block} bash
+---
+emphasize-lines: 4
+---
+
 #!/usr/bin/env bash
 
 # loop over all books
@@ -156,7 +181,9 @@ We can run it with:
 $ bash script.sh
 ```
 
-This is still **imperative style**: we tell the script to run these steps in precisely this order.
+This is still **imperative style**: we tell the script to run these
+steps in precisely this order.  We can do it on many files, but if we
+need to re-run just one file, it's a bit of work.
 
 ---
 
@@ -168,7 +195,11 @@ The workflow below can also be [implemented using make](make-alternative).
 
 First study the `Snakefile`:
 
-```python
+```{code-block} python
+---
+emphasize-lines: 2, 12-20
+---
+
 # a list of all the books we are analyzing
 DATA = glob_wildcards('data/{book}.txt').book
 
@@ -269,17 +300,21 @@ $ snakemake -j 1
 ### Integrated package management
 
 - Isolated software environments per rule using conda. Invoke by `snakemake --use-conda`. Example:
-```python
-rule NAME:
-    input:
-        "table.txt"
-    output:
-        "plots/myplot.pdf"
-    conda:
-        "envs/ggplot.yaml"
-    script:
-        "scripts/plot-stuff.R"
-```
+  ```{code-block} python
+  ---
+  emphasize-lines: 6-7
+  ---
+
+  rule NAME:
+      input:
+          "table.txt"
+      output:
+          "plots/myplot.pdf"
+      conda:
+          "envs/ggplot.yaml"
+      script:
+          "scripts/plot-stuff.R"
+  ```
 
 ### Visualizing the workflow
 
@@ -326,15 +361,23 @@ Discuss the pros and cons of these different approaches. Which are reproducible?
 ### Exercise - Using Snakemake
 
 ````{exercise} Workflow-1: Using Snakemake
-Having followed the "Exercise preparation" above, make sure that you are in the `word-count` repository.
+Having followed the "Exercise preparation" above, make sure that you
+are in the `word-count` repository.
+
+You run all commands from the main `word-count` directory, not
+subdirectories.  This is a common pattern.
 
 1. Start by cleaning all output with `snakemake --delete-all-output -j 1`.
 2. Run `snakemake -j 1`. How many jobs are run?
-3. Try "touching" the file `data/sierra.txt` (`touch data/sierra.txt`
-   (unix/git bash) or `copy /b data\sierra.txt +,,` (windows cmd /anaconda prompt) )
-   and rerun snakemake. This makes it look like the file has changed as its
-   timestamp is updated.
-   Which steps of the workflow are run now, and why?
+3. Try "touching" the file `data/sierra.txt` and see what happens when
+   you re-run the workflow:
+   - Linux, MacOS, or git-bash on Windows: `touch data/sierra.txt`
+   - Windows cmd or anaconda prompt: `copy /b data\sierra.txt +,,`
+   - Then, rerun snakemake.
+   - The `touch` command updates the timestamp of a file, to make it
+     look like it is modified.  Since Snakemake uses timestamps to
+     determine what needs to run, it will force the workflow to re-run.
+   - Which steps of the workflow are run now, and why?
 4. Now touch the file `processed_data/sierra.dat` to update the
    timestamp, and run
    `snakemake -S` (-S stands for summary). Can you make sense of the output?
@@ -381,7 +424,7 @@ Having followed the "Exercise preparation" above, make sure that you are in the 
    names). Also note, that the default rule 'all' is not shown in
    summary.
 5. `snakemake -j 1`. 4 jobs are run. You may have expected 3 as in the
-   summary only 3 steps had the *upadte pending* planned. However, as
+   summary only 3 steps had the *update pending* planned. However, as
    mentioned above, the default rule 'all' was not shown in summary and
    also needs to be executed in order to run the following steps.
 6. `touch source/wordcount.py` (unix/git bash) or `copy /b
@@ -411,6 +454,8 @@ Having followed the "Exercise preparation" above, make sure that you are in the 
 ### Exercise - Snakemake with conda environments
 
 `````{exercise} (Optional) Workflow-2: Snakemake and Conda
+*This is an advanced exercise that probably might some independent
+reading beyond what is above.*
 
 Let's say that the `make_plot` rule, which runs the
 `source/plotcount.py` script, requires a separate
@@ -465,18 +510,21 @@ software environment.
 
 ### Exercise - Snakemake on High Performance Computers
 
-````{exercise} (Optional) Workflow-3: Snakemake on HPC
+````{exercise} (Optional, advanced) Workflow-3: Snakemake on HPC
+*This is an advanced exercise that requires access to a cluster and
+probably independent reading.*
+
 - On a cluster node, Snakemake uses as many cores as available on that node. If a program that is run in a rule can only run efficiently up to a given number of CPU threads, it's possible to manually set a maximum in the rule definition:
-```
-rule count_words:
-    input:
-        wc='source/wordcount.py',
-        book='data/{file}.txt'
-    output: 'processed_data/{file}.dat'
-    threads: 4
-    log: 'processed_data/{file}.log'
-    shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
-```
+  ```
+  rule count_words:
+      input:
+          wc='source/wordcount.py',
+          book='data/{file}.txt'
+      output: 'processed_data/{file}.dat'
+      threads: 4
+      log: 'processed_data/{file}.log'
+      shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
+  ```
 - Transferring your workflow to a cluster:
   ```console
   $ snakemake --archive myworkflow.tar.gz -j 1
