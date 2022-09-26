@@ -54,9 +54,9 @@ project_name/
 - Intermediate files from the analysis are kept in `processed_data/`
 - Consider using Git tags to mark specific versions of results (version
   submitted to a journal, dissertation version, poster version, etc.):
-```console
-$ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
-```
+  ```console
+  $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
+  ```
 
 ---
 
