@@ -45,6 +45,6 @@ used to record reproducible environments and computational steps.
    :maxdepth: 1
    :caption: Reference
 
+   reference
    exercises
    guide
-   reference
