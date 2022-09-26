@@ -2,5 +2,6 @@ Sphinx
 sphinx_rtd_theme
 sphinx_rtd_theme_ext_color_contrast
 myst_nb
+git+https://github.com/rkdarst/sphinx-copybutton.git@exclude-unselectable-3
 sphinx-lesson
 https://github.com/coderefinery/sphinx-coderefinery-branding/archive/master.zip
