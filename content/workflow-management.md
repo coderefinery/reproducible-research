@@ -478,33 +478,33 @@ rule count_words:
     shell: 'python {input.wc} {input.book} {output} >> {log} 2>&1'
 ```
 - Transferring your workflow to a cluster:
-```console
-$ snakemake --archive myworkflow.tar.gz -j 1
-$ scp myworkflow.tar.gz <some-cluster>
-$ ssh <some-cluster>
-$ tar zxf myworkflow.tar.gz
-$ cd myworkflow
-$ snakemake -n --use-conda -j 1
-```
+  ```console
+  $ snakemake --archive myworkflow.tar.gz -j 1
+  $ scp myworkflow.tar.gz <some-cluster>
+  $ ssh <some-cluster>
+  $ tar zxf myworkflow.tar.gz
+  $ cd myworkflow
+  $ snakemake -n --use-conda -j 1
+  ```
 
 - Interoperability with Slurm:
-```json
-{
-    "__default__":
-    {
-        "account": "a_slurm_submission_account",
-        "mem": "1G",
-        "time": "0:5:0"
-    },
-    "count_words":
-    {
-        "time": "0:10:0",
-        "mem": "2G"
-    }
-}
-```
+  ```json
+  {
+      "__default__":
+      {
+          "account": "a_slurm_submission_account",
+          "mem": "1G",
+          "time": "0:5:0"
+      },
+      "count_words":
+      {
+          "time": "0:10:0",
+          "mem": "2G"
+      }
+  }
+  ```
 
-  The workflow can now be executed by:
+The workflow can now be executed by:
 ```console
 $ snakemake -j 100 --cluster-config cluster.json --cluster "sbatch -A {cluster.account} --mem={cluster.mem} -t {cluster.time} -c {threads}"
 ```
