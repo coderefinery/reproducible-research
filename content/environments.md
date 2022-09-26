@@ -5,9 +5,15 @@
 ```
 
 ```{instructor-note}
-- 15 min teaching
+- 15 min teaching and demo/type-along
 - 0 min exercises
 ```
+
+Imagine if you didn't have to install things yourself, but instead you
+could get a computer with the exact software for a task pre-installed?
+Containers effectively do that, with various advantages and
+disadvantages.
+
 
 ## Containers
 
@@ -106,6 +112,11 @@ However, containers may also have some drawbacks:
 ## Exercise - Play with Docker
 
 `````{exercise} (Optional) Environment-1: Play with Docker
+*This exercise is usually a demonstration.  It will only work if you
+have Docker installed and working, which we do not expect in our
+workshop setup.*
+
+
 1. This exercise requires a DockerHub account. You can sign up on [https://hub.docker.com/signup](https://hub.docker.com/signup).
 2. Go to [Play with Docker](https://labs.play-with-docker.com/) and log in using
    your DockerHub account.
