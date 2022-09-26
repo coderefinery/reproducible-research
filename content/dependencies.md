@@ -27,15 +27,21 @@ From [xkcd](https://xkcd.com/).
 ## Conda, Anaconda, pip, Virtualenv, Pipenv, pyenv, Poetry, requirements.txt ...
 
 These tools try to solve the following problems:
-- Installing a **specific set of dependencies**, possibly with well defined versions
+- **Defining a specific set of dependencies**, possibly with well defined versions
+- **Installing those dependencies** mostly automatically
 - **Recording the versions** for all dependencies
-- **Isolate environments** on your computer for projects that have conflicting dependencies
-- Isolate environments on computers with many users
+- **Isolate environments**
+  - On your computer for projects so they can use different software.
+  - Isolate environments on computers with many users (and allow self-installations)
 - Using **different Python/R versions** per project
 - Provide tools and services to **share packages**
 
 Isolated environments are also useful because they help you make sure
 that you know your dependencies!
+
+**If things go wrong, you can delete and re-create** - much better
+than debugging.  The more often you re-create your environment, the
+more reproducible it is.
 
 ---
 
@@ -121,11 +127,11 @@ commit hashes or Git tags.
   ```console
   $ pip install -r requirements.txt
   ```
-- Creating and sharing your own package: [https://packaging.python.org/tutorials/packaging-projects/](https://packaging.python.org/tutorials/packaging-projects/)
-- It is possible to pip install from GitHub or other places:
+- It is possible to `pip install` from GitHub or other places:
   ```console
   $ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
   ```
+- Creating and sharing your own package: [https://packaging.python.org/tutorials/packaging-projects/](https://packaging.python.org/tutorials/packaging-projects/)
 
 ---
 
@@ -136,7 +142,7 @@ commit hashes or Git tags.
 :alt: Conda cartoon
 ```
 
-- Not only for Python: any language, also binaries.
+- **Not only for Python: any language, also compiled code and libraries.**
 - Created by Continuum Analytics, part of Anaconda/Miniconda, but can be installed standalone.
 - Open source BSD license.
 - Manages isolated software environments.
@@ -211,6 +217,15 @@ A step-by-step guide on how to contribute packages can be found in the
 ## Exercise - Exploring conda environments
 
 ```{exercise} Dependencies-2: Working with conda
+This exercise explores some basic conda commands.  We use conda since
+it is what the CodeRefinery install instructions use.
+
+*This exercise is not needed for the rest of this lesson, but the
+[conda installation](https://coderefinery.github.io/installation/conda/) and the
+[CodeRefinery conda
+environment](https://coderefinery.github.io/installation/conda-environment/)
+is needed for future exercises.*
+
 - Inspect your available environments with `conda info -e`.
 - Deactivate the current environment with `conda deactivate`.
 - Use `conda activate base` to change to the base environment.
@@ -243,14 +258,13 @@ A step-by-step guide on how to contribute packages can be found in the
 - [Virtualenv](https://docs.python-guide.org/dev/virtualenvs/)
   - Example use:
 	```console
-	$ # creating a new env
-	$ virtualenv myenvironment
+	$ virtualenv myenvironment            # creating a new env
 	$ virtualenv --python=python3 myenvironment
 	$ virtualenv /path/to/myenvironment
-	$ # activating env, installing package and deactivating
-	$ source myenvironment/bin/activate
-	$ pip install somepackage
-	$ deactivate
+
+	$ source myenvironment/bin/activate   # activate (take into use in this session)
+	$ pip install somepackage             # install package into activated env
+	$ deactivate                          # deactivate env
 	```
 - [Pipenv](https://pipenv.readthedocs.io)
   - Alternative to virtualenv: you can activate and install in one step
