@@ -145,3 +145,30 @@ input:
 
 Try to use good analogies to explain the concepts of containers,
 images and Dockerfiles.
+
+
+
+## Field reports
+
+### 2022 September
+
+We used the strategy "absolutely minimal introductions, most time
+for exercise".  Overall, it was probably the right thing to do since
+there is so little time and so much to cover.
+
+There wasn't enough time for the conda exercise (we could give only 7
+minutes), but also I wonder how engaging it is.  We should look at how
+to optimize the start of that episode.
+
+The Snakemake episode went reasonably well.  Our goal was 5 minutes
+intro, long exercise, 5 minutes outro.  The intro was actually a bit
+longer, and there was the comment that we didn't really explain what
+Snakemake was before it started (though we tried).  The start of this
+episode should get particular focus in the future, since this is the
+main exercise of the day.
+
+Perhaps we shouldn't have done the Zenodo example - we could do a
+quick demo, but because of limited time, I'm not sure if it conveyed
+how cool it was.  Maybe we should have simply said it.  Alternatively,
+we could have not done the Docker demonstration and given more time
+for Zenodo.
