@@ -14,6 +14,12 @@ could get a computer with the exact software for a task pre-installed?
 Containers effectively do that, with various advantages and
 disadvantages.
 
+```{figure} img/machine_learning.png
+:alt: Machine Learning environment
+:width: 100%
+
+From [xkcd](https://xkcd.com/1838).
+```
 
 ## Containers
 
