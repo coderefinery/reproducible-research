@@ -14,13 +14,25 @@ could get a computer with the exact software for a task pre-installed?
 Containers effectively do that, with various advantages and
 disadvantages.
 
+```{figure} img/machine_learning.png
+:alt: Machine Learning environment
+:width: 100%
+
+From [xkcd](https://xkcd.com/1838).
+```
 
 ## Containers
 
 - Containers can be built to bundle *all the necessary ingredients* (data, code, environment).
 - A container provides operating-system-level virtualization, sharing the host system’s kernel with other containers.
-- Popular container implementations are [Docker](https://www.docker.com/) and [Singularity](http://singularity.lbl.gov/).
+- Popular container implementations are [Docker](https://www.docker.com/) and [Apptainer](https://apptainer.org) ([Used to be Singularity](https://apptainer.org/news/community-announcement-20211130/)).
 
+```{figure} img/docker_meme.jpg
+:alt: "Then we'll ship your machine" - And that's how Docker was born
+:width: 60%
+
+From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_on_my_machine/).
+```
 
 ### Docker
 
@@ -70,10 +82,10 @@ software packages from untrusted package repositories.
    [https://hub.docker.com/r/continuumio/anaconda2/tags](https://hub.docker.com/r/continuumio/anaconda2/tags)
 
 
-### Singularity
+### Apptainer
 
-- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources.
-- Docker images can be converted into Singularity images.
+- [Apptainer](https://apptainer.org) is aimed at scientific community and to run scientific workflows on HPC resources.
+- Docker images can be converted into Apptainer images.
 
 ---
 
