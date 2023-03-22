@@ -30,32 +30,6 @@ repository](https://github.com//coderefinery/word-count) which counts
 the number of words in various books and makes some simple plots from
 those statistics.
 
-```{prereq} Exercise preparation
-The exercise (below) and pre-exercise discussion uses a simple
-word-count repository
-(<https://github.com//coderefinery/word-count>). We should clone the
-repository already to prepare to work on it.
-
-You could do the exercise either on your own computer, or the MyBinder
-cloud service:
-
-**On your own computer**:
-- Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
-- Create an exercise repository in your own namespace by
-  [generating from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
-  using this template: <https://github.com//coderefinery/word-count>
-  called `word-count`
-- Clone the word-count repository with `git clone`.
-
-**On Binder**:
-We can also use the cloud service [Binder](https://mybinder.org/)
-to make sure we all have the same computing environment.
-This is interesting from a reproducible research point of view and it's explained further in the [Jupyter lesson](https://coderefinery.github.io/jupyter/sharing/) how this is even possible.
-- Go to [https://mybinder.org/](https://mybinder.org)
-- In the box **GitHub repository name or URL** enter: [https://github.com/coderefinery/word-count](https://github.com/coderefinery/word-count)
-- Click on the **Launch** button.
-- Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
-```
 
 The word count project directory listing is:
 ```
@@ -359,6 +333,34 @@ Discuss the pros and cons of these different approaches. Which are reproducible?
 (using-snakemake)=
 
 ### Exercise - Using Snakemake
+
+```{prereq} Exercise preparation
+The exercise (below) and pre-exercise discussion uses a simple
+word-count repository
+(<https://github.com//coderefinery/word-count>). We should clone the
+repository already to prepare to work on it.
+
+You could do the exercise either on your own computer, or the MyBinder
+cloud service:
+
+**On your own computer**:
+- Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
+- Create an exercise repository in your own namespace by
+  [generating from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
+  using this template: <https://github.com//coderefinery/word-count>
+  called `word-count`
+- Clone the word-count repository with `git clone`.
+
+**On Binder**:
+We can also use the cloud service [Binder](https://mybinder.org/)
+to make sure we all have the same computing environment.
+This is interesting from a reproducible research point of view and it's explained further in the [Jupyter lesson](https://coderefinery.github.io/jupyter/sharing/) how this is even possible.
+- Go to [https://mybinder.org/](https://mybinder.org)
+- In the box **GitHub repository name or URL** enter: [https://github.com/coderefinery/word-count](https://github.com/coderefinery/word-count)
+- Click on the **Launch** button.
+- Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
+```
+
 
 ````{exercise} Workflow-1: Using Snakemake
 Having followed the "Exercise preparation" above, make sure that you
