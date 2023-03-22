@@ -268,7 +268,7 @@ $ snakemake -j 1
   - anything that can be done in Python can be done with Snakemake
   - rules work much like in GNU Make (can call any commands/executables)
 - Possible to define isolated software environments per rule.
-- Also possible to run workflows in Docker or Singularity containers.
+- Also possible to run workflows in Docker or Apptainer containers.
 - Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
 
 ### Integrated package management

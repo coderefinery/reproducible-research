@@ -25,7 +25,7 @@ From [xkcd](https://xkcd.com/1838).
 
 - Containers can be built to bundle *all the necessary ingredients* (data, code, environment).
 - A container provides operating-system-level virtualization, sharing the host system’s kernel with other containers.
-- Popular container implementations are [Docker](https://www.docker.com/) and [Singularity](http://singularity.lbl.gov/).
+- Popular container implementations are [Docker](https://www.docker.com/) and [Apptainer](https://apptainer.org) ([Used to be Singularity](https://apptainer.org/news/community-announcement-20211130/)).
 
 ```{figure} img/docker_meme.jpg
 :alt: "Then we'll ship your machine" - And that's how Docker was born
