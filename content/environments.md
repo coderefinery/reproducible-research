@@ -82,10 +82,10 @@ software packages from untrusted package repositories.
    [https://hub.docker.com/r/continuumio/anaconda2/tags](https://hub.docker.com/r/continuumio/anaconda2/tags)
 
 
-### Singularity
+### Apptainer
 
-- [Singularity](http://singularity.lbl.gov/) is aimed at scientific community and to run scientific workflows on HPC resources.
-- Docker images can be converted into Singularity images.
+- [Apptainer](https://apptainer.org) is aimed at scientific community and to run scientific workflows on HPC resources.
+- Docker images can be converted into Apptainer images.
 
 ---
 
