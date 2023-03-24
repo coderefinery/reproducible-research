@@ -28,7 +28,7 @@ From [xkcd](https://xkcd.com/1838).
 - Popular container implementations are [Docker](https://www.docker.com/) and [Apptainer](https://apptainer.org) ([Used to be Singularity](https://apptainer.org/news/community-announcement-20211130/)).
 
 ```{figure} img/docker_meme.jpg
-:alt: "Then we'll ship your machine" - And that's how Docker was born
+:alt: He said: Then we will ship your machine. And that's how Docker was born.
 :width: 60%
 
 From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_on_my_machine/).
