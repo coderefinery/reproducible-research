@@ -53,7 +53,6 @@ reproducible environments and computational steps** for our future selves.
    :maxdepth: 1
    :caption: Reference
 
-   reference
    exercises
    guide
 
