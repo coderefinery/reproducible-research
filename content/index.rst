@@ -3,14 +3,14 @@
 Reproducible research
 =====================
 
-Have you ever spent days trying to repeat the results from few weeks or months
-ago?  Or you have to do paper revisions, but you just can't get the results to
+Have you ever spent days **trying to repeat the results from few weeks or months
+ago**?  Or you have to do paper revisions, but you just can't get the results to
 match up? It's unpleasant for both you and science.
 
 In this lesson we will explore different methods and tools for better
 reproducibility in research software and data. We will demonstrate how version
-control, workflows, containers, and package managers can be used to record
-reproducible environments and computational steps for our future selves.
+control, workflows, containers, and package managers can be used to **record
+reproducible environments and computational steps** for our future selves.
 
 
 .. admonition:: Learning outcomes
