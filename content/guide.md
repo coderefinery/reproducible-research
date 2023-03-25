@@ -5,6 +5,31 @@ permalink: /guide/
 
 # Instructor guide
 
+
+## Detailed day schedule
+
+This was the schedule at our last workshop:
+
+* 08:50 - 09:00 Soft start and icebreaker question
+* 09:00 - 09:10 Interview with an expert
+* 09:10 - 11:15 [Reproducible research](https://coderefinery.github.io/reproducible-research/)
+    - 09:10 - 09:20 [Motivation](https://coderefinery.github.io/reproducible-research/motivation/)
+    - 09:20 - 09:30 [Organizing your projects](https://coderefinery.github.io/reproducible-research/organizing-projects/)
+    - 09:30 - 10:00 [Recording dependencies](https://coderefinery.github.io/reproducible-research/dependencies/)
+       - discussion (5 min)
+       - exercise (20 min): this exercise is being adjusted to offer both requirements.txt, environment.yml, and renv
+       - discussion (5 min)
+    - 10:00 - 10:10 Break
+    - 10:10 - 10:40 [Recording computational steps](https://coderefinery.github.io/reproducible-research/workflow-management/)
+       - discussion (5 min)
+       - exercise (20 min): this exercise is being adjusted to focus more on the why and when rather than the how precisely
+       - discussion (5 min)
+    - 10:40 - 10:50 [Recording environments](https://coderefinery.github.io/reproducible-research/environments/)
+    - 10:50 - 11:05 [Sharing code and data](https://coderefinery.github.io/reproducible-research/sharing/)
+        - [demo (15 min)](https://coderefinery.github.io/reproducible-research/sharing/#connecting-repositories-to-zenodo)
+    - 11:05 - 11:15 Break
+
+
 ## Why we teach this lesson
 
 Reproducibility in research is something that publishers, funding agencies, universities,
