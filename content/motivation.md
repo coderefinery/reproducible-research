@@ -1,16 +1,7 @@
 # Motivation
 
-```{questions}
-  - Should research software and data be reproducible?
-  - Are they?
-```
-
-```{objectives}
-  - Discuss factors affecting reproducibility in research
-```
-
 ```{instructor-note}
-- 10 min teaching
+- 10 min teaching/discussion
 - 0 min exercises
 ```
 
@@ -30,25 +21,7 @@
 
 ---
 
-## What is reproducible research?
-
-> “reproducibility refers to the ability of a researcher to **duplicate the
-> results** of a prior study using the same materials as were used by the
-> original investigator. That is, a second researcher might use the same raw
-> data to build the same analysis files and implement the same statistical
-> analysis in an attempt to yield the same results. Reproducibility is a
-> **minimum necessary condition** for a finding to be believable and informative.”
->
-> -- <cite> U.S. National Science Foundation (NSF) subcommittee on replicability in science</cite>
-
-- For any research project, an independent researcher should be able to replicate an experiment:
-  - the same results should be obtained under the same conditions
-  - it should be possible to recreate the same conditions
-- "Experiment" is interpreted in a wide sense, encompassing also computational work
-
----
-
-## Why all the talk about reproducible research?
+## Why talking about reproducible research?
 
 A 2016
 [survey](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
@@ -60,20 +33,8 @@ domains of science:
 :width: 100%
 ```
 
----
-
-## Factors behind irreproducible research
-
-- Not enough documentation on how experiment is conducted and data is generated
-- Data used to generate original results unavailable
-- Software used to generate original results unavailable
-- Difficult to recreate software environment (libraries, versions) used to generate original results
-- Difficult to rerun the computational steps
-
-```{figure} img/Miracle.jpg
-:alt: Then a mirace occurs
-:width: 100%
-```
+This study is now few years old but the highlighted problem did not get
+smaller.
 
 ---
 
@@ -87,27 +48,36 @@ levels that each contributes to its reproducibility.
 :width: 100%
 ```
 
+[citation needed]
 
 ---
 
-## Reproducible, replicable, robust, generalisable
-
-While reproducibility is the minimum requirement and can be solved with "good enough" computational practices, replicability/robustness/generalisability of scientific findings are an even greater concern involving research misconduct, questionable research practices (p-hacking, HARKing, cherry-picking), sloppy methods, and other conscious and unconscious biases.
-
-```{figure} img/turing-way/39-reproducible-replicable-robust-generalisable.jpg
-:alt: Reproducible, replicable, robust, generalisable
+```{figure} img/reproducible-research.jpg
+:alt: "6 helpful steps for reproducible research: file organization, naming, documentation, version control, stabilizing computing environment, publishing research outputs - figure by Heidi Seibold, CC-BY 4.0"
 :width: 100%
 ```
 
-(This image was created by [Scriberia](http://www.scriberia.co.uk) for [The
-Turing Way](https://the-turing-way.netlify.com) community and is used under a
-CC-BY licence. The image was obtained from [https://zenodo.org/record/3332808](https://zenodo.org/record/3332808).)
+[Heidi Seibold, CC-BY 4.0, <https://twitter.com/HeidiBaya/status/1579385587865649153>]
 
+---
 
-```{discussion} Discuss in HackMD, with your neighbors, or among all participants
-Computer programs are expected to produce the same
-output for the same inputs. Is
-that true for research software?
+````{discussion} Discuss in collaborative document or with your team members
+```markdown
+- What are your experiences re-running or adjusting a script or a figure you
+  created few months ago?
+  - ...
+  - ...
+  - (share your experience)
 
-Can you give some examples? What can we do about it?
+- If you have experienced continuing from a
+  script/code/plot written by a previous student, how did that go? What were the
+  biggest challenges?
+  - ...
+  - ...
+  - (share your experience, but constructively)
+````
+
+```{figure} img/Miracle.jpg
+:alt: Then a mirace occurs
+:width: 100%
 ```
