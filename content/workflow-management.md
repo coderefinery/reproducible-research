@@ -165,7 +165,6 @@ need to re-run just one file, it's a bit of work.
 
 Snakemake is inspired by [GNU Make](https://www.gnu.org/software/make/),
 but based on Python and is more general and has easier syntax.
-The workflow below can also be [implemented using make](make-alternative).
 
 First study the `Snakefile`:
 
