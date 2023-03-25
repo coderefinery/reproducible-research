@@ -3,24 +3,32 @@
 Reproducible research
 =====================
 
-Have you ever spent days trying to repeat the results that took you
-hours to do the first time last week?  Or you have to do paper
-revisions, but you just can't get the results to match up?  Nothing is
-a worse feeling - either for you or for science itself.
+Have you ever spent days trying to repeat the results from few weeks or months
+ago?  Or you have to do paper revisions, but you just can't get the results to
+match up? It's unpleasant for both you and science.
 
-In this lesson we will discuss different methods and tools for better
-reproducibility in research software and data. We will demonstrate how
-version control, workflows, containers, and package managers can be
-used to record reproducible environments and computational steps.
+In this lesson we will explore different methods and tools for better
+reproducibility in research software and data. We will demonstrate how version
+control, workflows, containers, and package managers can be used to record
+reproducible environments and computational steps for our future selves.
+
+
+.. admonition:: Learning outcomes
+
+  By the end of this lesson, learners should:
+    - be able to apply well organized directory structure for their project
+    - remember the FAIR principles
+    - understand that code can have dependencies, and know how to document them
+    - if a computational studies contains several steps, be able to document them
+    - know about use cases for containers
+    - knowing the pros and cons of manual documentation vs. scripted automation vs. workflow management
+    - be able to create a DOI for research output like code or data
+
 
 .. prereq::
 
-   1. You need to install
-      `Git, Python, and Snakemake <https://coderefinery.github.io/installation/>`__.
-
-   2. `Docker <https://coderefinery.github.io/installation/docker/>`__
-      and `make <https://coderefinery.github.io/installation/make/>`__
-      are optional (these are usually done as demos with no exercises).
+   You need to install
+   `Git, Python, and Snakemake <https://coderefinery.github.io/installation/>`__.
 
 
 .. toctree::

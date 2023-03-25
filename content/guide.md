@@ -75,25 +75,6 @@ workflows, discusses various ways of managing workflows with varying degrees of
 reproducibility, and shows how tools like make and snakemake can be used to
 both simplify workflows and make them more reproducible.
 
-## Intended learning outcomes
-
-By the end of this lesson, learners should:
-- understand why it's important that research is reproducible
-- define multiple levels of reproducibility and the multiple
-  factors which can lead to irreproducible research
-- be able to apply well organized directory structure for their project
-- remember the FAIR principles
-- be able to create a DOI for research output like code or data
-- understand that code can have dependencies, and know how to create a requirements file
-- describe how to use conda (or another tool) to manage isolated software environments
-- have an idea about how containers work
-- remember the pros and cons of containers for reproducibility
-- understand that a series of computational steps can be defined as a workflow and
-  that many tools exist to manage workflows
-- describe the pros and cons of different methods of performing scientific workflows
-- understand the benefits of using a tool like make or snakemake compared to bespoke scripts
-- be able to create a simple Makefile or Snakefile to manage a workflow
-
 
 ## How to teach this lesson
 
