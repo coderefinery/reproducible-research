@@ -5,8 +5,8 @@
 ```
 
 ```{instructor-note}
-- 15 min teaching
-- 15 min exercises
+- 10 min teaching
+- 20 min exercises
 ```
 Our codes often depend on other codes that in turn depend on other codes ...
 
