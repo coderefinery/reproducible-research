@@ -69,9 +69,8 @@ levels that each contributes to its reproducibility.
   - ...
   - (share your experience)
 
-- If you have experienced continuing from a
-  script/code/plot written by a previous student, how did that go? What were the
-  biggest challenges?
+- Have you continued working from a previous student's
+  script/code/plot/notebook? What were the biggest challenges?
   - ...
   - ...
   - (share your experience, but constructively)
