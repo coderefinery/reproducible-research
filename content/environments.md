@@ -49,7 +49,7 @@ From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_
   files that contain a series of instructions to build container images.
 
 Here is an example of a Singularity definition file ([reference](https://apptainer.org/docs/user/main/build_a_container.html#building-containers-from-apptainer-definition-files)):
-```txt
+```
 Bootstrap: docker
 From: ubuntu:20.04
 
