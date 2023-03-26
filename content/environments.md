@@ -12,10 +12,13 @@
 - 20 min exercise
 ```
 
+
+## What is a container?
+
 Imagine if you didn't have to install things yourself, but instead you could
 get a computer with the exact software for a task pre-installed?  Containers
 effectively do that, with various advantages and disadvantages.  They are
-**like an entire operating system with software installed, all in one file**, 
+**like an entire operating system with software installed, all in one file**,
 
 ```{figure} img/docker_meme.jpg
 :alt: He said, then we will ship your machine. And that's how Docker was born.
@@ -118,9 +121,94 @@ package repositories.
 
 ## Exercises
 
-````{exercise} Containers-1: under construction ...
-work in progress ...
-````
+``````{exercise} Containers-1: Time travel
+  Scenario: A researcher has written and published their research code which
+  requires a number of libraries and system dependencies. They ran their code
+  on a Linux computer (Ubuntu). One very nice thing they did was to publish
+  also a container image with all dependencies included, as well as the
+  definition file (below) to create the container image.
+
+  Now we travel 3 years into the future and want to reuse their work and adapt
+  it for our data. The container registry where they uploaded the container
+  image however no longer exists. But luckily we still have the definition file
+  (below)! From this we should be able to create a new container image.
+
+  - Can you anticipate problems using the definitions file 3 years after its creation?
+    Which possible problems can you point out?
+  - Discuss possible take-aways for creating more reusable containers.
+
+  `````{tabs}
+    ````{tab} Python project using virtual environment
+      ```{code-block}
+      :linenos:
+      Bootstrap: docker
+      From: ubuntu:latest
+
+      %post
+          # Set environment variables
+          export VIRTUAL_ENV=/app/venv
+
+          # Install system dependencies and Python 3
+          apt-get update && \
+          apt-get install -y --no-install-recommends \
+              gcc \
+              libgomp1 \
+              python3 \
+              python3-venv \
+              python3-distutils \
+              python3-pip && \
+          apt-get clean && \
+          rm -rf /var/lib/apt/lists/*
+
+          # Set up the virtual environment
+          python3 -m venv $VIRTUAL_ENV
+          . $VIRTUAL_ENV/bin/activate
+
+          # Install Python libraries
+          pip install --no-cache-dir --upgrade pip && \
+          pip install --no-cache-dir -r /app/requirements.txt
+
+      %files
+          # Copy project files
+          ./requirements.txt /app/requirements.txt
+          ./app.py /app/app.py
+          # Copy data
+          /home/myself/data /app/data
+          # Workaround to fix dependency on fancylib
+          /home/myself/fancylib /usr/lib/fancylib
+
+      %environment
+          # Set the environment variables
+          export LANG=C.UTF-8 LC_ALL=C.UTF-8
+          export VIRTUAL_ENV=/app/venv
+
+      %runscript
+          # Activate the virtual environment
+          . $VIRTUAL_ENV/bin/activate
+          # Run the application
+          python /app/app.py
+      ```
+
+      ```{solution}
+      - Line 2: "ubuntu:latest" will mean something different 3 years in future.
+      - Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.
+      - Line 30: The container uses requirements.txt to build the virtual environment but we don't see
+      - here what libraries the code depends on.
+      - Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.
+      - Line 35: The library fancylib has been built outside the container and copied in but we don't see here how it was done.
+      - Python version will be different then and hopefully the code still runs then.
+      - Singularity/Apptainer will have also evolved by then. Hopefully this definition file then still works.
+      - No contact address to ask more questions about this file.
+      - (Can you find more? Please contribute more points.)
+      ```
+    ````
+
+    ````{tab} R project using renv
+    Work in progress: Please contribute a corresponding example which
+    demonstrates this in the context of R and renv.
+    ````
+  `````
+``````
 
 ````{exercise} Containers-2: Explore two really useful Docker images
 You can try the below if you have Docker installed. If you have
