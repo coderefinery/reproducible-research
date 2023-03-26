@@ -71,6 +71,7 @@ Popular container implementations:
 They are to some extent interoperable:
 - podman is very close to Docker
 - Docker images can be converted to Singularity/Apptainer images
+- [Singularity Python](https://singularityhub.github.io/singularity-cli/) can convert Dockerfiles to Singularity definition files
 
 ---
 
