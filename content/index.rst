@@ -42,12 +42,6 @@ reproducible environments and computational steps** for our future selves.
    environments.md
    sharing.md
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Optional episodes
-
-   docker.md
-
 
 .. toctree::
    :maxdepth: 1
