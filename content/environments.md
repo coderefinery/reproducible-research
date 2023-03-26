@@ -193,7 +193,7 @@ package repositories.
       - Line 2: "ubuntu:latest" will mean something different 3 years in future.
       - Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.
       - Line 30: The container uses requirements.txt to build the virtual environment but we don't see
-      - here what libraries the code depends on.
+        here what libraries the code depends on.
       - Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.
       - Line 35: The library fancylib has been built outside the container and copied in but we don't see here how it was done.
       - Python version will be different then and hopefully the code still runs then.
