@@ -10,28 +10,28 @@
 ```
 Our codes often depend on other codes that in turn depend on other codes ...
 
-- **Reproducibility**: We can control our code but how can we control dependencies?
-- **10-year challenge**: Try to build/run your own code that you have created 10 (or less) years ago. Will your code
-  from today work in 5 years if you don't change it?
+- **Reproducibility**: We can version-control our code with Git but how should we version-control dependencies?
+  How can we capture and communicate dependencies?
 - **Dependency hell**: Different codes on the same environment can have conflicting dependencies.
-
----
 
 ```{figure} img/python_environment.png
 :alt: Python environment
-:width: 100%
+:width: 60%
 
 From [xkcd](https://xkcd.com/).
 ```
 
-## Conda, Anaconda, pip, Virtualenv, Pipenv, pyenv, Poetry, requirements.txt ...
+---
 
-These tools try to solve the following problems:
+## Tools and what problems they try to solve
+
+**Conda, Anaconda, pip, virtualenv, Pipenv, pyenv, Poetry, requirements.txt,
+environment.yml, renv**, ..., these tools try to solve the following problems:
 - **Defining a specific set of dependencies**, possibly with well defined versions
 - **Installing those dependencies** mostly automatically
 - **Recording the versions** for all dependencies
 - **Isolate environments**
-  - On your computer for projects so they can use different software.
+  - On your computer for projects so they can use different software
   - Isolate environments on computers with many users (and allow self-installations)
 - Using **different Python/R versions** per project
 - Provide tools and services to **share packages**
@@ -45,293 +45,201 @@ more reproducible it is.
 
 ---
 
-(different-solutions-to-specify-requirements)=
+## Exercises
 
-## Exercise - Different solutions to specify requirements
+``````{challenge} Dependencies-1: Time-capsule of dependencies
+Situation: 5 students (A, B, C, D, E) wrote a code that depends on 6 libraries.
+They uploaded their projects to GitHub. We now travel 3 years into the future
+and find their GitHub repositories and try to re-run their code before adapting
+it.
 
-````{challenge} Dependencies-1: Comparing requirements
-Compare these four requirements.txt
+- Which version do you expect to be easiest to re-run? Why?
+- What problems do you anticipate in each solution?
 
-**A**:
+  `````{tabs}
+    ````{tab} Conda
+      **A**:
+      You find a couple of library imports across the code but that's it.
 
-Code depends on a number of packages but there is no `requirements.txt` file or equivalent.
+      **B**:
+      The README file lists which libraries were used but does not mention
+      any versions.
 
+      **C**:
+      You find a `environment.yml` file with:
+      ```
+      name: student-project
+      channels:
+        - conda-forge
+      dependencies:
+        - scipy
+        - numpy
+        - sympy
+        - click
+        - pip
+        - pip:
+          - git+https://github.com/someuser/someproject.git@master
+          - git+https://github.com/anotheruser/anotherproject.git@master
+      ```
 
-**B**:
-```
-scipy
-numpy
-sympy
-click
-git+https://github.com/someuser/someproject.git@master
-git+https://github.com/anotheruser/anotherproject.git@master
-```
+      **D**:
+      You find a `environment.yml` file with:
+      ```
+      name: student-project
+      channels:
+        - conda-forge
+      dependencies:
+        - scipy=1.3.1
+        - numpy=1.16.4
+        - sympy=1.4
+        - click=7.0
+        - pip
+        - pip:
+          - git+https://github.com/someuser/someproject.git@d7b2c7e
+          - git+https://github.com/anotheruser/anotherproject.git@sometag
+      ```
 
-**C**:
-```
-scipy==1.3.1
-numpy==1.16.4
-sympy==1.4
-click==7.0
-git+https://github.com/someuser/someproject.git@d7b2c7e
-git+https://github.com/anotheruser/anotherproject.git@sometag
-```
+      **E**:
+      You find a `environment.yml` file with:
+      ```
+      name: student-project
+      channels:
+        - conda-forge
+      dependencies:
+        - scipy=1.3.1
+        - numpy=1.16.4
+        - sympy=1.4
+        - click=7.0
+        - someproject=1.2.3
+        - anotherproject=2.3.4
+      ```
+    ````
 
-**D**:
-```
-scipy==1.3.1
-numpy==1.16.4
-sympy==1.4
-click==7.0
-someproject==1.2.3
-anotherproject==2.3.4
-```
+    ````{tab} Python virtualenv
+      **A**:
+      You find a couple of library imports across the code but that's it.
 
-```{solution}
-**A**: If there is no requirements.txt file (or similar), it might become very difficult
-for others to create the software environment required to run your software. This can
-also apply to yourself in the future!
+      **B**:
+      The README file lists which libraries were used but does not mention
+      any versions.
 
-**B**: Having a requirements.txt file is definitely better than nothing. However, if the
-versions are not specified you or someone else might run into problems with dependencies,
-deprecated features, changes in package APIs etc.
+      **C**:
+      You find a `requirements.txt` file with:
+      ```
+      scipy
+      numpy
+      sympy
+      click
+      git+https://github.com/someuser/someproject.git@master
+      git+https://github.com/anotheruser/anotherproject.git@master
+      ```
 
-**C** and **D**: In both these cases exact versions of all dependencies are specified and
-both others and you yourself can recreate the software environment required for the project.
-**D** is slightly preferable because version numbers are easier to understand than Git
-commit hashes or Git tags.
-```
+      **D**:
+      You find a `requirements.txt` file with:
+      ```
+      scipy==1.3.1
+      numpy==1.16.4
+      sympy==1.4
+      click==7.0
+      git+https://github.com/someuser/someproject.git@d7b2c7e
+      git+https://github.com/anotheruser/anotherproject.git@sometag
+      ```
 
-````
+      **E**:
+      You find a `requirements.txt` file with:
+      ```
+      scipy==1.3.1
+      numpy==1.16.4
+      sympy==1.4
+      click==7.0
+      someproject==1.2.3
+      anotherproject==2.3.4
+      ```
+    ````
 
----
+    ````{tab} R (renv)
+    We will add an example ...
+    ````
 
-## Pip and [PyPI](https://pypi.org)
+    ````{tab} Matlab
+    Can you please contribute an example?
+    ````
+  `````
 
-- Python Package Index.
-- Standard place to share Python packages.
-- Also mixed-language packages are possible wrapped in a Python layer.
-- Install a package:
-  ```console
-  $ pip install somepackage
-  ```
-- Install a specific version:
-  ```console
-  $ pip install somepackage==1.2.3
-  ```
-- Freeze the current environment into `requirements.txt`:
-  ```console
-  $ pip freeze > requirements.txt
-  ```
-- Install all dependencies listed in `requirements.txt`:
-  ```console
-  $ pip install -r requirements.txt
-  ```
-- It is possible to `pip install` from GitHub or other places:
-  ```console
-  $ pip install git+https://github.com/anotheruser/anotherproject.git@sometag
-  ```
-- Creating and sharing your own package: [https://packaging.python.org/tutorials/packaging-projects/](https://packaging.python.org/tutorials/packaging-projects/)
+  `````{solution}
+  **A**: It will be tedious to collect the dependencies one by one. And after
+  the tedious process you will still not know which versions they have used.
 
----
+  **B**: If there is no standard file to look for and look at and it might
+  become very difficult for to create the software environment required to
+  run the software. But at least we know the list of libraries. But we don't
+  know the versions.
+    
+  **C**: Having a standard file listing dependencies is definitely better
+  than nothing. However, if the versions are not specified, you or someone
+  else might run into problems with dependencies, deprecated features,
+  changes in package APIs, etc.
+  
+  **D** and **E**: In both these cases exact versions of all dependencies are
+  specified and one can recreate the software environment required for the
+  project. One problem with the dependencies that come from GitHub is that
+  they might have disappeared (what if their authors deleted these
+  repositories?).
 
-## [Conda](https://docs.conda.io/en/latest/)
+  **E** is slightly preferable because version numbers are easier to understand than Git
+  commit hashes or Git tags.
+  `````
+``````
 
-```{figure} img/conda_cartoon.jpeg
-:width: 100%
-:alt: Conda cartoon
-```
+``````{challenge} Dependencies-2: Create a time-capsule for the future
+Now it is time to create your own time-capsule and share it with the future
+world. If we asked you now which dependencies your project is using, how
+would you find out? And how would you communicate this information?
 
-- **Not only for Python: any language, also compiled code and libraries.**
-- Created by Continuum Analytics, part of Anaconda/Miniconda, but can be installed standalone.
-- Open source BSD license.
-- Manages isolated software environments.
-- Allows you to create and share conda packages.
-- [Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a lightweight alternative to [Anaconda](https://www.anaconda.com).
-- Install a package:
-  ```console
-  $ conda install somepackage
-  ```
-- Install a specific version:
-  ```console
-  $ conda install somepackage=1.2.3
-  ```
-- Create a new environment:
-  ```console
-  $ conda create --name myenvironment
-  ```
-- Create a new environment from `requirements.txt`:
-  ```console
-  $ conda create --name myenvironment --file requirements.txt
-  ```
-- On e.g. HPC systems where you don't have write access to central
-  installation directory:
-  ```console
-  $ conda create --prefix /some/path/to/env
-  ```
-- Activate a specific environment:
-  ```console
-  $ conda activate myenvironment
-  ```
-- Deactivate current environment:
-  ```console
-  $ conda deactivate
-  ```
-- List all environments:
-  ```console
-  $ conda info -e
-  ```
-- Freeze the current environment into `requirements.txt`:
-  ```console
-  $ conda list --export > requirements.txt
-  ```
-- Freeze the current environment into `environment.yml`:
-  ```console
-  $ conda env export > environment.yml
-  ```
-- To clean unnecessary cached files (which grow quickly over time):
-  ```console
-  $ conda clean # needs one flag, add --help for available options
-  ```
+  `````{tabs}
+    ````{tab} Conda
+      Try this either with your own project or inside the "coderefinery" conda
+      environment:
+      ```console
+      $ conda env export > environment.yml
+      ```
 
-### Using conda to share a package
+      Have a look at the generated file and discuss what you see.
 
-Conda packages can be built from a *recipe* and shared on
-[anaconda.org](https://anaconda.org/) via
-[your own private or public channel](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/create-custom-channels.html), or
-via [conda-forge](https://conda-forge.org).
+      In future you can re-create this environment with:
+      ```console
+      $ conda env create -f environment.yml
+      ```
 
-- conda-forge is a GitHub organization containing repositories of conda
-  recipes.
-- Has become the de facto standard channel for packages.
-- Several continuous integration providers ensure that each repository
-  ("feedstock") automatically builds its own recipe on Windows, Linux and OSX.
+      More information: <https://docs.conda.io/en/latest/>
 
-A step-by-step guide on how to contribute packages can be found in the
-[conda-forge documentation](http://conda-forge.org/docs/maintainer/adding_pkgs.html).
+      See also: <https://github.com/mamba-org/mamba>
+    ````
 
----
+    ````{tab} Python virtualenv
+      Try this in your own project:
+      ```console
+      $ pip freeze > requirements.txt
+      ```
 
-(exploring-conda-environments)=
+      Have a look at the generated file and discuss what you see.
 
-## Exercise - Exploring conda environments
+      In future you can re-create this environment with:
+      ```console
+      $ pip install -r requirements.txt
+      ```
 
-```{exercise} Dependencies-2: Working with conda
-This exercise explores some basic conda commands.  We use conda since
-it is what the CodeRefinery install instructions use.
+      More information: <https://docs.python.org/3/tutorial/venv.html>
+    ````
 
-*This exercise is not needed for the rest of this lesson, but the
-[conda installation](https://coderefinery.github.io/installation/conda/) and the
-[CodeRefinery conda
-environment](https://coderefinery.github.io/installation/conda-environment/)
-is needed for future exercises.*
+    ````{tab} R (renv)
+      We will add an example ...
 
-- Inspect your available environments with `conda info -e`.
-- Deactivate the current environment with `conda deactivate`.
-- Use `conda activate base` to change to the base environment.
-- List the packages in the base environment with `conda list`. How many packages are there?
-- Activate the coderefinery environment with `conda activate coderefinery`.
-  List the packages with `conda list`.
-- Details of the conda installation can be shown with `conda info`.
-  Which is the active environment? Where are the packages stored?
-  Where are the environments stored?
-- Create a new environment with `conda create --name myenv` **and activate it**.
-- Install the `pandas` package using `conda install pandas`.
-- Export the requirements into requirements.txt with `conda list --export > requirements.txt`.
-- Export the full environment using `conda env export > environment.yml`, and
-  compare the `.yml` file format to the `.txt` file format.
-- If you want to make sure your new environment.yml is correct,
-  you can use it to create a new
-  test environment using `conda env create -n <envname> -f <file.yml>`.
-  Were any new packages installed?
-  You can delete the test environment with
-  `conda env remove -n <envname>` or simply remove the directory of the
-  environment (that you can find using `conda info -e`).
-```
+      More information: <https://rstudio.github.io/renv/articles/renv.html>
+    ````
 
----
-
-## Other dependency management tools
-
-### Python
-
-- [Virtualenv](https://docs.python-guide.org/dev/virtualenvs/)
-  - Example use:
-	```console
-	$ virtualenv myenvironment            # creating a new env
-	$ virtualenv --python=python3 myenvironment
-	$ virtualenv /path/to/myenvironment
-
-	$ source myenvironment/bin/activate   # activate (take into use in this session)
-	$ pip install somepackage             # install package into activated env
-	$ deactivate                          # deactivate env
-	```
-- [Pipenv](https://pipenv.readthedocs.io)
-  - Alternative to virtualenv: you can activate and install in one step
-  - Tool to easily manage per-project/per-directory Python **packages**
-  - Easier than virtualenv to separate dependencies for development and usage
-- [Poetry](https://poetry.eustace.io)
-  - Alternative to virtualenv and Pipenv
-- [Pyenv](https://github.com/pyenv/pyenv)
-  - Tool to easily manage per-project/per-directory Python **versions**
-- [Mamba](https://github.com/mamba-org/mamba)
-  - works like conda, but resolves dependencies faster
-
-
-### R
-
-Good overview of use cases, strategies and tools for reproducible
-environment at
-[Reproducible Environments](https://environments.rstudio.com).
-
-There are many tools available:
-- [packrat](https://rstudio.github.io/packrat/)
-  - Package from RStudio to isolate environment. Uses a packrat.lock file for storing dependencies
-- [Jetpack](https://github.com/ankane/jetpack)
-  - Designed as a CLI on top of packrat. Uses the DESCRIPTION file to store your project dependencies
-- [RSuite](https://rsuite.io/)
-- [renv](https://rstudio.github.io/renv/articles/renv.html)
-  - Pitched as a replacement for packrat that aims to provide project-level dependency management integrating with standard R package management commands.
-- [automagic](https://github.com/cole-brokamp/automagic)
-- [deplearning](https://github.com/MilesMcBain/deplearning)
-- [devtools](https://github.com/r-lib/devtools)
-- Are you using something else? Please send a
-  [pull request](https://github.com/coderefinery/reproducible-research)!
-
-### C/C++
-
-There are no standard methods or tools to handle dependencies in
-C/C++, but useful tools include:
-
-- [CMake](https://cmake.org/)
-  - Open-source, cross-platform family of tools designed to build,
-	test and package software (see also the [CodeRefinery lesson on
-	CMake](https://coderefinery.github.io/cmake/))
-- [Conan](https://conan.io/)
-  - A C/C++ package manager for Developers
-- [Conda](https://docs.conda.io/en/latest/)
-  - Works with any language, in principle
-
-### Fortran
-
-- [Fortran Package Manager](https://github.com/fortran-lang/fpm) A package manager and build system for Fortran.
-
-### Julia
-
-The inbuilt package manager in Julia,
-[Pkg.jl](https://pkgdocs.julialang.org/v1/), is designed around using
-isolated environments with independent sets of packages. Environments
-can either be local to a particular project or shared and selected by
-name.
-
-## See also
-
-- [Semantic Versioning](https://semver.org/)
-- [Alternative opinion: Why not semver?](http://faq.sealedabstract.com/why_not_semver/)
-
-
-```{keypoints}
-  - Capturing software dependencies is a must for reproducibility.
-  - Files like `requirements.txt`, `environment.yml`, `Pipenv`, ..., should be part of the source repository.
-  - Be skeptical when you see dependency lists without versions.
-```
+    ````{tab} Matlab
+      Can you please contribute an example?
+    ````
+  `````
+``````
