@@ -21,6 +21,26 @@ Our codes often depend on other codes that in turn depend on other codes ...
 From [xkcd](https://xkcd.com/).
 ```
 
+````{discussion} Kitchen analogy
+- Software <-> recipe
+- Data <-> ingredients
+- Libraries <-> cooking books/blogs
+
+```{figure} img/kitchen/recipe.png
+:alt: Cooking recipe in an unfamiliar language
+:width: 50%
+
+Cooking recipe in an unfamiliar language [Midjourney, CC-BY-NC 4.0]
+```
+
+```{figure} img/kitchen/libraries.png
+:alt: Kitchen with few open cooking books
+:width: 50%
+
+When we create recipes, we often use existing recipes written by others (libraries) [Midjourney, CC-BY-NC 4.0]
+```
+````
+
 ---
 
 ## Tools and what problems they try to solve

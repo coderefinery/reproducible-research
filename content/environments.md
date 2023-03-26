@@ -27,15 +27,43 @@ effectively do that, with various advantages and disadvantages.  They are
 From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_on_my_machine/).
 ```
 
-```{discussion} Cooking recipe analogy
+``````{discussion} Kitchen analogy
 - Our codes/scripts <-> cooking recipes
 - Container definition files <-> like a blueprint to build a kitchen with all
   utensils in which the recipe can be prepared.
 - Container images <-> example kitchens
 - Containers <-> kitchens that are copies of example kitchens
 
-(here we will add some images)
-```
+Just for fun: which operating systems do the following example kitchens represent?
+  `````{tabs}
+    ````{tab} 1
+      ```{figure} img/kitchen/macos.png
+      :alt: Generated image of a kitchen
+      :width: 50%
+     
+      [Midjourney, CC-BY-NC 4.0]
+      ```
+    ````
+
+    ````{tab} 2
+      ```{figure} img/kitchen/windows.png
+      :alt: Generated image of a kitchen
+      :width: 50%
+     
+      [Midjourney, CC-BY-NC 4.0]
+      ```
+    ````
+
+    ````{tab} 3
+      ```{figure} img/kitchen/linux.png
+      :alt: Generated image of a kitchen
+      :width: 50%
+     
+      [Midjourney, CC-BY-NC 4.0]
+      ```
+    ````
+  `````
+``````
 
 
 ## From definition files to container images to containers
