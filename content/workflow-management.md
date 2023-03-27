@@ -27,7 +27,10 @@ wish to:
    (they are all in the [data](https://github.com/coderefinery/word-count/tree/main/data) directory).
 2. Plot a histogram using [plot/plot.py](https://github.com/coderefinery/word-count/blob/main/plot/plot.py).
 
-(here we can add an image that summarizes book -> counts -> plot)
+```{figure} img/word-count/arrows.png
+:alt: From book to word counts to plot
+:width: 100%
+```
 
 Example (for one book only):
 
