@@ -2,12 +2,12 @@
 
 
 ```{questions}
-  - How can I share research code and data?
+- How can I share research code and data?
 ```
 
 ```{objectives}
-  - Discuss the pros and cons of open science
-  - Learn how to mint a DOI for your project
+- Discuss the pros and cons of open science
+- Learn how to mint a DOI for your project
 ```
 
 ```{instructor-note}
@@ -167,6 +167,13 @@ platform and filter by country, content type, discipline, etc.
 - [IDA, for general data](https://ida.fairdata.fi/login)
 - [FSD for social data](https://www.fsd.uta.fi/en/)
 - [more information on Finnish resources for open data](https://www.fairdata.fi/en/)
+
+---
+
+## Resources for data management
+
+- [DataLad](https://www.datalad.org/)
+- [Data Stewardship Wizard](https://ds-wizard.org/)
 
 ---
 
