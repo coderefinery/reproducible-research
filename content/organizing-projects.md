@@ -9,8 +9,7 @@
 ```
 
 ```{instructor-note}
-- 10 min teaching
-- 0 min exercises
+- 10 min teaching incl. discussions
 ```
 
 One of the most basic steps to make your work reproducible is to organize your projects well.  
@@ -22,7 +21,9 @@ Let's go over some of the basic things which people have found to work (and not 
 - Project files in a **single folder**
 - **Different projects** should have **separate folders**
 - Use **consistent and informative directory structure**
-- If you need to separate public/private/secret, separate these by folder (and Git repo)
+  - Avoid whitespaces in directory and file names – it is uglier for humans but handy for computers.
+- If you need to separate public/private, you can put them in public and private Git repos
+  - If you need to separate public/secret, use `.gitignore` or a separate folder that's not in Git
 - Add a **README file** to describe the project and instructions on reproducing the results
 - If a software is reused in several projects it can make sense to put them in own repo
 
@@ -86,15 +87,20 @@ Do you want to practice your reproducibility skills and get inspired by working 
 
 ---
 
-## Discussion on reproducability
+## Discussion on reproducibility
 
-ℹ️ During the workshop we collect answers in the collaborative document.
-
-````{discussion} How do you collaborate on writing academic papers?
-- Are you using version control for manuscripts?
+````{discussion} Discuss in collaborative document or with your team members
+**How do you collaborate on writing academic papers?**
+```
+- Are you using version control for academic papers?
+  - ...
+  - ...
+  - (share your experience)
 - How do you handle collaborative issues eg. conflicting changes?
-- How would you like it to work if you could decide?
-
+  - ...
+  - ...
+  - (share your experience)
+```
 > Please write or discuss your ideas before opening solution!
 
 ```{solution}
@@ -105,39 +111,17 @@ Do you want to practice your reproducibility skills and get inspired by working 
 ```
 ````
 
-
-
-````{discussion} What tools are you using when organizing your projects?
-Write your answers 
-
-```{solution}
-Let's look at an [example project](https://github.com/coderefinery/word-count)
-which follows the project structure guidelines given above.
-
-This project is about counting the frequency
-distribution of words in a given text, plotting results and
-testing [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law).
-We have subdirectories for raw data, source files, documentation,
-processsed data and results, and README and LICENSE files.
-- What are the `environment.yml` and `Snakefile` files for?
-- Do you think this project is reproducible?
-
-- `environment.yml` specifies dependencies of the project, i.e. all
-  packages and their version numbers (discussed later in
-  {doc}`dependencies`). The `Snakefile` is a record of all
-  computational steps and is used to generate all results with
-  `Snakemake` ({doc}`workflow-management`).
-
-- The Word-count project ticks most of the reproducibility boxes!
-  - Clear directory structure
-  - README file with general project description
-  - Documented, with link to ReadTheDocs
-  - All dependencies recorded in `environment.yml`
-  - Computational steps recorded in `Makefile` and `Snakefile`
+```{discussion} Discuss in collaborative document or with your team members
 ```
-````
+- What tools are you using when organizing your projects?
+  - ...
+  - ...
+  - (share your experience)
+```
+```
 
 
 ```{keypoints}
 - An organized project directory structure helps with reproducibility.
+- Reproducibility makes work easier for the next person working on the project - and that might be you in a few years!
 ```
