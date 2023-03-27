@@ -113,7 +113,15 @@ $ bash script.sh
   with a scripted solution?
 
 ```{solution}
-Will be added ...
+The advantage of this solution compared to processing one by one is more automation: We can generate all.
+This is not only easier, it is also less error-prone.
+
+Yes, the scripted solution can be reproducible.
+
+If we had more steps and once steps start to be time-consuming, a limitation of
+a scripted solution is that it tries to run all steps always. Rerunning only
+part of the steps or only part of the input data requires us to outcomment
+lines in our script which can again become tedious and error-prone.
 ```
 ````
 
@@ -186,7 +194,18 @@ Exercise goals:
 9. If you make changes to the Snakefile, validate it using `$ snakemake --lint`.
 
 ```{solution}
-Will be added ...
+- 2: Start with "all" and look what it depends on. Now search for rules that
+  have these as output. Look for their inputs and search where they
+  are produced. In other words, search backwards and build a graph of
+  dependencies. This is what Snakemake does.
+- 4: It can see that outputs are newer than inputs. It will only regenerate
+  outputs if they are not there or if the inputs or scripts have changed.
+- 7: It only generates steps and outputs that are missing or outdated. The workflow
+  does not run everything every time. In other words if you notice a problem or update information
+  "half way" in the analysis, it will only re-run what needs to be re-run. Nothing more, nothing less.
+  Another advantage is that it can distribute tasks to multiple cores, off-load work to supercomputers,
+  offers more fine-grained control over environments, and more.
+- 8: Probably only the two lines containeing "shell".
 ```
 ````
 
