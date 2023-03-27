@@ -177,8 +177,49 @@ it.
       ```
     ````
 
-    ````{tab} R (renv)
-    We will add an example ...
+    ````{tab} R
+      **A**:
+      You find a couple of `library()` or `require()` calls across the code but that's it.
+
+      **B**:
+      The README file lists which libraries were used but does not mention
+      any versions.
+
+      **C**:
+      You find a [DESCRIPTION file](https://r-pkgs.org/description.html) which contains:
+      ```
+      Imports:
+          dplyr,
+          tidyr
+      ```
+      In addition you find these:
+      ```r
+      remotes::install_github("someuser/someproject@master")
+      remotes::install_github("anotheruser/anotherproject@master")
+      ```
+
+      **D**:
+      You find a [DESCRIPTION file](https://r-pkgs.org/description.html) which contains:
+      ```
+      Imports:
+          dplyr (== 1.0.0),
+          tidyr (== 1.1.0)
+      ```
+      In addition you find these:
+      ```r
+      remotes::install_github("someuser/someproject@d7b2c7e")
+      remotes::install_github("anotheruser/anotherproject@sometag")
+      ```
+
+      **E**:
+      You find a [DESCRIPTION file](https://r-pkgs.org/description.html) which contains:
+      ```
+      Imports:
+          dplyr (== 1.0.0),
+          tidyr (== 1.1.0),
+          someproject (== 1.2.3),
+          anotherproject (== 2.3.4)
+      ```
     ````
 
     ````{tab} Matlab
@@ -254,7 +295,9 @@ information?
     ````
 
     ````{tab} R (renv)
-      We will add an example ...
+      Try to "save" and "load" the state of your project library using
+      `renv::snapshot()` and `renv::restore()`.
+      See also: <https://rstudio.github.io/renv/articles/renv.html#reproducibility>
 
       More information: <https://rstudio.github.io/renv/articles/renv.html>
     ````
