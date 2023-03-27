@@ -1,9 +1,5 @@
 # Organizing your projects
 
-```{questions}
-- How should we organize files in a research project?
-```
-
 ```{objectives}
 - Get an overview on how to organize research projects
 ```
@@ -21,7 +17,7 @@ Let's go over some of the basic things which people have found to work (and not 
 - Project files in a **single folder**
 - **Different projects** should have **separate folders**
 - Use **consistent and informative directory structure**
-  - Avoid whitespaces in directory and file names – it is uglier for humans but handy for computers.
+  - Avoid spaces in directory and file names – it is uglier for humans but handy for computers.
 - If you need to separate public/private, you can put them in public and private Git repos
   - If you need to separate public/secret, use `.gitignore` or a separate folder that's not in Git
 - Add a **README file** to describe the project and instructions on reproducing the results
