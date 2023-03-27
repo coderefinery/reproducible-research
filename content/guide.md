@@ -10,24 +10,24 @@ permalink: /guide/
 
 This was the schedule at our last workshop:
 
-* 08:50 - 09:00 Soft start and icebreaker question
-* 09:00 - 09:10 Interview with an expert
-* 09:10 - 11:15 [Reproducible research](https://coderefinery.github.io/reproducible-research/)
-    - 09:10 - 09:20 [Motivation](https://coderefinery.github.io/reproducible-research/motivation/)
-    - 09:20 - 09:30 [Organizing your projects](https://coderefinery.github.io/reproducible-research/organizing-projects/)
-    - 09:30 - 10:00 [Recording dependencies](https://coderefinery.github.io/reproducible-research/dependencies/)
-       - discussion (5 min)
-       - exercise (20 min): this exercise is being adjusted to offer both requirements.txt, environment.yml, and renv
-       - discussion (5 min)
-    - 10:00 - 10:10 Break
-    - 10:10 - 10:40 [Recording computational steps](https://coderefinery.github.io/reproducible-research/workflow-management/)
-       - discussion (5 min)
-       - exercise (20 min): this exercise is being adjusted to focus more on the why and when rather than the how precisely
-       - discussion (5 min)
-    - 10:40 - 10:50 [Recording environments](https://coderefinery.github.io/reproducible-research/environments/)
-    - 10:50 - 11:05 [Sharing code and data](https://coderefinery.github.io/reproducible-research/sharing/)
-        - [demo (15 min)](https://coderefinery.github.io/reproducible-research/sharing/#connecting-repositories-to-zenodo)
-    - 11:05 - 11:15 Break
+- 08:50 - 09:00 Soft start and icebreaker question
+- 09:00 - 09:10 Interview with an invited guest
+- 09:10 - 09:20 [Motivation](https://coderefinery.github.io/reproducible-research/motivation/)
+- 09:20 - 09:30 [Organizing your projects](https://coderefinery.github.io/reproducible-research/organizing-projects/)
+- 09:30 - 10:00 [Recording dependencies](https://coderefinery.github.io/reproducible-research/dependencies/)
+   - discussion (5 min)
+   - exercise (20 min)
+   - discussion (5 min)
+- 10:00 - 10:10 Break
+- 10:10 - 10:40 [Recording computational steps](https://coderefinery.github.io/reproducible-research/workflow-management/)
+   - discussion (5 min)
+   - exercise (20 min)
+   - discussion (5 min)
+- 10:40 - 10:50 [Recording environments](https://coderefinery.github.io/reproducible-research/environments/)
+   - an exercise exists but is typically not done as part of a standard workshop
+- 10:50 - 11:05 [Sharing code and data](https://coderefinery.github.io/reproducible-research/sharing/)
+    - [demo (15 min)](https://coderefinery.github.io/reproducible-research/sharing/#connecting-repositories-to-zenodo)
+- 11:05 - 11:15 Break
 
 
 ## Why we teach this lesson
@@ -72,7 +72,7 @@ without realizing that this work falls into the category of "scientific workflow
 and that there actually exist tools that help make such workflows reproducible.
 The episode "Recording computational steps" introduces the concept of scientific
 workflows, discusses various ways of managing workflows with varying degrees of
-reproducibility, and shows how tools like make and snakemake can be used to
+reproducibility, and shows how tools like Snakemake can be used to
 both simplify workflows and make them more reproducible.
 
 
@@ -95,63 +95,32 @@ show that many tools exist and try to give participant the right feel for which
 set of tools to approach for which type of problem.
 
 
-### Questions to involve participants
-
-- Have you ever been unable to reproduce a scientific results from previous research by yourself or others?
-- What technical solutions do you use to manage repetitive tasks and/or complicated workflows?
-
-
-### Timing
-
-Depending on workshop schedule, this lesson can become short on time.
-- The Snakemake episode is long. The instructor needs to explain what is snakemake, and why use it.
-  Snakefile can be covered quickly. Wildcards and pattern rules should be discussed,
-  but the optional further topics can be skipped or just very briefly described.
-  The exercise(s) in breakoutroom session is then there for the participants to play around
-  and get an understanding of the how.
-- Building the container from scratch (fetching the ubuntu image, installing all packages in it)
-  can take several minutes. The instructor should in most cases do this before the workshop and
-  only demonstrate how to launch a container based on the existing image
-
-
-### Sessions which can be skipped if time is tight
-
-- The motivation can be gone through quickly. Researchers know the importance of
-  reproducibility and we don't need to spend many words on it
-
-
-### Typical pitfalls
+## Typical pitfalls
 
 #### Indentation in Snakefiles
 
 - the body of a rule and the body of an input keyword need to be indented, but the number of spaces doesn't matter
 This works:
 ```python
-rule alldata:
-     input:
-         'processed_data/isles.dat',
-         'processed_data/abyss.dat'
+rule all:
+    input:
+        expand('statistics/{book}.data', book=DATA),
+        expand('plot/{book}.png', book=DATA)
 ```
 but this doesn't work:
 ```python
-rule alldata:
-     input:
-     'processed_data/isles.dat',
-     'processed_data/abyss.dat'
+rule all:
+    input:
+    expand('statistics/{book}.data', book=DATA),
+    expand('plot/{book}.png', book=DATA)
 ```
-not this:
+nor this:
 ```python
-rule alldata:
+rule all:
 input:
-    'processed_data/isles.dat',
-    'processed_data/abyss.dat'
+    expand('statistics/{book}.data', book=DATA),
+    expand('plot/{book}.png', book=DATA)
 ```
-
-#### Containers are confusing
-
-Try to use good analogies to explain the concepts of containers,
-images and Dockerfiles.
-
 
 
 ## Field reports
