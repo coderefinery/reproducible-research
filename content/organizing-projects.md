@@ -12,7 +12,7 @@
 - 10 min teaching incl. discussions
 ```
 
-One of the most basic steps to make your work reproducible is to organize your projects well.  
+One of the most basic steps to make your work reproducible is to organize your projects well.
 Let's go over some of the basic things which people have found to work (and not to work).
 
 
@@ -96,7 +96,8 @@ Do you want to practice your reproducibility skills and get inspired by working 
   - ...
   - ...
   - (share your experience)
-- How do you handle collaborative issues eg. conflicting changes?
+
+- How do you handle collaborative issues e.g. conflicting changes?
   - ...
   - ...
   - (share your experience)
@@ -105,20 +106,21 @@ Do you want to practice your reproducibility skills and get inspired by working 
 
 ```{solution}
 - Consider using version control for manuscripts as well. It may help you when keeping track of edits + if you sync it online then you don't have to worry about losing your work.
-- Collaboration can be done efficiently by 
+
+- Collaboration can be done efficiently by
   - real time collaboration tools like HackMD/HedgeDoc where conflicts are resolved on yhe fly
   - version control where conflicts are detected and shown – and solved manually
 ```
 ````
 
-```{discussion} Discuss in collaborative document or with your team members
+````{discussion} Discuss in collaborative document or with your team members
 ```
 - What tools are you using when organizing your projects?
   - ...
   - ...
   - (share your experience)
 ```
-```
+````
 
 
 ```{keypoints}
