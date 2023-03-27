@@ -193,7 +193,10 @@ Will be added ...
 
 ## Similar tools
 
-- Interesting modern alternative to Make/Snakemake: [https://taskfile.dev](https://taskfile.dev)
+- [Make](https://www.gnu.org/software/make/)
+- [Nextflow](https://www.nextflow.io/)
+- [Task](https://taskfile.dev/)
+- [Common Workflow Language](https://www.commonwl.org/)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 
 
