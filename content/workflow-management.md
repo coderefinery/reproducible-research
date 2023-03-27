@@ -44,6 +44,17 @@ We have two steps and 4 books. But **imagine having 4 steps and processing 500 b
 Can you relate? Are you using similar setups in your research? How do you record them?
 ```
 
+````{discussion} Kitchen analogy
+```{figure} img/kitchen/busy.png
+:alt: Busy kitchen
+:width: 50%
+
+Now we have many similar meals to prepare and possibly many chefs
+present (cores) and workflow tools can help us to plan and document the steps
+and run them efficiently. [Midjourney, CC-BY-NC 4.0]
+```
+````
+
 ---
 
 ## Exercise
