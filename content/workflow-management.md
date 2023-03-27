@@ -169,6 +169,7 @@ Exercise goals:
 7. Discuss possible advantages compared to a scripted solution.
 8. **Question for R developers**: Imagine you want to rewrite the two Python scripts and use R instead. Which lines in
    the [Snakefile](https://github.com/coderefinery/word-count/blob/main/Snakefile) would you have to modify so that it uses your R code?
+9. If you make changes to the Snakefile, validate it using `$ snakemake --lint`.
 
 ```{solution}
 Will be added ...
