@@ -213,8 +213,9 @@ it.
 
 ``````{challenge} Dependencies-2: Create a time-capsule for the future
 Now it is time to create your own time-capsule and share it with the future
-world. If we asked you now which dependencies your project is using, how
-would you find out? And how would you communicate this information?
+world. If we asked you now which dependencies your project is using, what would
+you answer? How would you find out? And how would you communicate this
+information?
 
   `````{tabs}
     ````{tab} Conda
