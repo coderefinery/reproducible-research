@@ -68,7 +68,7 @@ more reproducible it is.
 ## Exercises
 
 ``````{challenge} Dependencies-1: Time-capsule of dependencies
-Situation: 5 students (A, B, C, D, E) wrote a code that depends on 6 libraries.
+Situation: 5 students (A, B, C, D, E) wrote a code that depends on a couple of libraries.
 They uploaded their projects to GitHub. We now travel 3 years into the future
 and find their GitHub repositories and try to re-run their code before adapting
 it.
