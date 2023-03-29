@@ -154,7 +154,6 @@ it.
       sympy
       click
       python
-      
       git+https://github.com/someuser/someproject.git@master
       git+https://github.com/anotheruser/anotherproject.git@master
       ```
