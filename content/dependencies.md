@@ -77,7 +77,7 @@ it.
 - What problems do you anticipate in each solution?
 
   `````{tabs}
-    ````{tab} Conda
+    ````{group-tab} Conda
       **A**:
       You find a couple of library imports across the code but that's it.
 
@@ -138,7 +138,7 @@ it.
       ```
     ````
 
-    ````{tab} Python virtualenv
+    ````{group-tab} Python virtualenv
       **A**:
       You find a couple of library imports across the code but that's it.
 
@@ -183,7 +183,7 @@ it.
       ```
     ````
 
-    ````{tab} R
+    ````{group-tab} R
       **A**:
       You find a couple of `library()` or `require()` calls across the code but that's it.
 
@@ -228,7 +228,7 @@ it.
       ```
     ````
 
-    ````{tab} Matlab
+    ````{group-tab} Matlab
     Can you please contribute an example?
     ````
   `````
@@ -265,7 +265,7 @@ you answer? How would you find out? And how would you communicate this
 information?
 
   `````{tabs}
-    ````{tab} Conda
+    ````{group-tab} Conda
       Try this either with your own project or inside the "coderefinery" conda
       environment:
       ```console
@@ -284,7 +284,7 @@ information?
       See also: <https://github.com/mamba-org/mamba>
     ````
 
-    ````{tab} Python virtualenv
+    ````{group-tab} Python virtualenv
       Try this in your own project:
       ```console
       $ pip freeze > requirements.txt
@@ -300,7 +300,9 @@ information?
       More information: <https://docs.python.org/3/tutorial/venv.html>
     ````
 
-    ````{tab} R (renv)
+    ````{group-tab} R
+      This example uses renv.
+
       Try to "save" and "load" the state of your project library using
       `renv::snapshot()` and `renv::restore()`.
       See also: <https://rstudio.github.io/renv/articles/renv.html#reproducibility>
@@ -308,7 +310,7 @@ information?
       More information: <https://rstudio.github.io/renv/articles/renv.html>
     ````
 
-    ````{tab} Matlab
+    ````{group-tab} Matlab
       Can you please contribute an example?
     ````
   `````
