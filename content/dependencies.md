@@ -96,6 +96,7 @@ it.
         - numpy
         - sympy
         - click
+        - python
         - pip
         - pip:
           - git+https://github.com/someuser/someproject.git@master
@@ -113,6 +114,7 @@ it.
         - numpy=1.16.4
         - sympy=1.4
         - click=7.0
+        - python=3.8
         - pip
         - pip:
           - git+https://github.com/someuser/someproject.git@d7b2c7e
@@ -130,6 +132,7 @@ it.
         - numpy=1.16.4
         - sympy=1.4
         - click=7.0
+        - python=3.8
         - someproject=1.2.3
         - anotherproject=2.3.4
       ```
@@ -150,6 +153,7 @@ it.
       numpy
       sympy
       click
+      python
       git+https://github.com/someuser/someproject.git@master
       git+https://github.com/anotheruser/anotherproject.git@master
       ```
@@ -161,6 +165,7 @@ it.
       numpy==1.16.4
       sympy==1.4
       click==7.0
+      python==3.8
       git+https://github.com/someuser/someproject.git@d7b2c7e
       git+https://github.com/anotheruser/anotherproject.git@sometag
       ```
@@ -172,6 +177,7 @@ it.
       numpy==1.16.4
       sympy==1.4
       click==7.0
+      python==3.8
       someproject==1.2.3
       anotherproject==2.3.4
       ```
