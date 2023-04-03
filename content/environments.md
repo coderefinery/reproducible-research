@@ -32,7 +32,7 @@ From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_
 - Container definition files <-> like a blueprint to build a kitchen with all
   utensils in which the recipe can be prepared.
 - Container images <-> example kitchens
-- Containers <-> kitchens that are copies of example kitchens
+- Containers <-> identical factory-built mobile food truck kitchens
 
 Just for fun: which operating systems do the following example kitchens represent?
   `````{tabs}
