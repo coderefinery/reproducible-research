@@ -75,10 +75,3 @@ levels that each contributes to its reproducibility.
   - ...
   - (share your experience, but constructively)
 ````
-
-```{figure} img/Miracle.jpg
-:alt: Then a mirace occurs
-:width: 100%
-```
-
-[citation needed]
