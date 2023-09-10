@@ -1,7 +1,7 @@
 .. _index:
 
-Reproducible research
-=====================
+Reproducible research - Preparing code to be usable by you and others in the future
+===================================================================================
 
 Have you ever spent days **trying to repeat the results from few weeks or months
 ago**?  Or you have to do paper revisions, but you just can't get the results to
