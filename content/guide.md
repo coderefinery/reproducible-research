@@ -97,7 +97,7 @@ set of tools to approach for which type of problem.
 
 ## Typical pitfalls
 
-#### Indentation in Snakefiles
+### Indentation in Snakefiles
 
 - the body of a rule and the body of an input keyword need to be indented, but the number of spaces doesn't matter
 This works:
