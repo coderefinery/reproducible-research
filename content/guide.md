@@ -8,7 +8,24 @@ permalink: /guide/
 
 ## Detailed day schedule
 
-This was the schedule at our last workshop:
+Two example schedules for this lesson: 
+
+This is the planned schedule for the workshop in September 2023 (2 hours and 5 minutes including 10 min break) :
+
+- 08:50 - 09:00 Soft start and icebreaker question
+- 09:00 - 09:10 Overview of CR and how it all fits together
+- 09:10 - 09:20 Reproducible research, [Motivation](https://coderefinery.github.io/reproducible-research/motivation/)
+- 09:20 - 09:27 [Organizing your projects](https://coderefinery.github.io/reproducible-research/organizing-projects/)
+- 09:27 - 09:35 [Recording computational steps](https://coderefinery.github.io/reproducible-research/workflow-management/) - discussion
+- 09:35 - 10:00 Snakemake exercise (25 min)
+- 10:00 - 10:10 Break
+- 10:10 - 10:15 Summary of workflows and the exercise
+- 10:15 - 10:30 [Recording dependencies](https://coderefinery.github.io/reproducible-research/dependencies/)
+- 10:30 - 10:40 [Recording environments](https://coderefinery.github.io/reproducible-research/environments/)
+- 10:40 - 11:00 Container-1 exercise (20 min)
+- 11:00 - 11.05 Wrapup
+
+This was the schedule at workshop in March 2023 (2 hours and 15 minutes including 2x 10 min break):
 
 - 08:50 - 09:00 Soft start and icebreaker question
 - 09:00 - 09:10 Interview with an invited guest
