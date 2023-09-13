@@ -34,6 +34,7 @@ reproducible environments and computational steps** for our future selves.
    :maxdepth: 1
    :caption: Core episodes
 
+   intro.md
    motivation.md
    organizing-projects.md
    workflow-management.md
