@@ -238,7 +238,7 @@ package repositories.
   `````
 ``````
 
-````{exercise} Containers-2: Explore two really useful Docker images
+````{exercise} (optional) Containers-2: Explore two really useful Docker images
 You can try the below if you have Docker installed. If you have
 Singularity/Apptainer and not Docker, the goal of the exercise can be to run
 the Docker containers through Singularity/Apptainer.
