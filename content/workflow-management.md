@@ -231,6 +231,7 @@ Exercise goals:
 - [Task](https://taskfile.dev/)
 - [Common Workflow Language](https://www.commonwl.org/)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
+- [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
 
 
 ## Visualizing the workflow

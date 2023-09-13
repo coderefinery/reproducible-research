@@ -265,3 +265,8 @@ the Docker containers through Singularity/Apptainer.
    $ docker run -i -t continuumio/anaconda3 /bin/bash
    ```
 ````
+
+## Resources for further learning
+
+- [Carpentries incubator lesson on Docker](https://carpentries-incubator.github.io/docker-introduction/)
+- [Carpentries incubator lesson on Singularity/Apptainer](https://carpentries-incubator.github.io/singularity-introduction/)
