@@ -22,7 +22,6 @@ reproducible environments and computational steps** for our future selves.
     - if a computational studies contains several steps, be able to document them
     - know about use cases for containers
     - knowing the pros and cons of manual documentation vs. scripted automation vs. workflow management
-    - be able to create a DOI for research output like code or data
 
 
 .. prereq::
@@ -37,10 +36,9 @@ reproducible environments and computational steps** for our future selves.
 
    motivation.md
    organizing-projects.md
-   dependencies.md
    workflow-management.md
+   dependencies.md
    environments.md
-   sharing.md
 
 
 .. toctree::

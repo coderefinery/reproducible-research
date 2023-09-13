@@ -239,7 +239,7 @@ We can visualize the directed acyclic graph (DAG) of our current Snakefile
 using the `--dag` option, which will output the DAG in `dot` language.
 
 **Note**: This requires the [Graphviz software](https://www.graphviz.org/),
-which can be installed by `conda install graphviz`). It's not necessary to
+which can be installed by `conda install graphviz`. It's not necessary to
 run this step yourself.
 
 ```console
