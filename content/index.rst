@@ -37,8 +37,8 @@ reproducible environments and computational steps** for our future selves.
 
    motivation.md
    organizing-projects.md
-   dependencies.md
    workflow-management.md
+   dependencies.md
    environments.md
    sharing.md
 
