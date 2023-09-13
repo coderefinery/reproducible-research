@@ -104,7 +104,7 @@ Do you want to practice your reproducibility skills and get inspired by working 
 - Consider using version control for manuscripts as well. It may help you when keeping track of edits + if you sync it online then you don't have to worry about losing your work.
 
 - Collaboration can be done efficiently by
-  - real time collaboration tools like HackMD/HedgeDoc where conflicts are resolved on yhe fly
+  - real time collaboration tools like HackMD/HedgeDoc where conflicts are resolved on the fly
   - version control where conflicts are detected and shown – and solved manually
 ```
 ````
