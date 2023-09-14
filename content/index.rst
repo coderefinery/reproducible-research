@@ -40,6 +40,7 @@ reproducible environments and computational steps** for our future selves.
    workflow-management.md
    dependencies.md
    environments.md
+   where-to-go.md
 
 
 .. toctree::
