@@ -76,6 +76,14 @@ Just for fun: which operating systems do the following example kitchens represen
 - Definition files (e.g. Dockerfile or Singularity definition file) are text
   files that contain a series of instructions to build container images.
 
+## You may have use for containers in different ways
+
+- Installing a certain software is tricky, or not supported for your operating system? -> See if an image is available and run the software from a container instead!
+- You want to make sure your colleagues are using the same environment for running your code? -> Provide them an image of your container!
+  - If this does not work, because they are using a different architecture than you do? -> Provide a definition file for them to build the image suitable to their computers. This does not create the exact environment as you have, but in most cases similar enough.
+
+## The container recipe
+
 Here is an example of a Singularity definition file ([reference](https://apptainer.org/docs/user/main/build_a_container.html#building-containers-from-apptainer-definition-files)):
 ```
 Bootstrap: docker
@@ -238,7 +246,7 @@ package repositories.
   `````
 ``````
 
-````{exercise} Containers-2: Explore two really useful Docker images
+````{exercise} (optional) Containers-2: Explore two really useful Docker images
 You can try the below if you have Docker installed. If you have
 Singularity/Apptainer and not Docker, the goal of the exercise can be to run
 the Docker containers through Singularity/Apptainer.
