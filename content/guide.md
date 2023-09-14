@@ -64,12 +64,6 @@ and the "Organizing your projects" episode is meant to encourage participants to
 structure their projects better. This may be obvious to some participants but it
 doesn't harm to preach to the choir.
 
-Many participants do not share data or code, and in particular they are often
-unaware that research output other than published articles can be assigned
-digital object identifiers (DOIs).
-The "Sharing code and data" is meant to bring awareness about FAIRness and Open Science
-and to show how DOIs can be obtained for Git repositories..
-
 Even though many participants know that code can have many dependencies (e.g. they
 may have experienced difficulties in getting other people's code to run), they
 often don't know or use good practices when it comes to recording dependencies.
@@ -159,8 +153,3 @@ Snakemake was before it started (though we tried).  The start of this
 episode should get particular focus in the future, since this is the
 main exercise of the day.
 
-Perhaps we shouldn't have done the Zenodo example - we could do a
-quick demo, but because of limited time, I'm not sure if it conveyed
-how cool it was.  Maybe we should have simply said it.  Alternatively,
-we could have not done the Docker demonstration and given more time
-for Zenodo.
