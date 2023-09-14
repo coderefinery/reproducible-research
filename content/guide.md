@@ -10,7 +10,7 @@ permalink: /guide/
 
 Two example schedules for this lesson: 
 
-This is the planned schedule for the workshop in September 2023 (2 hours and 5 minutes including 10 min break) :
+This is the planned schedule for the workshop in September 2023 (2 hours and 5 minutes including 10 min break) ; note that for this workshop, sharing code and data was moved to social coding lesson:
 
 - 08:50 - 09:00 Soft start and icebreaker question
 - 09:00 - 09:10 Overview of CR and how it all fits together
