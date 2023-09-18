@@ -14,7 +14,9 @@ However, you will not always need all of them. As with so many things, it again 
 ## Important for every project
 
 * Clear file structure for your project
-* At least consider reproducibility of your work
+* At least consider the possibility that someone, maybe you may want to reproduce your work
+    * Can you do something (small) to make it easier?
+    * If you have ideas, but no time: add an issue to your repository; maybe someone else wants to help.
 
 ## Workflow tools will maybe make sense in the future
 
@@ -30,8 +32,8 @@ However, you will not always need all of them. As with so many things, it again 
 * Your code depends on multiple other packages
 * You want to avoid questions like: "What do I need to install to run your code"
 * You want help yourself running your code 
-    * after a few years 
-    * on a different computer
+    * After a few years 
+    * On a different computer
     * ...
 
 ## Containers seem amazing, but do I have use for them?
