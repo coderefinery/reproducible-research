@@ -16,7 +16,7 @@ However, you will not always need all of them. As with so many things, it again 
 * Clear file structure for your project
 * At least consider reproducibility of your work
 
-## I do not see the need for workflows tools
+## Workflow tools will maybe make sense in the future
 
 * In many cases, it is probably not needed
 * You will want to consider workflow tools:
