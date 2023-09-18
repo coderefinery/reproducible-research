@@ -48,7 +48,8 @@ levels that each contributes to its reproducibility.
 :width: 100%
 ```
 
-[citation needed]
+[Steeves, Vicky (2017) in "Reproducibility Librarianship," Collaborative Librarianship: Vol. 9: Iss. 2, Article 4.
+Available at: https://digitalcommons.du.edu/collaborativelibrarianship/vol9/iss2/4]
 
 This also means that you can think about it from the beginning of your research life cycle!
 
