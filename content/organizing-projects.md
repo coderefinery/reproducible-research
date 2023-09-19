@@ -55,7 +55,7 @@ project_name/
   ```console
   $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
   ```
-* We went over all of this in [Git-intro](https://coderefinery.github.io/git-intro/)
+* Check the [Git-intro lesson](https://coderefinery.github.io/git-intro/) for a reminder.
 
 ---
 
@@ -70,7 +70,7 @@ project_name/
 
 - Many tools exist to assist in making scholarly output reproducible:
   - [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
-  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as
+  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as, see also our [Jupyter lesson](https://coderefinery.github.io/jupyter/) later in this workshop.
     supplementary material for articles.
   - [Binder](https://mybinder.org): makes a repository with Jupyter notebooks available in an executable environment (discussed later in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
   - ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for

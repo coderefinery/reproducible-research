@@ -205,7 +205,7 @@ Exercise goals:
   "half way" in the analysis, it will only re-run what needs to be re-run. Nothing more, nothing less.
   Another advantage is that it can distribute tasks to multiple cores, off-load work to supercomputers,
   offers more fine-grained control over environments, and more.
-- 8: Probably only the two lines containeing "shell".
+- 8: Probably only the two lines containing "shell".
 ```
 ````
 
@@ -231,6 +231,7 @@ Exercise goals:
 - [Task](https://taskfile.dev/)
 - [Common Workflow Language](https://www.commonwl.org/)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
+- [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
 
 
 ## Visualizing the workflow

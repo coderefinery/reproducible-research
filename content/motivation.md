@@ -48,16 +48,10 @@ levels that each contributes to its reproducibility.
 :width: 100%
 ```
 
-[citation needed]
+[Steeves, Vicky (2017) in "Reproducibility Librarianship," Collaborative Librarianship: Vol. 9: Iss. 2, Article 4.
+Available at: https://digitalcommons.du.edu/collaborativelibrarianship/vol9/iss2/4]
 
----
-
-```{figure} img/reproducible-research.jpg
-:alt: "6 helpful steps for reproducible research: file organization, naming, documentation, version control, stabilizing computing environment, publishing research outputs - figure by Heidi Seibold, CC-BY 4.0"
-:width: 100%
-```
-
-[Heidi Seibold, CC-BY 4.0, <https://twitter.com/HeidiBaya/status/1579385587865649153>]
+This also means that you can think about it from the beginning of your research life cycle!
 
 ---
 
