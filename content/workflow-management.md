@@ -39,6 +39,7 @@ $ python statistics/count.py data/isles.txt > statistics/isles.data
 $ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
 ```
 
+
 ```{discussion}
 We have two steps and 4 books. But **imagine having 4 steps and processing 500 books**.
 Can you relate? Are you using similar setups in your research? How do you record them?
@@ -54,6 +55,113 @@ present (cores) and workflow tools can help us to plan and document the steps
 and run them efficiently. [Midjourney, CC-BY-NC 4.0]
 ```
 ````
+
+**We will imagine solving this in four different ways and discuss pros and cons.**
+
+---
+
+## Solution 1: Graphical user interface (GUI)
+
+Imagine we have programmed a GUI with a nice interface with icons where you can select scripts and input files by clicking:
+
+- Click on counting script
+- Select book txt file
+- Give a name for the dat file
+- Click on a run symbol
+- Click on plotting script
+- Select book dat file
+- Give a name for the image file
+- Click on a run symbol
+- ...
+- Go to next book ...
+- Click on counting script
+- Select book txt file
+- ...
+
+Disclaimer: not all GUIs behave this way - there exist very good GUI solutions which enable
+reproducibility and automation.
+
+---
+
+## Solution 2: Manual steps
+
+It is not too much work for four files:
+
+```{code-block} console
+---
+emphasize-lines: 1-2, 13
+---
+
+$ python statistics/count.py data/abyss.txt > statistics/abyss.data
+$ python plot/plot.py --data-file statistics/abyss.data --plot-file plot/abyss.png
+
+$ python statistics/count.py data/isles.txt > statistics/isles.data
+$ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
+
+$ python statistics/count.py data/last.txt > statistics/last.data
+$ python plot/plot.py --data-file statistics/last.data --plot-file plot/last.png
+
+$ python statistics/count.py data/sierra.txt > statistics/sierra.data
+$ python plot/plot.py --data-file statistics/sierra.data --plot-file plot/sierra.png
+
+```
+
+This is **imperative style**: first do this, then to that, then do that, finally do ...
+
+---
+
+## Solution 3: Script
+
+Let's express it more compactly with a shell script (Bash). Let's call it `script.sh`:
+```{code-block} bash
+---
+emphasize-lines: 4
+---
+
+#!/usr/bin/env bash
+
+# loop over all books
+for title in abyss isles last sierra; do
+    python statistics/count.py data/${title}.txt > statistics/${title}.data
+    python plot/plot.py --data-file statistics/${title}.data --plot-file plot/${title}.png
+done
+```
+
+We can run it with:
+```console
+$ bash script.sh
+```
+
+This is still **imperative style**: we tell the script to run these
+steps in precisely this order.  We can do it on many files, but if we
+need to re-run just one file, it's a bit of work.
+
+
+````{discussion}
+- What are the advantages of this solution compared to processing all one by one?
+- Is the scripted solution reproducible?
+- Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
+  with a scripted solution?
+
+  ```{solution}
+  The advantage of this solution compared to processing one by one is more automation: We can generate all.
+  This is not only easier, it is also less error-prone.
+
+  Yes, the scripted solution can be reproducible.
+
+  If we had more steps and once steps start to be time-consuming, a limitation of
+  a scripted solution is that it tries to run all steps always. Rerunning only
+  part of the steps or only part of the input data requires us to outcomment
+  lines in our script which can again become tedious and error-prone.
+  ```
+````
+
+---
+
+## Solution 4: Using [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
+
+Snakemake is inspired by [GNU Make](https://www.gnu.org/software/make/),
+but based on Python and is more general and has easier syntax.
 
 ---
 
@@ -85,47 +193,7 @@ possible.
 - Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
 ````
 
-````{exercise} Workflow-1: Scripted solution for processing 4 books
-Somebody wrote a script (`script.sh`) to process all 4 books:
-
-```{code-block} bash
----
-emphasize-lines: 4
----
-
-#!/usr/bin/env bash
-
-# loop over all books
-for title in abyss isles last sierra; do
-    python statistics/count.py data/${title}.txt > statistics/${title}.data
-    python plot/plot.py --data-file statistics/${title}.data --plot-file plot/${title}.png
-done
-```
-
-We can run it with:
-```console
-$ bash script.sh
-```
-
-- What are the advantages of this solution compared to processing all one by one?
-- Is the scripted solution reproducible?
-- Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
-  with a scripted solution?
-
-```{solution}
-The advantage of this solution compared to processing one by one is more automation: We can generate all.
-This is not only easier, it is also less error-prone.
-
-Yes, the scripted solution can be reproducible.
-
-If we had more steps and once steps start to be time-consuming, a limitation of
-a scripted solution is that it tries to run all steps always. Rerunning only
-part of the steps or only part of the input data requires us to outcomment
-lines in our script which can again become tedious and error-prone.
-```
-````
-
-````{exercise} Workflow-2: Workflow solution using Snakemake
+````{exercise} Workflow-1: Workflow solution using Snakemake
 
 ```{figure} img/snakemake.png
 :alt: How Snakemake works
