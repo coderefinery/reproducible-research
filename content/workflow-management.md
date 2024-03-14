@@ -10,7 +10,7 @@
 
 ```{instructor-note}
 - 10 min teaching
-- 20 min exercises
+- 20 min demo
 ```
 
 
@@ -39,16 +39,13 @@ $ python statistics/count.py data/isles.txt > statistics/isles.data
 $ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
 ```
 
-This could also be implemented with a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
-
-This is **imperative style**: first do this, then to that, then do that, finally do ...
+Imagine there was a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
 
 
-````{discussion}
-Both of the above are tricky in terms of reproducibility. We currently have two steps and 4 books. But **imagine having 4 steps and 500 books**.
+Both of the above (single line commands and GUIs) are tricky in terms of reproducibility. We currently have two steps and 4 books. But **imagine having 4 steps and 500 books**.
 How could we deal with this?
 
-As a first idea we could express the workflow with a shell script. Let's call it `script.sh` (we could do this with a python script too):
+As a first idea we could express the workflow with a script. We could create a bash script and call it `script.sh` (we could do this with a python script too):
 ```{code-block} bash
 ---
 emphasize-lines: 4
@@ -68,10 +65,10 @@ We can run it with:
 $ bash script.sh
 ```
 
-This is still **imperative style**: we tell the script to run these
-steps in precisely this order.  
+This is **imperative style**: we tell the script to run these
+steps in precisely this order, as we would do manually, one after another.
 
-
+````{disucssion}
 - What are the advantages of this solution compared to processing all one by one?
 - Is the scripted solution reproducible?
 - Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
@@ -85,8 +82,7 @@ steps in precisely this order.
 
   If we had more steps and once steps start to be time-consuming, a limitation of
   a scripted solution is that it tries to run all steps always. Rerunning only
-  part of the steps or only part of the input data requires us to outcomment
-  lines in our script which can again become tedious and error-prone.
+  part of the steps or only part of the input data requires us to outcomment or change lines in our script in between runs which can again become tedious and error-prone.
   ```
 ````
 
@@ -106,18 +102,18 @@ but based on Python and is more general and has easier syntax.
 
 ---
 
-## Exercise - demo
+## A demo
 
-````{prereq} Exercise preparation
-The exercise (below) and pre-exercise discussion uses a simple
+````{prereq} Preparation
+The exercise (below) and pre-exercise discussion uses the
 word-count repository
-(<https://github.com/coderefinery/word-count>). We should clone the
-repository already to prepare to work on it.
+(<https://github.com/coderefinery/word-count>) where we have prepared a few short scripts to count words in a text file and plot their frequency per book. We clone the repository to prepare to work on it.
 
-You could do the exercise either on your own computer, or the [Binder](https://mybinder.org/)
+If you want to do this exercise on your own, you can do so either on your own computer (follow the instructions in the bottom right panel on the [CodeRefinery installation instruction page](https://coderefinery.github.io/installation/)), or the [Binder](https://mybinder.org/)
 cloud service:
 
 **On your own computer**:
+- Install the necessary tools 
 - Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
 - Clone the word-count repository:
   ```console
@@ -177,7 +173,7 @@ We can see that Snakemake uses **declarative style**:
 Snakefiles contain rules that relate targets (`output`) to dependencies
 (`input`) and commands (`shell`).
 
-Exercise goals:
+Goals:
 1. Clone the example to your computer: `$ git clone https://github.com/coderefinery/word-count.git`
 2. Study the Snakefile. How does it know what to do first and what to do then?
 3. Try to run it. Since version 5.11 one needs to specify number of cores (or
@@ -222,9 +218,9 @@ Exercise goals:
 
 - Gentle learning curve.
 - Free, open-source, and installs easily via conda or pip.
-- Cross-platform (Windows, MacOS, Linux) and compatible with all HPC schedulers:
+- Cross-platform (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
   same workflow works without modification and scales appropriately whether on a laptop or cluster.
-- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is completely general.
+- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is **completely general**.
 - Is is possible to define isolated software environments per rule, see [here](https://github.com/coderefinery/word-count/blob/f4ca47440751dd2c65f55fef1a8d9f181ecdd2f6/Snakefile#L15).
 - Also possible to run workflows in Docker or Apptainer containers.
 - Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
