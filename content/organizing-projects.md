@@ -59,30 +59,6 @@ project_name/
 
 ---
 
-## Reproducible publications
-
-- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
-  - [Overleaf](https://www.overleaf.com): an online, collaborative LaTeX editor (has Git integration)
-  - [Authorea](https://www.authorea.com): collaborative platform for preprints (apparently also has Git integration)
-  - [HackMD](https://hackmd.io/): an online collaborative Markdown editor (has Git integration)
-  - [Manuscripts.io](https://www.manuscripts.io/): a collaborative authoring tool that support scientific content and reproducibility.
-  - Google Docs can be a good alternative
-
-- Many tools exist to assist in making scholarly output reproducible:
-  - [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
-  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as, see also our [Jupyter lesson](https://coderefinery.github.io/jupyter/) later in this workshop.
-    supplementary material for articles.
-  - [Binder](https://mybinder.org): makes a repository with Jupyter notebooks available in an executable environment (discussed later in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
-  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for
-    reproducible data analysis in R, but much is transferable to other languages.
-
-```{seealso}
-Do you want to practice your reproducibility skills and get inspired by working with other people's code/data? Join a [ReproHack event](https://www.reprohack.org/event/)!
-```
-
-
----
-
 ## Discussion on reproducibility
 
 ````{discussion} Discuss in collaborative document 
@@ -110,6 +86,26 @@ Do you want to practice your reproducibility skills and get inspired by working 
 ```
 ````
 
+## Reproducible publications
+
+- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
+  - [Overleaf](https://www.overleaf.com): an online, collaborative LaTeX editor (has Git integration)
+  - [Authorea](https://www.authorea.com): collaborative platform for preprints (apparently also has Git integration)
+  - [HackMD](https://hackmd.io/): an online collaborative Markdown editor (has Git integration)
+  - [Manuscripts.io](https://www.manuscripts.io/): a collaborative authoring tool that support scientific content and reproducibility.
+  - Google Docs can be a good alternative
+
+- Many tools exist to assist in making scholarly output reproducible:
+  - [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
+  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as, see also our [Jupyter lesson](https://coderefinery.github.io/jupyter/) later in this workshop.
+    supplementary material for articles.
+  - [Binder](https://mybinder.org): makes a repository with Jupyter notebooks available in an executable environment (discussed later in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
+  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for
+    reproducible data analysis in R, but much is transferable to other languages.
+
+```{seealso}
+Do you want to practice your reproducibility skills and get inspired by working with other people's code/data? Join a [ReproHack event](https://www.reprohack.org/event/)!
+```
 
 ```{keypoints}
 - An organized project directory structure helps with reproducibility.
