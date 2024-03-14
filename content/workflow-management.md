@@ -22,6 +22,7 @@ In this episode, we will use an [example
 project](https://github.com/coderefinery/word-count) which finds most frequent
 words in books and plots the result from those statistics.  In this example we
 wish to:
+
 1. Analyze word frequencies using [statistics/count.py](https://github.com/coderefinery/word-count/blob/main/statistics/count.py)
    for 4 books
    (they are all in the [data](https://github.com/coderefinery/word-count/tree/main/data) directory).
