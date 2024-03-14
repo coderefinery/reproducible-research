@@ -6,8 +6,9 @@
 
 ```{instructor-note}
 - 10 min teaching
-- 20 min exercises
+- 20 min demo
 ```
+
 Our codes often depend on other codes that in turn depend on other codes ...
 
 - **Reproducibility**: We can version-control our code with Git but how should we version-control dependencies?
@@ -67,7 +68,7 @@ more reproducible it is.
 
 ## Exercises
 
-``````{challenge} (optional) Dependencies-1: Time-capsule of dependencies
+``````{challenge} Dependencies-1: Time-capsule of dependencies
 Situation: 5 students (A, B, C, D, E) wrote a code that depends on a couple of libraries.
 They uploaded their projects to GitHub. We now travel 3 years into the future
 and find their GitHub repositories and try to re-run their code before adapting
@@ -260,8 +261,8 @@ Answer in the collaborative document:
   `````
 ``````
 
-``````{challenge} (optional) Dependencies-2: Create a time-capsule for the future
-Now it is time to create your own time-capsule and share it with the future
+``````{challenge} Dependencies-2: Create a time-capsule for the future
+Now we will demo creating our own time-capsule and share it with the future
 world. If we asked you now which dependencies your project is using, what would
 you answer? How would you find out? And how would you communicate this
 information?
