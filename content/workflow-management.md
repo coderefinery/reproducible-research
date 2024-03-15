@@ -54,7 +54,7 @@ $ bash run_all.sh
 This is **imperative style**: we tell the script to run these
 steps in precisely this order, as we would run them manually, one after another.
 
-````{disucssion}
+````{discussion}
 - What are the advantages of this solution compared to processing all one by one?
 - Is the scripted solution reproducible?
 - Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
