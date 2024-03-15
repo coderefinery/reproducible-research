@@ -9,8 +9,8 @@
 ```
 
 ```{instructor-note}
-- 10 min teaching
-- 20 min demo
+- 5 min teaching
+- 15 min demo
 ```
 
 
