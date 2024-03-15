@@ -194,32 +194,6 @@ Steps:
 - 8: Probably only the two lines containing "shell".
 ```
 ````
-
-
-## Why [Snakemake](https://snakemake.readthedocs.io/)?
-
-- Gentle learning curve.
-- Free, open-source, and installs easily via conda or pip.
-- Cross-platform (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
-  same workflow works without modification and scales appropriately whether on a laptop or cluster.
-- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is **completely general**.
-- Is is possible to define isolated software environments per rule, see [here](https://github.com/coderefinery/word-count/blob/f4ca47440751dd2c65f55fef1a8d9f181ecdd2f6/Snakefile#L15).
-- Also possible to run workflows in Docker or Apptainer containers.
-- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
-- If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them in parallel.
-- Nice functionality for archiving the workflow, see: [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
-
-
-## Similar tools
-
-- [Make](https://www.gnu.org/software/make/)
-- [Nextflow](https://www.nextflow.io/)
-- [Task](https://taskfile.dev/)
-- [Common Workflow Language](https://www.commonwl.org/)
-- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
-- [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
-
-
 ## Visualizing the workflow
 
 We can visualize the directed acyclic graph (DAG) of our current Snakefile
@@ -237,3 +211,31 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 :alt: Snakemake DAG
 :width: 100%
 ```
+
+## Why [Snakemake](https://snakemake.readthedocs.io/)?
+
+- Gentle learning curve.
+- Free, open-source, and installs easily via conda or pip.
+- Cross-platform (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
+  same workflow works without modification and scales appropriately whether on a laptop or cluster.
+- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is **completely general**.
+- Is is possible to define isolated software environments per rule, see [here](https://github.com/coderefinery/word-count/blob/f4ca47440751dd2c65f55fef1a8d9f181ecdd2f6/Snakefile#L15).
+- Also possible to run workflows in Docker or Apptainer containers.
+- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
+- If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them in parallel.
+- Nice functionality for archiving the workflow, see: [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
+
+Tools like Snakemake help us with **reproducibility** by supporting us with **automation**, **scalability** and **portability** of our workflows.
+
+
+## Similar tools
+
+- [Make](https://www.gnu.org/software/make/)
+- [Nextflow](https://www.nextflow.io/)
+- [Task](https://taskfile.dev/)
+- [Common Workflow Language](https://www.commonwl.org/)
+- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
+- [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
+
+
+
