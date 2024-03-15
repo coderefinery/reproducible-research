@@ -6,7 +6,7 @@
 
 ```{instructor-note}
 - 10 min teaching
-- 20 min demo
+- 10 min demo
 ```
 
 Our codes often depend on other codes that in turn depend on other codes ...
