@@ -120,8 +120,7 @@ possible.
 :width: 100%
 ```
 
-Somebody wrote a [Snakemake](https://snakemake.readthedocs.io) solution
-and the interesting file here is the [Snakefile](https://github.com/coderefinery/word-count/blob/main/Snakefile):
+Somebody wrote a [Snakemake](https://snakemake.readthedocs.io) solution in the [Snakefile](https://github.com/coderefinery/word-count/blob/main/Snakefile):
 ```
 # a list of all the books we are analyzing
 DATA = glob_wildcards('data/{book}.txt').book
@@ -156,7 +155,7 @@ We can see that Snakemake uses **declarative style**:
 Snakefiles contain rules that relate targets (`output`) to dependencies
 (`input`) and commands (`shell`).
 
-Goals:
+Steps:
 1. Clone the example to your computer: `$ git clone https://github.com/coderefinery/word-count.git`
 2. Study the Snakefile. How does it know what to do first and what to do then?
 3. Try to run it. Since version 5.11 one needs to specify number of cores (or
@@ -227,8 +226,7 @@ We can visualize the directed acyclic graph (DAG) of our current Snakefile
 using the `--dag` option, which will output the DAG in `dot` language.
 
 **Note**: This requires the [Graphviz software](https://www.graphviz.org/),
-which can be installed by `conda install graphviz`. It's not necessary to
-run this step yourself.
+which can be installed by `conda install graphviz`. 
 
 ```console
 $ snakemake -j 1 --dag | dot -Tpng > dag.png
