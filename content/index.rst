@@ -17,7 +17,6 @@ reproducible environments and computational steps** for our future selves.
 
   By the end of this lesson, learners should:
     - be able to apply well organized directory structure for their project
-    - remember the FAIR principles
     - understand that code can have dependencies, and know how to document them
     - if a computational studies contains several steps, be able to document them
     - know about use cases for containers
