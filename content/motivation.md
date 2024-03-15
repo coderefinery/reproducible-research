@@ -19,6 +19,15 @@
 - The manuscript is still languishing in the drawer ...
 ```
 
+
+## Reproducibility? 
+
+```{figure} https://the-turing-way.netlify.app/_images/reproducible-definition-grid.svg
+:alt: Reproducible, Replicable, Robust, Generalisable
+width: 100%
+```
+
+[The Turing Way project illustration by Scriberia. Used under a CC-BY 4.0 licence. DOI: 10.5281/zenodo.3332807.]
 ---
 
 ## Why talking about reproducible research?
