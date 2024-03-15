@@ -40,34 +40,19 @@ $ python statistics/count.py data/isles.txt > statistics/isles.data
 $ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
 ```
 
-Imagine there was a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
-
+Another way to analyze the data would be via a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
 
 Both of the above (single line commands and GUIs) are tricky in terms of reproducibility. We currently have two steps and 4 books. But **imagine having 4 steps and 500 books**.
 How could we deal with this?
 
-As a first idea we could express the workflow with a script. We could create a bash script and call it `script.sh` (we could do this with a python script too):
-```{code-block} bash
----
-emphasize-lines: 4
----
-
-#!/usr/bin/env bash
-
-# loop over all books
-for title in abyss isles last sierra; do
-    python statistics/count.py data/${title}.txt > statistics/${title}.data
-    python plot/plot.py --data-file statistics/${title}.data --plot-file plot/${title}.png
-done
-```
-
+As a first idea we could express the workflow with a script. The repository includes such script called `run_all.sh`.
 We can run it with:
 ```console
-$ bash script.sh
+$ bash run_all.sh
 ```
 
 This is **imperative style**: we tell the script to run these
-steps in precisely this order, as we would do manually, one after another.
+steps in precisely this order, as we would run them manually, one after another.
 
 ````{disucssion}
 - What are the advantages of this solution compared to processing all one by one?
@@ -79,7 +64,7 @@ steps in precisely this order, as we would do manually, one after another.
   The advantage of this solution compared to processing one by one is more automation: We can generate all.
   This is not only easier, it is also less error-prone.
 
-  Yes, the scripted solution can be reproducible.
+  Yes, the scripted solution can be reproducible. But could you easily run it e.g. on a Windows computer?
 
   If we had more steps and once steps start to be time-consuming, a limitation of
   a scripted solution is that it tries to run all steps always. Rerunning only
@@ -91,15 +76,12 @@ steps in precisely this order, as we would do manually, one after another.
 
 ## Workflow tools
 
-Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies but we let
-the tool figure out the series of steps to produce results (targets). A workflow file 
+Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies but we let the tool figure out the series of steps to produce results.
 
+### Example workflow tool: [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
-
-### Example tool: [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
-
-Snakemake is inspired by [GNU Make](https://www.gnu.org/software/make/),
-but based on Python and is more general and has easier syntax.
+Snakemake (inspired by [GNU Make](https://www.gnu.org/software/make/)) is one of many tools to create reproducible and scalable data analysis workflows. Workflows are described via a human readable, Python based language. 
+Snakemake workflows scale seamlessly from laptop to cluster or cloud, without the need to modify the workflow definition. 
 
 ---
 
@@ -108,7 +90,7 @@ but based on Python and is more general and has easier syntax.
 ````{prereq} Preparation
 The exercise (below) and pre-exercise discussion uses the
 word-count repository
-(<https://github.com/coderefinery/word-count>) where we have prepared a few short scripts to count words in a text file and plot their frequency per book. We clone the repository to prepare to work on it.
+(<https://github.com/coderefinery/word-count>) which we need to clone to work on it.
 
 If you want to do this exercise on your own, you can do so either on your own computer (follow the instructions in the bottom right panel on the [CodeRefinery installation instruction page](https://coderefinery.github.io/installation/)), or the [Binder](https://mybinder.org/)
 cloud service:
