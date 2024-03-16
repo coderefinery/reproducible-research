@@ -42,11 +42,13 @@ $ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.p
 
 Another way to analyze the data would be via a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
 
-Both of the above (single line commands and GUIs) are tricky in terms of reproducibility. We currently have two steps and 4 books. But **imagine having 4 steps and 500 books**.
+Both of the above (single line commands and simple graphical interfaces) are tricky in terms of reproducibility. We currently have two steps and 4 books. But **imagine having 4 steps and 500 books**.
 How could we deal with this?
 
 As a first idea we could express the workflow with a script. The repository includes such script called `run_all.sh`.
+
 We can run it with:
+
 ```console
 $ bash run_all.sh
 ```
@@ -133,22 +135,19 @@ rule all:
 # count words in one of our books
 rule count_words:
     input:
-        script='statistics/count.py',
+        script='code/count.py',
         book='data/{file}.txt'
     output: 'statistics/{file}.data'
-    conda: 'environment.yml'
-    log: 'statistics/{file}.log'
     shell: 'python {input.script} {input.book} > {output}'
 
 # create a plot for each book
 rule make_plot:
     input:
-        script='plot/plot.py',
+        script='code/plot.py',
         book='statistics/{file}.data'
     output: 'plot/{file}.png'
-    conda: 'environment.yml'
-    log: 'plot/{file}.log'
     shell: 'python {input.script} --data-file {input.book} --plot-file {output}'
+
 ```
 
 We can see that Snakemake uses **declarative style**:
@@ -194,6 +193,7 @@ Steps:
 - 8: Probably only the two lines containing "shell".
 ```
 ````
+
 ## Visualizing the workflow
 
 We can visualize the directed acyclic graph (DAG) of our current Snakefile
@@ -214,19 +214,17 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 
 ## Why [Snakemake](https://snakemake.readthedocs.io/)?
 
-- Gentle learning curve.
-- Free, open-source, and installs easily via conda or pip.
-- Cross-platform (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
+- Gentle **learning curve**.
+- Free, open-source, and **installs easily** via conda or pip.
+- **Cross-platform** (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
   same workflow works without modification and scales appropriately whether on a laptop or cluster.
+- If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them **in parallel**.
+- Is is possible to define **isolated software environments** per rule, e.g. by adding `conda: 'environment.yml'` to a rule.
+- Also possible to run workflows in Docker or Apptainer **containers** e.g. by adding `container: 'docker://some-org/some-tool#2.3.1'` to a rule.
 - [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is **completely general**.
-- Is is possible to define isolated software environments per rule, see [here](https://github.com/coderefinery/word-count/blob/f4ca47440751dd2c65f55fef1a8d9f181ecdd2f6/Snakefile#L15).
-- Also possible to run workflows in Docker or Apptainer containers.
-- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
-- If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them in parallel.
 - Nice functionality for archiving the workflow, see: [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
 
 Tools like Snakemake help us with **reproducibility** by supporting us with **automation**, **scalability** and **portability** of our workflows.
-
 
 ## Similar tools
 
@@ -236,6 +234,3 @@ Tools like Snakemake help us with **reproducibility** by supporting us with **au
 - [Common Workflow Language](https://www.commonwl.org/)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 - [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
-
-
-
