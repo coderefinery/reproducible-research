@@ -66,7 +66,7 @@ more reproducible it is.
 
 ---
 
-## Exercises
+## Demo
 
 ``````{challenge} Dependencies-1: Time-capsule of dependencies
 Situation: 5 students (A, B, C, D, E) wrote a code that depends on a couple of libraries.
@@ -318,3 +318,9 @@ information?
     ````
   `````
 ``````
+
+
+```{keypoints}
+- Recording dependencies with versions can make it easier for the next person to execute your code
+- There are many tools to record dependencies
+```

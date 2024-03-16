@@ -47,4 +47,7 @@ However, you will not always need all of them. As with so many things, it again 
 ... can be very beneficial :)  
 
 
-
+```{keypoints}
+- Not everything in this lesson might be useful right now, but it is good to know that these things exist if you ever get in a situation that would require such solution.
+- Caring about reproducibility makes work easier for the next person working on the project - and that might be you in a few years!
+```

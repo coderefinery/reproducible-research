@@ -278,3 +278,9 @@ the Docker containers through Singularity/Apptainer.
 
 - [Carpentries incubator lesson on Docker](https://carpentries-incubator.github.io/docker-introduction/)
 - [Carpentries incubator lesson on Singularity/Apptainer](https://carpentries-incubator.github.io/singularity-introduction/)
+
+
+```{keypoints}
+- Containers can be helpful if complex setups are needed to running a specific software
+- They can also be helpful for prototyping without "messing up" your own computing environment, or for running software that requires a different operating system than your own
+```

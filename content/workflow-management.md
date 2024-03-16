@@ -252,3 +252,8 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 :alt: Snakemake DAG
 :width: 100%
 ```
+
+```{keypoints}
+- Computational steps can be recorded in many ways
+- Workflow tools can help, if there are many steps to be executed
+```

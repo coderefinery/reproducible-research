@@ -2,7 +2,6 @@
 
 ```{instructor-note}
 - 10 min teaching/discussion
-- 0 min exercises
 ```
 
 ```{figure} img/research_comic_phd.gif
@@ -19,15 +18,6 @@
 - The manuscript is still languishing in the drawer ...
 ```
 
-
-## Reproducibility? 
-
-```{figure} https://the-turing-way.netlify.app/_images/reproducible-definition-grid.svg
-:alt: Reproducible, Replicable, Robust, Generalisable
-width: 100%
-```
-
-[The Turing Way project illustration by Scriberia. Used under a CC-BY 4.0 licence. DOI: 10.5281/zenodo.3332807.]
 ---
 
 ## Why talking about reproducible research?
@@ -78,3 +68,7 @@ This also means that you can think about it from the beginning of your research 
   - ...
   - (share your experience, but constructively)
 ````
+
+```{keypoints}
+- Without reproducibility in scientific computing, everyone would have to start a new project / code from scratch
+```
