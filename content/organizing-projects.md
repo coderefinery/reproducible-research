@@ -61,7 +61,7 @@ project_name/
 
 ## Discussion on reproducibility
 
-````{discussion} Discuss in collaborative document 
+````{discussion} Discuss in the collaborative document:
 
 **How do you collaborate on writing academic papers?**
 ```
@@ -86,12 +86,20 @@ project_name/
 ```
 ````
 
+## Some tools and templates
+
+- [R devtools](https://devtools.r-lib.org/)
+- [Python cookiecutter template](https://github.com/Materials-Data-Science-and-Informatics/fair-python-cookiecutter)
+- [Reproducible research template](https://github.com/the-turing-way/reproducible-project-template) by the Turing Way
+
+More tools and templates in [Heidi Seibolds blog](https://heidiseibold.ck.page/posts/setting-up-a-fair-and-reproducible-project).
+
 ## Reproducible publications
 
-- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
-  - [Overleaf](https://www.overleaf.com): an online, collaborative LaTeX editor (has Git integration)
-  - [Authorea](https://www.authorea.com): collaborative platform for preprints (apparently also has Git integration)
-  - [HackMD](https://hackmd.io/): an online collaborative Markdown editor (has Git integration)
+- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist, some with git integration:
+  - [Overleaf](https://www.overleaf.com) or [Typst](https://typst.app/): online, collaborative LaTeX editor 
+  - [Authorea](https://www.authorea.com): collaborative platform for preprints 
+  - [HackMD](https://hackmd.io/) or [HedgeDoc](https://hedgedoc.org/): online collaborative Markdown editors
   - [Manuscripts.io](https://www.manuscripts.io/): a collaborative authoring tool that support scientific content and reproducibility.
   - Google Docs can be a good alternative
 
@@ -109,5 +117,4 @@ Do you want to practice your reproducibility skills and get inspired by working 
 
 ```{keypoints}
 - An organized project directory structure helps with reproducibility.
-- Reproducibility makes work easier for the next person working on the project - and that might be you in a few years!
 ```
