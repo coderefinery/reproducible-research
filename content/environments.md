@@ -18,7 +18,7 @@
 Imagine if you didn't have to install things yourself, but instead you could
 get a computer with the exact software for a task pre-installed?  Containers
 effectively do that, with various advantages and disadvantages.  They are
-**like an entire operating system with software installed, all in one file**,
+**like an entire operating system with software installed, all in one file**.
 
 ```{figure} img/docker_meme.jpg
 :alt: He said, then we will ship your machine. And that's how Docker was born.
