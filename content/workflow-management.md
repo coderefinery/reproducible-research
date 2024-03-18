@@ -9,8 +9,8 @@
 ```
 
 ```{instructor-note}
-- 10 min teaching
-- 20 min exercises
+- 5 min teaching
+- 15 min demo
 ```
 
 
@@ -22,6 +22,7 @@ In this episode, we will use an [example
 project](https://github.com/coderefinery/word-count) which finds most frequent
 words in books and plots the result from those statistics.  In this example we
 wish to:
+
 1. Analyze word frequencies using [statistics/count.py](https://github.com/coderefinery/word-count/blob/main/statistics/count.py)
    for 4 books
    (they are all in the [data](https://github.com/coderefinery/word-count/tree/main/data) directory).
@@ -39,36 +40,65 @@ $ python statistics/count.py data/isles.txt > statistics/isles.data
 $ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
 ```
 
-```{discussion}
-We have two steps and 4 books. But **imagine having 4 steps and processing 500 books**.
-Can you relate? Are you using similar setups in your research? How do you record them?
+Another way to analyze the data would be via a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
+
+Both of the above (single line commands and simple graphical interfaces) are tricky in terms of reproducibility. We currently have two steps and 4 books. But **imagine having 4 steps and 500 books**.
+How could we deal with this?
+
+As a first idea we could express the workflow with a script. The repository includes such script called `run_all.sh`.
+
+We can run it with:
+
+```console
+$ bash run_all.sh
 ```
 
-````{discussion} Kitchen analogy
-```{figure} img/kitchen/busy.png
-:alt: Busy kitchen
-:width: 50%
+This is **imperative style**: we tell the script to run these
+steps in precisely this order, as we would run them manually, one after another.
 
-Now we have many similar meals to prepare and possibly many chefs
-present (cores) and workflow tools can help us to plan and document the steps
-and run them efficiently. [Midjourney, CC-BY-NC 4.0]
-```
+````{discussion}
+- What are the advantages of this solution compared to processing all one by one?
+- Is the scripted solution reproducible?
+- Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
+  with a scripted solution?
+
+  ```{solution}
+  The advantage of this solution compared to processing one by one is more automation: We can generate all.
+  This is not only easier, it is also less error-prone.
+
+  Yes, the scripted solution can be reproducible. But could you easily run it e.g. on a Windows computer?
+
+  If we had more steps and once steps start to be time-consuming, a limitation of
+  a scripted solution is that it tries to run all steps always. Rerunning only
+  part of the steps or only part of the input data requires us to outcomment or change lines in our script in between runs which can again become tedious and error-prone.
+  ```
 ````
 
 ---
 
-## Exercise
+## Workflow tools
 
-````{prereq} Exercise preparation
-The exercise (below) and pre-exercise discussion uses a simple
+Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies but we let the tool figure out the series of steps to produce results.
+
+### Example workflow tool: [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
+
+Snakemake (inspired by [GNU Make](https://www.gnu.org/software/make/)) is one of many tools to create reproducible and scalable data analysis workflows. Workflows are described via a human readable, Python based language. 
+Snakemake workflows scale seamlessly from laptop to cluster or cloud, without the need to modify the workflow definition. 
+
+---
+
+## A demo
+
+````{prereq} Preparation
+The exercise (below) and pre-exercise discussion uses the
 word-count repository
-(<https://github.com/coderefinery/word-count>). We should clone the
-repository already to prepare to work on it.
+(<https://github.com/coderefinery/word-count>) which we need to clone to work on it.
 
-You could do the exercise either on your own computer, or the [Binder](https://mybinder.org/)
+If you want to do this exercise on your own, you can do so either on your own computer (follow the instructions in the bottom right panel on the [CodeRefinery installation instruction page](https://coderefinery.github.io/installation/)), or the [Binder](https://mybinder.org/)
 cloud service:
 
 **On your own computer**:
+- Install the necessary tools 
 - Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
 - Clone the word-count repository:
   ```console
@@ -85,55 +115,14 @@ possible.
 - Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
 ````
 
-````{exercise} Workflow-1: Scripted solution for processing 4 books
-Somebody wrote a script (`script.sh`) to process all 4 books:
-
-```{code-block} bash
----
-emphasize-lines: 4
----
-
-#!/usr/bin/env bash
-
-# loop over all books
-for title in abyss isles last sierra; do
-    python statistics/count.py data/${title}.txt > statistics/${title}.data
-    python plot/plot.py --data-file statistics/${title}.data --plot-file plot/${title}.png
-done
-```
-
-We can run it with:
-```console
-$ bash script.sh
-```
-
-- What are the advantages of this solution compared to processing all one by one?
-- Is the scripted solution reproducible?
-- Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
-  with a scripted solution?
-
-```{solution}
-The advantage of this solution compared to processing one by one is more automation: We can generate all.
-This is not only easier, it is also less error-prone.
-
-Yes, the scripted solution can be reproducible.
-
-If we had more steps and once steps start to be time-consuming, a limitation of
-a scripted solution is that it tries to run all steps always. Rerunning only
-part of the steps or only part of the input data requires us to outcomment
-lines in our script which can again become tedious and error-prone.
-```
-````
-
-````{exercise} Workflow-2: Workflow solution using Snakemake
+````{exercise} Workflow-1: Workflow solution using Snakemake
 
 ```{figure} img/snakemake.png
 :alt: How Snakemake works
 :width: 100%
 ```
 
-Somebody wrote a [Snakemake](https://snakemake.readthedocs.io) solution
-and the interesting file here is the [Snakefile](https://github.com/coderefinery/word-count/blob/main/Snakefile):
+Somebody wrote a [Snakemake](https://snakemake.readthedocs.io) solution in the [Snakefile](https://github.com/coderefinery/word-count/blob/main/Snakefile):
 ```
 # a list of all the books we are analyzing
 DATA = glob_wildcards('data/{book}.txt').book
@@ -146,30 +135,26 @@ rule all:
 # count words in one of our books
 rule count_words:
     input:
-        script='statistics/count.py',
+        script='code/count.py',
         book='data/{file}.txt'
     output: 'statistics/{file}.data'
-    conda: 'environment.yml'
-    log: 'statistics/{file}.log'
     shell: 'python {input.script} {input.book} > {output}'
 
 # create a plot for each book
 rule make_plot:
     input:
-        script='plot/plot.py',
+        script='code/plot.py',
         book='statistics/{file}.data'
     output: 'plot/{file}.png'
-    conda: 'environment.yml'
-    log: 'plot/{file}.log'
     shell: 'python {input.script} --data-file {input.book} --plot-file {output}'
+
 ```
 
-Snakemake uses **declarative style**: we describe dependencies but we let
-Snakemake figure out the series of steps to produce results (targets).
+We can see that Snakemake uses **declarative style**:
 Snakefiles contain rules that relate targets (`output`) to dependencies
 (`input`) and commands (`shell`).
 
-Exercise goals:
+Steps:
 1. Clone the example to your computer: `$ git clone https://github.com/coderefinery/word-count.git`
 2. Study the Snakefile. How does it know what to do first and what to do then?
 3. Try to run it. Since version 5.11 one needs to specify number of cores (or
@@ -209,39 +194,13 @@ Exercise goals:
 ```
 ````
 
-
-## Why [Snakemake](https://snakemake.readthedocs.io/)?
-
-- Gentle learning curve.
-- Free, open-source, and installs easily via conda or pip.
-- Cross-platform (Windows, MacOS, Linux) and compatible with all HPC schedulers:
-  same workflow works without modification and scales appropriately whether on a laptop or cluster.
-- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is completely general.
-- Is is possible to define isolated software environments per rule, see [here](https://github.com/coderefinery/word-count/blob/f4ca47440751dd2c65f55fef1a8d9f181ecdd2f6/Snakefile#L15).
-- Also possible to run workflows in Docker or Apptainer containers.
-- Workflows can be pushed out to run on a cluster or in the cloud without modifications to scale up.
-- If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them in parallel.
-- Nice functionality for archiving the workflow, see: [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
-
-
-## Similar tools
-
-- [Make](https://www.gnu.org/software/make/)
-- [Nextflow](https://www.nextflow.io/)
-- [Task](https://taskfile.dev/)
-- [Common Workflow Language](https://www.commonwl.org/)
-- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
-- [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
-
-
 ## Visualizing the workflow
 
 We can visualize the directed acyclic graph (DAG) of our current Snakefile
 using the `--dag` option, which will output the DAG in `dot` language.
 
 **Note**: This requires the [Graphviz software](https://www.graphviz.org/),
-which can be installed by `conda install graphviz`. It's not necessary to
-run this step yourself.
+which can be installed by `conda install graphviz`. 
 
 ```console
 $ snakemake -j 1 --dag | dot -Tpng > dag.png
@@ -252,6 +211,29 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 :alt: Snakemake DAG
 :width: 100%
 ```
+
+## Why [Snakemake](https://snakemake.readthedocs.io/)?
+
+- Gentle **learning curve**.
+- Free, open-source, and **installs easily** via conda or pip.
+- **Cross-platform** (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
+  same workflow works without modification and scales appropriately whether on a laptop or cluster.
+- If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them **in parallel**.
+- Is is possible to define **isolated software environments** per rule, e.g. by adding `conda: 'environment.yml'` to a rule.
+- Also possible to run workflows in Docker or Apptainer **containers** e.g. by adding `container: 'docker://some-org/some-tool#2.3.1'` to a rule.
+- [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is **completely general**.
+- Nice functionality for archiving the workflow, see: [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
+
+Tools like Snakemake help us with **reproducibility** by supporting us with **automation**, **scalability** and **portability** of our workflows.
+
+## Similar tools
+
+- [Make](https://www.gnu.org/software/make/)
+- [Nextflow](https://www.nextflow.io/)
+- [Task](https://taskfile.dev/)
+- [Common Workflow Language](https://www.commonwl.org/)
+- Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
+- [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
 
 ```{keypoints}
 - Computational steps can be recorded in many ways
