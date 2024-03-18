@@ -9,7 +9,7 @@
 
 ```{instructor-note}
 - 10 min teaching/discussion
-- 20 min exercise
+- 10 min demo
 ```
 
 
@@ -18,7 +18,7 @@
 Imagine if you didn't have to install things yourself, but instead you could
 get a computer with the exact software for a task pre-installed?  Containers
 effectively do that, with various advantages and disadvantages.  They are
-**like an entire operating system with software installed, all in one file**,
+**like an entire operating system with software installed, all in one file**.
 
 ```{figure} img/docker_meme.jpg
 :alt: He said, then we will ship your machine. And that's how Docker was born.
@@ -278,3 +278,9 @@ the Docker containers through Singularity/Apptainer.
 
 - [Carpentries incubator lesson on Docker](https://carpentries-incubator.github.io/docker-introduction/)
 - [Carpentries incubator lesson on Singularity/Apptainer](https://carpentries-incubator.github.io/singularity-introduction/)
+
+
+```{keypoints}
+- Containers can be helpful if complex setups are needed to running a specific software
+- They can also be helpful for prototyping without "messing up" your own computing environment, or for running software that requires a different operating system than your own
+```

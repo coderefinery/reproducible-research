@@ -2,7 +2,6 @@
 
 ```{instructor-note}
 - 10 min teaching/discussion
-- 0 min exercises
 ```
 
 ```{figure} img/research_comic_phd.gif
@@ -69,3 +68,7 @@ This also means that you can think about it from the beginning of your research 
   - ...
   - (share your experience, but constructively)
 ````
+
+```{keypoints}
+- Without reproducibility in scientific computing, everyone would have to start a new project / code from scratch
+```

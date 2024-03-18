@@ -234,3 +234,8 @@ Tools like Snakemake help us with **reproducibility** by supporting us with **au
 - [Common Workflow Language](https://www.commonwl.org/)
 - Many [specialized frameworks](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) exist.
 - [Book on building reproducible analytical pipelines with R](https://raps-with-r.dev/)
+
+```{keypoints}
+- Computational steps can be recorded in many ways
+- Workflow tools can help, if there are many steps to be executed
+```

@@ -8,7 +8,7 @@
 - 10 min teaching incl. discussions
 ```
 
-One of the most basic steps to make your work reproducible is to organize your projects well.
+One of the first steps to make your work reproducible is to organize your projects well.
 Let's go over some of the basic things which people have found to work (and not to work).
 
 
@@ -59,33 +59,10 @@ project_name/
 
 ---
 
-## Reproducible publications
-
-- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist:
-  - [Overleaf](https://www.overleaf.com): an online, collaborative LaTeX editor (has Git integration)
-  - [Authorea](https://www.authorea.com): collaborative platform for preprints (apparently also has Git integration)
-  - [HackMD](https://hackmd.io/): an online collaborative Markdown editor (has Git integration)
-  - [Manuscripts.io](https://www.manuscripts.io/): a collaborative authoring tool that support scientific content and reproducibility.
-  - Google Docs can be a good alternative
-
-- Many tools exist to assist in making scholarly output reproducible:
-  - [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
-  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as, see also our [Jupyter lesson](https://coderefinery.github.io/jupyter/) later in this workshop.
-    supplementary material for articles.
-  - [Binder](https://mybinder.org): makes a repository with Jupyter notebooks available in an executable environment (discussed later in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
-  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for
-    reproducible data analysis in R, but much is transferable to other languages.
-
-```{seealso}
-Do you want to practice your reproducibility skills and get inspired by working with other people's code/data? Join a [ReproHack event](https://www.reprohack.org/event/)!
-```
-
-
----
-
 ## Discussion on reproducibility
 
-````{discussion} Discuss in collaborative document or with your team members
+````{discussion} Discuss in the collaborative document:
+
 **How do you collaborate on writing academic papers?**
 ```
 - Are you using version control for academic papers?
@@ -109,17 +86,35 @@ Do you want to practice your reproducibility skills and get inspired by working 
 ```
 ````
 
-````{discussion} Discuss in collaborative document or with your team members
-```
-- What tools are you using when organizing your projects?
-  - ...
-  - ...
-  - (share your experience)
-```
-````
+## Some tools and templates
 
+- [R devtools](https://devtools.r-lib.org/)
+- [Python cookiecutter template](https://github.com/Materials-Data-Science-and-Informatics/fair-python-cookiecutter)
+- [Reproducible research template](https://github.com/the-turing-way/reproducible-project-template) by the Turing Way
+
+More tools and templates in [Heidi Seibolds blog](https://heidiseibold.ck.page/posts/setting-up-a-fair-and-reproducible-project).
+
+## Reproducible publications
+
+- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist, some with git integration:
+  - [Overleaf](https://www.overleaf.com) or [Typst](https://typst.app/): online, collaborative LaTeX editor 
+  - [Authorea](https://www.authorea.com): collaborative platform for preprints 
+  - [HackMD](https://hackmd.io/) or [HedgeDoc](https://hedgedoc.org/): online collaborative Markdown editors
+  - [Manuscripts.io](https://www.manuscripts.io/): a collaborative authoring tool that support scientific content and reproducibility.
+  - Google Docs can be a good alternative
+
+- Many tools exist to assist in making scholarly output reproducible:
+  - [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
+  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as, see also our [Jupyter lesson](https://coderefinery.github.io/jupyter/) later in this workshop.
+    supplementary material for articles.
+  - [Binder](https://mybinder.org): makes a repository with Jupyter notebooks available in an executable environment (discussed later in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
+  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for
+    reproducible data analysis in R, but much is transferable to other languages.
+
+```{seealso}
+Do you want to practice your reproducibility skills and get inspired by working with other people's code/data? Join a [ReproHack event](https://www.reprohack.org/event/)!
+```
 
 ```{keypoints}
 - An organized project directory structure helps with reproducibility.
-- Reproducibility makes work easier for the next person working on the project - and that might be you in a few years!
 ```

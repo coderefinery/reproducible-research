@@ -10,19 +10,16 @@ match up? It's unpleasant for both you and science.
 In this lesson we will explore different methods and tools for better
 reproducibility in research software and data. We will demonstrate how version
 control, workflows, containers, and package managers can be used to **record
-reproducible environments and computational steps** for our future selves.
+reproducible environments and computational steps** for our future selves and others.
 
 
 .. admonition:: Learning outcomes
 
   By the end of this lesson, learners should:
-    - be able to apply well organized directory structure for their project
-    - remember the FAIR principles
-    - understand that code can have dependencies, and know how to document them
-    - if a computational studies contains several steps, be able to document them
-    - know about use cases for containers
-    - knowing the pros and cons of manual documentation vs. scripted automation vs. workflow management
-
+    - Be able to apply well organized directory structure for their project
+    - Understand that code can have dependencies, and know how to document them
+    - Be able to document computational steps, and have an idea when it can be useful
+    - Know about use cases for containers
 
 .. prereq::
 
