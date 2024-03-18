@@ -246,7 +246,45 @@ package repositories.
   `````
 ``````
 
-````{exercise} (optional) Containers-2: Explore two really useful Docker images
+
+````{exercise} (optional) Containers-2: Installing the impossible. 
+
+When you are missing privileges for installing certain software tools, containers can come handy. 
+Here we build a Singularity/Apptainer container for installing `cowsay` and `lolcat` Linux programs.
+
+1. Make sure you have apptainer installed:
+   ```console
+   $ apptainer --version
+   ```
+
+2. Make sure you set the apptainer cache and temporary folders.
+   ```console
+   $ mkdir ./cache/
+   $ mkdir ./temp/
+   $ export APPTAINER_CACHEDIR="./cache/"
+   $ export APPTAINER_TMPDIR="./temp/"
+   ```
+
+3. Build the container from the following definition file above.
+   ```console
+   apptainer build cowsay.sif cowsay.def
+   ```
+
+4. Let's test the container by entering into it with a shell terminal
+   ```console
+   $ apptainer shell cowsay.sif
+   ```
+
+5. We can verify the installation.
+   ```console
+   $ cowsay "Hello world!"|lolcat
+   ```
+
+````
+
+
+
+````{exercise} (optional) Containers-3: Explore two really useful Docker images
 You can try the below if you have Docker installed. If you have
 Singularity/Apptainer and not Docker, the goal of the exercise can be to run
 the Docker containers through Singularity/Apptainer.
