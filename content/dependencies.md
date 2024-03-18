@@ -15,11 +15,11 @@ Our codes often depend on other codes that in turn depend on other codes ...
   How can we capture and communicate dependencies?
 - **Dependency hell**: Different codes on the same environment can have conflicting dependencies.
 
-```{figure} img/python_environment.png
-:alt: An image showing a mess of dependecies in a Python environment
+```{figure} img/dependency.png
+:alt: An image showing blocks (=codes) depending on each other for stability
 :width: 60%
 
-From [xkcd](https://xkcd.com/).
+From [xkcd - dependency](https://xkcd.com/2347/). Another image that might be familiar to some of you working with Python can be found on [xkcd - superfund](https://xkcd.com/1987/).
 ```
 
 ````{discussion} Kitchen analogy
