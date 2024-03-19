@@ -269,17 +269,50 @@ information?
 
   `````{tabs}
     ````{group-tab} Conda
-      Try this either with your own project or inside the "coderefinery" conda
-      environment:
+      We start from an existing conda environment. Try this either with your own project or inside the "coderefinery" conda
+      environment. For demonstration puprposes, you can also create an environment with:
+
+	  ```console
+      $ conda env create -f myenv.yml
+      ```
+      Where the file `myenv.yml` could have some python libraries with unspecified versions:
+
+      ```
+      name: myenv
+      channels:
+        - conda-forge
+        - defaults
+      dependencies:
+        - python=3.10
+        - numpy
+        - pandas
+        - seaborn
+      ```
+
+      After creating the environment we can activate it with
+
+      ```
+      conda activate myenv
+      ```
+
+      Now we can freeze the environment into a new YAML file with:
+
       ```console
       $ conda env export > environment.yml
       ```
 
       Have a look at the generated file and discuss what you see.
 
-      In future you can re-create this environment with:
+      In the future — or on a different computer — we can re-create this environment with:
+      
       ```console
       $ conda env create -f environment.yml
+      ```
+
+      What happens instead when you run the following command?
+
+      ```console
+      $ conda env export --from-history > environment_fromhistory.yml
       ```
 
       More information: <https://docs.conda.io/en/latest/>
