@@ -23,7 +23,7 @@ project](https://github.com/coderefinery/word-count) which finds most frequent
 words in books and plots the result from those statistics.  In this example we
 wish to:
 
-1. Analyze word frequencies using [statistics/count.py](https://github.com/coderefinery/word-count/blob/main/statistics/count.py)
+1. Analyze word frequencies using [code/count.py](https://github.com/coderefinery/word-count/blob/main/code/count.py)
    for 4 books
    (they are all in the [data](https://github.com/coderefinery/word-count/tree/main/data) directory).
 2. Plot a histogram using [plot/plot.py](https://github.com/coderefinery/word-count/blob/main/plot/plot.py).
@@ -36,7 +36,7 @@ wish to:
 Example (for one book only):
 
 ```console
-$ python statistics/count.py data/isles.txt > statistics/isles.data
+$ python code/count.py data/isles.txt > statistics/isles.data
 $ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
 ```
 
