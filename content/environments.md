@@ -78,9 +78,9 @@ Just for fun: which operating systems do the following example kitchens represen
 
 ## You may have use for containers in different ways
 
-- Installing a certain software is tricky, or not supported for your operating system? -> See if an image is available and run the software from a container instead!
-- You want to make sure your colleagues are using the same environment for running your code? -> Provide them an image of your container!
-  - If this does not work, because they are using a different architecture than you do? -> Provide a definition file for them to build the image suitable to their computers. This does not create the exact environment as you have, but in most cases similar enough.
+- **Installing a certain software is tricky**, or not supported for your operating system? - Check if an image is available and run the software from a container instead!
+- You want to make sure your colleagues are using the **same environment** for running your code? - Provide them an image of your container!
+  - If this does not work, because they are using a different architecture than you do? - Provide a definition file for them to **build the image suitable to their computers**. This does not create the exact environment as you have, but in most cases similar enough.
 
 ## The container recipe
 
@@ -118,25 +118,25 @@ They are to some extent interoperable:
 
 Containers are popular for a reason - they solve a number of
 important problems:
-- Allow for seamlessly moving workflows across different platforms.
-- Can solve the "works on my machine" situation.
+- Allow for seamlessly **moving workflows across different platforms**.
+- Can solve the **"works on my machine"** situation.
 - For software with many dependencies, in turn with its own dependencies,
   containers offer possibly the only way to preserve the
-  computational experiment for future reproducibility.
-- A mechanism to "send the computer to the data" when data is too
-- Installing software into a file instead of into your computer (removing
+  computational experiment for **future reproducibility**.
+- A mechanism to "send the computer to the data" when the **dataset is too large** to transfer.
+- **Installing software into a file** instead of into your computer (removing
   a file is often easier than uninstalling software if you suddenly regret an
   installation)
 
 However, containers may also have some drawbacks:
 - Can be used to hide away software installation problems and thereby
-  discourage good software development practices.
-- Instead of "works on my machine" problem: "works only in this container" problem?
-- They can be difficult to modify (this is the focus of an exercise below)
-- Container images can become large
+  **discourage good software development practices**.
+- Instead of "works on my machine" problem: **"works only in this container"** problem?
+- They can be **difficult to modify** 
+- Container **images can become large**
 
 ```{danger}
-Use only official and trusted images!  Not all images can be trusted! There
+Use only **official and trusted images**!  Not all images can be trusted! There
 have been examples of contaminated images so investigate before using images
 blindly. Apply same caution as installing software packages from untrusted
 package repositories.
