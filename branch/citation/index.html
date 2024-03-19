@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reproducible research &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="#" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex/" />
+    <link rel="search" title="Search" href="search/" />
+    <link rel="next" title="Motivation" href="motivation/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments/">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing/">Sharing code and data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reproducible research</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reproducible-research">
+<span id="index"></span><h1>Reproducible research<a class="headerlink" href="#reproducible-research" title="Permalink to this heading"></a></h1>
+<p>Have you ever spent days <strong>trying to repeat the results from few weeks or months
+ago</strong>?  Or you have to do paper revisions, but you just can’t get the results to
+match up? It’s unpleasant for both you and science.</p>
+<p>In this lesson we will explore different methods and tools for better
+reproducibility in research software and data. We will demonstrate how version
+control, workflows, containers, and package managers can be used to <strong>record
+reproducible environments and computational steps</strong> for our future selves.</p>
+<div class="admonition-learning-outcomes admonition">
+<p class="admonition-title">Learning outcomes</p>
+<dl class="simple">
+<dt>By the end of this lesson, learners should:</dt><dd><ul class="simple">
+<li><p>be able to apply well organized directory structure for their project</p></li>
+<li><p>remember the FAIR principles</p></li>
+<li><p>understand that code can have dependencies, and know how to document them</p></li>
+<li><p>if a computational studies contains several steps, be able to document them</p></li>
+<li><p>know about use cases for containers</p></li>
+<li><p>knowing the pros and cons of manual documentation vs. scripted automation vs. workflow management</p></li>
+<li><p>be able to create a DOI for research output like code or data</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="admonition-prerequisites prerequisites admonition" id="prerequisites-0">
+<p class="admonition-title">Prerequisites</p>
+<p>You need to install
+<a class="reference external" href="https://coderefinery.github.io/installation/">Git, Python, and Snakemake</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environments/">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing/">Sharing code and data</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/">Instructor guide</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="motivation/" class="btn btn-neutral float-right" title="Motivation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
