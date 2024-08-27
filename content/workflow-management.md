@@ -37,7 +37,7 @@ Example (for one book only):
 
 ```console
 $ python code/count.py data/isles.txt > statistics/isles.data
-$ python plot/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
+$ python code/plot.py --data-file statistics/isles.data --plot-file plot/isles.png
 ```
 
 Another way to analyze the data would be via a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.
