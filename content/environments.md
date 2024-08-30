@@ -12,12 +12,11 @@
 - 10 min demo
 ```
 
-
 ## What is a container?
 
 Imagine if you didn't have to install things yourself, but instead you could
-get a computer with the exact software for a task pre-installed?  Containers
-effectively do that, with various advantages and disadvantages.  They are
+get a computer with the exact software for a task pre-installed? Containers
+effectively do that, with various advantages and disadvantages. They are
 **like an entire operating system with software installed, all in one file**.
 
 ```{figure} img/docker_meme.jpg
@@ -31,8 +30,8 @@ From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_
 - Our codes/scripts <-> cooking recipes
 - Container definition files <-> like a blueprint to build a kitchen with all
   utensils in which the recipe can be prepared.
-- Container images <-> example kitchens
-- Containers <-> identical factory-built mobile food truck kitchens
+- Container images <-> showroom kitchens
+- Containers <-> A real connected kitchen
 
 Just for fun: which operating systems do the following example kitchens represent?
   `````{tabs}
@@ -40,7 +39,7 @@ Just for fun: which operating systems do the following example kitchens represen
       ```{figure} img/kitchen/macos.png
       :alt: Generated image of a kitchen
       :width: 50%
-     
+
       [Midjourney, CC-BY-NC 4.0]
       ```
     ````
@@ -49,7 +48,7 @@ Just for fun: which operating systems do the following example kitchens represen
       ```{figure} img/kitchen/windows.png
       :alt: Generated image of a kitchen
       :width: 50%
-     
+
       [Midjourney, CC-BY-NC 4.0]
       ```
     ````
@@ -58,17 +57,16 @@ Just for fun: which operating systems do the following example kitchens represen
       ```{figure} img/kitchen/linux.png
       :alt: Generated image of a kitchen
       :width: 50%
-     
+
       [Midjourney, CC-BY-NC 4.0]
       ```
     ````
   `````
 ``````
 
-
 ## From definition files to container images to containers
 
-- Containers can be built to bundle *all the necessary ingredients* (data, code, environment, operating system).
+- Containers can be built to bundle _all the necessary ingredients_ (data, code, environment, operating system).
 - A container image is like a piece of paper with all the operating system on it. When you run it,
   a transparent sheet is placed on top to form a container. The container runs and writes only on
   that transparent sheet (and what other mounts have been layered on top). When you are done,
@@ -85,6 +83,7 @@ Just for fun: which operating systems do the following example kitchens represen
 ## The container recipe
 
 Here is an example of a Singularity definition file ([reference](https://apptainer.org/docs/user/main/build_a_container.html#building-containers-from-apptainer-definition-files)):
+
 ```
 Bootstrap: docker
 From: ubuntu:20.04
@@ -102,12 +101,14 @@ From: ubuntu:20.04
 ```
 
 Popular container implementations:
+
 - [Docker](https://www.docker.com/)
 - [Singularity](https://sylabs.io/docs/) (popular on high-performance computing systems)
 - [Apptainer](https://apptainer.org) (popular on high-performance computing systems, fork of Singularity)
 - [podman](https://podman.io/)
 
 They are to some extent interoperable:
+
 - podman is very close to Docker
 - Docker images can be converted to Singularity/Apptainer images
 - [Singularity Python](https://singularityhub.github.io/singularity-cli/) can convert Dockerfiles to Singularity definition files
@@ -118,6 +119,7 @@ They are to some extent interoperable:
 
 Containers are popular for a reason - they solve a number of
 important problems:
+
 - Allow for seamlessly **moving workflows across different platforms**.
 - Can solve the **"works on my machine"** situation.
 - For software with many dependencies, in turn with its own dependencies,
@@ -129,10 +131,11 @@ important problems:
   installation)
 
 However, containers may also have some drawbacks:
+
 - Can be used to hide away software installation problems and thereby
   **discourage good software development practices**.
 - Instead of "works on my machine" problem: **"works only in this container"** problem?
-- They can be **difficult to modify** 
+- They can be **difficult to modify**
 - Container **images can become large**
 
 ```{danger}
@@ -246,10 +249,9 @@ package repositories.
   `````
 ``````
 
+````{exercise} (optional) Containers-2: Installing the impossible.
 
-````{exercise} (optional) Containers-2: Installing the impossible. 
-
-When you are missing privileges for installing certain software tools, containers can come handy. 
+When you are missing privileges for installing certain software tools, containers can come handy.
 Here we build a Singularity/Apptainer container for installing `cowsay` and `lolcat` Linux programs.
 
 1. Make sure you have apptainer installed:
@@ -281,8 +283,6 @@ Here we build a Singularity/Apptainer container for installing `cowsay` and `lol
    ```
 
 ````
-
-
 
 ````{exercise} (optional) Containers-3: Explore two really useful Docker images
 You can try the below if you have Docker installed. If you have
@@ -316,7 +316,6 @@ the Docker containers through Singularity/Apptainer.
 
 - [Carpentries incubator lesson on Docker](https://carpentries-incubator.github.io/docker-introduction/)
 - [Carpentries incubator lesson on Singularity/Apptainer](https://carpentries-incubator.github.io/singularity-introduction/)
-
 
 ```{keypoints}
 - Containers can be helpful if complex setups are needed to running a specific software
