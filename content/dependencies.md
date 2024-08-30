@@ -25,7 +25,7 @@ From [xkcd - dependency](https://xkcd.com/2347/). Another image that might be fa
 ````{discussion} Kitchen analogy
 - Software <-> recipe
 - Data <-> ingredients
-- Libraries <-> cooking books/blogs
+- Libraries <-> Pots/Tools
 
 ```{figure} img/kitchen/recipe.png
 :alt: Cooking recipe in an unfamiliar language
@@ -38,7 +38,7 @@ Cooking recipe in an unfamiliar language [Midjourney, CC-BY-NC 4.0]
 :alt: Kitchen with few open cooking books
 :width: 50%
 
-When we create recipes, we often use existing recipes written by others (libraries) [Midjourney, CC-BY-NC 4.0]
+When we create recipes, we often use tools created by others (libraries) [Midjourney, CC-BY-NC 4.0]
 ```
 ````
 
@@ -48,6 +48,7 @@ When we create recipes, we often use existing recipes written by others (librari
 
 **Conda, Anaconda, pip, virtualenv, Pipenv, pyenv, Poetry, requirements.txt,
 environment.yml, renv**, ..., these tools try to solve the following problems:
+
 - **Defining a specific set of dependencies**, possibly with well defined versions
 - **Installing those dependencies** mostly automatically
 - **Recording the versions** for all dependencies
@@ -61,7 +62,7 @@ Isolated environments are also useful because they help you make sure
 that you know your dependencies!
 
 **If things go wrong, you can delete and re-create** - much better
-than debugging.  The more often you re-create your environment, the
+than debugging. The more often you re-create your environment, the
 more reproducible it is.
 
 ---
@@ -244,12 +245,12 @@ Answer in the collaborative document:
   become very difficult for to create the software environment required to
   run the software. But at least we know the list of libraries. But we don't
   know the versions.
-    
+
   **C**: Having a standard file listing dependencies is definitely better
   than nothing. However, if the versions are not specified, you or someone
   else might run into problems with dependencies, deprecated features,
   changes in package APIs, etc.
-  
+
   **D** and **E**: In both these cases exact versions of all dependencies are
   specified and one can recreate the software environment required for the
   project. One problem with the dependencies that come from GitHub is that
@@ -304,7 +305,7 @@ information?
       Have a look at the generated file and discuss what you see.
 
       In the future — or on a different computer — we can re-create this environment with:
-      
+
       ```console
       $ conda env create -f environment.yml
       ```
@@ -351,7 +352,6 @@ information?
     ````
   `````
 ``````
-
 
 ```{keypoints}
 - Recording dependencies with versions can make it easier for the next person to execute your code
