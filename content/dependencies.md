@@ -25,7 +25,7 @@ From [xkcd - dependency](https://xkcd.com/2347/). Another image that might be fa
 ````{discussion} Kitchen analogy
 - Software <-> recipe
 - Data <-> ingredients
-- Libraries <-> Pots/Tools
+- Libraries <-> pots/tools
 
 ```{figure} img/kitchen/recipe.png
 :alt: Cooking recipe in an unfamiliar language
