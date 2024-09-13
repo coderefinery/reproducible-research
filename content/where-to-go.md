@@ -24,10 +24,12 @@ However, you will not always need all of them. As with so many things, it again 
 ## Containers seem amazing, but do I have use for them?
 
 - Maybe not yet, but knowing that you can ...
-  _ Run Linux tools on your Windows computer
-  _ Run different versions of same software on your computer
-  _ Follow the "easy installation instructions" for an operating system that is not your own
-  _ Get a fully configured environment instead of only installing a tool \* Share your setup and configurations with others
+  - Run Linux tools on your Windows computer
+  - Run different versions of same software on your computer
+  - Follow the "easy installation instructions" for an operating system that is not your own
+  - Get a fully configured environment instead of only installing a tool
+  - Share your setup and configurations with others
+    
   ... can be very beneficial :)
 
 ## Important for every project
