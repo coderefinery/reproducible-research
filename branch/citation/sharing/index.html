@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharing code and data &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="List of exercises" href="../exercises/" />
+    <link rel="prev" title="Recording environments" href="../environments/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/">Recording environments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sharing code and data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-research-data">Sharing research data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fair-principles">FAIR principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-connecting-repositories-to-zenodo">Exercise - Connecting repositories to Zenodo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#services-for-sharing-and-collaborating-on-research-data">Services for sharing and collaborating on research data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources-for-data-management">Resources for data management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-reading-on-reproducibility-and-open-science">Further reading on reproducibility and open science</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sharing code and data</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/sharing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sharing-code-and-data">
+<h1>Sharing code and data<a class="headerlink" href="#sharing-code-and-data" title="Permalink to this heading"></a></h1>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>How can I share research code and data?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Discuss the pros and cons of open science</p></li>
+<li><p>Learn how to mint a DOI for your project</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching</p></li>
+<li><p>15 min exercises</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="sharing-research-data">
+<h2>Sharing research data<a class="headerlink" href="#sharing-research-data" title="Permalink to this heading"></a></h2>
+<p>The Open Science movement encourages researchers
+to share research output beyond the contents of a
+published academic article (and possibly supplementary information).</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/Open_Science_Principles.png"><img alt="Research comic" src="../_images/Open_Science_Principles.png" style="width: 90%;" /></a>
+</figure>
+<p>Arguments in favor <a class="reference external" href="https://en.wikipedia.org/wiki/Open_science">(from Wikipedia)</a>:</p>
+<ul class="simple">
+<li><p>Open access publication of research reports and data allows for rigorous peer-review</p></li>
+<li><p>Science is publicly funded so all results of the research should be publicly available</p></li>
+<li><p>Open Science will make science more reproducible and transparent</p></li>
+<li><p>Open Science has more impact</p></li>
+<li><p>Open Science will help answer uniquely complex questions</p></li>
+</ul>
+<p>Arguments against <a class="reference external" href="https://en.wikipedia.org/wiki/Open_science">(from Wikipedia)</a>:</p>
+<ul class="simple">
+<li><p>Too much unsorted information overwhelms scientists</p></li>
+<li><p>Potential misuse</p></li>
+<li><p>The public will misunderstand science data</p></li>
+<li><p>Increasing the scale of science will make verification of any discovery more difficult</p></li>
+<li><p>Low-quality science</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/36-data-research-cycle.jpg"><img alt="Research comic" src="../_images/36-data-research-cycle.jpg" style="width: 100%;" /></a>
+</figure>
+<p>(This image was created by <a class="reference external" href="http://www.scriberia.co.uk">Scriberia</a> for <a class="reference external" href="https://the-turing-way.netlify.com">The
+Turing Way</a> community and is used under a
+CC-BY licence. The image was obtained from <a class="reference external" href="https://zenodo.org/record/3332808">https://zenodo.org/record/3332808</a>.)</p>
+</section>
+<hr class="docutils" />
+<section id="fair-principles">
+<h2>FAIR principles<a class="headerlink" href="#fair-principles" title="Permalink to this heading"></a></h2>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/8-fair-principles.jpg"><img alt="Research comic" src="../_images/8-fair-principles.jpg" style="width: 100%;" /></a>
+</figure>
+<p>(This image was created by <a class="reference external" href="http://www.scriberia.co.uk">Scriberia</a> for <a class="reference external" href="https://the-turing-way.netlify.com">The
+Turing Way</a> community and is used under a
+CC-BY licence. The image was obtained from <a class="reference external" href="https://zenodo.org/record/3332808">https://zenodo.org/record/3332808</a>.)</p>
+<p>“FAIR” is the current buzzword for data management. You may be asked
+about it in, for example, making data management plans for grants:</p>
+<ul class="simple">
+<li><p><strong>F</strong>indable</p>
+<ul>
+<li><p>Will anyone else know that your data exists?</p></li>
+<li><p>Solutions: put it in a standard repository, or at least a
+description of the data. Get a digital object identifier (DOI).</p></li>
+</ul>
+</li>
+<li><p><strong>A</strong>ccessible</p>
+<ul>
+<li><p>Once someone knows that the data exists, can they get it?</p></li>
+<li><p>Usually solved by being in a repository, but for non-open data,
+may require more procedures.</p></li>
+</ul>
+</li>
+<li><p><strong>I</strong>nteroperable</p>
+<ul>
+<li><p>Is your data in a format that can be used by others, like csv
+instead of PDF?</p></li>
+<li><p>Or better than csv. Example: <a class="reference external" href="https://5stardata.info/en/">5-star open data</a></p></li>
+</ul>
+</li>
+<li><p><strong>R</strong>eusable</p>
+<ul>
+<li><p>Is there a license allowing others to re-use?</p></li>
+</ul>
+</li>
+</ul>
+<p>Even though this is usually referred to as “open data”, it means
+considering and making good decisions, even if non-open.</p>
+<p>FAIR principles are usually discussed in the context of data,
+but they apply also for research software.</p>
+<p>Note that FAIR principles do not require data/software to be open.</p>
+<div class="admonition-discuss-open-science discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discuss open science</p>
+<ul class="simple">
+<li><p>Do you share any other research outputs besides published articles and possibly source code?</p></li>
+<li><p>Discuss pros and cons of sharing research data.</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-connecting-repositories-to-zenodo">
+<h2>Exercise - Connecting repositories to Zenodo<a class="headerlink" href="#exercise-connecting-repositories-to-zenodo" title="Permalink to this heading"></a></h2>
+<div class="admonition-sharing-1-get-a-doi-from-zenodo exercise important admonition" id="exercise-0">
+<p class="admonition-title">Sharing-1: Get a DOI from Zenodo</p>
+<p>Digital object identifiers (DOI) are the backbone of the academic
+reference and metrics system. In this exercise we will see how to
+make a GitHub repository citable by archiving it on the
+<a class="reference external" href="http://about.zenodo.org/">Zenodo</a> archiving service. Zenodo is a
+general-purpose open access repository created by OpenAIRE and CERN.</p>
+<ol class="arabic simple">
+<li><p>Sign in to Zenodo using your GitHub account. For this exercise, use the
+sandbox service: <a class="reference external" href="https://sandbox.zenodo.org/login/">https://sandbox.zenodo.org/login/</a>. This is a test version of the real Zenodo platform.</p></li>
+<li><p>Go to <a class="reference external" href="https://sandbox.zenodo.org/account/settings/github/">https://sandbox.zenodo.org/account/settings/github/</a>.</p></li>
+<li><p>Find the repository you wish to publish,
+and flip the switch to ON.</p></li>
+<li><p>Go to GitHub and create a <strong>release</strong>  by clicking the <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">release</span></code> on the
+right-hand side (a release is based on a Git tag, but is a higher-level GitHub feature).
+You will need to enter a tag name (e.g. v0.1) in the “Choose a tag” box.</p></li>
+<li><p>Creating a new release will trigger Zenodo into archiving your repository,
+and a DOI badge will be displayed next to your repository after a minute
+or two. You can include it in your GitHub README file: click the
+DOI badge and copy the relevant format (Markdown, RST, HTML).</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="services-for-sharing-and-collaborating-on-research-data">
+<h2>Services for sharing and collaborating on research data<a class="headerlink" href="#services-for-sharing-and-collaborating-on-research-data" title="Permalink to this heading"></a></h2>
+<p>To find a research data repository for your data, you can search on the
+<a class="reference external" href="https://www.re3data.org/">Registry of Research Data Repositories (re3data)</a>
+platform and filter by country, content type, discipline, etc.</p>
+<p><strong>International:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenodo.org/">Zenodo</a>: A general-purpose open access repository
+created by OpenAIRE and CERN. Integration with GitHub, allows
+researchers to upload files up to 50 GB.</p></li>
+<li><p><a class="reference external" href="https://figshare.com/">Figshare</a>: Online digital repository where researchers
+can preserve and share their research outputs (figures, datasets, images and videos).
+Users can make all of their research outputs available in a citable,
+shareable and discoverable manner.</p></li>
+<li><p><a class="reference external" href="https://eudat.eu">EUDAT</a>: European platform for researchers and practitioners from any research discipline to preserve, find, access, and process data in a trusted environment.</p></li>
+<li><p><a class="reference external" href="https://datadryad.org/">Dryad</a>: A general-purpose home for a wide diversity of datatypes,
+governed by a nonprofit membership organization.
+A curated resource that makes the data underlying scientific publications discoverable,
+freely reusable, and citable.</p></li>
+<li><p><a class="reference external" href="https://osf.io/">The Open Science Framework</a>: Gives free accounts for collaboration
+around files and other research artifacts. Each account can have up to 5 GB of files
+without any problem, and it remains private until you make it public.</p></li>
+</ul>
+<p><strong>Sweden:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.icos-sweden.se/">ICOS for climate data</a></p></li>
+<li><p><a class="reference external" href="https://bolin.su.se/data/">Bolin center climate / geodata</a></p></li>
+<li><p><a class="reference external" href="https://nbis.se/infrastructure">NBIS for life science, sequence –omics data</a></p></li>
+</ul>
+<p><strong>Norway:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://archive.norstore.no/">NIRD archive is widely used by some communities</a></p></li>
+<li><p><a class="reference external" href="https://nsd.no/nsd/english/index.html">NSD - Norwegian Center for Research Data, for any kind of data</a></p></li>
+<li><p><a class="reference external" href="https://dataverse.no/">Dataverse.no - Dataverse network, based at University of Tromsø but open for other institutions</a></p></li>
+</ul>
+<p><strong>Denmark:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.opendata.dk">opendata.dk nationwide portal</a></p></li>
+<li><p><a class="reference external" href="http://brugstedet.dk/">Danish portal for sharing geographical data</a></p></li>
+</ul>
+<p><strong>Finland:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ida.fairdata.fi/login">IDA, for general data</a></p></li>
+<li><p><a class="reference external" href="https://www.fsd.uta.fi/en/">FSD for social data</a></p></li>
+<li><p><a class="reference external" href="https://www.fairdata.fi/en/">more information on Finnish resources for open data</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="resources-for-data-management">
+<h2>Resources for data management<a class="headerlink" href="#resources-for-data-management" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.datalad.org/">DataLad</a></p></li>
+<li><p><a class="reference external" href="https://ds-wizard.org/">Data Stewardship Wizard</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="further-reading-on-reproducibility-and-open-science">
+<h2>Further reading on reproducibility and open science<a class="headerlink" href="#further-reading-on-reproducibility-and-open-science" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/alan-turing-institute/the-turing-way/">The Turing way</a></p></li>
+<li><p><a class="reference external" href="https://zenodo.org/record/3332808">Illustrations from the Turing Way book dashes</a></p></li>
+<li><p><a class="reference external" href="http://lorenabarba.com/blog/barbagroup-reproducibility-syllabus/">Reproduciblity syllabus</a></p></li>
+<li><p>The <a class="reference external" href="http://www.reana.io/">reproducible research data analysis platform</a></p></li>
+<li><p>Good talks on open reproducible research can be found <a class="reference external" href="http://inundata.org/talks/index.html">here</a>.</p></li>
+<li><p><a class="reference external" href="https://danielskatzblog.wordpress.com/2017/06/22/fair-is-not-fair-enough/">“FAIR is not fair enough”</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41567-019-0624-3">“A FAIRer future”</a></p></li>
+<li><p><a class="reference external" href="https://librarycarpentry.org/Top-10-FAIR/">“Top 10 FAIR Data &amp; Software Things”</a> are brief guides that can be used by the research community to understand how they can make their research (data and software) more FAIR.</p></li>
+<li><p><a class="reference external" href="https://fair-software.eu/">Five recommendations for fair software</a></p></li>
+<li><p><a class="reference external" href="https://libguides.mit.edu/software">Publishing research software</a> A MIT libraries webpage on why to publish software, where to publish software, and how to make software citable.</p></li>
+<li><p><a class="reference external" href="https://technical-reference.readthedocs.io/en/latest/quality/software-checklist.html">Software Quality Checklist</a></p></li>
+<li><p><a class="reference external" href="http://molssi.org/education/best-practices/">MolSSI Best Practice Guides</a></p></li>
+<li><p><a class="reference external" href="https://fair-software.eu/">Five recommendations for fair software</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NLeSC/awesome-research-software-registries">Awesome Research Software Registries</a></p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Consider sharing other research outputs than articles.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../environments/" class="btn btn-neutral float-left" title="Recording environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../exercises/" class="btn btn-neutral float-right" title="List of exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
