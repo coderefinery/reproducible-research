@@ -77,7 +77,7 @@ project_name/
 ```
 > Please write or discuss your ideas before opening solution!
 
-```{solution}
+```{solution} Take away messages
 - Consider using version control for manuscripts as well. It may help you when keeping track of edits + if you sync it online then you don't have to worry about losing your work.
 
 - Collaboration can be done efficiently by
