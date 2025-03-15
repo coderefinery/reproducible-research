@@ -26,6 +26,9 @@ reproducible environments and computational steps** for our future selves and ot
    You need to install
    `Git, Python, and Snakemake <https://coderefinery.github.io/installation/>`__.
 
+   If you wish to follow in the terminal and are new to the command line, we
+   recorded a `short shell crash course <https://youtu.be/xbTTDLA3txI>`__.
+
 
 .. toctree::
    :maxdepth: 1
@@ -44,6 +47,7 @@ reproducible environments and computational steps** for our future selves and ot
    :maxdepth: 1
    :caption: Reference
 
+   Shell crash course <https://youtu.be/xbTTDLA3txI>
    exercises
    guide
 
