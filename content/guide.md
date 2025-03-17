@@ -8,7 +8,65 @@ permalink: /guide/
 
 ## Detailed day schedule
 
-Two example schedules for this lesson: 
+Some example schedules for this lesson: 
+
+2024 edition plan (times in EET, Helsinki time), **no exercises**, just demos: 
+
+- 09:50 - 10:00 Soft start and icebreaker question
+    - Page: collaborative notes document
+    - Give more space to the icebreaker and see what people are writing and talk about our own experiences
+- 10:00 - 10:03 Collab document intro 
+- 10:03 - 10:05 Learning outcomes: https://coderefinery.github.io/reproducible-research/ 
+- 10:05 - 10:10 Overview of CR and how it all fits together 
+    - Page: https://coderefinery.github.io/reproducible-research/intro
+    - Learning outcomes from index
+- 10:10 - 10:20 Reproducible research, Motivation
+    - Exercise in notes doc with the discussions in bottom of motivation page 
+    - Page: https://coderefinery.github.io/reproducible-research/motivation/
+- 10:20 - 10:30 Organizing your projects
+    - Copy the discussion on the notes and if we have time we can highlight some answers
+    - Page: https://coderefinery.github.io/reproducible-research/organizing-projects/
+- 10:30 - 10:35  ask in collab document and discuss
+    - https://coderefinery.github.io/reproducible-research/organizing-projects/#discussion-on-reproducibility
+        - Are you using version control for academic papers?
+          - ...
+          - ...
+        - How do you handle collaborative issues e.g. conflicting changes?
+          - ...
+          - ...
+- 10:35 - 10:55 Recording computational steps 
+    - Page: https://coderefinery.github.io/reproducible-research/workflow-management/
+- 10:55 - 11:05 Real break
+- 11:05 - 11:25 Recording dependencies
+    - https://coderefinery.github.io/reproducible-research/dependencies/#exercises
+        - ask first one in collab doc and discuss on stream
+        - show difference between created env from env file vs exported env file on stream
+- 11:25 - 11:30 ask in collaborative document
+    - Are you using any dependency and/or environment management tool in your work?
+        - No: o
+            - why not?
+                - ..
+                - ..
+        - Yes: o
+            - which?
+                - ..
+                - ..
+    - Have you heard about or been in contact with containers (docker, singularity, podman) in your work? How did you come across them?
+        - No: o
+        - Yes: 
+            - ..
+            - ..
+            - ..    
+- 11:30 - 11:50 Recording environments 
+    - The first contact with containers is often: Take this and run this command and then when you need to share/build. 
+    - Discuss setup issues, permissions if docker wants root, bandwidth, etc
+    - Pros and cons of containers 
+    - Demo of two pre-made containers e.g. expand the R studio optional exercise? 
+- 11:50 - 12.00 Wrapup 
+    - where to go from here: idea would be to give it more practical focus: what to do with these tools? Project level reproducibility. Time-scales of what changes (short time changes of code, long time years changes of OS-s, libraries).
+    - Bring your code session advertisement
+    - Material + recording available
+- 12:00 - long break starts
 
 This is the planned schedule for the workshop in September 2023 (2 hours and 5 minutes including 10 min break) ; note that for this workshop, sharing code and data was moved to social coding lesson:
 
