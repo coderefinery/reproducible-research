@@ -37,3 +37,6 @@ We will also mention a few tools and platforms for sharing data (**"Here is my d
 
 If this is all new to you, it may feel quite overwhelming. 
 Our recommendation: Focus on "good enough" instead of perfect: To start, pick one topic that seems reasonable to implement for your current project. Something that helps YOU right now. Some things you may have to implement due to requirements from your funders or the journal where you want to publish your research. Use their requirements as a checklist and find tools that feel comfortable for you. 
+A great way to see what are the really important things to implement, meet with a colleague, exchange codes and try to run each others code. Every question your colleague has to ask from you about your code gives a hint on where you may need to improve your documentation. 
+Keeping a "log book" while working on your own code also serves as a great basis for making your code more reproducible. Can you use any of the tools and techniques learned in this workshop to share parts of your log book with others to help them run your code?
+
