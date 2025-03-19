@@ -21,8 +21,8 @@ authors:
 title: "Reproducible research -  Preparing code to be usable by you in the future and others in general"
 type: "data"
 abstract: "We focus here on 3 aspects of reproducible programs and computations: documenting dependencies, environments, and computational steps in a reproducible way. We touch on containers."
-version: 2023-09-06
-date-released: 2023-09-06
+version: 2025-03-19
+date-released: 2025-03-19
 url: "https://coderefinery.github.io/reproducible-research/"
 license: CC-BY-4.0
 repository-code: "https://github.com/coderefinery/reproducible-research"
