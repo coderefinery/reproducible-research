@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = "Reproducible research"
-copyright = "CodeRefinery team"
-author = "CodeRefinery team"
+copyright = "CodeRefinery contributors"
+author = "CodeRefinery contributors"
 github_user = "coderefinery"
 github_repo_name = "reproducible-research"  # auto-detected from dirname if blank
 github_version = "main"
