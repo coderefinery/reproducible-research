@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this lesson material, please cite it using these metadata."
+authors:
+- name: "CodeRefinery"
+- family-names: "Wikfeldt"
+  given-names: "Kjartan Thor"
+- family-names: "Bast"
+  given-names: "Radovan"
+- family-names: "Darst"
+  given-names: "Richard"
+- family-names: "Hellsvik"
+  given-names: "Johann"
+- family-names: "Wittke"
+  given-names: "Samantha"
+- family-names: "Jääskeläinen"
+  given-names: "Matias"
+- family-names: "Glerean"
+  given-names: "Enrico"
+- family-names: "Vathsavayi"
+  given-names: "Harsha"
+title: "Reproducible research -  Preparing code to be usable by you in the future and others in general"
+type: "data"
+abstract: "We focus here on 3 aspects of reproducible programs and computations: documenting dependencies, environments, and computational steps in a reproducible way. We touch on containers."
+version: 2025-03-19
+date-released: 2025-03-19
+url: "https://coderefinery.github.io/reproducible-research/"
+license: CC-BY-4.0
+repository-code: "https://github.com/coderefinery/reproducible-research"
