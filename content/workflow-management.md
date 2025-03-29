@@ -8,6 +8,11 @@
 - When to use scientific workflow management systems.
 ```
 
+```{objectives}
+- Understand why a workflow management tool can be useful
+```
+
+
 ```{instructor-note}
 - 5 min teaching
 - 15 min demo
@@ -238,5 +243,5 @@ Tools like Snakemake help us with **reproducibility** by supporting us with **au
 
 ```{keypoints}
 - Computational steps can be recorded in many ways
-- Workflow tools can help, if there are many steps to be executed
+- Workflow tools can help, if there are many steps to be executed and/or many datasets to be processed
 ```
