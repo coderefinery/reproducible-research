@@ -5,13 +5,11 @@
   actually run them?  Does it rely on your own memory and work, or is it
   reproducible? **How do you communicate the steps** for future you and others?
 - How can we create a reproducible workflow?
-- When to use scientific workflow management systems.
 ```
 
 ```{objectives}
-- Understand why a workflow management tool can be useful
+- Understand why and when a workflow management tool can be useful
 ```
-
 
 ```{instructor-note}
 - 5 min teaching
@@ -83,7 +81,7 @@ steps in precisely this order, as we would run them manually, one after another.
 
 ## Workflow tools
 
-Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies but we let the tool figure out the series of steps to produce results.
+Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies between steps, but we let the tool figure out the order of steps to produce results.
 
 ### Example workflow tool: [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
@@ -210,6 +208,7 @@ which can be installed by `conda install graphviz`.
 ```console
 $ snakemake -j 1 --dag | dot -Tpng > dag.png
 ```
+
 Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
 
 ```{figure} img/snakemake_dag.png
