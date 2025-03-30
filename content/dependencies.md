@@ -1,5 +1,9 @@
 # Recording dependencies
 
+```{objectives}
+- Understand what dependency management tools can be useful for
+```
+
 ```{questions}
 - How can we communicate different versions of software dependencies?
 ```
@@ -44,18 +48,18 @@ When we create recipes, we often use tools created by others (libraries) [Midjou
 
 ---
 
-## Tools and what problems they try to solve
+## Dependency and environment management
 
 **Conda, Anaconda, pip, virtualenv, Pipenv, pyenv, Poetry, requirements.txt,
 environment.yml, renv**, ..., these tools try to solve the following problems:
 
-- **Defining a specific set of dependencies**, possibly with well defined versions
+- **Defining a specific set of dependencies**
 - **Installing those dependencies** mostly automatically
 - **Recording the versions** for all dependencies
 - **Isolate environments**
   - On your computer for projects so they can use different software
   - Isolate environments on computers with many users (and allow self-installations)
-- Using **different Python/R versions** per project
+- Using **different package versions** per project (also e.g. Python/R versions)
 - Provide tools and services to **share packages**
 
 Isolated environments are also useful because they help you make sure
@@ -273,7 +277,7 @@ information?
       We start from an existing conda environment. Try this either with your own project or inside the "coderefinery" conda
       environment. For demonstration puprposes, you can also create an environment with:
 
-	  ```console
+	    ```console
       $ conda env create -f myenv.yml
       ```
       Where the file `myenv.yml` could have some python libraries with unspecified versions:
@@ -303,12 +307,21 @@ information?
       ```
 
       Have a look at the generated file and discuss what you see.
+      
+      ```{solution} Some things to note
+      - Can you find all packages you installed directly? Which versions were installed? 
+      - What other packages were installed? -> Dependencies of dependencies
+      - Besides the version you can also see the build channel
+        - Sometimes the build includes an operating system or an architecture
+        - Using this environment file might therefore not work/ not result in an identical setup on other computers
+      ```
 
       In the future — or on a different computer — we can re-create this environment with:
 
       ```console
       $ conda env create -f environment.yml
       ```
+      You may use `conda` or `mamba` interchangably for this step; mamba may solve the dependencies a bit faster.
 
       What happens instead when you run the following command?
 
@@ -316,9 +329,15 @@ information?
       $ conda env export --from-history > environment_fromhistory.yml
       ```
 
-      More information: <https://docs.conda.io/en/latest/>
+      ```{solution} Some things to note
+      - Everything is listed as you installed it; with or without specified versions 
+      - Using this environment file a few days/weeks later will likely not result in the same environment
+      - This can be a good starting point for a reproducible environment as you may add your current version numbers to it (check for example with `conda list | grep "packagename"`)
+      ```
 
-      See also: <https://github.com/mamba-org/mamba>
+      In daily use you may not always use an environment.yml file to create the full environment, but create a base environment and then add new packages with `conda install packagename` as you go. Also those packages will be listed in the environment files created with either of the approaches above.
+
+      More information: <https://docs.conda.io/en/latest/> and <https://github.com/mamba-org/mamba>
     ````
 
     ````{group-tab} Python virtualenv
@@ -355,5 +374,5 @@ information?
 
 ```{keypoints}
 - Recording dependencies with versions can make it easier for the next person to execute your code
-- There are many tools to record dependencies
+- There are many tools to record dependencies and separate environments
 ```
