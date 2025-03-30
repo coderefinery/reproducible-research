@@ -1,14 +1,14 @@
 # Recording computational steps
 
+```{objectives}
+- Understand why and when a workflow management tool can be useful
+```
+
 ```{questions}
 - You have some steps that need to be run to do your work.  How do you
   actually run them?  Does it rely on your own memory and work, or is it
   reproducible? **How do you communicate the steps** for future you and others?
 - How can we create a reproducible workflow?
-```
-
-```{objectives}
-- Understand why and when a workflow management tool can be useful
 ```
 
 ```{instructor-note}

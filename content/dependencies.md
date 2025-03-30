@@ -2,6 +2,8 @@
 
 ```{objectives}
 - Understand what dependency management tools can be useful for
+- Discuss environment/requirements files in the context of reusability and
+  reproducibility
 ```
 
 ```{questions}
