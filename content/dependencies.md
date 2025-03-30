@@ -323,7 +323,7 @@ information?
       ```console
       $ conda env create -f environment.yml
       ```
-      You may use `conda` or `mamba` interchangably for this step; mamba may solve the dependencies a bit faster.
+      You may use `conda` or `mamba` interchangeably for this step; mamba may solve the dependencies a bit faster.
 
       What happens instead when you run the following command?
 
