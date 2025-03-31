@@ -1,11 +1,14 @@
 # Recording computational steps
 
+```{objectives}
+- Understand why and when a workflow management tool can be useful
+```
+
 ```{questions}
 - You have some steps that need to be run to do your work.  How do you
   actually run them?  Does it rely on your own memory and work, or is it
   reproducible? **How do you communicate the steps** for future you and others?
 - How can we create a reproducible workflow?
-- When to use scientific workflow management systems.
 ```
 
 ```{instructor-note}
@@ -78,7 +81,7 @@ steps in precisely this order, as we would run them manually, one after another.
 
 ## Workflow tools
 
-Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies but we let the tool figure out the series of steps to produce results.
+Sometimes it may be helpful to go from imperative to declarative style. Rather than saying "do this and then that" we describe dependencies between steps, but we let the tool figure out the order of steps to produce results.
 
 ### Example workflow tool: [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html)
 
@@ -205,6 +208,7 @@ which can be installed by `conda install graphviz`.
 ```console
 $ snakemake -j 1 --dag | dot -Tpng > dag.png
 ```
+
 Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.
 
 ```{figure} img/snakemake_dag.png
@@ -238,5 +242,5 @@ Tools like Snakemake help us with **reproducibility** by supporting us with **au
 
 ```{keypoints}
 - Computational steps can be recorded in many ways
-- Workflow tools can help, if there are many steps to be executed
+- Workflow tools can help, if there are many steps to be executed and/or many datasets to be processed
 ```

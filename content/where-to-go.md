@@ -47,6 +47,10 @@ However, you will not always need all of them. As with so many things, it again 
 - [Reproducible research policies and software/data management in scientific computing journals: a survey, discussion, and perspectives](https://doi.org/10.3389/fcomp.2024.1491823)
 - ...
 
+```{seealso}
+Do you want to practice your reproducibility skills and get inspired by working with other people's code/data? Join a [ReproHack event](https://www.reprohack.org/event/)!
+```
+
 ```{keypoints}
 - Not everything in this lesson might be useful right now, but it is good to know that these things exist if you ever get in a situation that would require such solution.
 - Caring about reproducibility makes work easier for the next person working on the project - and that might be you in a few years!

@@ -1,7 +1,8 @@
 # Organizing your projects
 
 ```{objectives}
-- Get an overview on how to organize research projects
+- Understand how to organize research projects
+- Get an overview of tools for collaborative and version controlled manuscripts
 ```
 
 ```{instructor-note}
@@ -14,22 +15,24 @@ Let's go over some of the basic things which people have found to work (and not 
 
 ## Directory structure for projects
 
-- Project files in a **single folder**
-- **Different projects** should have **separate folders**
+- Project files in a **single directory**
+- **Different projects** should have **separate directories**
 - Use **consistent and informative directory structure**
-  - Avoid spaces in directory and file names – it is uglier for humans but handy for computers.
-- If you need to separate public/private, you can put them in public and private Git repos
-  - If you need to separate public/secret, use `.gitignore` or a separate folder that's not in Git
+  - Avoid spaces in directory and file names – use `-`, `_` or CamelCase instead (nicer for computers to handle).
+- If you need to separate public/private directories, 
+  - put them separately in public and private Git repositories, or
+  - use `.gitignore` to exclude the private information from being tracked
 - Add a **README file** to describe the project and instructions on reproducing the results
-- If a software is reused in several projects it can make sense to put them in own repo
+- If you want to use the **same code in multiple projects**, host it on GitHub (or similar) and clone it into each of your project directories.
 
 A project directory can look something like this:
+
 ```shell
 project_name/
 ├── README.md             # overview of the project
 ├── data/                 # data files used in the project
 │   ├── README.md         # describes where data came from
-│   └── sub-folder/       # may contain subdirectories
+│   └── sub-directory/       # may contain subdirectories
 ├── processed_data/       # intermediate files from the analysis
 ├── manuscript/           # manuscript describing the results
 ├── results/              # results of the analysis (data, tables, figures)
@@ -41,6 +44,7 @@ project_name/
     ├── index.rst
     └── ...
 ```
+
 ---
 
 ## Tracking source code, data, and results
@@ -48,43 +52,16 @@ project_name/
 - All code is version controlled and goes in the `src/` or `source/` directory
 - Include appropriate LICENSE file and information on software requirements
 - You can also version control data files or input files under `data/`
-- If data files are too large (or sensitive) to track, untrack them using `.gitignore`
+  - If data files are too large (or sensitive) to track, untrack them using `.gitignore`
 - Intermediate files from the analysis are kept in `processed_data/`
 - Consider using Git tags to mark specific versions of results (version
   submitted to a journal, dissertation version, poster version, etc.):
   ```console
   $ git tag -a thesis-submitted -m "this is the submitted version of my thesis"
   ```
-* Check the [Git-intro lesson](https://coderefinery.github.io/git-intro/) for a reminder.
 
----
+Check the [Git-intro lesson](https://coderefinery.github.io/git-intro/) for a reminder.
 
-## Discussion on reproducibility
-
-````{discussion} Discuss in the collaborative document:
-
-**How do you collaborate on writing academic papers?**
-```
-- Are you using version control for academic papers?
-  - ...
-  - ...
-  - (share your experience)
-
-- How do you handle collaborative issues e.g. conflicting changes?
-  - ...
-  - ...
-  - (share your experience)
-```
-> Please write or discuss your ideas before opening solution!
-
-```{solution} Take away messages
-- Consider using version control for manuscripts as well. It may help you when keeping track of edits + if you sync it online then you don't have to worry about losing your work.
-
-- Collaboration can be done efficiently by
-  - real time collaboration tools like HackMD/HedgeDoc where conflicts are resolved on the fly
-  - version control where conflicts are detected and shown – and solved manually
-```
-````
 
 ## Some tools and templates
 
@@ -94,27 +71,55 @@ project_name/
 
 More tools and templates in [Heidi Seibolds blog](https://heidiseibold.ck.page/posts/setting-up-a-fair-and-reproducible-project).
 
-## Reproducible publications
 
-- Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist, some with git integration:
-  - [Overleaf](https://www.overleaf.com) or [Typst](https://typst.app/): online, collaborative LaTeX editor 
-  - [Authorea](https://www.authorea.com): collaborative platform for preprints 
-  - [HackMD](https://hackmd.io/) or [HedgeDoc](https://hedgedoc.org/): online collaborative Markdown editors
-  - [Manuscripts.io](https://www.manuscripts.io/): a collaborative authoring tool that support scientific content and reproducibility.
-  - Google Docs can be a good alternative
+---
 
-- Many tools exist to assist in making scholarly output reproducible:
-  - [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
-  - [Jupyter Notebooks](https://jupyter.org): web-based computational environment for creating code and text based notebooks that can be used as, see also our [Jupyter lesson](https://coderefinery.github.io/jupyter/) later in this workshop.
-    supplementary material for articles.
-  - [Binder](https://mybinder.org): makes a repository with Jupyter notebooks available in an executable environment (discussed later in the [Jupyter lesson](https://coderefinery.github.io/jupyter/)).
-  - ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for
-    reproducible data analysis in R, but much is transferable to other languages.
+## Excursion: Reproducible publications
 
-```{seealso}
-Do you want to practice your reproducibility skills and get inspired by working with other people's code/data? Join a [ReproHack event](https://www.reprohack.org/event/)!
+### Discussion on collaborative writing of academic papers
+
+````{discussion} Discuss in the collaborative document:
+
 ```
+- How do you collaborate on writing academic papers?
+  - ...
+  - ...
+  - (share your experience)
+
+- How do you handle collaborative issues e.g. conflicting changes?
+  - ...
+  - ...
+  - (share your experience)
+```
+
+````
+
+-> Consider using **version control for manuscripts** as well. It may help you when keeping track of edits + if you sync it online then you don't have to worry about losing your work.
+
+Version control does not have to mean git, but could also mean using "tracking changes" in tools like Word, Google Docs, or Overleaf (find links below).
+
+### Tools for collaborative writing and version control of manuscripts
+
+Git **can** be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats. However it might not always be the most convenient. Other tools exist to make the process more enjoyable:
+
+You can **collaboratively gather notes** using self-hosted or public instances of tools like [HedgeDoc](https://hedgedoc.org/) and [Etherpad](https://etherpad.org) or use online options like [HackMD](https://hackmd.io/), [Google Docs](https://docs.google.com) or the Microsoft online tools for easy and efficient collaboration. 
+
+To format your notes into a manuscript, you can use Word-like online editors or tools like [Overleaf](https://www.overleaf.com) (LaTeX) or [Typst](https://typst.app/) (markdown). Most of the tools in this section even provide a git integration.
+
+[Manubot](https://github.com/manubot/rootstock) offers another way to turn your written word into a fully rendered manuscript using GitHub. 
+
+### Executable manuscripts
+
+You may also want to consider writing an executable manuscript using tools like [Jupyter Notebooks](https://jupyter.org) hosted on [Binder](https://mybinder.org), [Quarto](https://quarto.org/), [Authorea](https://www.authorea.com) or [Observable](https://observablehq.com/), to name a few.
+
+### Resources on research compendia
+
+- [About research compendia at the Turing Way](https://book.the-turing-way.org/reproducible-research/compendia)
+- ["Research compendia"](http://inundata.org/talks/rstd19/#/): a set of good practices for reproducible data analysis in R, but much is transferable to other languages.
+- [rrtools](https://github.com/benmarwick/rrtools): instructions, templates, and functions for writing a reproducible article or report with R.
+- ...
 
 ```{keypoints}
 - An organized project directory structure helps with reproducibility.
+- Also think about version control for writing your academic manuscripts.
 ```

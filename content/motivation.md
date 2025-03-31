@@ -1,5 +1,9 @@
 # Motivation
 
+```{objectives}
+- Understand why we are talking about reproducibility in this workshop
+```
+
 ```{instructor-note}
 - 10 min teaching/discussion
 ```

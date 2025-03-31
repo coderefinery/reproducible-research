@@ -1,8 +1,7 @@
 # Recording environments
 
 ```{objectives}
-- Understand what containers are
-- Understand good and less good usecases for containers
+- Understand what containers are and what they are useful for
 - Discuss container definitions files in the context of reusability and
   reproducibility
 ```
