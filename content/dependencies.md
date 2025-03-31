@@ -279,7 +279,7 @@ information?
       We start from an existing conda environment. Try this either with your own project or inside the "coderefinery" conda
       environment. For demonstration puprposes, you can also create an environment with:
 
-	    ```console
+      ```console
       $ conda env create -f myenv.yml
       ```
       Where the file `myenv.yml` could have some python libraries with unspecified versions:
