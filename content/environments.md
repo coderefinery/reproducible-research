@@ -85,18 +85,18 @@ Here is an example of a Singularity definition file ([reference](https://apptain
 
 ```
 Bootstrap: docker
-From: ubuntu:20.04
+From: ubuntu:24.04
 
 %post
     apt-get -y update
-    apt-get -y install cowsay lolcat
+    apt-get -y install fortune cowsay lolcat
 
 %environment
     export LC_ALL=C
     export PATH=/usr/games:$PATH
 
 %runscript
-    date | cowsay | lolcat
+    fortune | cowsay | lolcat
 ```
 
 Popular container implementations:
