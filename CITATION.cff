@@ -18,6 +18,8 @@ authors:
   given-names: "Enrico"
 - family-names: "Vathsavayi"
   given-names: "Harsha"
+- family-names: "Wang"
+  given-names: "Yonglei"
 title: "Reproducible research -  Preparing code to be usable by you in the future and others in general"
 type: "data"
 abstract: "We focus here on 3 aspects of reproducible programs and computations: documenting dependencies, environments, and computational steps in a reproducible way. We touch on containers."
