@@ -24,7 +24,8 @@ reproducible environments and computational steps** for our future selves and ot
 .. prereq::
 
    You need to install
-   `Git, Python, and Snakemake <https://coderefinery.github.io/installation/>`__.
+   `Git, Python, and Snakemake <https://coderefinery.github.io/installation/>`__ 
+   (part of CodeRefinery Conda environment).
 
    If you wish to follow in the terminal and are new to the command line, we
    recorded a `short shell crash course <https://youtu.be/xbTTDLA3txI>`__.
