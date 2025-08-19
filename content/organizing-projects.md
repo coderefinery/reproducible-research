@@ -18,12 +18,12 @@ Let's go over some of the basic things which people have found to work (and not 
 - Project files in a **single directory**
 - **Different projects** should have **separate directories**
 - Use **consistent and informative directory structure**
-  - Avoid spaces in directory and file names – use `-`, `_` or CamelCase instead (nicer for computers to handle).
+  - Avoid spaces in directory and file names – use `-`, `_` or CamelCase instead (nicer for computers to handle)
 - If you need to separate public/private directories, 
   - put them separately in public and private Git repositories, or
   - use `.gitignore` to exclude the private information from being tracked
 - Add a **README file** to describe the project and instructions on reproducing the results
-- If you want to use the **same code in multiple projects**, host it on GitHub (or similar) and clone it into each of your project directories.
+- If you want to use the **same code in multiple projects**, host it on GitHub (or similar) and clone it into each of your project directories
 
 A project directory can look something like this:
 
