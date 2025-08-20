@@ -1,0 +1,1712 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reproducible research documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css" />
+      <link rel="stylesheet" type="text/css" href="_static/term_role_formatting.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_rtd_theme_ext_color_contrast.css" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+
+  
+    <link rel="shortcut icon" href="_static/coderefinery.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js"></script>
+      <script src="_static/doctools.js"></script>
+      <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/clipboard.min.js"></script>
+      <script src="_static/copybutton.js"></script>
+      <script src="_static/minipres.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="_static/tabs.js"></script>
+      <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Reproducible research
+          </a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-intro">Introduction - How it all connects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-motivation">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-organizing-projects">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-workflow-management">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-dependencies">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-environments">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-where-to-go">Where to go from here</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://youtu.be/xbTTDLA3txI">Shell crash course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-exercises">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-guide">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reproducible research  documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/index" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reproducible-research-preparing-code-to-be-usable-by-you-and-others-in-the-future">
+<span id="index"></span><h1>Reproducible research - Preparing code to be usable by you and others in the future<a class="headerlink" href="#reproducible-research-preparing-code-to-be-usable-by-you-and-others-in-the-future" title="Link to this heading"></a></h1>
+<p>Have you ever spent days <strong>trying to repeat the results from few weeks or months
+ago</strong>?  Or you have to do paper revisions, but you just can’t get the results to
+match up? It’s unpleasant for both you and science.</p>
+<p>In this lesson we will explore different methods and tools for better
+reproducibility in research software and data. We will demonstrate how version
+control, workflows, containers, and package managers can be used to <strong>record
+reproducible environments and computational steps</strong> for our future selves and others.</p>
+<div class="admonition-learning-outcomes admonition">
+<p class="admonition-title">Learning outcomes</p>
+<dl class="simple">
+<dt>By the end of this lesson, learners should:</dt><dd><ul class="simple">
+<li><p>Be able to apply well organized directory structure for their project</p></li>
+<li><p>Understand that code can have dependencies, and know how to document them</p></li>
+<li><p>Be able to document computational steps, and have an idea when it can be useful</p></li>
+<li><p>Know about use cases for containers</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="admonition-prerequisites prerequisites admonition" id="prerequisites-0">
+<p class="admonition-title">Prerequisites</p>
+<p>You need to install
+<a class="reference external" href="https://coderefinery.github.io/installation/">Git, Python, and Snakemake</a>
+(part of CodeRefinery Conda environment).</p>
+<p>If you wish to follow in the terminal and are new to the command line, we
+recorded a <a class="reference external" href="https://youtu.be/xbTTDLA3txI">short shell crash course</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-intro"></span><section id="introduction-how-it-all-connects">
+<h2>Introduction - How it all connects<a class="headerlink" href="#introduction-how-it-all-connects" title="Link to this heading"></a></h2>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching/discussion</p></li>
+<li><p>0 min exercises</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/reproducibility.jpg"><img alt="A person showing another person what steps to take to make their data research reproducible. There is a path with several steps- Here is my data - Here are my tools - Here is my code - Here are my results" src="_images/reproducibility.jpg" style="width: 100%;" />
+</a>
+</figure>
+<p>[The Turing Way project illustration by Scriberia. Used under a CC-BY 4.0 licence. DOI: <a class="reference external" href="https://zenodo.org/records/13882307">https://zenodo.org/records/13882307</a>]</p>
+<section id="this-workshop-is-all-about-reproducibility-from-a-computational-perspective">
+<h3>This workshop is all about reproducibility - from a computational perspective<a class="headerlink" href="#this-workshop-is-all-about-reproducibility-from-a-computational-perspective" title="Link to this heading"></a></h3>
+<p>This section connects the steps above to the CodeRefinery workshop lessons.</p>
+<p><strong>“Here is my code”</strong></p>
+<ul class="simple">
+<li><p><strong>Version control with git</strong> with focus on collaboration</p></li>
+<li><p><strong>Social coding</strong>: What can you do to get credit for your code and to allow reuse</p></li>
+<li><p><strong>Documentation</strong>: How to let others or future you know about your thoughts and how to use your code</p></li>
+<li><p><strong>Jupyter Notebooks</strong>: A tool to write and share executable notebooks and data visualization</p></li>
+<li><p><strong>Automated testing</strong>: Preventing yourself and others from breaking your functioning code</p></li>
+<li><p><strong>Modular code development</strong>: Making reusing parts of your code easier</p></li>
+</ul>
+<p><strong>“Here are my tools”</strong></p>
+<p>This lesson on general <strong>Reproducibility</strong>: Preparing code to be usable by you and others in the future</p>
+<p>This includes organizing your projects on your own computer and recording your computational steps, dependencies and computing environment.</p>
+<p>We will also mention a few tools and platforms for sharing data (<strong>“Here is my data”</strong>) and research outputs (<strong>“Here are my results”</strong>) in the <strong>social coding</strong> lesson, but they are not the focus of this workshop.</p>
+</section>
+<section id="small-steps-towards-reproducible-research">
+<h3>Small steps towards reproducible research<a class="headerlink" href="#small-steps-towards-reproducible-research" title="Link to this heading"></a></h3>
+<p>If this is all new to you, it may feel quite overwhelming.</p>
+<p><strong>Our recommendation:</strong> Don’t worry! Focus on “good enough” instead of perfect.</p>
+<p>To start, pick one topic that seems reasonable to implement for your current project. Something that helps YOU right now. This may be something you may have to implement due to requirements from your funders or the journal where you want to publish your research. Use their requirements as a checklist and find tools that feel comfortable for you.</p>
+<p>A great way to see what are the really important things to implement is to meet with a colleague, exchange codes and try to run each others code. Every question your colleague has to ask from you about your code gives a hint on where you may need to improve.</p>
+<p>Keeping a “log book” while working on your own code also serves as a great basis for making your code more reproducible. Can you use any of the tools and techniques learned in this workshop to share parts of your log book with others to help them run your code?</p>
+</section>
+</section>
+<span id="document-motivation"></span><section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"></a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand why we are talking about reproducibility in this workshop</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching/discussion</p></li>
+</ul>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/research_comic_phd.gif"><img alt="Research comic" src="_images/research_comic_phd.gif" style="width: 100%;" />
+</a>
+</figure>
+<div class="admonition-a-scary-anecdote admonition">
+<p class="admonition-title">A scary anecdote</p>
+<ul class="simple">
+<li><p>A group of researchers obtain great results and submit their work to a high-profile journal.</p></li>
+<li><p>Reviewers ask for new figures and additional analysis.</p></li>
+<li><p>The researchers start working on revisions and generate modified figures, but find inconsistencies with old figures.</p></li>
+<li><p>The researchers can’t find some of the data they used to generate the original results, and
+can’t figure out which parameters they used when running their analyses.</p></li>
+<li><p>The manuscript is still languishing in the drawer …</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="why-talking-about-reproducible-research">
+<h3>Why talking about reproducible research?<a class="headerlink" href="#why-talking-about-reproducible-research" title="Link to this heading"></a></h3>
+<p>A 2016
+<a class="reference external" href="http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970">survey</a>
+in Nature revealed that irreproducible experiments are a problem across all
+domains of science:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/reproducibility_nature.jpg"><img alt="reproduciblity Nature" src="_images/reproducibility_nature.jpg" style="width: 100%;" />
+</a>
+</figure>
+<p>This study is now few years old but the highlighted problem did not get
+smaller.</p>
+</section>
+<hr class="docutils" />
+<section id="levels-of-reproducibility">
+<h3>Levels of reproducibility<a class="headerlink" href="#levels-of-reproducibility" title="Link to this heading"></a></h3>
+<p>A published article is like the top of a pyramid. It rests on multiple
+levels, each contributing to its reproducibility.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/repro-pyramid.png"><img alt="Reproducibility pyramid" src="_images/repro-pyramid.png" style="width: 100%;" />
+</a>
+</figure>
+<p>[Steeves, Vicky (2017) in “Reproducibility Librarianship,” Collaborative Librarianship: Vol. 9: Iss. 2, Article 4.
+Available at: https://digitalcommons.du.edu/collaborativelibrarianship/vol9/iss2/4]</p>
+<p>This also means that you can think about it from the beginning of your research life cycle!</p>
+<hr class="docutils" />
+<div class="admonition-discuss-in-collaborative-document-or-with-your-team-members discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discuss in collaborative document or with your team members</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">-</span><span class="w"> </span>What are your experiences re-running or adjusting a script or a figure you
+  created few months ago?
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>...
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>...
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>(share your experience)
+
+<span class="k">-</span><span class="w"> </span>Have you continued working from a previous student&#39;s
+  script/code/plot/notebook? What were the biggest challenges?
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>...
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>...
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>(share your experience, but constructively)
+</pre></div>
+</div>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Without reproducibility in scientific computing, everyone would have to start a new project / code from scratch.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<span id="document-organizing-projects"></span><section id="organizing-your-projects">
+<h2>Organizing your projects<a class="headerlink" href="#organizing-your-projects" title="Link to this heading"></a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand how to organize research projects</p></li>
+<li><p>Get an overview of tools for collaborative and version controlled manuscripts</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching incl. discussions</p></li>
+</ul>
+</div>
+<p>One of the first steps to make your work reproducible is to organize your projects well.
+Let’s go over some of the basic things which people have found to work (and not to work).</p>
+<section id="directory-structure-for-projects">
+<h3>Directory structure for projects<a class="headerlink" href="#directory-structure-for-projects" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Project files in a <strong>single directory</strong></p></li>
+<li><p><strong>Different projects</strong> should have <strong>separate directories</strong></p></li>
+<li><p>Use <strong>consistent and informative directory structure</strong></p>
+<ul>
+<li><p>Avoid spaces in directory and file names – use <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">_</span></code> or CamelCase instead (nicer for computers to handle)</p></li>
+</ul>
+</li>
+<li><p>If you need to separate public/private directories,</p>
+<ul>
+<li><p>put them separately in public and private Git repositories, or</p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> to exclude the private information from being tracked</p></li>
+</ul>
+</li>
+<li><p>Add a <strong>README file</strong> to describe the project and instructions on reproducing the results</p></li>
+<li><p>If you want to use the <strong>same code in multiple projects</strong>, host it on GitHub (or similar) and clone it into each of your project directories</p></li>
+</ul>
+<p>A project directory can look something like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>project_name/
+├──<span class="w"> </span>README.md<span class="w">             </span><span class="c1"># overview of the project</span>
+├──<span class="w"> </span>data/<span class="w">                 </span><span class="c1"># data files used in the project</span>
+│<span class="w">   </span>├──<span class="w"> </span>README.md<span class="w">         </span><span class="c1"># describes where data came from</span>
+│<span class="w">   </span>└──<span class="w"> </span>sub-directory/<span class="w">       </span><span class="c1"># may contain subdirectories</span>
+├──<span class="w"> </span>processed_data/<span class="w">       </span><span class="c1"># intermediate files from the analysis</span>
+├──<span class="w"> </span>manuscript/<span class="w">           </span><span class="c1"># manuscript describing the results</span>
+├──<span class="w"> </span>results/<span class="w">              </span><span class="c1"># results of the analysis (data, tables, figures)</span>
+├──<span class="w"> </span>src/<span class="w">                  </span><span class="c1"># contains all code in the project</span>
+│<span class="w">   </span>├──<span class="w"> </span>LICENSE<span class="w">           </span><span class="c1"># license for your code</span>
+│<span class="w">   </span>├──<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># software requirements and dependencies</span>
+│<span class="w">   </span>└──<span class="w"> </span>...
+└──<span class="w"> </span>doc/<span class="w">                  </span><span class="c1"># documentation for your project</span>
+<span class="w">    </span>├──<span class="w"> </span>index.rst
+<span class="w">    </span>└──<span class="w"> </span>...
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tracking-source-code-data-and-results">
+<h3>Tracking source code, data, and results<a class="headerlink" href="#tracking-source-code-data-and-results" title="Link to this heading"></a></h3>
+<ul>
+<li><p>All code is version controlled and goes in the <code class="docutils literal notranslate"><span class="pre">src/</span></code> or <code class="docutils literal notranslate"><span class="pre">source/</span></code> directory</p></li>
+<li><p>Include appropriate LICENSE file and information on software requirements</p></li>
+<li><p>You can also version control data files or input files under <code class="docutils literal notranslate"><span class="pre">data/</span></code></p>
+<ul class="simple">
+<li><p>If data files are too large (or sensitive) to track, untrack them using <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p></li>
+</ul>
+</li>
+<li><p>Intermediate files from the analysis are kept in <code class="docutils literal notranslate"><span class="pre">processed_data/</span></code></p></li>
+<li><p>Consider using Git tags to mark specific versions of results (version
+submitted to a journal, dissertation version, poster version, etc.):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>thesis-submitted<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;this is the submitted version of my thesis&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Check the <a class="reference external" href="https://coderefinery.github.io/git-intro/">Git-intro lesson</a> for a reminder.</p>
+</section>
+<section id="some-tools-and-templates">
+<h3>Some tools and templates<a class="headerlink" href="#some-tools-and-templates" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://devtools.r-lib.org/">R devtools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Materials-Data-Science-and-Informatics/fair-python-cookiecutter">Python cookiecutter template</a></p></li>
+<li><p><a class="reference external" href="https://github.com/the-turing-way/reproducible-project-template">Reproducible research template</a> by the Turing Way</p></li>
+</ul>
+<p>More tools and templates in <a class="reference external" href="https://heidiseibold.ck.page/posts/setting-up-a-fair-and-reproducible-project">Heidi Seibolds blog</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="excursion-reproducible-publications">
+<h3>Excursion: Reproducible publications<a class="headerlink" href="#excursion-reproducible-publications" title="Link to this heading"></a></h3>
+<section id="discussion-on-collaborative-writing-of-academic-papers">
+<h4>Discussion on collaborative writing of academic papers<a class="headerlink" href="#discussion-on-collaborative-writing-of-academic-papers" title="Link to this heading"></a></h4>
+<div class="admonition-discuss-in-the-collaborative-document discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discuss in the collaborative document:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- How do you collaborate on writing academic papers?
+  - ...
+  - ...
+  - (share your experience)
+
+- How do you handle collaborative issues e.g. conflicting changes?
+  - ...
+  - ...
+  - (share your experience)
+</pre></div>
+</div>
+</div>
+<p>-&gt; Consider using <strong>version control for manuscripts</strong> as well. It may help you when keeping track of edits + if you sync it online then you don’t have to worry about losing your work.</p>
+<p>Version control does not have to mean git, but could also mean using “tracking changes” in tools like Word, Google Docs, or Overleaf (find links below).</p>
+</section>
+<section id="tools-for-collaborative-writing-and-version-control-of-manuscripts">
+<h4>Tools for collaborative writing and version control of manuscripts<a class="headerlink" href="#tools-for-collaborative-writing-and-version-control-of-manuscripts" title="Link to this heading"></a></h4>
+<p>Git <strong>can</strong> be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats. However it might not always be the most convenient. Other tools exist to make the process more enjoyable:</p>
+<p>You can <strong>collaboratively gather notes</strong> using self-hosted or public instances of tools like <a class="reference external" href="https://hedgedoc.org/">HedgeDoc</a> and <a class="reference external" href="https://etherpad.org">Etherpad</a> or use online options like <a class="reference external" href="https://hackmd.io/">HackMD</a>, <a class="reference external" href="https://docs.google.com">Google Docs</a> or the Microsoft online tools for easy and efficient collaboration.</p>
+<p>To format your notes into a manuscript, you can use Word-like online editors or tools like <a class="reference external" href="https://www.overleaf.com">Overleaf</a> (LaTeX) or <a class="reference external" href="https://typst.app/">Typst</a> (markdown). Most of the tools in this section even provide a git integration.</p>
+<p><a class="reference external" href="https://github.com/manubot/rootstock">Manubot</a> offers another way to turn your written word into a fully rendered manuscript using GitHub.</p>
+</section>
+<section id="executable-manuscripts">
+<h4>Executable manuscripts<a class="headerlink" href="#executable-manuscripts" title="Link to this heading"></a></h4>
+<p>You may also want to consider writing an executable manuscript using tools like <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a> hosted on <a class="reference external" href="https://mybinder.org">Binder</a>, <a class="reference external" href="https://quarto.org/">Quarto</a>, <a class="reference external" href="https://www.authorea.com">Authorea</a> or <a class="reference external" href="https://observablehq.com/">Observable</a>, to name a few.</p>
+</section>
+<section id="resources-on-research-compendia">
+<h4>Resources on research compendia<a class="headerlink" href="#resources-on-research-compendia" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://book.the-turing-way.org/reproducible-research/compendia">About research compendia at the Turing Way</a></p></li>
+<li><p><a class="reference external" href="http://inundata.org/talks/rstd19/#/">“Research compendia”</a>: a set of good practices for reproducible data analysis in R, but much is transferable to other languages.</p></li>
+<li><p><a class="reference external" href="https://github.com/benmarwick/rrtools">rrtools</a>: instructions, templates, and functions for writing a reproducible article or report with R.</p></li>
+<li><p>…</p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>An organized project directory structure helps with reproducibility.</p></li>
+<li><p>Also think about version control for writing your academic manuscripts.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<span id="document-workflow-management"></span><section id="recording-computational-steps">
+<h2>Recording computational steps<a class="headerlink" href="#recording-computational-steps" title="Link to this heading"></a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand why and when a workflow management tool can be useful</p></li>
+</ul>
+</div>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>You have some steps that need to be run to do your work.  How do you
+actually run them?  Does it rely on your own memory and work, or is it
+reproducible? <strong>How do you communicate the steps</strong> for future you and others?</p></li>
+<li><p>How can we create a reproducible workflow?</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>5 min teaching</p></li>
+<li><p>15 min exercise/demo</p></li>
+</ul>
+</div>
+<section id="several-steps-from-input-data-to-result">
+<h3>Several steps from input data to result<a class="headerlink" href="#several-steps-from-input-data-to-result" title="Link to this heading"></a></h3>
+<p><em>The following material is partly derived from a <a class="reference external" href="https://hpc-carpentry.github.io/hpc-python/">HPC Carpentry lesson</a>.</em></p>
+<p>In this episode, we will use an <a class="reference external" href="https://github.com/coderefinery/word-count">example
+project</a> which finds most frequent
+words in books and plots the result from those statistics.  In this example we
+wish to:</p>
+<ol class="arabic simple">
+<li><p>Analyze word frequencies using <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/code/count.py">code/count.py</a>
+for 4 books
+(they are all in the <a class="reference external" href="https://github.com/coderefinery/word-count/tree/main/data">data</a> directory).</p></li>
+<li><p>Plot a histogram using <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/plot/plot.py">plot/plot.py</a>.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/arrows.png"><img alt="From book to word counts to plot" src="_images/arrows.png" style="width: 100%;" />
+</a>
+</figure>
+<p>Example (for one book only):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>code/count.py<span class="w"> </span>data/isles.txt<span class="w"> </span>&gt;<span class="w"> </span>statistics/isles.data
+<span class="gp">$ </span>python<span class="w"> </span>code/plot.py<span class="w"> </span>--data-file<span class="w"> </span>statistics/isles.data<span class="w"> </span>--plot-file<span class="w"> </span>plot/isles.png
+</pre></div>
+</div>
+<p>Another way to analyze the data would be via a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.</p>
+<p>Both of the above (single line commands and simple graphical interfaces) are tricky in terms of reproducibility. We currently have two steps and 4 books. But <strong>imagine having 4 steps and 500 books</strong>.
+How could we deal with this?</p>
+<p>As a first idea we could express the workflow with a script. The repository includes such script called <code class="docutils literal notranslate"><span class="pre">run_all.sh</span></code>.</p>
+<p>We can run it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bash<span class="w"> </span>run_all.sh
+</pre></div>
+</div>
+<p>This is <strong>imperative style</strong>: we tell the script to run these
+steps in precisely this order, as we would run them manually, one after another.</p>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<ul>
+<li><p>What are the advantages of this solution compared to processing all one by one?</p></li>
+<li><p>Is the scripted solution reproducible?</p></li>
+<li><p>Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
+with a scripted solution?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>The advantage of this solution compared to processing one by one is more automation: We can generate all.
+This is not only easier, it is also less error-prone.</p>
+<p>Yes, the scripted solution can be reproducible. But could you easily run it, e.g., on a Windows computer?</p>
+<p>If we had more steps and once steps start to be time-consuming, a limitation of
+a scripted solution is that it tries to run all steps always. Rerunning only
+part of the steps or only part of the input data requires us to outcomment or change lines in our script in between runs which can again become tedious and error-prone.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="workflow-tools">
+<h3>Workflow tools<a class="headerlink" href="#workflow-tools" title="Link to this heading"></a></h3>
+<p>Sometimes it may be helpful to go from imperative to declarative style. Rather than saying “do this and then that” we describe dependencies between steps, but we let the tool figure out the order of steps to produce results.</p>
+<section id="example-workflow-tool-snakemake">
+<h4>Example workflow tool: <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/index.html">Snakemake</a><a class="headerlink" href="#example-workflow-tool-snakemake" title="Link to this heading"></a></h4>
+<p>Snakemake (inspired by <a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a>) is one of many tools to create reproducible and scalable data analysis workflows. Workflows are described via a human readable, Python based language.
+Snakemake workflows scale seamlessly from laptop to cluster or cloud, without the need to modify the workflow definition.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a-demo">
+<h3>A demo<a class="headerlink" href="#a-demo" title="Link to this heading"></a></h3>
+<div class="admonition-preparation prerequisites admonition" id="prerequisites-0">
+<p class="admonition-title">Preparation</p>
+<p>The exercise (below) and pre-exercise discussion uses the
+word-count repository
+(<a class="reference external" href="https://github.com/coderefinery/word-count">https://github.com/coderefinery/word-count</a>) which we need to clone to work on it.</p>
+<p>If you want to do this exercise on your own, you can do so either on your own computer (follow the instructions in the bottom right panel on the <a class="reference external" href="https://coderefinery.github.io/installation/">CodeRefinery installation instruction page</a>), or the <a class="reference external" href="https://mybinder.org/">Binder</a>
+cloud service:</p>
+<p><strong>On your own computer</strong>:</p>
+<ul>
+<li><p>Install the necessary tools</p></li>
+<li><p>Activate the <a class="reference external" href="https://coderefinery.github.io/installation/conda/">CodeRefinery Conda environment</a> with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">coderefinery</span></code>.</p></li>
+<li><p>Clone the word-count repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/coderefinery/word-count.git
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>On Binder</strong>:</p>
+<p>We can also use the cloud service <a class="reference external" href="https://mybinder.org/">Binder</a> to make sure
+we all have the same computing environment.  This is interesting from a
+reproducible research point of view and it’s explained further in the <a class="reference external" href="https://coderefinery.github.io/jupyter/sharing/">Jupyter
+lesson</a> how this is even
+possible.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://github.com/coderefinery/word-count">https://github.com/coderefinery/word-count</a> and click on the “launch binder” badge in the README.</p></li>
+<li><p>Once it gets started, you can open a new <strong>Terminal</strong> from the Launcher or via <strong>File &gt; New &gt; Terminal</strong>.</p></li>
+</ul>
+</div>
+<div class="admonition-workflow-1-workflow-solution-using-snakemake exercise important admonition" id="exercise-0">
+<p class="admonition-title">Workflow-1: Workflow solution using Snakemake</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/snakemake.png"><img alt="How Snakemake works" src="_images/snakemake.png" style="width: 100%;" />
+</a>
+</figure>
+<p>Somebody wrote a <a class="reference external" href="https://snakemake.readthedocs.io">Snakemake</a> solution in the <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/Snakefile">Snakefile</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of all the books we are analyzing</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">glob_wildcards</span><span class="p">(</span><span class="s1">&#39;data/</span><span class="si">{book}</span><span class="s1">.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">book</span>
+
+<span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+
+<span class="c1"># count words in one of our books</span>
+<span class="n">rule</span> <span class="n">count_words</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span><span class="o">=</span><span class="s1">&#39;code/count.py&#39;</span><span class="p">,</span>
+        <span class="n">book</span><span class="o">=</span><span class="s1">&#39;data/</span><span class="si">{file}</span><span class="s1">.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;statistics/</span><span class="si">{file}</span><span class="s1">.data&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.script}</span><span class="s1"> </span><span class="si">{input.book}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+<span class="c1"># create a plot for each book</span>
+<span class="n">rule</span> <span class="n">make_plot</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span><span class="o">=</span><span class="s1">&#39;code/plot.py&#39;</span><span class="p">,</span>
+        <span class="n">book</span><span class="o">=</span><span class="s1">&#39;statistics/</span><span class="si">{file}</span><span class="s1">.data&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;plot/</span><span class="si">{file}</span><span class="s1">.png&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.script}</span><span class="s1"> --data-file </span><span class="si">{input.book}</span><span class="s1"> --plot-file </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+</pre></div>
+</div>
+<p>We can see that Snakemake uses <strong>declarative style</strong>:
+Snakefiles contain rules that relate targets (<code class="docutils literal notranslate"><span class="pre">output</span></code>) to dependencies
+(<code class="docutils literal notranslate"><span class="pre">input</span></code>) and commands (<code class="docutils literal notranslate"><span class="pre">shell</span></code>).</p>
+<p>Steps:</p>
+<ol class="arabic">
+<li><p>Clone the example to your computer: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/coderefinery/word-count.git</span></code></p></li>
+<li><p>Study the Snakefile. How does it know what to do first and what to do then?</p></li>
+<li><p>Try to run it. Since version 5.11 one needs to specify number of cores (or
+jobs) using <code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span></code> or <code class="docutils literal notranslate"><span class="pre">--cores</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>--delete-all-output<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+<span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--delete-all-output</span></code> part makes sure that we remove all generated files before we start.</p>
+</li>
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">snakemake</span></code> again and observe that and discuss why it refused to rerun all steps:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+
+<span class="go">Building DAG of jobs...</span>
+<span class="go">Nothing to be done (all requested files are present and up to date).</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make a tiny modification to the plot.py script and run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-j</span> <span class="pre">1</span></code> again and observe how it will only re-run the plot steps.</p></li>
+<li><p>Make a tiny modification to one of the books and run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-j</span> <span class="pre">1</span></code> again and observe how it only regenerates files for this book.</p></li>
+<li><p>Discuss possible advantages compared to a scripted solution.</p></li>
+<li><p><strong>Question for R developers</strong>: Imagine you want to rewrite the two Python scripts and use R instead. Which lines in
+the <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/Snakefile">Snakefile</a> would you have to modify so that it uses your R code?</p></li>
+<li><p>If you make changes to the Snakefile, validate it using <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">--lint</span></code>.</p></li>
+</ol>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>2: Start with “all” and look what it depends on. Now search for rules that
+have these as output. Look for their inputs and search where they
+are produced. In other words, search backwards and build a graph of
+dependencies. This is what Snakemake does.</p></li>
+<li><p>4: It can see that outputs are newer than inputs. It will only regenerate
+outputs if they are not there or if the inputs or scripts have changed.</p></li>
+<li><p>7: It only generates steps and outputs that are missing or outdated. The workflow
+does not run everything every time. In other words if you notice a problem or update information
+“half way” in the analysis, it will only re-run what needs to be re-run. Nothing more, nothing less.
+Another advantage is that it can distribute tasks to multiple cores, off-load work to supercomputers,
+offers more fine-grained control over environments, and more.</p></li>
+<li><p>8: Probably only the two lines containing “shell”.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="visualizing-the-workflow">
+<h3>Visualizing the workflow<a class="headerlink" href="#visualizing-the-workflow" title="Link to this heading"></a></h3>
+<p>We can visualize the directed acyclic graph (DAG) of our current Snakefile
+using the <code class="docutils literal notranslate"><span class="pre">--dag</span></code> option, which will output the DAG in <code class="docutils literal notranslate"><span class="pre">dot</span></code> language.</p>
+<p><strong>Note</strong>: This requires the <a class="reference external" href="https://www.graphviz.org/">Graphviz software</a>,
+which can be installed by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">graphviz</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span><span class="w"> </span>--dag<span class="w"> </span><span class="p">|</span><span class="w"> </span>dot<span class="w"> </span>-Tpng<span class="w"> </span>&gt;<span class="w"> </span>dag.png
+</pre></div>
+</div>
+<p>Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/snakemake_dag.png"><img alt="Snakemake DAG" src="_images/snakemake_dag.png" style="width: 100%;" />
+</a>
+</figure>
+</section>
+<section id="why-snakemake">
+<h3>Why <a class="reference external" href="https://snakemake.readthedocs.io/">Snakemake</a>?<a class="headerlink" href="#why-snakemake" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Gentle <strong>learning curve</strong>.</p></li>
+<li><p>Free, open-source, and <strong>installs easily</strong> via conda or pip.</p></li>
+<li><p><strong>Cross-platform</strong> (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
+same workflow works without modification and scales appropriately whether on a laptop or cluster.</p></li>
+<li><p>If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them <strong>in parallel</strong>.</p></li>
+<li><p>It is possible to define <strong>isolated software environments</strong> per rule, e.g. by adding <code class="docutils literal notranslate"><span class="pre">conda:</span> <span class="pre">'environment.yml'</span></code> to a rule.</p></li>
+<li><p>It is also possible to run workflows in Docker or Apptainer <strong>containers</strong>, e.g. by adding <code class="docutils literal notranslate"><span class="pre">container:</span> <span class="pre">'docker://some-org/some-tool#2.3.1'</span></code> to a rule.</p></li>
+<li><p><a class="reference external" href="https://twitter.com/carl_witt/status/1103951128046301185">Heavily used in bioinformatics</a>, but is <strong>completely general</strong>.</p></li>
+<li><p>Nice functionality for archiving the workflow, see: <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving">the official Snakemake documentation</a></p></li>
+</ul>
+<p>Tools like Snakemake help us with <strong>reproducibility</strong> by supporting us with <strong>automation</strong>, <strong>scalability</strong> and <strong>portability</strong> of our workflows.</p>
+</section>
+<section id="similar-tools">
+<h3>Similar tools<a class="headerlink" href="#similar-tools" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">Make</a></p></li>
+<li><p><a class="reference external" href="https://www.nextflow.io/">Nextflow</a></p></li>
+<li><p><a class="reference external" href="https://taskfile.dev/">Task</a></p></li>
+<li><p><a class="reference external" href="https://www.commonwl.org/">Common Workflow Language</a></p></li>
+<li><p>Many <a class="reference external" href="https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems">specialized frameworks</a> exist.</p></li>
+<li><p><a class="reference external" href="https://raps-with-r.dev/">Book on building reproducible analytical pipelines with R</a></p></li>
+<li><p><a class="reference external" href="https://books.ropensci.org/targets/">{targets} R package - make-like pipeline tool for R</a></p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Computational steps can be recorded in many ways.</p></li>
+<li><p>Workflow tools can help if there are many steps to be executed and/or many datasets to be processed.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<span id="document-dependencies"></span><section id="recording-dependencies">
+<h2>Recording dependencies<a class="headerlink" href="#recording-dependencies" title="Link to this heading"></a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand what dependency management tools can be useful for</p></li>
+<li><p>Discuss environment/requirements files in the context of reusability and
+reproducibility</p></li>
+</ul>
+</div>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>How can we communicate different versions of software dependencies?</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching</p></li>
+<li><p>10 min exercise/demo</p></li>
+</ul>
+</div>
+<p>Our codes often depend on other codes that in turn depend on other codes …</p>
+<ul class="simple">
+<li><p><strong>Reproducibility</strong>: We can version-control our code with Git but how should we version-control dependencies?
+How can we capture and communicate dependencies?</p></li>
+<li><p><strong>Dependency hell</strong>: Different codes on the same environment can have conflicting dependencies.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/dependency.png"><img alt="An image showing blocks (=codes) depending on each other for stability" src="_images/dependency.png" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">From <a class="reference external" href="https://xkcd.com/2347/">xkcd - dependency</a>. Another image that might be familiar to some of you working with Python can be found on <a class="reference external" href="https://xkcd.com/1987/">xkcd - superfund</a>.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-kitchen-analogy discussion important admonition" id="discussion-0">
+<p class="admonition-title">Kitchen analogy</p>
+<ul class="simple">
+<li><p>Software &lt;-&gt; recipe</p></li>
+<li><p>Data &lt;-&gt; ingredients</p></li>
+<li><p>Libraries &lt;-&gt; pots/tools</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/recipe.png"><img alt="Cooking recipe in an unfamiliar language" src="_images/recipe.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Cooking recipe in an unfamiliar language [Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/libraries.png"><img alt="Kitchen with few open cooking books" src="_images/libraries.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">When we create recipes, we often use tools created by others (libraries) [Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<hr class="docutils" />
+<section id="dependency-and-environment-management">
+<h3>Dependency and environment management<a class="headerlink" href="#dependency-and-environment-management" title="Link to this heading"></a></h3>
+<p>Tools like <strong>Conda, Anaconda, pip, virtualenv, Pipenv, pyenv, Poetry, renv</strong> and files to record dependencies like <strong>requirements.txt</strong> and <strong>environment.yml</strong> try to solve the following problems:</p>
+<ul class="simple">
+<li><p><strong>Defining a specific set of dependencies</strong></p></li>
+<li><p><strong>Installing those dependencies</strong> mostly automatically</p></li>
+<li><p><strong>Recording the versions</strong> for all dependencies</p></li>
+<li><p><strong>Isolate environments</strong></p>
+<ul>
+<li><p>On your computer for projects, so they can use different software</p></li>
+<li><p>Isolate environments on computers with many users (and allow self-installations)</p></li>
+</ul>
+</li>
+<li><p>Using <strong>different package versions</strong> per project (also, e.g., Python/R versions)</p></li>
+<li><p>Provide tools and services to <strong>share packages</strong></p></li>
+</ul>
+<p>Isolated environments are also useful because they help you make sure
+that you know your dependencies!</p>
+<p><strong>If things go wrong, you can delete and re-create</strong> - much better
+than debugging. The more often you re-create your environment, the
+more reproducible it is.</p>
+</section>
+<hr class="docutils" />
+<section id="exercise-demo">
+<h3>Exercise / Demo<a class="headerlink" href="#exercise-demo" title="Link to this heading"></a></h3>
+<div class="admonition-dependencies-1-time-capsule-of-dependencies exercise important admonition" id="exercise-0">
+<p class="admonition-title">Dependencies-1: Time-capsule of dependencies</p>
+<p>Situation: 5 students (A, B, C, D, E) wrote a code that depends on a couple of libraries.
+They uploaded their projects to GitHub. We now travel 3 years into the future
+and find their GitHub repositories and try to re-run their code before adapting
+it.</p>
+<p>Answer in the collaborative document:</p>
+<ul>
+<li><p>Which version do you expect to be easiest to re-run? Why?</p></li>
+<li><p>What problems do you anticipate in each solution?</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29uZGE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29uZGE=" name="Q29uZGE=" role="tab" tabindex="0">Conda</button><button aria-controls="panel-0-UHl0aG9uIHZpcnR1YWxlbnY=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tab" tabindex="-1">Python virtualenv</button><button aria-controls="panel-0-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Ug==" name="Ug==" role="tab" tabindex="-1">R</button><button aria-controls="panel-0-TWF0bGFi" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWF0bGFi" name="TWF0bGFi" role="tab" tabindex="-1">Matlab</button></div><div aria-labelledby="tab-0-Q29uZGE=" class="sphinx-tabs-panel group-tab" id="panel-0-Q29uZGE=" name="Q29uZGE=" role="tabpanel" tabindex="0"><p><strong>A</strong>:
+You find a couple of library imports across the code but that’s it.</p>
+<p><strong>B</strong>:
+The README file lists which libraries were used but does not mention
+any versions.</p>
+<p><strong>C</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">student</span><span class="o">-</span><span class="n">project</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">scipy</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">sympy</span>
+  <span class="o">-</span> <span class="n">click</span>
+  <span class="o">-</span> <span class="n">python</span>
+  <span class="o">-</span> <span class="n">pip</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+</pre></div>
+</div>
+<p><strong>D</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">student</span><span class="o">-</span><span class="n">project</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">scipy</span><span class="o">=</span><span class="mf">1.3.1</span>
+  <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.16.4</span>
+  <span class="o">-</span> <span class="n">sympy</span><span class="o">=</span><span class="mf">1.4</span>
+  <span class="o">-</span> <span class="n">click</span><span class="o">=</span><span class="mf">7.0</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+  <span class="o">-</span> <span class="n">pip</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@d7b2c7e</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@sometag</span>
+</pre></div>
+</div>
+<p><strong>E</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">student</span><span class="o">-</span><span class="n">project</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">scipy</span><span class="o">=</span><span class="mf">1.3.1</span>
+  <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.16.4</span>
+  <span class="o">-</span> <span class="n">sympy</span><span class="o">=</span><span class="mf">1.4</span>
+  <span class="o">-</span> <span class="n">click</span><span class="o">=</span><span class="mf">7.0</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+  <span class="o">-</span> <span class="n">someproject</span><span class="o">=</span><span class="mf">1.2.3</span>
+  <span class="o">-</span> <span class="n">anotherproject</span><span class="o">=</span><span class="mf">2.3.4</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-UHl0aG9uIHZpcnR1YWxlbnY=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tabpanel" tabindex="0"><p><strong>A</strong>:
+You find a couple of library imports across the code but that’s it.</p>
+<p><strong>B</strong>:
+The README file lists which libraries were used but does not mention
+any versions.</p>
+<p><strong>C</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span>
+<span class="n">numpy</span>
+<span class="n">sympy</span>
+<span class="n">click</span>
+<span class="n">python</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+</pre></div>
+</div>
+<p><strong>D</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">==</span><span class="mf">1.3.1</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.16.4</span>
+<span class="n">sympy</span><span class="o">==</span><span class="mf">1.4</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">7.0</span>
+<span class="n">python</span><span class="o">==</span><span class="mf">3.8</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@d7b2c7e</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@sometag</span>
+</pre></div>
+</div>
+<p><strong>E</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">==</span><span class="mf">1.3.1</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.16.4</span>
+<span class="n">sympy</span><span class="o">==</span><span class="mf">1.4</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">7.0</span>
+<span class="n">python</span><span class="o">==</span><span class="mf">3.8</span>
+<span class="n">someproject</span><span class="o">==</span><span class="mf">1.2.3</span>
+<span class="n">anotherproject</span><span class="o">==</span><span class="mf">2.3.4</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p><strong>A</strong>:
+You find a couple of <code class="docutils literal notranslate"><span class="pre">library()</span></code> or <code class="docutils literal notranslate"><span class="pre">require()</span></code> calls across the code but that’s it.</p>
+<p><strong>B</strong>:
+The README file lists which libraries were used but does not mention
+any versions.</p>
+<p><strong>C</strong>:
+You find a <a class="reference external" href="https://r-pkgs.org/description.html">DESCRIPTION file</a> which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Imports</span><span class="p">:</span>
+    <span class="n">dplyr</span><span class="p">,</span>
+    <span class="n">tidyr</span>
+</pre></div>
+</div>
+<p>In addition you find these:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;someuser/someproject@master&quot;</span><span class="p">)</span>
+<span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;anotheruser/anotherproject@master&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>D</strong>:
+You find a <a class="reference external" href="https://r-pkgs.org/description.html">DESCRIPTION file</a> which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Imports</span><span class="p">:</span>
+    <span class="n">dplyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.0.0</span><span class="p">),</span>
+    <span class="n">tidyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition you find these:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;someuser/someproject@d7b2c7e&quot;</span><span class="p">)</span>
+<span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;anotheruser/anotherproject@sometag&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>E</strong>:
+You find a <a class="reference external" href="https://r-pkgs.org/description.html">DESCRIPTION file</a> which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Imports</span><span class="p">:</span>
+    <span class="n">dplyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.0.0</span><span class="p">),</span>
+    <span class="n">tidyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.1.0</span><span class="p">),</span>
+    <span class="n">someproject</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.2.3</span><span class="p">),</span>
+    <span class="n">anotherproject</span> <span class="p">(</span><span class="o">==</span> <span class="mf">2.3.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TWF0bGFi" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TWF0bGFi" name="TWF0bGFi" role="tabpanel" tabindex="0"><p>Can you please contribute an example?</p>
+</div></div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p><strong>A</strong>: It will be tedious to collect the dependencies one by one. And after
+the tedious process you will still not know which versions they have used.</p>
+<p><strong>B</strong>: If there is no standard file to look for and look at, it might
+become very difficult to create the software environment required to
+run the software. At least we know the list of libraries, but we don’t
+know the versions.</p>
+<p><strong>C</strong>: Having a standard file listing dependencies is definitely better
+than nothing. However, if the versions are not specified, you or someone
+else might run into problems with dependencies, deprecated features,
+changes in package APIs, etc.</p>
+<p><strong>D</strong> and <strong>E</strong>: In both of these cases exact versions of all dependencies are
+specified and one can recreate the software environment required for the
+project. One problem with the dependencies that come from GitHub is that
+they might have disappeared (what if their authors deleted these
+repositories?).</p>
+<p><strong>E</strong> is slightly preferable because version numbers are easier to understand than Git
+commit hashes or Git tags.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonition-dependencies-2-create-a-time-capsule-for-the-future exercise important admonition" id="exercise-1">
+<p class="admonition-title">Dependencies-2: Create a time-capsule for the future</p>
+<p>Now we will demo creating our own time-capsule and share it with the future
+world. If we asked you now which dependencies your project is using, what would
+you answer? How would you find out? And how would you communicate this
+information?</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Q29uZGE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Q29uZGE=" name="Q29uZGE=" role="tab" tabindex="0">Conda</button><button aria-controls="panel-1-UHl0aG9uIHZpcnR1YWxlbnY=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tab" tabindex="-1">Python virtualenv</button><button aria-controls="panel-1-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Ug==" name="Ug==" role="tab" tabindex="-1">R</button><button aria-controls="panel-1-TWF0bGFi" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-TWF0bGFi" name="TWF0bGFi" role="tab" tabindex="-1">Matlab</button></div><div aria-labelledby="tab-1-Q29uZGE=" class="sphinx-tabs-panel group-tab" id="panel-1-Q29uZGE=" name="Q29uZGE=" role="tabpanel" tabindex="0"><p>We start from an existing conda environment. Try this either with your own project or inside the “coderefinery” conda
+environment. For demonstration purposes, you can also create an environment with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>myenv.yml
+</pre></div>
+</div>
+<p>Where the file <code class="docutils literal notranslate"><span class="pre">myenv.yml</span></code> could have some python libraries with unspecified versions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">myenv</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">pandas</span>
+  <span class="o">-</span> <span class="n">seaborn</span>
+</pre></div>
+</div>
+<p>After creating the environment we can activate it with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+<p>Now we can freeze the environment into a new YAML file with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>Have a look at the generated file and discuss what you see.</p>
+<div class="admonition-some-things-to-note solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Some things to note</p>
+<ul class="simple">
+<li><p>Can you find all packages you installed directly? Which versions were installed?</p></li>
+<li><p>What other packages were installed? -&gt; Dependencies of dependencies</p></li>
+<li><p>Besides the version you can also see the build channel</p>
+<ul>
+<li><p>Sometimes the build includes an operating system or an architecture</p></li>
+<li><p>Using this environment file might therefore not work/ not result in an identical setup on other computers</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>In the future — or on a different computer — we can re-create this environment with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>You may use <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">mamba</span></code> interchangeably for this step; mamba may solve the dependencies a bit faster.</p>
+<p>What happens instead when you run the following command?</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span>&gt;<span class="w"> </span>environment_fromhistory.yml
+</pre></div>
+</div>
+<div class="admonition-some-things-to-note solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Some things to note</p>
+<ul class="simple">
+<li><p>Everything is listed as you installed it; with or without specified versions</p></li>
+<li><p>Using this environment file a few days/weeks later will likely not result in the same environment</p></li>
+<li><p>This can be a good starting point for a reproducible environment as you may add your current version numbers to it (check for example with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;packagename&quot;</span></code>)</p></li>
+</ul>
+</div>
+<p>In daily use you may not always use an environment.yml file to create the full environment, but create a base environment and then add new packages with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">packagename</span></code> as you go. Also those packages will be listed in the environment files created with either of the approaches above.</p>
+<p>More information: <a class="reference external" href="https://docs.conda.io/en/latest/">https://docs.conda.io/en/latest/</a> and <a class="reference external" href="https://github.com/mamba-org/mamba">https://github.com/mamba-org/mamba</a></p>
+</div><div aria-labelledby="tab-1-UHl0aG9uIHZpcnR1YWxlbnY=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tabpanel" tabindex="0"><p>Try this in your own project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Have a look at the generated file and discuss what you see.</p>
+<p>In future you can re-create this environment with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>More information: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">https://docs.python.org/3/tutorial/venv.html</a></p>
+</div><div aria-labelledby="tab-1-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>This example uses renv.</p>
+<p>Try to “save” and “load” the state of your project library using
+<code class="docutils literal notranslate"><span class="pre">renv::snapshot()</span></code> and <code class="docutils literal notranslate"><span class="pre">renv::restore()</span></code>.
+See also: <a class="reference external" href="https://rstudio.github.io/renv/articles/renv.html#reproducibility">https://rstudio.github.io/renv/articles/renv.html#reproducibility</a></p>
+<p>More information: <a class="reference external" href="https://rstudio.github.io/renv/articles/renv.html">https://rstudio.github.io/renv/articles/renv.html</a></p>
+</div><div aria-labelledby="tab-1-TWF0bGFi" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-TWF0bGFi" name="TWF0bGFi" role="tabpanel" tabindex="0"><p>Can you please contribute an example?</p>
+</div></div>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Recording dependencies with versions can make it easier for the next person to execute your code.</p></li>
+<li><p>There are many tools to record dependencies and separate environments.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<span id="document-environments"></span><section id="recording-environments">
+<h2>Recording environments<a class="headerlink" href="#recording-environments" title="Link to this heading"></a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand what containers are and what they are useful for</p></li>
+<li><p>Discuss container definitions files in the context of reusability and
+reproducibility</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching/discussion</p></li>
+<li><p>10 min demo</p></li>
+</ul>
+</div>
+<section id="what-is-a-container">
+<h3>What is a container?<a class="headerlink" href="#what-is-a-container" title="Link to this heading"></a></h3>
+<p>Imagine if you didn’t have to install things yourself, but instead you could
+get a computer with the exact software for a task pre-installed. Containers
+effectively do that, with various advantages and disadvantages. They are
+<strong>like an entire operating system with software installed, all in one file</strong>.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/docker_meme.jpg"><img alt="He said, then we will ship your machine. And that's how Docker was born." src="_images/docker_meme.jpg" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">From <a class="reference external" href="https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_on_my_machine/">reddit</a>.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-kitchen-analogy discussion important admonition" id="discussion-0">
+<p class="admonition-title">Kitchen analogy</p>
+<ul class="simple">
+<li><p>Our codes/scripts &lt;-&gt; cooking recipes</p></li>
+<li><p>Container definition files &lt;-&gt; like a blueprint to build a kitchen with all
+utensils in which the recipe can be prepared.</p></li>
+<li><p>Container images &lt;-&gt; showroom kitchens</p></li>
+<li><p>Containers &lt;-&gt; a real connected kitchen</p></li>
+</ul>
+<p>Just for fun: which operating systems do the following example kitchens represent?</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">1</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">2</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">3</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/macos.png"><img alt="Generated image of a kitchen" src="_images/macos.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">[Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/windows.png"><img alt="Generated image of a kitchen" src="_images/windows.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">[Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/linux.png"><img alt="Generated image of a kitchen" src="_images/linux.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">[Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></div>
+</div>
+</section>
+<section id="from-definition-files-to-container-images-to-containers">
+<h3>From definition files to container images to containers<a class="headerlink" href="#from-definition-files-to-container-images-to-containers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Containers can be built to bundle <em>all the necessary ingredients</em> (data, code, environment, operating system).</p></li>
+<li><p>A container image is like a piece of paper with all the operating system on it. When you run it,
+a transparent sheet is placed on top to form a container. The container runs and writes only on
+that transparent sheet (and what other mounts have been layered on top). When you are done,
+the transparent sheet is thrown away. This can be repeated as often as you want, and base is always the same.</p></li>
+<li><p>Definition files (e.g., Dockerfile or Singularity definition file) are text
+files that contain a series of instructions to build container images.</p></li>
+</ul>
+</section>
+<section id="you-may-have-use-for-containers-in-different-ways">
+<h3>You may have use for containers in different ways<a class="headerlink" href="#you-may-have-use-for-containers-in-different-ways" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Installing a certain software is tricky</strong>, or not supported for your operating system? - Check if an image is available and run the software from a container instead!</p></li>
+<li><p>You want to make sure your colleagues are using the <strong>same environment</strong> for running your code? - Provide them an image of your container!</p>
+<ul>
+<li><p>If this does not work, because they are using a different architecture than you do? - Provide a definition file for them to <strong>build the image suitable for their computers</strong>. This does not create the exact environment you have, but in most cases a similar enough one.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-container-recipe">
+<h3>The container recipe<a class="headerlink" href="#the-container-recipe" title="Link to this heading"></a></h3>
+<p>Here is an example of a Singularity definition file (<a class="reference external" href="https://apptainer.org/docs/user/main/build_a_container.html#building-containers-from-apptainer-definition-files">reference</a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bootstrap: docker
+From: ubuntu:24.04
+
+%post
+    apt-get -y update
+    apt-get -y install fortune cowsay lolcat
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    fortune | cowsay | lolcat
+</pre></div>
+</div>
+<p>Popular container implementations:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/">Docker</a></p></li>
+<li><p><a class="reference external" href="https://sylabs.io/docs/">Singularity</a> (popular on high-performance computing systems)</p></li>
+<li><p><a class="reference external" href="https://apptainer.org">Apptainer</a> (popular on high-performance computing systems, fork of Singularity)</p></li>
+<li><p><a class="reference external" href="https://podman.io/">podman</a></p></li>
+</ul>
+<p>They are to some extent interoperable:</p>
+<ul class="simple">
+<li><p>podman is very close to Docker</p></li>
+<li><p>Docker images can be converted to Singularity/Apptainer images</p></li>
+<li><p><a class="reference external" href="https://singularityhub.github.io/singularity-cli/">Singularity Python</a> can convert Dockerfiles to Singularity definition files</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="pros-and-cons-of-containers">
+<h3>Pros and cons of containers<a class="headerlink" href="#pros-and-cons-of-containers" title="Link to this heading"></a></h3>
+<p>Containers are popular for a reason - they solve a number of
+important problems:</p>
+<ul class="simple">
+<li><p>Allow for seamlessly <strong>moving workflows across different platforms</strong>.</p></li>
+<li><p>Can solve the <strong>“works on my machine”</strong> situation.</p></li>
+<li><p>For software with many dependencies, in turn with its own dependencies,
+containers offer possibly the only way to preserve the
+computational experiment for <strong>future reproducibility</strong>.</p></li>
+<li><p>A mechanism to “send the computer to the data” when the <strong>dataset is too large</strong> to transfer.</p></li>
+<li><p><strong>Installing software into a file</strong> instead of into your computer (removing
+a file is often easier than uninstalling software if you suddenly regret an
+installation).</p></li>
+</ul>
+<p>However, containers may also have some drawbacks:</p>
+<ul class="simple">
+<li><p>Can be used to hide away software installation problems and thereby
+<strong>discourage good software development practices</strong>.</p></li>
+<li><p>Instead of “works on my machine” problem: <strong>“works only in this container”</strong> problem?</p></li>
+<li><p>They can be <strong>difficult to modify</strong>.</p></li>
+<li><p>Container <strong>images can become large</strong>.</p></li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Use only <strong>official and trusted images</strong>!  Not all images can be trusted! There
+have been examples of contaminated images, so investigate before using images
+blindly. Apply the same caution as when installing software packages from untrusted
+package repositories.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="where-can-one-share-or-find-images">
+<h3>Where can one share or find images?<a class="headerlink" href="#where-can-one-share-or-find-images" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hub.docker.com/">Docker Hub</a></p></li>
+<li><p><a class="reference external" href="https://quay.io/">Quay</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">GitHub Container Registry</a></p></li>
+<li><p><a class="reference external" href="https://docs.gitlab.com/ee/user/packages/container_registry/">GitLab Container Registry</a></p></li>
+<li><p>GitHub/GitLab release artifacts</p></li>
+<li><p><a class="reference external" href="https://zenodo.org/">Zenodo</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h3>
+<div class="admonition-containers-1-time-travel exercise important admonition" id="exercise-0">
+<p class="admonition-title">Containers-1: Time travel</p>
+<p>Scenario: A researcher has written and published their research code which
+requires a number of libraries and system dependencies. They ran their code
+on a Linux computer (Ubuntu). One very nice thing they did was to publish
+also a container image with all dependencies included, as well as the
+definition file (below) to create the container image.</p>
+<p>Now we travel 3 years into the future and want to reuse their work and adapt
+it for our data. The container registry where they uploaded the container
+image however no longer exists. But luckily we still have the definition file
+(below)! From this we should be able to create a new container image.</p>
+<ul class="simple">
+<li><p>Can you anticipate problems using the definitions file 3 years after its creation?
+Which possible problems can you point out?</p></li>
+<li><p>Discuss possible take-aways for creating more reusable containers.</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Python project using virtual environment</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">R project using renv</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>Bootstrap: docker
+<span class="linenos"> 2</span>From: ubuntu:latest
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>%post
+<span class="linenos"> 5</span>    # Set environment variables
+<span class="linenos"> 6</span>    export VIRTUAL_ENV=/app/venv
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    # Install system dependencies and Python 3
+<span class="linenos"> 9</span>    apt-get update &amp;&amp; \
+<span class="linenos">10</span>    apt-get install -y --no-install-recommends \
+<span class="linenos">11</span>        gcc \
+<span class="linenos">12</span>        libgomp1 \
+<span class="linenos">13</span>        python3 \
+<span class="linenos">14</span>        python3-venv \
+<span class="linenos">15</span>        python3-distutils \
+<span class="linenos">16</span>        python3-pip &amp;&amp; \
+<span class="linenos">17</span>    apt-get clean &amp;&amp; \
+<span class="linenos">18</span>    rm -rf /var/lib/apt/lists/*
+<span class="linenos">19</span>
+<span class="linenos">20</span>    # Set up the virtual environment
+<span class="linenos">21</span>    python3 -m venv $VIRTUAL_ENV
+<span class="linenos">22</span>    . $VIRTUAL_ENV/bin/activate
+<span class="linenos">23</span>
+<span class="linenos">24</span>    # Install Python libraries
+<span class="linenos">25</span>    pip install --no-cache-dir --upgrade pip &amp;&amp; \
+<span class="linenos">26</span>    pip install --no-cache-dir -r /app/requirements.txt
+<span class="linenos">27</span>
+<span class="linenos">28</span>%files
+<span class="linenos">29</span>    # Copy project files
+<span class="linenos">30</span>    ./requirements.txt /app/requirements.txt
+<span class="linenos">31</span>    ./app.py /app/app.py
+<span class="linenos">32</span>    # Copy data
+<span class="linenos">33</span>    /home/myself/data /app/data
+<span class="linenos">34</span>    # Workaround to fix dependency on fancylib
+<span class="linenos">35</span>    /home/myself/fancylib /usr/lib/fancylib
+<span class="linenos">36</span>
+<span class="linenos">37</span>%environment
+<span class="linenos">38</span>    # Set the environment variables
+<span class="linenos">39</span>    export LANG=C.UTF-8 LC_ALL=C.UTF-8
+<span class="linenos">40</span>    export VIRTUAL_ENV=/app/venv
+<span class="linenos">41</span>
+<span class="linenos">42</span>%runscript
+<span class="linenos">43</span>    # Activate the virtual environment
+<span class="linenos">44</span>    . $VIRTUAL_ENV/bin/activate
+<span class="linenos">45</span>    # Run the application
+<span class="linenos">46</span>    python /app/app.py
+</pre></div>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Line 2: “ubuntu:latest” will mean something different 3 years into the future.</p></li>
+<li><p>Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.</p></li>
+<li><p>Line 30: The container uses requirements.txt to build the virtual environment but we don’t see
+here what libraries the code depends on.</p></li>
+<li><p>Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.</p></li>
+<li><p>Line 35: The library fancylib has been built outside the container and copied in but we don’t see here how it was done.</p></li>
+<li><p>The Python version will be different and hopefully the code still runs.</p></li>
+<li><p>Singularity/Apptainer will have also evolved by then. Hopefully this definition file still works.</p></li>
+<li><p>No contact address to ask more questions about this file.</p></li>
+<li><p>(Can you find more? Please contribute more points.)</p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Work in progress: Please contribute a corresponding example which
+demonstrates this in the context of R and renv.</p>
+</div></div>
+</div>
+<div class="admonition-optional-containers-2-installing-the-impossible exercise important admonition" id="exercise-1">
+<p class="admonition-title">(optional) Containers-2: Installing the impossible.</p>
+<p>When you are missing privileges for installing certain software tools, containers can come handy.
+Here we build a Singularity/Apptainer container for installing the <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> and <code class="docutils literal notranslate"><span class="pre">lolcat</span></code> Linux programs.</p>
+<ol class="arabic">
+<li><p>Make sure you have apptainer installed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apptainer<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+<li><p>Make sure you set the apptainer cache and temporary folders.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>./cache/
+<span class="gp">$ </span>mkdir<span class="w"> </span>./temp/
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">APPTAINER_CACHEDIR</span><span class="o">=</span><span class="s2">&quot;./cache/&quot;</span>
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">APPTAINER_TMPDIR</span><span class="o">=</span><span class="s2">&quot;./temp/&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build the container from the container recipe file introduced above.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apptainer build cowsay.sif cowsay.def</span>
+</pre></div>
+</div>
+</li>
+<li><p>Let’s test the container by entering into it with a shell terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apptainer<span class="w"> </span>shell<span class="w"> </span>cowsay.sif
+</pre></div>
+</div>
+</li>
+<li><p>We can verify the installation.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cowsay<span class="w"> </span><span class="s2">&quot;Hello world!&quot;</span><span class="p">|</span>lolcat
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonition-optional-containers-3-explore-two-really-useful-docker-images exercise important admonition" id="exercise-2">
+<p class="admonition-title">(optional) Containers-3: Explore two really useful Docker images</p>
+<p>You can try the below if you have Docker installed. If you have
+Singularity/Apptainer and not Docker, the goal of the exercise can be to run
+the Docker containers through Singularity/Apptainer.</p>
+<ol class="arabic">
+<li><p>Run a specific version of <em>Rstudio</em>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8787</span>:8787<span class="w"> </span>-e<span class="w"> </span><span class="nv">PASSWORD</span><span class="o">=</span>yourpasswordhere<span class="w"> </span>rocker/rstudio
+</pre></div>
+</div>
+<p>Then open your browser to <a class="reference external" href="http://localhost:8787">http://localhost:8787</a>
+with login rstudio and password “yourpasswordhere” used in the previous
+command.</p>
+<p>If you want to try an older version you can check the tags at
+<a class="reference external" href="https://hub.docker.com/r/rocker/rstudio/tags">https://hub.docker.com/r/rocker/rstudio/tags</a>
+and run for example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8787</span>:8787<span class="w"> </span>-e<span class="w"> </span><span class="nv">PASSWORD</span><span class="o">=</span>yourpasswordhere<span class="w"> </span>rocker/rstudio:3.3
+</pre></div>
+</div>
+</li>
+<li><p>Run a specific version of <em>Anaconda3</em> from
+<a class="reference external" href="https://hub.docker.com/r/continuumio/anaconda3">https://hub.docker.com/r/continuumio/anaconda3</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>-t<span class="w"> </span>continuumio/anaconda3<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="resources-for-further-learning">
+<h3>Resources for further learning<a class="headerlink" href="#resources-for-further-learning" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/docker-introduction/">Carpentries incubator lesson on Docker</a></p></li>
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/singularity-introduction/">Carpentries incubator lesson on Singularity/Apptainer</a></p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Containers can be helpful if complex setups are needed to run a specific software.</p></li>
+<li><p>They can also be helpful for prototyping without “messing up” your own computing environment, or for running software that requires a different operating system than your own.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<span id="document-where-to-go"></span><section id="where-to-go-from-here">
+<h2>Where to go from here<a class="headerlink" href="#where-to-go-from-here" title="Link to this heading"></a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand when tools discussed in this episode can be useful</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching/discussion</p></li>
+</ul>
+</div>
+<p>This episode presents a lot of different tools and opportunities for your research software project.
+However, you will not always need all of them. As with so many things, it again depends on your project.</p>
+<section id="workflow-tools-will-maybe-make-sense-in-the-future">
+<h3>Workflow tools will maybe make sense in the future<a class="headerlink" href="#workflow-tools-will-maybe-make-sense-in-the-future" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>In many cases, it is probably not needed</p></li>
+<li><p>You will want to consider workflow tools:</p>
+<ul>
+<li><p>When processing many files with many steps</p></li>
+<li><p>Steps or files may change</p></li>
+<li><p>Your main script, connecting your steps, gets very long</p></li>
+<li><p>You are still collecting your input data</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="containers-seem-amazing-but-do-i-have-use-for-them">
+<h3>Containers seem amazing, but do I have use for them?<a class="headerlink" href="#containers-seem-amazing-but-do-i-have-use-for-them" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Maybe not yet, but knowing that you can …</p>
+<ul class="simple">
+<li><p>Run Linux tools on your Windows computer</p></li>
+<li><p>Run different versions of same software on your computer</p></li>
+<li><p>Follow the “easy installation instructions” for an operating system that is not your own</p></li>
+<li><p>Get a fully configured environment instead of only installing a tool</p></li>
+<li><p>Share your setup and configurations with others</p></li>
+</ul>
+<p>… can be very beneficial :)</p>
+</li>
+</ul>
+</section>
+<section id="important-for-every-project">
+<h3>Important for every project<a class="headerlink" href="#important-for-every-project" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>A Clear directory/file structure for your project.</p></li>
+<li><p>Record your workflow and write it down in a script file.</p></li>
+<li><p>Create a dependency list and keep it updated, optimally in an environment file.</p></li>
+<li><p>At least consider the possibility that someone, maybe you, may want to reproduce your work:</p>
+<ul>
+<li><p>Can you do something (small) to make it easier?</p></li>
+<li><p>If you have ideas, but no time: add an issue to your repository; maybe someone else wants to help.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="further-reading">
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.5281/zenodo.3233853">The Turing Way handbook to reproducible, ethical and collaborative data science</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.3389/fcomp.2024.1491823">Reproducible research policies and software/data management in scientific computing journals: a survey, discussion, and perspectives</a></p></li>
+<li><p>…</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Do you want to practice your reproducibility skills and get inspired by working with other people’s code/data? Join a <a class="reference external" href="https://www.reprohack.org/event/">ReproHack event</a>!</p>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Not everything in this lesson might be useful right now, but it is good to know that these things exist if you ever get in a situation that would require such solutions.</p></li>
+<li><p>Caring about reproducibility makes work easier for the next person working on the project - and that might be you in a few years!</p></li>
+</ul>
+</div>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-exercises"></span><section id="list-of-exercises">
+<h2>List of exercises<a class="headerlink" href="#list-of-exercises" title="Link to this heading"></a></h2>
+<section id="full-list">
+<h3>Full list<a class="headerlink" href="#full-list" title="Link to this heading"></a></h3>
+<p>This is a list of all exercises and solutions in this lesson, mainly
+as a reference for helpers and instructors.  This list is
+automatically generated from all of the other pages in the lesson.
+Any single teaching event will probably cover only a subset of these,
+depending on their interests.</p>
+</section>
+</section>
+<span id="document-guide"></span><section id="instructor-guide">
+<h2>Instructor guide<a class="headerlink" href="#instructor-guide" title="Link to this heading"></a></h2>
+<section id="detailed-day-schedule">
+<h3>Detailed day schedule<a class="headerlink" href="#detailed-day-schedule" title="Link to this heading"></a></h3>
+<p>Some example schedules for this lesson:</p>
+<p>2024 edition plan (times in EET, Helsinki time), <strong>no exercises</strong>, just demos:</p>
+<ul class="simple">
+<li><p>09:50 - 10:00 Soft start and icebreaker question</p>
+<ul>
+<li><p>Page: collaborative notes document</p></li>
+<li><p>Give more space to the icebreaker and see what people are writing and talk about our own experiences</p></li>
+</ul>
+</li>
+<li><p>10:00 - 10:03 Collab document intro</p></li>
+<li><p>10:03 - 10:05 Learning outcomes: https://coderefinery.github.io/reproducible-research/</p></li>
+<li><p>10:05 - 10:10 Overview of CR and how it all fits together</p>
+<ul>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/intro</p></li>
+<li><p>Learning outcomes from index</p></li>
+</ul>
+</li>
+<li><p>10:10 - 10:20 Reproducible research, Motivation</p>
+<ul>
+<li><p>Exercise in notes doc with the discussions in bottom of motivation page</p></li>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/motivation/</p></li>
+</ul>
+</li>
+<li><p>10:20 - 10:30 Organizing your projects</p>
+<ul>
+<li><p>Copy the discussion on the notes and if we have time we can highlight some answers</p></li>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/organizing-projects/</p></li>
+</ul>
+</li>
+<li><p>10:30 - 10:35  ask in collab document and discuss</p>
+<ul>
+<li><p>https://coderefinery.github.io/reproducible-research/organizing-projects/#discussion-on-reproducibility</p>
+<ul>
+<li><p>Are you using version control for academic papers?</p>
+<ul>
+<li><p>…</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p>How do you handle collaborative issues e.g. conflicting changes?</p>
+<ul>
+<li><p>…</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>10:35 - 10:55 Recording computational steps</p>
+<ul>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/workflow-management/</p></li>
+</ul>
+</li>
+<li><p>10:55 - 11:05 Real break</p></li>
+<li><p>11:05 - 11:25 Recording dependencies</p>
+<ul>
+<li><p>https://coderefinery.github.io/reproducible-research/dependencies/#exercises</p>
+<ul>
+<li><p>ask first one in collab doc and discuss on stream</p></li>
+<li><p>show difference between created env from env file vs exported env file on stream</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>11:25 - 11:30 ask in collaborative document</p>
+<ul>
+<li><p>Are you using any dependency and/or environment management tool in your work?</p>
+<ul>
+<li><p>No: o</p>
+<ul>
+<li><p>why not?</p>
+<ul>
+<li><p>..</p></li>
+<li><p>..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Yes: o</p>
+<ul>
+<li><p>which?</p>
+<ul>
+<li><p>..</p></li>
+<li><p>..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Have you heard about or been in contact with containers (docker, singularity, podman) in your work? How did you come across them?</p>
+<ul>
+<li><p>No: o</p></li>
+<li><p>Yes:</p>
+<ul>
+<li><p>..</p></li>
+<li><p>..</p></li>
+<li><p>..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>11:30 - 11:50 Recording environments</p>
+<ul>
+<li><p>The first contact with containers is often: Take this and run this command and then when you need to share/build.</p></li>
+<li><p>Discuss setup issues, permissions if docker wants root, bandwidth, etc</p></li>
+<li><p>Pros and cons of containers</p></li>
+<li><p>Demo of two pre-made containers e.g. expand the R studio optional exercise?</p></li>
+</ul>
+</li>
+<li><p>11:50 - 12.00 Wrapup</p>
+<ul>
+<li><p>where to go from here: idea would be to give it more practical focus: what to do with these tools? Project level reproducibility. Time-scales of what changes (short time changes of code, long time years changes of OS-s, libraries).</p></li>
+<li><p>Bring your code session advertisement</p></li>
+<li><p>Material + recording available</p></li>
+</ul>
+</li>
+<li><p>12:00 - long break starts</p></li>
+</ul>
+<p>This is the planned schedule for the workshop in September 2023 (2 hours and 5 minutes including 10 min break) ; note that for this workshop, sharing code and data was moved to social coding lesson:</p>
+<ul class="simple">
+<li><p>08:50 - 09:00 Soft start and icebreaker question</p></li>
+<li><p>09:00 - 09:10 Overview of CR and how it all fits together</p></li>
+<li><p>09:10 - 09:20 Reproducible research, <a class="reference external" href="https://coderefinery.github.io/reproducible-research/motivation/">Motivation</a></p></li>
+<li><p>09:20 - 09:27 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/organizing-projects/">Organizing your projects</a></p></li>
+<li><p>09:27 - 09:35 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/workflow-management/">Recording computational steps</a> - discussion</p></li>
+<li><p>09:35 - 10:00 Snakemake exercise (25 min)</p></li>
+<li><p>10:00 - 10:10 Break</p></li>
+<li><p>10:10 - 10:15 Summary of workflows and the exercise</p></li>
+<li><p>10:15 - 10:30 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/dependencies/">Recording dependencies</a></p></li>
+<li><p>10:30 - 10:40 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/environments/">Recording environments</a></p></li>
+<li><p>10:40 - 11:00 Container-1 exercise (20 min)</p></li>
+<li><p>11:00 - 11.05 Wrapup</p></li>
+</ul>
+<p>This was the schedule at workshop in March 2023 (2 hours and 15 minutes including 2x 10 min break):</p>
+<ul class="simple">
+<li><p>08:50 - 09:00 Soft start and icebreaker question</p></li>
+<li><p>09:00 - 09:10 Interview with an invited guest</p></li>
+<li><p>09:10 - 09:20 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/motivation/">Motivation</a></p></li>
+<li><p>09:20 - 09:30 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/organizing-projects/">Organizing your projects</a></p></li>
+<li><p>09:30 - 10:00 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/dependencies/">Recording dependencies</a></p>
+<ul>
+<li><p>discussion (5 min)</p></li>
+<li><p>exercise (20 min)</p></li>
+<li><p>discussion (5 min)</p></li>
+</ul>
+</li>
+<li><p>10:00 - 10:10 Break</p></li>
+<li><p>10:10 - 10:40 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/workflow-management/">Recording computational steps</a></p>
+<ul>
+<li><p>discussion (5 min)</p></li>
+<li><p>exercise (20 min)</p></li>
+<li><p>discussion (5 min)</p></li>
+</ul>
+</li>
+<li><p>10:40 - 10:50 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/environments/">Recording environments</a></p>
+<ul>
+<li><p>an exercise exists but is typically not done as part of a standard workshop</p></li>
+</ul>
+</li>
+<li><p>10:50 - 11:05 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/sharing/">Sharing code and data</a></p>
+<ul>
+<li><p><a class="reference external" href="https://coderefinery.github.io/reproducible-research/sharing/#connecting-repositories-to-zenodo">demo (15 min)</a></p></li>
+</ul>
+</li>
+<li><p>11:05 - 11:15 Break</p></li>
+</ul>
+</section>
+<section id="why-we-teach-this-lesson">
+<h3>Why we teach this lesson<a class="headerlink" href="#why-we-teach-this-lesson" title="Link to this heading"></a></h3>
+<p>Reproducibility in research is something that publishers, funding agencies, universities,
+research leaders and the general public worries about and much is being written about it.
+It is also something that researchers care deeply about - this lesson is typically one of the
+most popular lessons in the pre-workshop survey.</p>
+<p>Even though most PhD students, postdocs and researchers (i.e. typical workshop participants)
+know about the importance of reproducibility in research, they often lack both a general
+overview of what different aspects there are to reproducibility, and the knowledge of
+specific tools that can be used for improving reproducibility.</p>
+<p>Many participants may not adhere to good practices when organizing their projects,
+and the “Organizing your projects” episode is meant to encourage participants to
+structure their projects better. This may be obvious to some participants but it
+doesn’t harm to preach to the choir.</p>
+<p>Even though many participants know that code can have many dependencies (e.g. they
+may have experienced difficulties in getting other people’s code to run), they
+often don’t know or use good practices when it comes to recording dependencies.
+Most participants also don’t use isolated environments for different projects and
+don’t know why that can be important.
+The episode “Recording dependencies” tries to convey the importance of recording
+dependencies accurately for your projects, and shows how tools like conda can be
+used both as a package and software environment manager.</p>
+<p>Many participants have heard about containers and find them interesting, but
+lack an understanding of how they work or how they can be used. The episode
+“Recording environments” introduces the concept of containers, and the optional
+episode “Creating and sharing a container image” goes into details.</p>
+<p>Many participants use complicated series of computational steps in their research
+without realizing that this work falls into the category of “scientific workflows”,
+and that there actually exist tools that help make such workflows reproducible.
+The episode “Recording computational steps” introduces the concept of scientific
+workflows, discusses various ways of managing workflows with varying degrees of
+reproducibility, and shows how tools like Snakemake can be used to
+both simplify workflows and make them more reproducible.</p>
+</section>
+<section id="how-to-teach-this-lesson">
+<h3>How to teach this lesson<a class="headerlink" href="#how-to-teach-this-lesson" title="Link to this heading"></a></h3>
+<section id="how-to-start">
+<h4>How to start<a class="headerlink" href="#how-to-start" title="Link to this heading"></a></h4>
+<p>Everyone knows that scientific results need to be reproducible, but not everyone is using
+appropriate tools to ensure this. Here we’re going to get to know tools which help with
+preserving the provenance of data and reproducibility on different levels, ranging from
+workflow automation to software environment (containers).</p>
+</section>
+<section id="focus-on-concepts-and-when-to-use-which-tool">
+<h4>Focus on concepts, and when to use which tool<a class="headerlink" href="#focus-on-concepts-and-when-to-use-which-tool" title="Link to this heading"></a></h4>
+<p>Try to explain better what the different tools are useful for, but don’t go
+into details.  In this lesson we are not trying to gain expertise in the
+various tools and master the details but rather we want to give an overview and
+show that many tools exist and try to give participant the right feel for which
+set of tools to approach for which type of problem.</p>
+</section>
+</section>
+<section id="typical-pitfalls">
+<h3>Typical pitfalls<a class="headerlink" href="#typical-pitfalls" title="Link to this heading"></a></h3>
+<section id="indentation-in-snakefiles">
+<h4>Indentation in Snakefiles<a class="headerlink" href="#indentation-in-snakefiles" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>the body of a rule and the body of an input keyword need to be indented, but the number of spaces doesn’t matter
+This works:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>but this doesn’t work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>nor this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+<span class="nb">input</span><span class="p">:</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="field-reports">
+<h3>Field reports<a class="headerlink" href="#field-reports" title="Link to this heading"></a></h3>
+<section id="september">
+<h4>2022 September<a class="headerlink" href="#september" title="Link to this heading"></a></h4>
+<p>We used the strategy “absolutely minimal introductions, most time
+for exercise”.  Overall, it was probably the right thing to do since
+there is so little time and so much to cover.</p>
+<p>There wasn’t enough time for the conda exercise (we could give only 7
+minutes), but also I wonder how engaging it is.  We should look at how
+to optimize the start of that episode.</p>
+<p>The Snakemake episode went reasonably well.  Our goal was 5 minutes
+intro, long exercise, 5 minutes outro.  The intro was actually a bit
+longer, and there was the comment that we didn’t really explain what
+Snakemake was before it started (though we tried).  The start of this
+episode should get particular focus in the future, since this is the
+main exercise of the day.</p>
+</section>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

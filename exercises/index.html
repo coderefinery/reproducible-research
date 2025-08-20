@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List of exercises &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=582ca9e2"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+      <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Instructor guide" href="../guide/" />
+    <link rel="prev" title="Where to go from here" href="../where-to-go/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction - How it all connects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../where-to-go/">Where to go from here</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://youtu.be/xbTTDLA3txI">Shell crash course</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">List of exercises</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#full-list">Full list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">List of exercises</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/exercises.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="list-of-exercises">
+<h1>List of exercises<a class="headerlink" href="#list-of-exercises" title="Link to this heading"></a></h1>
+<section id="full-list">
+<h2>Full list<a class="headerlink" href="#full-list" title="Link to this heading"></a></h2>
+<p>This is a list of all exercises and solutions in this lesson, mainly
+as a reference for helpers and instructors.  This list is
+automatically generated from all of the other pages in the lesson.
+Any single teaching event will probably cover only a subset of these,
+depending on their interests.</p>
+<section id="recording-computational-steps">
+<h3>Recording computational steps<a class="headerlink" href="#recording-computational-steps" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="../workflow-management/#solution-0">In workflow-management.md:</a></p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>The advantage of this solution compared to processing one by one is more automation: We can generate all.
+This is not only easier, it is also less error-prone.</p>
+<p>Yes, the scripted solution can be reproducible. But could you easily run it, e.g., on a Windows computer?</p>
+<p>If we had more steps and once steps start to be time-consuming, a limitation of
+a scripted solution is that it tries to run all steps always. Rerunning only
+part of the steps or only part of the input data requires us to outcomment or change lines in our script in between runs which can again become tedious and error-prone.</p>
+</div>
+<p><a class="reference external" href="../workflow-management/#exercise-0">In workflow-management.md:</a></p>
+<div class="admonition-workflow-1-workflow-solution-using-snakemake exercise important admonition" id="exercise-0">
+<p class="admonition-title">Workflow-1: Workflow solution using Snakemake</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/snakemake.png"><img alt="How Snakemake works" src="../_images/snakemake.png" style="width: 100%;" />
+</a>
+</figure>
+<p>Somebody wrote a <a class="reference external" href="https://snakemake.readthedocs.io">Snakemake</a> solution in the <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/Snakefile">Snakefile</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of all the books we are analyzing</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">glob_wildcards</span><span class="p">(</span><span class="s1">&#39;data/</span><span class="si">{book}</span><span class="s1">.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">book</span>
+
+<span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+
+<span class="c1"># count words in one of our books</span>
+<span class="n">rule</span> <span class="n">count_words</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span><span class="o">=</span><span class="s1">&#39;code/count.py&#39;</span><span class="p">,</span>
+        <span class="n">book</span><span class="o">=</span><span class="s1">&#39;data/</span><span class="si">{file}</span><span class="s1">.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;statistics/</span><span class="si">{file}</span><span class="s1">.data&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.script}</span><span class="s1"> </span><span class="si">{input.book}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+<span class="c1"># create a plot for each book</span>
+<span class="n">rule</span> <span class="n">make_plot</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span><span class="o">=</span><span class="s1">&#39;code/plot.py&#39;</span><span class="p">,</span>
+        <span class="n">book</span><span class="o">=</span><span class="s1">&#39;statistics/</span><span class="si">{file}</span><span class="s1">.data&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;plot/</span><span class="si">{file}</span><span class="s1">.png&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.script}</span><span class="s1"> --data-file </span><span class="si">{input.book}</span><span class="s1"> --plot-file </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+</pre></div>
+</div>
+<p>We can see that Snakemake uses <strong>declarative style</strong>:
+Snakefiles contain rules that relate targets (<code class="docutils literal notranslate"><span class="pre">output</span></code>) to dependencies
+(<code class="docutils literal notranslate"><span class="pre">input</span></code>) and commands (<code class="docutils literal notranslate"><span class="pre">shell</span></code>).</p>
+<p>Steps:</p>
+<ol class="arabic">
+<li><p>Clone the example to your computer: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/coderefinery/word-count.git</span></code></p></li>
+<li><p>Study the Snakefile. How does it know what to do first and what to do then?</p></li>
+<li><p>Try to run it. Since version 5.11 one needs to specify number of cores (or
+jobs) using <code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span></code> or <code class="docutils literal notranslate"><span class="pre">--cores</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>--delete-all-output<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+<span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--delete-all-output</span></code> part makes sure that we remove all generated files before we start.</p>
+</li>
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">snakemake</span></code> again and observe that and discuss why it refused to rerun all steps:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+
+<span class="go">Building DAG of jobs...</span>
+<span class="go">Nothing to be done (all requested files are present and up to date).</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make a tiny modification to the plot.py script and run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-j</span> <span class="pre">1</span></code> again and observe how it will only re-run the plot steps.</p></li>
+<li><p>Make a tiny modification to one of the books and run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-j</span> <span class="pre">1</span></code> again and observe how it only regenerates files for this book.</p></li>
+<li><p>Discuss possible advantages compared to a scripted solution.</p></li>
+<li><p><strong>Question for R developers</strong>: Imagine you want to rewrite the two Python scripts and use R instead. Which lines in
+the <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/Snakefile">Snakefile</a> would you have to modify so that it uses your R code?</p></li>
+<li><p>If you make changes to the Snakefile, validate it using <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">--lint</span></code>.</p></li>
+</ol>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>2: Start with “all” and look what it depends on. Now search for rules that
+have these as output. Look for their inputs and search where they
+are produced. In other words, search backwards and build a graph of
+dependencies. This is what Snakemake does.</p></li>
+<li><p>4: It can see that outputs are newer than inputs. It will only regenerate
+outputs if they are not there or if the inputs or scripts have changed.</p></li>
+<li><p>7: It only generates steps and outputs that are missing or outdated. The workflow
+does not run everything every time. In other words if you notice a problem or update information
+“half way” in the analysis, it will only re-run what needs to be re-run. Nothing more, nothing less.
+Another advantage is that it can distribute tasks to multiple cores, off-load work to supercomputers,
+offers more fine-grained control over environments, and more.</p></li>
+<li><p>8: Probably only the two lines containing “shell”.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="recording-dependencies">
+<h3>Recording dependencies<a class="headerlink" href="#recording-dependencies" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="../dependencies/#exercise-0">In dependencies.md:</a></p>
+<div class="admonition-dependencies-1-time-capsule-of-dependencies exercise important admonition" id="exercise-0">
+<p class="admonition-title">Dependencies-1: Time-capsule of dependencies</p>
+<p>Situation: 5 students (A, B, C, D, E) wrote a code that depends on a couple of libraries.
+They uploaded their projects to GitHub. We now travel 3 years into the future
+and find their GitHub repositories and try to re-run their code before adapting
+it.</p>
+<p>Answer in the collaborative document:</p>
+<ul>
+<li><p>Which version do you expect to be easiest to re-run? Why?</p></li>
+<li><p>What problems do you anticipate in each solution?</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29uZGE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29uZGE=" name="Q29uZGE=" role="tab" tabindex="0">Conda</button><button aria-controls="panel-0-UHl0aG9uIHZpcnR1YWxlbnY=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tab" tabindex="-1">Python virtualenv</button><button aria-controls="panel-0-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Ug==" name="Ug==" role="tab" tabindex="-1">R</button><button aria-controls="panel-0-TWF0bGFi" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TWF0bGFi" name="TWF0bGFi" role="tab" tabindex="-1">Matlab</button></div><div aria-labelledby="tab-0-Q29uZGE=" class="sphinx-tabs-panel group-tab" id="panel-0-Q29uZGE=" name="Q29uZGE=" role="tabpanel" tabindex="0"><p><strong>A</strong>:
+You find a couple of library imports across the code but that’s it.</p>
+<p><strong>B</strong>:
+The README file lists which libraries were used but does not mention
+any versions.</p>
+<p><strong>C</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">student</span><span class="o">-</span><span class="n">project</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">scipy</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">sympy</span>
+  <span class="o">-</span> <span class="n">click</span>
+  <span class="o">-</span> <span class="n">python</span>
+  <span class="o">-</span> <span class="n">pip</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+</pre></div>
+</div>
+<p><strong>D</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">student</span><span class="o">-</span><span class="n">project</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">scipy</span><span class="o">=</span><span class="mf">1.3.1</span>
+  <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.16.4</span>
+  <span class="o">-</span> <span class="n">sympy</span><span class="o">=</span><span class="mf">1.4</span>
+  <span class="o">-</span> <span class="n">click</span><span class="o">=</span><span class="mf">7.0</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+  <span class="o">-</span> <span class="n">pip</span>
+  <span class="o">-</span> <span class="n">pip</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@d7b2c7e</span>
+    <span class="o">-</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@sometag</span>
+</pre></div>
+</div>
+<p><strong>E</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">student</span><span class="o">-</span><span class="n">project</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">scipy</span><span class="o">=</span><span class="mf">1.3.1</span>
+  <span class="o">-</span> <span class="n">numpy</span><span class="o">=</span><span class="mf">1.16.4</span>
+  <span class="o">-</span> <span class="n">sympy</span><span class="o">=</span><span class="mf">1.4</span>
+  <span class="o">-</span> <span class="n">click</span><span class="o">=</span><span class="mf">7.0</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+  <span class="o">-</span> <span class="n">someproject</span><span class="o">=</span><span class="mf">1.2.3</span>
+  <span class="o">-</span> <span class="n">anotherproject</span><span class="o">=</span><span class="mf">2.3.4</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-UHl0aG9uIHZpcnR1YWxlbnY=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tabpanel" tabindex="0"><p><strong>A</strong>:
+You find a couple of library imports across the code but that’s it.</p>
+<p><strong>B</strong>:
+The README file lists which libraries were used but does not mention
+any versions.</p>
+<p><strong>C</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span>
+<span class="n">numpy</span>
+<span class="n">sympy</span>
+<span class="n">click</span>
+<span class="n">python</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span>
+</pre></div>
+</div>
+<p><strong>D</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">==</span><span class="mf">1.3.1</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.16.4</span>
+<span class="n">sympy</span><span class="o">==</span><span class="mf">1.4</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">7.0</span>
+<span class="n">python</span><span class="o">==</span><span class="mf">3.8</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">someuser</span><span class="o">/</span><span class="n">someproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@d7b2c7e</span>
+<span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">anotheruser</span><span class="o">/</span><span class="n">anotherproject</span><span class="o">.</span><span class="n">git</span><span class="nd">@sometag</span>
+</pre></div>
+</div>
+<p><strong>E</strong>:
+You find a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">==</span><span class="mf">1.3.1</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.16.4</span>
+<span class="n">sympy</span><span class="o">==</span><span class="mf">1.4</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">7.0</span>
+<span class="n">python</span><span class="o">==</span><span class="mf">3.8</span>
+<span class="n">someproject</span><span class="o">==</span><span class="mf">1.2.3</span>
+<span class="n">anotherproject</span><span class="o">==</span><span class="mf">2.3.4</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p><strong>A</strong>:
+You find a couple of <code class="docutils literal notranslate"><span class="pre">library()</span></code> or <code class="docutils literal notranslate"><span class="pre">require()</span></code> calls across the code but that’s it.</p>
+<p><strong>B</strong>:
+The README file lists which libraries were used but does not mention
+any versions.</p>
+<p><strong>C</strong>:
+You find a <a class="reference external" href="https://r-pkgs.org/description.html">DESCRIPTION file</a> which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Imports</span><span class="p">:</span>
+    <span class="n">dplyr</span><span class="p">,</span>
+    <span class="n">tidyr</span>
+</pre></div>
+</div>
+<p>In addition you find these:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;someuser/someproject@master&quot;</span><span class="p">)</span>
+<span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;anotheruser/anotherproject@master&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>D</strong>:
+You find a <a class="reference external" href="https://r-pkgs.org/description.html">DESCRIPTION file</a> which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Imports</span><span class="p">:</span>
+    <span class="n">dplyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.0.0</span><span class="p">),</span>
+    <span class="n">tidyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition you find these:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;someuser/someproject@d7b2c7e&quot;</span><span class="p">)</span>
+<span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;anotheruser/anotherproject@sometag&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>E</strong>:
+You find a <a class="reference external" href="https://r-pkgs.org/description.html">DESCRIPTION file</a> which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Imports</span><span class="p">:</span>
+    <span class="n">dplyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.0.0</span><span class="p">),</span>
+    <span class="n">tidyr</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.1.0</span><span class="p">),</span>
+    <span class="n">someproject</span> <span class="p">(</span><span class="o">==</span> <span class="mf">1.2.3</span><span class="p">),</span>
+    <span class="n">anotherproject</span> <span class="p">(</span><span class="o">==</span> <span class="mf">2.3.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TWF0bGFi" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TWF0bGFi" name="TWF0bGFi" role="tabpanel" tabindex="0"><p>Can you please contribute an example?</p>
+</div></div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p><strong>A</strong>: It will be tedious to collect the dependencies one by one. And after
+the tedious process you will still not know which versions they have used.</p>
+<p><strong>B</strong>: If there is no standard file to look for and look at, it might
+become very difficult to create the software environment required to
+run the software. At least we know the list of libraries, but we don’t
+know the versions.</p>
+<p><strong>C</strong>: Having a standard file listing dependencies is definitely better
+than nothing. However, if the versions are not specified, you or someone
+else might run into problems with dependencies, deprecated features,
+changes in package APIs, etc.</p>
+<p><strong>D</strong> and <strong>E</strong>: In both of these cases exact versions of all dependencies are
+specified and one can recreate the software environment required for the
+project. One problem with the dependencies that come from GitHub is that
+they might have disappeared (what if their authors deleted these
+repositories?).</p>
+<p><strong>E</strong> is slightly preferable because version numbers are easier to understand than Git
+commit hashes or Git tags.</p>
+</div>
+</li>
+</ul>
+</div>
+<p><a class="reference external" href="../dependencies/#solution-0">In dependencies.md:</a></p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p><strong>A</strong>: It will be tedious to collect the dependencies one by one. And after
+the tedious process you will still not know which versions they have used.</p>
+<p><strong>B</strong>: If there is no standard file to look for and look at, it might
+become very difficult to create the software environment required to
+run the software. At least we know the list of libraries, but we don’t
+know the versions.</p>
+<p><strong>C</strong>: Having a standard file listing dependencies is definitely better
+than nothing. However, if the versions are not specified, you or someone
+else might run into problems with dependencies, deprecated features,
+changes in package APIs, etc.</p>
+<p><strong>D</strong> and <strong>E</strong>: In both of these cases exact versions of all dependencies are
+specified and one can recreate the software environment required for the
+project. One problem with the dependencies that come from GitHub is that
+they might have disappeared (what if their authors deleted these
+repositories?).</p>
+<p><strong>E</strong> is slightly preferable because version numbers are easier to understand than Git
+commit hashes or Git tags.</p>
+</div>
+<p><a class="reference external" href="../dependencies/#exercise-1">In dependencies.md:</a></p>
+<div class="admonition-dependencies-2-create-a-time-capsule-for-the-future exercise important admonition" id="exercise-1">
+<p class="admonition-title">Dependencies-2: Create a time-capsule for the future</p>
+<p>Now we will demo creating our own time-capsule and share it with the future
+world. If we asked you now which dependencies your project is using, what would
+you answer? How would you find out? And how would you communicate this
+information?</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Q29uZGE=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Q29uZGE=" name="Q29uZGE=" role="tab" tabindex="0">Conda</button><button aria-controls="panel-1-UHl0aG9uIHZpcnR1YWxlbnY=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tab" tabindex="-1">Python virtualenv</button><button aria-controls="panel-1-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Ug==" name="Ug==" role="tab" tabindex="-1">R</button><button aria-controls="panel-1-TWF0bGFi" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-TWF0bGFi" name="TWF0bGFi" role="tab" tabindex="-1">Matlab</button></div><div aria-labelledby="tab-1-Q29uZGE=" class="sphinx-tabs-panel group-tab" id="panel-1-Q29uZGE=" name="Q29uZGE=" role="tabpanel" tabindex="0"><p>We start from an existing conda environment. Try this either with your own project or inside the “coderefinery” conda
+environment. For demonstration purposes, you can also create an environment with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>myenv.yml
+</pre></div>
+</div>
+<p>Where the file <code class="docutils literal notranslate"><span class="pre">myenv.yml</span></code> could have some python libraries with unspecified versions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">myenv</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">pandas</span>
+  <span class="o">-</span> <span class="n">seaborn</span>
+</pre></div>
+</div>
+<p>After creating the environment we can activate it with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+<p>Now we can freeze the environment into a new YAML file with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>Have a look at the generated file and discuss what you see.</p>
+<div class="admonition-some-things-to-note solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Some things to note</p>
+<ul class="simple">
+<li><p>Can you find all packages you installed directly? Which versions were installed?</p></li>
+<li><p>What other packages were installed? -&gt; Dependencies of dependencies</p></li>
+<li><p>Besides the version you can also see the build channel</p>
+<ul>
+<li><p>Sometimes the build includes an operating system or an architecture</p></li>
+<li><p>Using this environment file might therefore not work/ not result in an identical setup on other computers</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>In the future — or on a different computer — we can re-create this environment with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>You may use <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">mamba</span></code> interchangeably for this step; mamba may solve the dependencies a bit faster.</p>
+<p>What happens instead when you run the following command?</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span>&gt;<span class="w"> </span>environment_fromhistory.yml
+</pre></div>
+</div>
+<div class="admonition-some-things-to-note solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Some things to note</p>
+<ul class="simple">
+<li><p>Everything is listed as you installed it; with or without specified versions</p></li>
+<li><p>Using this environment file a few days/weeks later will likely not result in the same environment</p></li>
+<li><p>This can be a good starting point for a reproducible environment as you may add your current version numbers to it (check for example with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;packagename&quot;</span></code>)</p></li>
+</ul>
+</div>
+<p>In daily use you may not always use an environment.yml file to create the full environment, but create a base environment and then add new packages with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">packagename</span></code> as you go. Also those packages will be listed in the environment files created with either of the approaches above.</p>
+<p>More information: <a class="reference external" href="https://docs.conda.io/en/latest/">https://docs.conda.io/en/latest/</a> and <a class="reference external" href="https://github.com/mamba-org/mamba">https://github.com/mamba-org/mamba</a></p>
+</div><div aria-labelledby="tab-1-UHl0aG9uIHZpcnR1YWxlbnY=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-UHl0aG9uIHZpcnR1YWxlbnY=" name="UHl0aG9uIHZpcnR1YWxlbnY=" role="tabpanel" tabindex="0"><p>Try this in your own project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Have a look at the generated file and discuss what you see.</p>
+<p>In future you can re-create this environment with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>More information: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">https://docs.python.org/3/tutorial/venv.html</a></p>
+</div><div aria-labelledby="tab-1-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>This example uses renv.</p>
+<p>Try to “save” and “load” the state of your project library using
+<code class="docutils literal notranslate"><span class="pre">renv::snapshot()</span></code> and <code class="docutils literal notranslate"><span class="pre">renv::restore()</span></code>.
+See also: <a class="reference external" href="https://rstudio.github.io/renv/articles/renv.html#reproducibility">https://rstudio.github.io/renv/articles/renv.html#reproducibility</a></p>
+<p>More information: <a class="reference external" href="https://rstudio.github.io/renv/articles/renv.html">https://rstudio.github.io/renv/articles/renv.html</a></p>
+</div><div aria-labelledby="tab-1-TWF0bGFi" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-TWF0bGFi" name="TWF0bGFi" role="tabpanel" tabindex="0"><p>Can you please contribute an example?</p>
+</div></div>
+</div>
+<p><a class="reference external" href="../dependencies/#solution-1">In dependencies.md:</a></p>
+<div class="admonition-some-things-to-note solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Some things to note</p>
+<ul class="simple">
+<li><p>Can you find all packages you installed directly? Which versions were installed?</p></li>
+<li><p>What other packages were installed? -&gt; Dependencies of dependencies</p></li>
+<li><p>Besides the version you can also see the build channel</p>
+<ul>
+<li><p>Sometimes the build includes an operating system or an architecture</p></li>
+<li><p>Using this environment file might therefore not work/ not result in an identical setup on other computers</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference external" href="../dependencies/#solution-2">In dependencies.md:</a></p>
+<div class="admonition-some-things-to-note solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Some things to note</p>
+<ul class="simple">
+<li><p>Everything is listed as you installed it; with or without specified versions</p></li>
+<li><p>Using this environment file a few days/weeks later will likely not result in the same environment</p></li>
+<li><p>This can be a good starting point for a reproducible environment as you may add your current version numbers to it (check for example with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;packagename&quot;</span></code>)</p></li>
+</ul>
+</div>
+</section>
+<section id="recording-environments">
+<h3>Recording environments<a class="headerlink" href="#recording-environments" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="../environments/#exercise-0">In environments.md:</a></p>
+<div class="admonition-containers-1-time-travel exercise important admonition" id="exercise-0">
+<p class="admonition-title">Containers-1: Time travel</p>
+<p>Scenario: A researcher has written and published their research code which
+requires a number of libraries and system dependencies. They ran their code
+on a Linux computer (Ubuntu). One very nice thing they did was to publish
+also a container image with all dependencies included, as well as the
+definition file (below) to create the container image.</p>
+<p>Now we travel 3 years into the future and want to reuse their work and adapt
+it for our data. The container registry where they uploaded the container
+image however no longer exists. But luckily we still have the definition file
+(below)! From this we should be able to create a new container image.</p>
+<ul class="simple">
+<li><p>Can you anticipate problems using the definitions file 3 years after its creation?
+Which possible problems can you point out?</p></li>
+<li><p>Discuss possible take-aways for creating more reusable containers.</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Python project using virtual environment</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">R project using renv</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>Bootstrap: docker
+<span class="linenos"> 2</span>From: ubuntu:latest
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>%post
+<span class="linenos"> 5</span>    # Set environment variables
+<span class="linenos"> 6</span>    export VIRTUAL_ENV=/app/venv
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    # Install system dependencies and Python 3
+<span class="linenos"> 9</span>    apt-get update &amp;&amp; \
+<span class="linenos">10</span>    apt-get install -y --no-install-recommends \
+<span class="linenos">11</span>        gcc \
+<span class="linenos">12</span>        libgomp1 \
+<span class="linenos">13</span>        python3 \
+<span class="linenos">14</span>        python3-venv \
+<span class="linenos">15</span>        python3-distutils \
+<span class="linenos">16</span>        python3-pip &amp;&amp; \
+<span class="linenos">17</span>    apt-get clean &amp;&amp; \
+<span class="linenos">18</span>    rm -rf /var/lib/apt/lists/*
+<span class="linenos">19</span>
+<span class="linenos">20</span>    # Set up the virtual environment
+<span class="linenos">21</span>    python3 -m venv $VIRTUAL_ENV
+<span class="linenos">22</span>    . $VIRTUAL_ENV/bin/activate
+<span class="linenos">23</span>
+<span class="linenos">24</span>    # Install Python libraries
+<span class="linenos">25</span>    pip install --no-cache-dir --upgrade pip &amp;&amp; \
+<span class="linenos">26</span>    pip install --no-cache-dir -r /app/requirements.txt
+<span class="linenos">27</span>
+<span class="linenos">28</span>%files
+<span class="linenos">29</span>    # Copy project files
+<span class="linenos">30</span>    ./requirements.txt /app/requirements.txt
+<span class="linenos">31</span>    ./app.py /app/app.py
+<span class="linenos">32</span>    # Copy data
+<span class="linenos">33</span>    /home/myself/data /app/data
+<span class="linenos">34</span>    # Workaround to fix dependency on fancylib
+<span class="linenos">35</span>    /home/myself/fancylib /usr/lib/fancylib
+<span class="linenos">36</span>
+<span class="linenos">37</span>%environment
+<span class="linenos">38</span>    # Set the environment variables
+<span class="linenos">39</span>    export LANG=C.UTF-8 LC_ALL=C.UTF-8
+<span class="linenos">40</span>    export VIRTUAL_ENV=/app/venv
+<span class="linenos">41</span>
+<span class="linenos">42</span>%runscript
+<span class="linenos">43</span>    # Activate the virtual environment
+<span class="linenos">44</span>    . $VIRTUAL_ENV/bin/activate
+<span class="linenos">45</span>    # Run the application
+<span class="linenos">46</span>    python /app/app.py
+</pre></div>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Line 2: “ubuntu:latest” will mean something different 3 years into the future.</p></li>
+<li><p>Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.</p></li>
+<li><p>Line 30: The container uses requirements.txt to build the virtual environment but we don’t see
+here what libraries the code depends on.</p></li>
+<li><p>Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.</p></li>
+<li><p>Line 35: The library fancylib has been built outside the container and copied in but we don’t see here how it was done.</p></li>
+<li><p>The Python version will be different and hopefully the code still runs.</p></li>
+<li><p>Singularity/Apptainer will have also evolved by then. Hopefully this definition file still works.</p></li>
+<li><p>No contact address to ask more questions about this file.</p></li>
+<li><p>(Can you find more? Please contribute more points.)</p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Work in progress: Please contribute a corresponding example which
+demonstrates this in the context of R and renv.</p>
+</div></div>
+</div>
+<p><a class="reference external" href="../environments/#solution-0">In environments.md:</a></p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Line 2: “ubuntu:latest” will mean something different 3 years into the future.</p></li>
+<li><p>Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.</p></li>
+<li><p>Line 30: The container uses requirements.txt to build the virtual environment but we don’t see
+here what libraries the code depends on.</p></li>
+<li><p>Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.</p></li>
+<li><p>Line 35: The library fancylib has been built outside the container and copied in but we don’t see here how it was done.</p></li>
+<li><p>The Python version will be different and hopefully the code still runs.</p></li>
+<li><p>Singularity/Apptainer will have also evolved by then. Hopefully this definition file still works.</p></li>
+<li><p>No contact address to ask more questions about this file.</p></li>
+<li><p>(Can you find more? Please contribute more points.)</p></li>
+</ul>
+</div>
+<p><a class="reference external" href="../environments/#exercise-1">In environments.md:</a></p>
+<div class="admonition-optional-containers-2-installing-the-impossible exercise important admonition" id="exercise-1">
+<p class="admonition-title">(optional) Containers-2: Installing the impossible.</p>
+<p>When you are missing privileges for installing certain software tools, containers can come handy.
+Here we build a Singularity/Apptainer container for installing the <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> and <code class="docutils literal notranslate"><span class="pre">lolcat</span></code> Linux programs.</p>
+<ol class="arabic">
+<li><p>Make sure you have apptainer installed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apptainer<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+<li><p>Make sure you set the apptainer cache and temporary folders.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>./cache/
+<span class="gp">$ </span>mkdir<span class="w"> </span>./temp/
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">APPTAINER_CACHEDIR</span><span class="o">=</span><span class="s2">&quot;./cache/&quot;</span>
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">APPTAINER_TMPDIR</span><span class="o">=</span><span class="s2">&quot;./temp/&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build the container from the container recipe file introduced above.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apptainer build cowsay.sif cowsay.def</span>
+</pre></div>
+</div>
+</li>
+<li><p>Let’s test the container by entering into it with a shell terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apptainer<span class="w"> </span>shell<span class="w"> </span>cowsay.sif
+</pre></div>
+</div>
+</li>
+<li><p>We can verify the installation.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cowsay<span class="w"> </span><span class="s2">&quot;Hello world!&quot;</span><span class="p">|</span>lolcat
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<p><a class="reference external" href="../environments/#exercise-2">In environments.md:</a></p>
+<div class="admonition-optional-containers-3-explore-two-really-useful-docker-images exercise important admonition" id="exercise-2">
+<p class="admonition-title">(optional) Containers-3: Explore two really useful Docker images</p>
+<p>You can try the below if you have Docker installed. If you have
+Singularity/Apptainer and not Docker, the goal of the exercise can be to run
+the Docker containers through Singularity/Apptainer.</p>
+<ol class="arabic">
+<li><p>Run a specific version of <em>Rstudio</em>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8787</span>:8787<span class="w"> </span>-e<span class="w"> </span><span class="nv">PASSWORD</span><span class="o">=</span>yourpasswordhere<span class="w"> </span>rocker/rstudio
+</pre></div>
+</div>
+<p>Then open your browser to <a class="reference external" href="http://localhost:8787">http://localhost:8787</a>
+with login rstudio and password “yourpasswordhere” used in the previous
+command.</p>
+<p>If you want to try an older version you can check the tags at
+<a class="reference external" href="https://hub.docker.com/r/rocker/rstudio/tags">https://hub.docker.com/r/rocker/rstudio/tags</a>
+and run for example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8787</span>:8787<span class="w"> </span>-e<span class="w"> </span><span class="nv">PASSWORD</span><span class="o">=</span>yourpasswordhere<span class="w"> </span>rocker/rstudio:3.3
+</pre></div>
+</div>
+</li>
+<li><p>Run a specific version of <em>Anaconda3</em> from
+<a class="reference external" href="https://hub.docker.com/r/continuumio/anaconda3">https://hub.docker.com/r/continuumio/anaconda3</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>-t<span class="w"> </span>continuumio/anaconda3<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../where-to-go/" class="btn btn-neutral float-left" title="Where to go from here" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../guide/" class="btn btn-neutral float-right" title="Instructor guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

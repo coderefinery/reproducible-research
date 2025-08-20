@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructor guide &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=582ca9e2"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="prev" title="List of exercises" href="../exercises/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction - How it all connects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../where-to-go/">Where to go from here</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://youtu.be/xbTTDLA3txI">Shell crash course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/">List of exercises</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instructor guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#detailed-day-schedule">Detailed day schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-we-teach-this-lesson">Why we teach this lesson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-teach-this-lesson">How to teach this lesson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-start">How to start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#focus-on-concepts-and-when-to-use-which-tool">Focus on concepts, and when to use which tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-pitfalls">Typical pitfalls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#indentation-in-snakefiles">Indentation in Snakefiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#field-reports">Field reports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#september">2022 September</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Instructor guide</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/guide.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="instructor-guide">
+<h1>Instructor guide<a class="headerlink" href="#instructor-guide" title="Link to this heading"></a></h1>
+<section id="detailed-day-schedule">
+<h2>Detailed day schedule<a class="headerlink" href="#detailed-day-schedule" title="Link to this heading"></a></h2>
+<p>Some example schedules for this lesson:</p>
+<p>2024 edition plan (times in EET, Helsinki time), <strong>no exercises</strong>, just demos:</p>
+<ul class="simple">
+<li><p>09:50 - 10:00 Soft start and icebreaker question</p>
+<ul>
+<li><p>Page: collaborative notes document</p></li>
+<li><p>Give more space to the icebreaker and see what people are writing and talk about our own experiences</p></li>
+</ul>
+</li>
+<li><p>10:00 - 10:03 Collab document intro</p></li>
+<li><p>10:03 - 10:05 Learning outcomes: https://coderefinery.github.io/reproducible-research/</p></li>
+<li><p>10:05 - 10:10 Overview of CR and how it all fits together</p>
+<ul>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/intro</p></li>
+<li><p>Learning outcomes from index</p></li>
+</ul>
+</li>
+<li><p>10:10 - 10:20 Reproducible research, Motivation</p>
+<ul>
+<li><p>Exercise in notes doc with the discussions in bottom of motivation page</p></li>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/motivation/</p></li>
+</ul>
+</li>
+<li><p>10:20 - 10:30 Organizing your projects</p>
+<ul>
+<li><p>Copy the discussion on the notes and if we have time we can highlight some answers</p></li>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/organizing-projects/</p></li>
+</ul>
+</li>
+<li><p>10:30 - 10:35  ask in collab document and discuss</p>
+<ul>
+<li><p>https://coderefinery.github.io/reproducible-research/organizing-projects/#discussion-on-reproducibility</p>
+<ul>
+<li><p>Are you using version control for academic papers?</p>
+<ul>
+<li><p>…</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p>How do you handle collaborative issues e.g. conflicting changes?</p>
+<ul>
+<li><p>…</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>10:35 - 10:55 Recording computational steps</p>
+<ul>
+<li><p>Page: https://coderefinery.github.io/reproducible-research/workflow-management/</p></li>
+</ul>
+</li>
+<li><p>10:55 - 11:05 Real break</p></li>
+<li><p>11:05 - 11:25 Recording dependencies</p>
+<ul>
+<li><p>https://coderefinery.github.io/reproducible-research/dependencies/#exercises</p>
+<ul>
+<li><p>ask first one in collab doc and discuss on stream</p></li>
+<li><p>show difference between created env from env file vs exported env file on stream</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>11:25 - 11:30 ask in collaborative document</p>
+<ul>
+<li><p>Are you using any dependency and/or environment management tool in your work?</p>
+<ul>
+<li><p>No: o</p>
+<ul>
+<li><p>why not?</p>
+<ul>
+<li><p>..</p></li>
+<li><p>..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Yes: o</p>
+<ul>
+<li><p>which?</p>
+<ul>
+<li><p>..</p></li>
+<li><p>..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Have you heard about or been in contact with containers (docker, singularity, podman) in your work? How did you come across them?</p>
+<ul>
+<li><p>No: o</p></li>
+<li><p>Yes:</p>
+<ul>
+<li><p>..</p></li>
+<li><p>..</p></li>
+<li><p>..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>11:30 - 11:50 Recording environments</p>
+<ul>
+<li><p>The first contact with containers is often: Take this and run this command and then when you need to share/build.</p></li>
+<li><p>Discuss setup issues, permissions if docker wants root, bandwidth, etc</p></li>
+<li><p>Pros and cons of containers</p></li>
+<li><p>Demo of two pre-made containers e.g. expand the R studio optional exercise?</p></li>
+</ul>
+</li>
+<li><p>11:50 - 12.00 Wrapup</p>
+<ul>
+<li><p>where to go from here: idea would be to give it more practical focus: what to do with these tools? Project level reproducibility. Time-scales of what changes (short time changes of code, long time years changes of OS-s, libraries).</p></li>
+<li><p>Bring your code session advertisement</p></li>
+<li><p>Material + recording available</p></li>
+</ul>
+</li>
+<li><p>12:00 - long break starts</p></li>
+</ul>
+<p>This is the planned schedule for the workshop in September 2023 (2 hours and 5 minutes including 10 min break) ; note that for this workshop, sharing code and data was moved to social coding lesson:</p>
+<ul class="simple">
+<li><p>08:50 - 09:00 Soft start and icebreaker question</p></li>
+<li><p>09:00 - 09:10 Overview of CR and how it all fits together</p></li>
+<li><p>09:10 - 09:20 Reproducible research, <a class="reference external" href="https://coderefinery.github.io/reproducible-research/motivation/">Motivation</a></p></li>
+<li><p>09:20 - 09:27 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/organizing-projects/">Organizing your projects</a></p></li>
+<li><p>09:27 - 09:35 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/workflow-management/">Recording computational steps</a> - discussion</p></li>
+<li><p>09:35 - 10:00 Snakemake exercise (25 min)</p></li>
+<li><p>10:00 - 10:10 Break</p></li>
+<li><p>10:10 - 10:15 Summary of workflows and the exercise</p></li>
+<li><p>10:15 - 10:30 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/dependencies/">Recording dependencies</a></p></li>
+<li><p>10:30 - 10:40 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/environments/">Recording environments</a></p></li>
+<li><p>10:40 - 11:00 Container-1 exercise (20 min)</p></li>
+<li><p>11:00 - 11.05 Wrapup</p></li>
+</ul>
+<p>This was the schedule at workshop in March 2023 (2 hours and 15 minutes including 2x 10 min break):</p>
+<ul class="simple">
+<li><p>08:50 - 09:00 Soft start and icebreaker question</p></li>
+<li><p>09:00 - 09:10 Interview with an invited guest</p></li>
+<li><p>09:10 - 09:20 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/motivation/">Motivation</a></p></li>
+<li><p>09:20 - 09:30 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/organizing-projects/">Organizing your projects</a></p></li>
+<li><p>09:30 - 10:00 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/dependencies/">Recording dependencies</a></p>
+<ul>
+<li><p>discussion (5 min)</p></li>
+<li><p>exercise (20 min)</p></li>
+<li><p>discussion (5 min)</p></li>
+</ul>
+</li>
+<li><p>10:00 - 10:10 Break</p></li>
+<li><p>10:10 - 10:40 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/workflow-management/">Recording computational steps</a></p>
+<ul>
+<li><p>discussion (5 min)</p></li>
+<li><p>exercise (20 min)</p></li>
+<li><p>discussion (5 min)</p></li>
+</ul>
+</li>
+<li><p>10:40 - 10:50 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/environments/">Recording environments</a></p>
+<ul>
+<li><p>an exercise exists but is typically not done as part of a standard workshop</p></li>
+</ul>
+</li>
+<li><p>10:50 - 11:05 <a class="reference external" href="https://coderefinery.github.io/reproducible-research/sharing/">Sharing code and data</a></p>
+<ul>
+<li><p><a class="reference external" href="https://coderefinery.github.io/reproducible-research/sharing/#connecting-repositories-to-zenodo">demo (15 min)</a></p></li>
+</ul>
+</li>
+<li><p>11:05 - 11:15 Break</p></li>
+</ul>
+</section>
+<section id="why-we-teach-this-lesson">
+<h2>Why we teach this lesson<a class="headerlink" href="#why-we-teach-this-lesson" title="Link to this heading"></a></h2>
+<p>Reproducibility in research is something that publishers, funding agencies, universities,
+research leaders and the general public worries about and much is being written about it.
+It is also something that researchers care deeply about - this lesson is typically one of the
+most popular lessons in the pre-workshop survey.</p>
+<p>Even though most PhD students, postdocs and researchers (i.e. typical workshop participants)
+know about the importance of reproducibility in research, they often lack both a general
+overview of what different aspects there are to reproducibility, and the knowledge of
+specific tools that can be used for improving reproducibility.</p>
+<p>Many participants may not adhere to good practices when organizing their projects,
+and the “Organizing your projects” episode is meant to encourage participants to
+structure their projects better. This may be obvious to some participants but it
+doesn’t harm to preach to the choir.</p>
+<p>Even though many participants know that code can have many dependencies (e.g. they
+may have experienced difficulties in getting other people’s code to run), they
+often don’t know or use good practices when it comes to recording dependencies.
+Most participants also don’t use isolated environments for different projects and
+don’t know why that can be important.
+The episode “Recording dependencies” tries to convey the importance of recording
+dependencies accurately for your projects, and shows how tools like conda can be
+used both as a package and software environment manager.</p>
+<p>Many participants have heard about containers and find them interesting, but
+lack an understanding of how they work or how they can be used. The episode
+“Recording environments” introduces the concept of containers, and the optional
+episode “Creating and sharing a container image” goes into details.</p>
+<p>Many participants use complicated series of computational steps in their research
+without realizing that this work falls into the category of “scientific workflows”,
+and that there actually exist tools that help make such workflows reproducible.
+The episode “Recording computational steps” introduces the concept of scientific
+workflows, discusses various ways of managing workflows with varying degrees of
+reproducibility, and shows how tools like Snakemake can be used to
+both simplify workflows and make them more reproducible.</p>
+</section>
+<section id="how-to-teach-this-lesson">
+<h2>How to teach this lesson<a class="headerlink" href="#how-to-teach-this-lesson" title="Link to this heading"></a></h2>
+<section id="how-to-start">
+<h3>How to start<a class="headerlink" href="#how-to-start" title="Link to this heading"></a></h3>
+<p>Everyone knows that scientific results need to be reproducible, but not everyone is using
+appropriate tools to ensure this. Here we’re going to get to know tools which help with
+preserving the provenance of data and reproducibility on different levels, ranging from
+workflow automation to software environment (containers).</p>
+</section>
+<section id="focus-on-concepts-and-when-to-use-which-tool">
+<h3>Focus on concepts, and when to use which tool<a class="headerlink" href="#focus-on-concepts-and-when-to-use-which-tool" title="Link to this heading"></a></h3>
+<p>Try to explain better what the different tools are useful for, but don’t go
+into details.  In this lesson we are not trying to gain expertise in the
+various tools and master the details but rather we want to give an overview and
+show that many tools exist and try to give participant the right feel for which
+set of tools to approach for which type of problem.</p>
+</section>
+</section>
+<section id="typical-pitfalls">
+<h2>Typical pitfalls<a class="headerlink" href="#typical-pitfalls" title="Link to this heading"></a></h2>
+<section id="indentation-in-snakefiles">
+<h3>Indentation in Snakefiles<a class="headerlink" href="#indentation-in-snakefiles" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>the body of a rule and the body of an input keyword need to be indented, but the number of spaces doesn’t matter
+This works:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>but this doesn’t work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>nor this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+<span class="nb">input</span><span class="p">:</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+    <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="field-reports">
+<h2>Field reports<a class="headerlink" href="#field-reports" title="Link to this heading"></a></h2>
+<section id="september">
+<h3>2022 September<a class="headerlink" href="#september" title="Link to this heading"></a></h3>
+<p>We used the strategy “absolutely minimal introductions, most time
+for exercise”.  Overall, it was probably the right thing to do since
+there is so little time and so much to cover.</p>
+<p>There wasn’t enough time for the conda exercise (we could give only 7
+minutes), but also I wonder how engaging it is.  We should look at how
+to optimize the start of that episode.</p>
+<p>The Snakemake episode went reasonably well.  Our goal was 5 minutes
+intro, long exercise, 5 minutes outro.  The intro was actually a bit
+longer, and there was the comment that we didn’t really explain what
+Snakemake was before it started (though we tried).  The start of this
+episode should get particular focus in the future, since this is the
+main exercise of the day.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../exercises/" class="btn btn-neutral float-left" title="List of exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
