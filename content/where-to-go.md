@@ -17,7 +17,7 @@ However, you will not always need all of them. As with so many things, it again 
 - You will want to consider workflow tools:
   - When processing many files with many steps
   - Steps or files may change
-  - Your main script, connecting your steps gets very long
+  - Your main script, connecting your steps, gets very long
   - You are still collecting your input data
   - ...
 
@@ -34,10 +34,10 @@ However, you will not always need all of them. As with so many things, it again 
 
 ## Important for every project
 
-- Clear file structure for your project
+- A Clear directory/file structure for your project.
 - Record your workflow and write it down in a script file.
-- Create a dependency list and keep it updated, optimally in an environment file
-- At least consider the possibility that someone, maybe you may want to reproduce your work
+- Create a dependency list and keep it updated, optimally in an environment file.
+- At least consider the possibility that someone, maybe you, may want to reproduce your work:
   - Can you do something (small) to make it easier?
   - If you have ideas, but no time: add an issue to your repository; maybe someone else wants to help.
 
@@ -52,6 +52,6 @@ Do you want to practice your reproducibility skills and get inspired by working 
 ```
 
 ```{keypoints}
-- Not everything in this lesson might be useful right now, but it is good to know that these things exist if you ever get in a situation that would require such solution.
+- Not everything in this lesson might be useful right now, but it is good to know that these things exist if you ever get in a situation that would require such solutions.
 - Caring about reproducibility makes work easier for the next person working on the project - and that might be you in a few years!
 ```
