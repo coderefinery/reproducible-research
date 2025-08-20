@@ -12,7 +12,7 @@
 
 ```{instructor-note}
 - 10 min teaching
-- 10 min demo
+- 10 min exercise/demo
 ```
 
 Our codes often depend on other codes that in turn depend on other codes ...
@@ -52,16 +52,15 @@ When we create recipes, we often use tools created by others (libraries) [Midjou
 
 ## Dependency and environment management
 
-**Conda, Anaconda, pip, virtualenv, Pipenv, pyenv, Poetry, requirements.txt,
-environment.yml, renv**, ..., these tools try to solve the following problems:
+Tools like **Conda, Anaconda, pip, virtualenv, Pipenv, pyenv, Poetry, renv** and files to record dependencies like **requirements.txt** and **environment.yml** try to solve the following problems:
 
 - **Defining a specific set of dependencies**
 - **Installing those dependencies** mostly automatically
 - **Recording the versions** for all dependencies
 - **Isolate environments**
-  - On your computer for projects so they can use different software
+  - On your computer for projects, so they can use different software
   - Isolate environments on computers with many users (and allow self-installations)
-- Using **different package versions** per project (also e.g. Python/R versions)
+- Using **different package versions** per project (also, e.g., Python/R versions)
 - Provide tools and services to **share packages**
 
 Isolated environments are also useful because they help you make sure
@@ -73,7 +72,7 @@ more reproducible it is.
 
 ---
 
-## Demo
+## Exercise / Demo
 
 ``````{challenge} Dependencies-1: Time-capsule of dependencies
 Situation: 5 students (A, B, C, D, E) wrote a code that depends on a couple of libraries.
@@ -247,9 +246,9 @@ Answer in the collaborative document:
   **A**: It will be tedious to collect the dependencies one by one. And after
   the tedious process you will still not know which versions they have used.
 
-  **B**: If there is no standard file to look for and look at and it might
-  become very difficult for to create the software environment required to
-  run the software. But at least we know the list of libraries. But we don't
+  **B**: If there is no standard file to look for and look at, it might
+  become very difficult to create the software environment required to
+  run the software. At least we know the list of libraries, but we don't
   know the versions.
 
   **C**: Having a standard file listing dependencies is definitely better
@@ -257,7 +256,7 @@ Answer in the collaborative document:
   else might run into problems with dependencies, deprecated features,
   changes in package APIs, etc.
 
-  **D** and **E**: In both these cases exact versions of all dependencies are
+  **D** and **E**: In both of these cases exact versions of all dependencies are
   specified and one can recreate the software environment required for the
   project. One problem with the dependencies that come from GitHub is that
   they might have disappeared (what if their authors deleted these
@@ -277,7 +276,7 @@ information?
   `````{tabs}
     ````{group-tab} Conda
       We start from an existing conda environment. Try this either with your own project or inside the "coderefinery" conda
-      environment. For demonstration puprposes, you can also create an environment with:
+      environment. For demonstration purposes, you can also create an environment with:
 
       ```console
       $ conda env create -f myenv.yml
@@ -375,6 +374,6 @@ information?
 ``````
 
 ```{keypoints}
-- Recording dependencies with versions can make it easier for the next person to execute your code
-- There are many tools to record dependencies and separate environments
+- Recording dependencies with versions can make it easier for the next person to execute your code.
+- There are many tools to record dependencies and separate environments.
 ```

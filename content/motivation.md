@@ -44,7 +44,7 @@ smaller.
 ## Levels of reproducibility
 
 A published article is like the top of a pyramid. It rests on multiple
-levels that each contributes to its reproducibility.
+levels, each contributing to its reproducibility.
 
 ```{figure} img/repro-pyramid.png
 :alt: Reproducibility pyramid
@@ -74,5 +74,5 @@ This also means that you can think about it from the beginning of your research 
 ````
 
 ```{keypoints}
-- Without reproducibility in scientific computing, everyone would have to start a new project / code from scratch
+- Without reproducibility in scientific computing, everyone would have to start a new project / code from scratch.
 ```

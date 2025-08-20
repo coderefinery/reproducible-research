@@ -13,7 +13,7 @@
 
 ```{instructor-note}
 - 5 min teaching
-- 15 min demo
+- 15 min exercise/demo
 ```
 
 
@@ -69,7 +69,7 @@ steps in precisely this order, as we would run them manually, one after another.
   The advantage of this solution compared to processing one by one is more automation: We can generate all.
   This is not only easier, it is also less error-prone.
 
-  Yes, the scripted solution can be reproducible. But could you easily run it e.g. on a Windows computer?
+  Yes, the scripted solution can be reproducible. But could you easily run it, e.g., on a Windows computer?
 
   If we had more steps and once steps start to be time-consuming, a limitation of
   a scripted solution is that it tries to run all steps always. Rerunning only
@@ -102,20 +102,21 @@ cloud service:
 
 **On your own computer**:
 - Install the necessary tools 
-- Activate the [coderefinery conda environment](https://coderefinery.github.io/installation/conda-environment/) with `conda activate coderefinery`.
+- Activate the [CodeRefinery Conda environment](https://coderefinery.github.io/installation/conda/) with `conda activate coderefinery`.
 - Clone the word-count repository:
   ```console
   $ git clone https://github.com/coderefinery/word-count.git
   ```
 
 **On Binder**:
+
 We can also use the cloud service [Binder](https://mybinder.org/) to make sure
 we all have the same computing environment.  This is interesting from a
 reproducible research point of view and it's explained further in the [Jupyter
 lesson](https://coderefinery.github.io/jupyter/sharing/) how this is even
 possible.
 - Go to <https://github.com/coderefinery/word-count> and click on the "launch binder" badge in the README.
-- Once it get started, you can open a new Terminal from the **new** menu (top right) and select **Terminal**.
+- Once it gets started, you can open a new **Terminal** from the Launcher or via **File > New > Terminal**.
 ````
 
 ````{exercise} Workflow-1: Workflow solution using Snakemake
@@ -223,10 +224,10 @@ Rules that have yet to be completed are indicated with solid outlines, while alr
 - **Cross-platform** (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
   same workflow works without modification and scales appropriately whether on a laptop or cluster.
 - If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them **in parallel**.
-- Is is possible to define **isolated software environments** per rule, e.g. by adding `conda: 'environment.yml'` to a rule.
-- Also possible to run workflows in Docker or Apptainer **containers** e.g. by adding `container: 'docker://some-org/some-tool#2.3.1'` to a rule.
+- It is possible to define **isolated software environments** per rule, e.g. by adding `conda: 'environment.yml'` to a rule.
+- It is also possible to run workflows in Docker or Apptainer **containers**, e.g. by adding `container: 'docker://some-org/some-tool#2.3.1'` to a rule.
 - [Heavily used in bioinformatics](https://twitter.com/carl_witt/status/1103951128046301185), but is **completely general**.
-- Nice functionality for archiving the workflow, see: [the official documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
+- Nice functionality for archiving the workflow, see: [the official Snakemake documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving)
 
 Tools like Snakemake help us with **reproducibility** by supporting us with **automation**, **scalability** and **portability** of our workflows.
 
@@ -241,6 +242,6 @@ Tools like Snakemake help us with **reproducibility** by supporting us with **au
 - [{targets} R package - make-like pipeline tool for R](https://books.ropensci.org/targets/)
 
 ```{keypoints}
-- Computational steps can be recorded in many ways
-- Workflow tools can help, if there are many steps to be executed and/or many datasets to be processed
+- Computational steps can be recorded in many ways.
+- Workflow tools can help if there are many steps to be executed and/or many datasets to be processed.
 ```

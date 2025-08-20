@@ -33,7 +33,7 @@ This lesson on general **Reproducibility**: Preparing code to be usable by you a
 
 This includes organizing your projects on your own computer and recording your computational steps, dependencies and computing environment. 
 
-We will also mention a few tools and platforms for sharing data (**"Here is my data"**) and research outputs(**"Here are my results"**) in the **social coding** lesson, but they are not the focus of this workshop.  
+We will also mention a few tools and platforms for sharing data (**"Here is my data"**) and research outputs (**"Here are my results"**) in the **social coding** lesson, but they are not the focus of this workshop.  
 
 ## Small steps towards reproducible research 
 

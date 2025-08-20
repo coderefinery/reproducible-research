@@ -14,7 +14,7 @@
 ## What is a container?
 
 Imagine if you didn't have to install things yourself, but instead you could
-get a computer with the exact software for a task pre-installed? Containers
+get a computer with the exact software for a task pre-installed. Containers
 effectively do that, with various advantages and disadvantages. They are
 **like an entire operating system with software installed, all in one file**.
 
@@ -30,7 +30,7 @@ From [reddit](https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_
 - Container definition files <-> like a blueprint to build a kitchen with all
   utensils in which the recipe can be prepared.
 - Container images <-> showroom kitchens
-- Containers <-> A real connected kitchen
+- Containers <-> a real connected kitchen
 
 Just for fun: which operating systems do the following example kitchens represent?
   `````{tabs}
@@ -69,15 +69,15 @@ Just for fun: which operating systems do the following example kitchens represen
 - A container image is like a piece of paper with all the operating system on it. When you run it,
   a transparent sheet is placed on top to form a container. The container runs and writes only on
   that transparent sheet (and what other mounts have been layered on top). When you are done,
-  transparency is thrown away. It can be repeated as often as you want, and base is always the same.
-- Definition files (e.g. Dockerfile or Singularity definition file) are text
+  the transparent sheet is thrown away. This can be repeated as often as you want, and base is always the same.
+- Definition files (e.g., Dockerfile or Singularity definition file) are text
   files that contain a series of instructions to build container images.
 
 ## You may have use for containers in different ways
 
 - **Installing a certain software is tricky**, or not supported for your operating system? - Check if an image is available and run the software from a container instead!
 - You want to make sure your colleagues are using the **same environment** for running your code? - Provide them an image of your container!
-  - If this does not work, because they are using a different architecture than you do? - Provide a definition file for them to **build the image suitable to their computers**. This does not create the exact environment as you have, but in most cases similar enough.
+  - If this does not work, because they are using a different architecture than you do? - Provide a definition file for them to **build the image suitable for their computers**. This does not create the exact environment you have, but in most cases a similar enough one.
 
 ## The container recipe
 
@@ -127,20 +127,20 @@ important problems:
 - A mechanism to "send the computer to the data" when the **dataset is too large** to transfer.
 - **Installing software into a file** instead of into your computer (removing
   a file is often easier than uninstalling software if you suddenly regret an
-  installation)
+  installation).
 
 However, containers may also have some drawbacks:
 
 - Can be used to hide away software installation problems and thereby
   **discourage good software development practices**.
 - Instead of "works on my machine" problem: **"works only in this container"** problem?
-- They can be **difficult to modify**
-- Container **images can become large**
+- They can be **difficult to modify**.
+- Container **images can become large**.
 
 ```{danger}
 Use only **official and trusted images**!  Not all images can be trusted! There
-have been examples of contaminated images so investigate before using images
-blindly. Apply same caution as installing software packages from untrusted
+have been examples of contaminated images, so investigate before using images
+blindly. Apply the same caution as when installing software packages from untrusted
 package repositories.
 ```
 
@@ -228,14 +228,14 @@ package repositories.
       ```
 
       ```{solution}
-      - Line 2: "ubuntu:latest" will mean something different 3 years in future.
+      - Line 2: "ubuntu:latest" will mean something different 3 years into the future.
       - Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.
       - Line 30: The container uses requirements.txt to build the virtual environment but we don't see
         here what libraries the code depends on.
       - Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.
       - Line 35: The library fancylib has been built outside the container and copied in but we don't see here how it was done.
-      - Python version will be different then and hopefully the code still runs then.
-      - Singularity/Apptainer will have also evolved by then. Hopefully this definition file then still works.
+      - The Python version will be different and hopefully the code still runs.
+      - Singularity/Apptainer will have also evolved by then. Hopefully this definition file still works.
       - No contact address to ask more questions about this file.
       - (Can you find more? Please contribute more points.)
       ```
@@ -251,7 +251,7 @@ package repositories.
 ````{exercise} (optional) Containers-2: Installing the impossible.
 
 When you are missing privileges for installing certain software tools, containers can come handy.
-Here we build a Singularity/Apptainer container for installing `cowsay` and `lolcat` Linux programs.
+Here we build a Singularity/Apptainer container for installing the `cowsay` and `lolcat` Linux programs.
 
 1. Make sure you have apptainer installed:
    ```console
@@ -266,12 +266,12 @@ Here we build a Singularity/Apptainer container for installing `cowsay` and `lol
    $ export APPTAINER_TMPDIR="./temp/"
    ```
 
-3. Build the container from the following definition file above.
+3. Build the container from the container recipe file introduced above.
    ```console
    apptainer build cowsay.sif cowsay.def
    ```
 
-4. Let's test the container by entering into it with a shell terminal
+4. Let's test the container by entering into it with a shell terminal:
    ```console
    $ apptainer shell cowsay.sif
    ```
@@ -317,6 +317,6 @@ the Docker containers through Singularity/Apptainer.
 - [Carpentries incubator lesson on Singularity/Apptainer](https://carpentries-incubator.github.io/singularity-introduction/)
 
 ```{keypoints}
-- Containers can be helpful if complex setups are needed to running a specific software
-- They can also be helpful for prototyping without "messing up" your own computing environment, or for running software that requires a different operating system than your own
+- Containers can be helpful if complex setups are needed to run a specific software.
+- They can also be helpful for prototyping without "messing up" your own computing environment, or for running software that requires a different operating system than your own.
 ```
