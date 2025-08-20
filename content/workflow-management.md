@@ -13,7 +13,7 @@
 
 ```{instructor-note}
 - 5 min teaching
-- 15 min demo
+- 15 min exercise/demo
 ```
 
 
