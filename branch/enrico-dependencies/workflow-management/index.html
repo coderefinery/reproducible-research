@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recording computational steps &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=187304be"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=582ca9e2"></script>
+        <script src="../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Recording dependencies" href="../dependencies/" />
+    <link rel="prev" title="Organizing your projects" href="../organizing-projects/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction - How it all connects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Recording computational steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#several-steps-from-input-data-to-result">Several steps from input data to result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow-tools">Workflow tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-workflow-tool-snakemake">Example workflow tool: Snakemake</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a-demo">A demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualizing-the-workflow">Visualizing the workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-snakemake">Why Snakemake?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#similar-tools">Similar tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../where-to-go/">Where to go from here</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Recording computational steps</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/workflow-management.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="recording-computational-steps">
+<h1>Recording computational steps<a class="headerlink" href="#recording-computational-steps" title="Link to this heading"></a></h1>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>You have some steps that need to be run to do your work.  How do you
+actually run them?  Does it rely on your own memory and work, or is it
+reproducible? <strong>How do you communicate the steps</strong> for future you and others?</p></li>
+<li><p>How can we create a reproducible workflow?</p></li>
+<li><p>When to use scientific workflow management systems.</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>5 min teaching</p></li>
+<li><p>15 min demo</p></li>
+</ul>
+</div>
+<section id="several-steps-from-input-data-to-result">
+<h2>Several steps from input data to result<a class="headerlink" href="#several-steps-from-input-data-to-result" title="Link to this heading"></a></h2>
+<p><em>The following material is partly derived from a <a class="reference external" href="https://hpc-carpentry.github.io/hpc-python/">HPC Carpentry lesson</a>.</em></p>
+<p>In this episode, we will use an <a class="reference external" href="https://github.com/coderefinery/word-count">example
+project</a> which finds most frequent
+words in books and plots the result from those statistics.  In this example we
+wish to:</p>
+<ol class="arabic simple">
+<li><p>Analyze word frequencies using <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/statistics/count.py">statistics/count.py</a>
+for 4 books
+(they are all in the <a class="reference external" href="https://github.com/coderefinery/word-count/tree/main/data">data</a> directory).</p></li>
+<li><p>Plot a histogram using <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/plot/plot.py">plot/plot.py</a>.</p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/arrows.png"><img alt="From book to word counts to plot" src="../_images/arrows.png" style="width: 100%;" /></a>
+</figure>
+<p>Example (for one book only):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>statistics/count.py<span class="w"> </span>data/isles.txt<span class="w"> </span>&gt;<span class="w"> </span>statistics/isles.data
+<span class="gp">$ </span>python<span class="w"> </span>plot/plot.py<span class="w"> </span>--data-file<span class="w"> </span>statistics/isles.data<span class="w"> </span>--plot-file<span class="w"> </span>plot/isles.png
+</pre></div>
+</div>
+<p>Another way to analyze the data would be via a graphical user interface (GUI), where you can for example drag and drop files and click buttons to do the different processing steps.</p>
+<p>Both of the above (single line commands and simple graphical interfaces) are tricky in terms of reproducibility. We currently have two steps and 4 books. But <strong>imagine having 4 steps and 500 books</strong>.
+How could we deal with this?</p>
+<p>As a first idea we could express the workflow with a script. The repository includes such script called <code class="docutils literal notranslate"><span class="pre">run_all.sh</span></code>.</p>
+<p>We can run it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bash<span class="w"> </span>run_all.sh
+</pre></div>
+</div>
+<p>This is <strong>imperative style</strong>: we tell the script to run these
+steps in precisely this order, as we would run them manually, one after another.</p>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<ul>
+<li><p>What are the advantages of this solution compared to processing all one by one?</p></li>
+<li><p>Is the scripted solution reproducible?</p></li>
+<li><p>Imagine adding more steps to the analysis and imagine the steps being time consuming. What problems do you anticipate
+with a scripted solution?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>The advantage of this solution compared to processing one by one is more automation: We can generate all.
+This is not only easier, it is also less error-prone.</p>
+<p>Yes, the scripted solution can be reproducible. But could you easily run it e.g. on a Windows computer?</p>
+<p>If we had more steps and once steps start to be time-consuming, a limitation of
+a scripted solution is that it tries to run all steps always. Rerunning only
+part of the steps or only part of the input data requires us to outcomment or change lines in our script in between runs which can again become tedious and error-prone.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="workflow-tools">
+<h2>Workflow tools<a class="headerlink" href="#workflow-tools" title="Link to this heading"></a></h2>
+<p>Sometimes it may be helpful to go from imperative to declarative style. Rather than saying “do this and then that” we describe dependencies but we let the tool figure out the series of steps to produce results.</p>
+<section id="example-workflow-tool-snakemake">
+<h3>Example workflow tool: <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/index.html">Snakemake</a><a class="headerlink" href="#example-workflow-tool-snakemake" title="Link to this heading"></a></h3>
+<p>Snakemake (inspired by <a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a>) is one of many tools to create reproducible and scalable data analysis workflows. Workflows are described via a human readable, Python based language.
+Snakemake workflows scale seamlessly from laptop to cluster or cloud, without the need to modify the workflow definition.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="a-demo">
+<h2>A demo<a class="headerlink" href="#a-demo" title="Link to this heading"></a></h2>
+<div class="admonition-preparation prerequisites admonition" id="prerequisites-0">
+<p class="admonition-title">Preparation</p>
+<p>The exercise (below) and pre-exercise discussion uses the
+word-count repository
+(<a class="reference external" href="https://github.com/coderefinery/word-count">https://github.com/coderefinery/word-count</a>) which we need to clone to work on it.</p>
+<p>If you want to do this exercise on your own, you can do so either on your own computer (follow the instructions in the bottom right panel on the <a class="reference external" href="https://coderefinery.github.io/installation/">CodeRefinery installation instruction page</a>), or the <a class="reference external" href="https://mybinder.org/">Binder</a>
+cloud service:</p>
+<p><strong>On your own computer</strong>:</p>
+<ul>
+<li><p>Install the necessary tools</p></li>
+<li><p>Activate the <a class="reference external" href="https://coderefinery.github.io/installation/conda-environment/">coderefinery conda environment</a> with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">coderefinery</span></code>.</p></li>
+<li><p>Clone the word-count repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/coderefinery/word-count.git
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>On Binder</strong>:
+We can also use the cloud service <a class="reference external" href="https://mybinder.org/">Binder</a> to make sure
+we all have the same computing environment.  This is interesting from a
+reproducible research point of view and it’s explained further in the <a class="reference external" href="https://coderefinery.github.io/jupyter/sharing/">Jupyter
+lesson</a> how this is even
+possible.</p>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://github.com/coderefinery/word-count">https://github.com/coderefinery/word-count</a> and click on the “launch binder” badge in the README.</p></li>
+<li><p>Once it get started, you can open a new Terminal from the <strong>new</strong> menu (top right) and select <strong>Terminal</strong>.</p></li>
+</ul>
+</div>
+<div class="admonition-workflow-1-workflow-solution-using-snakemake exercise important admonition" id="exercise-0">
+<p class="admonition-title">Workflow-1: Workflow solution using Snakemake</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/snakemake.png"><img alt="How Snakemake works" src="../_images/snakemake.png" style="width: 100%;" /></a>
+</figure>
+<p>Somebody wrote a <a class="reference external" href="https://snakemake.readthedocs.io">Snakemake</a> solution in the <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/Snakefile">Snakefile</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list of all the books we are analyzing</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">glob_wildcards</span><span class="p">(</span><span class="s1">&#39;data/</span><span class="si">{book}</span><span class="s1">.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">book</span>
+
+<span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;statistics/</span><span class="si">{book}</span><span class="s1">.data&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plot/</span><span class="si">{book}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">book</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
+
+<span class="c1"># count words in one of our books</span>
+<span class="n">rule</span> <span class="n">count_words</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span><span class="o">=</span><span class="s1">&#39;code/count.py&#39;</span><span class="p">,</span>
+        <span class="n">book</span><span class="o">=</span><span class="s1">&#39;data/</span><span class="si">{file}</span><span class="s1">.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;statistics/</span><span class="si">{file}</span><span class="s1">.data&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.script}</span><span class="s1"> </span><span class="si">{input.book}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+<span class="c1"># create a plot for each book</span>
+<span class="n">rule</span> <span class="n">make_plot</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span><span class="o">=</span><span class="s1">&#39;code/plot.py&#39;</span><span class="p">,</span>
+        <span class="n">book</span><span class="o">=</span><span class="s1">&#39;statistics/</span><span class="si">{file}</span><span class="s1">.data&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;plot/</span><span class="si">{file}</span><span class="s1">.png&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.script}</span><span class="s1"> --data-file </span><span class="si">{input.book}</span><span class="s1"> --plot-file </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+</pre></div>
+</div>
+<p>We can see that Snakemake uses <strong>declarative style</strong>:
+Snakefiles contain rules that relate targets (<code class="docutils literal notranslate"><span class="pre">output</span></code>) to dependencies
+(<code class="docutils literal notranslate"><span class="pre">input</span></code>) and commands (<code class="docutils literal notranslate"><span class="pre">shell</span></code>).</p>
+<p>Steps:</p>
+<ol class="arabic">
+<li><p>Clone the example to your computer: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/coderefinery/word-count.git</span></code></p></li>
+<li><p>Study the Snakefile. How does it know what to do first and what to do then?</p></li>
+<li><p>Try to run it. Since version 5.11 one needs to specify number of cores (or
+jobs) using <code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span></code> or <code class="docutils literal notranslate"><span class="pre">--cores</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>--delete-all-output<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+<span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--delete-all-output</span></code> part makes sure that we remove all generated files before we start.</p>
+</li>
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">snakemake</span></code> again and observe that and discuss why it refused to rerun all steps:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
+
+<span class="go">Building DAG of jobs...</span>
+<span class="go">Nothing to be done (all requested files are present and up to date).</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make a tiny modification to the plot.py script and run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-j</span> <span class="pre">1</span></code> again and observe how it will only re-run the plot steps.</p></li>
+<li><p>Make a tiny modification to one of the books and run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">-j</span> <span class="pre">1</span></code> again and observe how it only regenerates files for this book.</p></li>
+<li><p>Discuss possible advantages compared to a scripted solution.</p></li>
+<li><p><strong>Question for R developers</strong>: Imagine you want to rewrite the two Python scripts and use R instead. Which lines in
+the <a class="reference external" href="https://github.com/coderefinery/word-count/blob/main/Snakefile">Snakefile</a> would you have to modify so that it uses your R code?</p></li>
+<li><p>If you make changes to the Snakefile, validate it using <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">snakemake</span> <span class="pre">--lint</span></code>.</p></li>
+</ol>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>2: Start with “all” and look what it depends on. Now search for rules that
+have these as output. Look for their inputs and search where they
+are produced. In other words, search backwards and build a graph of
+dependencies. This is what Snakemake does.</p></li>
+<li><p>4: It can see that outputs are newer than inputs. It will only regenerate
+outputs if they are not there or if the inputs or scripts have changed.</p></li>
+<li><p>7: It only generates steps and outputs that are missing or outdated. The workflow
+does not run everything every time. In other words if you notice a problem or update information
+“half way” in the analysis, it will only re-run what needs to be re-run. Nothing more, nothing less.
+Another advantage is that it can distribute tasks to multiple cores, off-load work to supercomputers,
+offers more fine-grained control over environments, and more.</p></li>
+<li><p>8: Probably only the two lines containing “shell”.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="visualizing-the-workflow">
+<h2>Visualizing the workflow<a class="headerlink" href="#visualizing-the-workflow" title="Link to this heading"></a></h2>
+<p>We can visualize the directed acyclic graph (DAG) of our current Snakefile
+using the <code class="docutils literal notranslate"><span class="pre">--dag</span></code> option, which will output the DAG in <code class="docutils literal notranslate"><span class="pre">dot</span></code> language.</p>
+<p><strong>Note</strong>: This requires the <a class="reference external" href="https://www.graphviz.org/">Graphviz software</a>,
+which can be installed by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">graphviz</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>snakemake<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span><span class="w"> </span>--dag<span class="w"> </span><span class="p">|</span><span class="w"> </span>dot<span class="w"> </span>-Tpng<span class="w"> </span>&gt;<span class="w"> </span>dag.png
+</pre></div>
+</div>
+<p>Rules that have yet to be completed are indicated with solid outlines, while already completed rules are indicated with dashed outlines.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/snakemake_dag.png"><img alt="Snakemake DAG" src="../_images/snakemake_dag.png" style="width: 100%;" /></a>
+</figure>
+</section>
+<section id="why-snakemake">
+<h2>Why <a class="reference external" href="https://snakemake.readthedocs.io/">Snakemake</a>?<a class="headerlink" href="#why-snakemake" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Gentle <strong>learning curve</strong>.</p></li>
+<li><p>Free, open-source, and <strong>installs easily</strong> via conda or pip.</p></li>
+<li><p><strong>Cross-platform</strong> (Windows, MacOS, Linux) and compatible with all High Performance Computing (HPC) schedulers:
+same workflow works without modification and scales appropriately whether on a laptop or cluster.</p></li>
+<li><p>If several workflow steps are independent of each other, and you have multiple cores available, Snakemake can run them <strong>in parallel</strong>.</p></li>
+<li><p>Is is possible to define <strong>isolated software environments</strong> per rule, e.g. by adding <code class="docutils literal notranslate"><span class="pre">conda:</span> <span class="pre">'environment.yml'</span></code> to a rule.</p></li>
+<li><p>Also possible to run workflows in Docker or Apptainer <strong>containers</strong> e.g. by adding <code class="docutils literal notranslate"><span class="pre">container:</span> <span class="pre">'docker://some-org/some-tool#2.3.1'</span></code> to a rule.</p></li>
+<li><p><a class="reference external" href="https://twitter.com/carl_witt/status/1103951128046301185">Heavily used in bioinformatics</a>, but is <strong>completely general</strong>.</p></li>
+<li><p>Nice functionality for archiving the workflow, see: <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#sustainable-and-reproducible-archiving">the official documentation</a></p></li>
+</ul>
+<p>Tools like Snakemake help us with <strong>reproducibility</strong> by supporting us with <strong>automation</strong>, <strong>scalability</strong> and <strong>portability</strong> of our workflows.</p>
+</section>
+<section id="similar-tools">
+<h2>Similar tools<a class="headerlink" href="#similar-tools" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">Make</a></p></li>
+<li><p><a class="reference external" href="https://www.nextflow.io/">Nextflow</a></p></li>
+<li><p><a class="reference external" href="https://taskfile.dev/">Task</a></p></li>
+<li><p><a class="reference external" href="https://www.commonwl.org/">Common Workflow Language</a></p></li>
+<li><p>Many <a class="reference external" href="https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems">specialized frameworks</a> exist.</p></li>
+<li><p><a class="reference external" href="https://raps-with-r.dev/">Book on building reproducible analytical pipelines with R</a></p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Computational steps can be recorded in many ways</p></li>
+<li><p>Workflow tools can help, if there are many steps to be executed</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../organizing-projects/" class="btn btn-neutral float-left" title="Organizing your projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dependencies/" class="btn btn-neutral float-right" title="Recording dependencies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
