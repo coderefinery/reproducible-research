@@ -176,6 +176,10 @@ for f in deposition.get("files", []):
 # (built by sphinx.yml as OUTPUT_BASENAME.pdf, OUTPUT_BASENAME being
 # "{owner}-{repo}")
 
+tag = os.environ["GITHUB_REF_NAME"]
+repo_name = os.environ['GITHUB_REPOSITORY']
+owner, repo = repo_name.split("/", 1)
+
 pdf_source_name = f"{owner}-{repo}.pdf"
 pdf_name = f"{owner}-{repo}-{tag}.pdf"
 
@@ -202,11 +206,6 @@ r.raise_for_status()
 print(f"Uploaded {pdf_name}")
 
 # Upload release archive
-
-
-tag = os.environ["GITHUB_REF_NAME"]
-repo_name = os.environ['GITHUB_REPOSITORY']
-owner, repo = repo_name.split("/", 1)
 
 
 archive_url = (
