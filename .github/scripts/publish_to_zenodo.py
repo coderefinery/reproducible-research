@@ -251,7 +251,7 @@ files = r.json()
 sort_order = sorted(files, key=lambda f: f["filename"] != pdf_name)
 
 r = requests.put(
-    f"{BASE_URL}/deposit/depositions/{deposition_id}/files/sort",
+    f"{BASE_URL}/deposit/depositions/{deposition_id}/files",
     data=json.dumps([{"id": f["id"]} for f in sort_order]),
     headers=json_headers,
 )
