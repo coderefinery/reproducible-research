@@ -27,9 +27,9 @@ abstract: 'The lesson ''Reproducible research'' prepares code to be usable by yo
   and others in the future. It covers three aspects of reproducible programs and computations:
   documenting dependencies, environments, and computational steps in a reproducible
   way, and touches on containers.'
-version: '2026-03-30'
+version: '2026-08-04'
 doi: 10.5281/zenodo.16410659
-date-released: '2026-03-30'
+date-released: '2026-08-04'
 url: https://coderefinery.github.io/reproducible-research/
 license: CC-BY-4.0
 repository-code: https://github.com/coderefinery/reproducible-research
