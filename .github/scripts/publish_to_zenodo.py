@@ -172,6 +172,34 @@ for f in deposition.get("files", []):
 
     print(f"Removed inherited file {f['filename']}")
 
+# Upload lesson PDF from the gh-pages branch
+# (built by sphinx.yml as OUTPUT_BASENAME.pdf, OUTPUT_BASENAME being
+# "{owner}-{repo}")
+
+pdf_source_name = f"{owner}-{repo}.pdf"
+pdf_name = f"{owner}-{repo}-{tag}.pdf"
+
+pdf_url = (
+    f"https://raw.githubusercontent.com/"
+    f"{repo_name}/gh-pages/{pdf_source_name}"
+)
+
+pdf_download = requests.get(pdf_url)
+pdf_download.raise_for_status()
+
+with open(pdf_name, "wb") as fp:
+    fp.write(pdf_download.content)
+
+with open(pdf_name, "rb") as fp:
+    r = requests.put(
+        f"{bucket_url}/{pdf_name}",
+        data=fp,
+        headers=upload_headers
+    )
+
+r.raise_for_status()
+
+print(f"Uploaded {pdf_name}")
 
 # Upload release archive
 
@@ -205,60 +233,6 @@ with open(archive_name, "rb") as fp:
 r.raise_for_status()
 
 print(f"Uploaded {archive_name}")
-
-
-# Upload lesson PDF from the gh-pages branch
-# (built by sphinx.yml as OUTPUT_BASENAME.pdf, OUTPUT_BASENAME being
-# "{owner}-{repo}")
-
-pdf_source_name = f"{owner}-{repo}.pdf"
-pdf_name = f"{owner}-{repo}-{tag}.pdf"
-
-pdf_url = (
-    f"https://raw.githubusercontent.com/"
-    f"{repo_name}/gh-pages/{pdf_source_name}"
-)
-
-pdf_download = requests.get(pdf_url)
-pdf_download.raise_for_status()
-
-with open(pdf_name, "wb") as fp:
-    fp.write(pdf_download.content)
-
-with open(pdf_name, "rb") as fp:
-    r = requests.put(
-        f"{bucket_url}/{pdf_name}",
-        data=fp,
-        headers=upload_headers
-    )
-
-r.raise_for_status()
-
-print(f"Uploaded {pdf_name}")
-
-
-# Show the PDF first (Zenodo previews the first file in the list).
-
-r = requests.get(
-    f"{BASE_URL}/deposit/depositions/{deposition_id}/files",
-    headers=json_headers,
-)
-
-r.raise_for_status()
-
-files = r.json()
-
-sort_order = sorted(files, key=lambda f: f["filename"] != pdf_name)
-
-r = requests.put(
-    f"{BASE_URL}/deposit/depositions/{deposition_id}/files",
-    data=json.dumps([{"id": f["id"]} for f in sort_order]),
-    headers=json_headers,
-)
-
-r.raise_for_status()
-
-print(f"File order: {[f['filename'] for f in sort_order]}")
 
 
 # Update metadata
