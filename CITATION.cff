@@ -1,30 +1,35 @@
 cff-version: 1.2.0
-message: "If you use this lesson material, please cite it using these metadata."
+message: If you use this lesson material, please cite it using these metadata.
 authors:
-- name: "CodeRefinery"
-- family-names: "Wikfeldt"
-  given-names: "Kjartan Thor"
-- family-names: "Bast"
-  given-names: "Radovan"
-- family-names: "Darst"
-  given-names: "Richard"
-- family-names: "Hellsvik"
-  given-names: "Johann"
-- family-names: "Wittke"
-  given-names: "Samantha"
-- family-names: "Jääskeläinen"
-  given-names: "Matias"
-- family-names: "Glerean"
-  given-names: "Enrico"
-- family-names: "Vathsavayi"
-  given-names: "Sri Harsha"
-- family-names: "Wang"
-  given-names: "Yonglei"
-title: "Reproducible research -  Preparing code to be usable by you in the future and others in general"
-type: "data"
-abstract: "We focus here on 3 aspects of reproducible programs and computations: documenting dependencies, environments, and computational steps in a reproducible way. We touch on containers."
-version: 2026-03-30
-date-released: 2025-03-19
-url: "https://coderefinery.github.io/reproducible-research/"
+- name: CodeRefinery
+- family-names: Wikfeldt
+  given-names: Kjartan Thor
+- family-names: Bast
+  given-names: Radovan
+- family-names: Darst
+  given-names: Richard
+- family-names: Hellsvik
+  given-names: Johann
+- family-names: Wittke
+  given-names: Samantha
+- family-names: Jääskeläinen
+  given-names: Matias
+- family-names: Glerean
+  given-names: Enrico
+- family-names: Vathsavayi
+  given-names: Sri Harsha
+- family-names: Wang
+  given-names: Yonglei
+title: Reproducible research - Preparing code to be usable by you and others in the
+  future - CodeRefinery lesson
+type: dataset
+abstract: 'The lesson ''Reproducible research'' prepares code to be usable by you
+  and others in the future. It covers three aspects of reproducible programs and computations:
+  documenting dependencies, environments, and computational steps in a reproducible
+  way, and touches on containers.'
+version: '2026-03-30'
+doi: 10.5281/zenodo.16410659
+date-released: '2026-03-30'
+url: https://coderefinery.github.io/reproducible-research/
 license: CC-BY-4.0
-repository-code: "https://github.com/coderefinery/reproducible-research"
+repository-code: https://github.com/coderefinery/reproducible-research
