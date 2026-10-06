@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recording environments &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=187304be"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=582ca9e2"></script>
+        <script src="../_static/minipres.js?v=a0d29692"></script>
+        <script src="../_static/tabs.js?v=3030b3cb"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Where to go from here" href="../where-to-go/" />
+    <link rel="prev" title="Recording dependencies" href="../dependencies/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction - How it all connects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing your projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Recording environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-container">What is a container?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#from-definition-files-to-container-images-to-containers">From definition files to container images to containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#you-may-have-use-for-containers-in-different-ways">You may have use for containers in different ways</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-container-recipe">The container recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pros-and-cons-of-containers">Pros and cons of containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-can-one-share-or-find-images">Where can one share or find images?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources-for-further-learning">Resources for further learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../where-to-go/">Where to go from here</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Recording environments</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/environments.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="recording-environments">
+<h1>Recording environments<a class="headerlink" href="#recording-environments" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Understand what containers are</p></li>
+<li><p>Understand good and less good usecases for containers</p></li>
+<li><p>Discuss container definitions files in the context of reusability and
+reproducibility</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching/discussion</p></li>
+<li><p>10 min demo</p></li>
+</ul>
+</div>
+<section id="what-is-a-container">
+<h2>What is a container?<a class="headerlink" href="#what-is-a-container" title="Link to this heading"></a></h2>
+<p>Imagine if you didn’t have to install things yourself, but instead you could
+get a computer with the exact software for a task pre-installed?  Containers
+effectively do that, with various advantages and disadvantages.  They are
+<strong>like an entire operating system with software installed, all in one file</strong>.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/docker_meme.jpg"><img alt="He said, then we will ship your machine. And that's how Docker was born." src="../_images/docker_meme.jpg" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">From <a class="reference external" href="https://www.reddit.com/r/ProgrammerHumor/comments/cw58z7/it_works_on_my_machine/">reddit</a>.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-kitchen-analogy discussion important admonition" id="discussion-0">
+<p class="admonition-title">Kitchen analogy</p>
+<ul class="simple">
+<li><p>Our codes/scripts &lt;-&gt; cooking recipes</p></li>
+<li><p>Container definition files &lt;-&gt; like a blueprint to build a kitchen with all
+utensils in which the recipe can be prepared.</p></li>
+<li><p>Container images &lt;-&gt; example kitchens</p></li>
+<li><p>Containers &lt;-&gt; identical factory-built mobile food truck kitchens</p></li>
+</ul>
+<p>Just for fun: which operating systems do the following example kitchens represent?</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">1</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">2</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">3</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/macos.png"><img alt="Generated image of a kitchen" src="../_images/macos.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">[Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/windows.png"><img alt="Generated image of a kitchen" src="../_images/windows.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">[Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/linux.png"><img alt="Generated image of a kitchen" src="../_images/linux.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">[Midjourney, CC-BY-NC 4.0]</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></div>
+</div>
+</section>
+<section id="from-definition-files-to-container-images-to-containers">
+<h2>From definition files to container images to containers<a class="headerlink" href="#from-definition-files-to-container-images-to-containers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Containers can be built to bundle <em>all the necessary ingredients</em> (data, code, environment, operating system).</p></li>
+<li><p>A container image is like a piece of paper with all the operating system on it. When you run it,
+a transparent sheet is placed on top to form a container. The container runs and writes only on
+that transparent sheet (and what other mounts have been layered on top). When you are done,
+transparency is thrown away. It can be repeated as often as you want, and base is always the same.</p></li>
+<li><p>Definition files (e.g. Dockerfile or Singularity definition file) are text
+files that contain a series of instructions to build container images.</p></li>
+</ul>
+</section>
+<section id="you-may-have-use-for-containers-in-different-ways">
+<h2>You may have use for containers in different ways<a class="headerlink" href="#you-may-have-use-for-containers-in-different-ways" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Installing a certain software is tricky, or not supported for your operating system? -&gt; See if an image is available and run the software from a container instead!</p></li>
+<li><p>You want to make sure your colleagues are using the same environment for running your code? -&gt; Provide them an image of your container!</p>
+<ul>
+<li><p>If this does not work, because they are using a different architecture than you do? -&gt; Provide a definition file for them to build the image suitable to their computers. This does not create the exact environment as you have, but in most cases similar enough.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-container-recipe">
+<h2>The container recipe<a class="headerlink" href="#the-container-recipe" title="Link to this heading"></a></h2>
+<p>Here is an example of a Singularity definition file (<a class="reference external" href="https://apptainer.org/docs/user/main/build_a_container.html#building-containers-from-apptainer-definition-files">reference</a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bootstrap: docker
+From: ubuntu:20.04
+
+%post
+    apt-get -y update
+    apt-get -y install cowsay lolcat
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    date | cowsay | lolcat
+</pre></div>
+</div>
+<p>Popular container implementations:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/">Docker</a></p></li>
+<li><p><a class="reference external" href="https://sylabs.io/docs/">Singularity</a> (popular on high-performance computing systems)</p></li>
+<li><p><a class="reference external" href="https://apptainer.org">Apptainer</a> (popular on high-performance computing systems, fork of Singularity)</p></li>
+<li><p><a class="reference external" href="https://podman.io/">podman</a></p></li>
+</ul>
+<p>They are to some extent interoperable:</p>
+<ul class="simple">
+<li><p>podman is very close to Docker</p></li>
+<li><p>Docker images can be converted to Singularity/Apptainer images</p></li>
+<li><p><a class="reference external" href="https://singularityhub.github.io/singularity-cli/">Singularity Python</a> can convert Dockerfiles to Singularity definition files</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="pros-and-cons-of-containers">
+<h2>Pros and cons of containers<a class="headerlink" href="#pros-and-cons-of-containers" title="Link to this heading"></a></h2>
+<p>Containers are popular for a reason - they solve a number of
+important problems:</p>
+<ul class="simple">
+<li><p>Allow for seamlessly moving workflows across different platforms.</p></li>
+<li><p>Can solve the “works on my machine” situation.</p></li>
+<li><p>For software with many dependencies, in turn with its own dependencies,
+containers offer possibly the only way to preserve the
+computational experiment for future reproducibility.</p></li>
+<li><p>A mechanism to “send the computer to the data” when data is too</p></li>
+<li><p>Installing software into a file instead of into your computer (removing
+a file is often easier than uninstalling software if you suddenly regret an
+installation)</p></li>
+</ul>
+<p>However, containers may also have some drawbacks:</p>
+<ul class="simple">
+<li><p>Can be used to hide away software installation problems and thereby
+discourage good software development practices.</p></li>
+<li><p>Instead of “works on my machine” problem: “works only in this container” problem?</p></li>
+<li><p>They can be difficult to modify (this is the focus of an exercise below)</p></li>
+<li><p>Container images can become large</p></li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Use only official and trusted images!  Not all images can be trusted! There
+have been examples of contaminated images so investigate before using images
+blindly. Apply same caution as installing software packages from untrusted
+package repositories.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="where-can-one-share-or-find-images">
+<h2>Where can one share or find images?<a class="headerlink" href="#where-can-one-share-or-find-images" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hub.docker.com/">Docker Hub</a></p></li>
+<li><p><a class="reference external" href="https://quay.io/">Quay</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">GitHub Container Registry</a></p></li>
+<li><p><a class="reference external" href="https://docs.gitlab.com/ee/user/packages/container_registry/">GitLab Container Registry</a></p></li>
+<li><p>GitHub/GitLab release artifacts</p></li>
+<li><p><a class="reference external" href="https://zenodo.org/">Zenodo</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="admonition-containers-1-time-travel exercise important admonition" id="exercise-0">
+<p class="admonition-title">Containers-1: Time travel</p>
+<p>Scenario: A researcher has written and published their research code which
+requires a number of libraries and system dependencies. They ran their code
+on a Linux computer (Ubuntu). One very nice thing they did was to publish
+also a container image with all dependencies included, as well as the
+definition file (below) to create the container image.</p>
+<p>Now we travel 3 years into the future and want to reuse their work and adapt
+it for our data. The container registry where they uploaded the container
+image however no longer exists. But luckily we still have the definition file
+(below)! From this we should be able to create a new container image.</p>
+<ul class="simple">
+<li><p>Can you anticipate problems using the definitions file 3 years after its creation?
+Which possible problems can you point out?</p></li>
+<li><p>Discuss possible take-aways for creating more reusable containers.</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Python project using virtual environment</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">R project using renv</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>Bootstrap: docker
+<span class="linenos"> 2</span>From: ubuntu:latest
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>%post
+<span class="linenos"> 5</span>    # Set environment variables
+<span class="linenos"> 6</span>    export VIRTUAL_ENV=/app/venv
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    # Install system dependencies and Python 3
+<span class="linenos"> 9</span>    apt-get update &amp;&amp; \
+<span class="linenos">10</span>    apt-get install -y --no-install-recommends \
+<span class="linenos">11</span>        gcc \
+<span class="linenos">12</span>        libgomp1 \
+<span class="linenos">13</span>        python3 \
+<span class="linenos">14</span>        python3-venv \
+<span class="linenos">15</span>        python3-distutils \
+<span class="linenos">16</span>        python3-pip &amp;&amp; \
+<span class="linenos">17</span>    apt-get clean &amp;&amp; \
+<span class="linenos">18</span>    rm -rf /var/lib/apt/lists/*
+<span class="linenos">19</span>
+<span class="linenos">20</span>    # Set up the virtual environment
+<span class="linenos">21</span>    python3 -m venv $VIRTUAL_ENV
+<span class="linenos">22</span>    . $VIRTUAL_ENV/bin/activate
+<span class="linenos">23</span>
+<span class="linenos">24</span>    # Install Python libraries
+<span class="linenos">25</span>    pip install --no-cache-dir --upgrade pip &amp;&amp; \
+<span class="linenos">26</span>    pip install --no-cache-dir -r /app/requirements.txt
+<span class="linenos">27</span>
+<span class="linenos">28</span>%files
+<span class="linenos">29</span>    # Copy project files
+<span class="linenos">30</span>    ./requirements.txt /app/requirements.txt
+<span class="linenos">31</span>    ./app.py /app/app.py
+<span class="linenos">32</span>    # Copy data
+<span class="linenos">33</span>    /home/myself/data /app/data
+<span class="linenos">34</span>    # Workaround to fix dependency on fancylib
+<span class="linenos">35</span>    /home/myself/fancylib /usr/lib/fancylib
+<span class="linenos">36</span>
+<span class="linenos">37</span>%environment
+<span class="linenos">38</span>    # Set the environment variables
+<span class="linenos">39</span>    export LANG=C.UTF-8 LC_ALL=C.UTF-8
+<span class="linenos">40</span>    export VIRTUAL_ENV=/app/venv
+<span class="linenos">41</span>
+<span class="linenos">42</span>%runscript
+<span class="linenos">43</span>    # Activate the virtual environment
+<span class="linenos">44</span>    . $VIRTUAL_ENV/bin/activate
+<span class="linenos">45</span>    # Run the application
+<span class="linenos">46</span>    python /app/app.py
+</pre></div>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Line 2: “ubuntu:latest” will mean something different 3 years in future.</p></li>
+<li><p>Lines 11-12: The compiler gcc and the library libgomp1 will have evolved.</p></li>
+<li><p>Line 30: The container uses requirements.txt to build the virtual environment but we don’t see
+here what libraries the code depends on.</p></li>
+<li><p>Line 33: Data is copied in from the hard disk of the person who created it. Hopefully we can find the data somewhere.</p></li>
+<li><p>Line 35: The library fancylib has been built outside the container and copied in but we don’t see here how it was done.</p></li>
+<li><p>Python version will be different then and hopefully the code still runs then.</p></li>
+<li><p>Singularity/Apptainer will have also evolved by then. Hopefully this definition file then still works.</p></li>
+<li><p>No contact address to ask more questions about this file.</p></li>
+<li><p>(Can you find more? Please contribute more points.)</p></li>
+</ul>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Work in progress: Please contribute a corresponding example which
+demonstrates this in the context of R and renv.</p>
+</div></div>
+</div>
+<div class="admonition-optional-containers-2-installing-the-impossible exercise important admonition" id="exercise-1">
+<p class="admonition-title">(optional) Containers-2: Installing the impossible.</p>
+<p>When you are missing privileges for installing certain software tools, containers can come handy.
+Here we build a Singularity/Apptainer container for installing <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> and <code class="docutils literal notranslate"><span class="pre">lolcat</span></code> Linux programs.</p>
+<ol class="arabic">
+<li><p>Make sure you have apptainer installed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apptainer<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+<li><p>Make sure you set the apptainer cache and temporary folders.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>./cache/
+<span class="gp">$ </span>mkdir<span class="w"> </span>./temp/
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">APPTAINER_CACHEDIR</span><span class="o">=</span><span class="s2">&quot;./cache/&quot;</span>
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">APPTAINER_TMPDIR</span><span class="o">=</span><span class="s2">&quot;./temp/&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build the container from the following definition file above.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apptainer build cowsay.sif cowsay.def</span>
+</pre></div>
+</div>
+</li>
+<li><p>Let’s test the container by entering into it with a shell terminal</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apptainer<span class="w"> </span>shell<span class="w"> </span>cowsay.sif
+</pre></div>
+</div>
+</li>
+<li><p>We can verify the installation.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cowsay<span class="w"> </span><span class="s2">&quot;Hello world!&quot;</span><span class="p">|</span>lolcat
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonition-optional-containers-3-explore-two-really-useful-docker-images exercise important admonition" id="exercise-2">
+<p class="admonition-title">(optional) Containers-3: Explore two really useful Docker images</p>
+<p>You can try the below if you have Docker installed. If you have
+Singularity/Apptainer and not Docker, the goal of the exercise can be to run
+the Docker containers through Singularity/Apptainer.</p>
+<ol class="arabic">
+<li><p>Run a specific version of <em>Rstudio</em>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8787</span>:8787<span class="w"> </span>-e<span class="w"> </span><span class="nv">PASSWORD</span><span class="o">=</span>yourpasswordhere<span class="w"> </span>rocker/rstudio
+</pre></div>
+</div>
+<p>Then open your browser to <a class="reference external" href="http://localhost:8787">http://localhost:8787</a>
+with login rstudio and password “yourpasswordhere” used in the previous
+command.</p>
+<p>If you want to try an older version you can check the tags at
+<a class="reference external" href="https://hub.docker.com/r/rocker/rstudio/tags">https://hub.docker.com/r/rocker/rstudio/tags</a>
+and run for example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8787</span>:8787<span class="w"> </span>-e<span class="w"> </span><span class="nv">PASSWORD</span><span class="o">=</span>yourpasswordhere<span class="w"> </span>rocker/rstudio:3.3
+</pre></div>
+</div>
+</li>
+<li><p>Run a specific version of <em>Anaconda3</em> from
+<a class="reference external" href="https://hub.docker.com/r/continuumio/anaconda3">https://hub.docker.com/r/continuumio/anaconda3</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>-t<span class="w"> </span>continuumio/anaconda3<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="resources-for-further-learning">
+<h2>Resources for further learning<a class="headerlink" href="#resources-for-further-learning" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/docker-introduction/">Carpentries incubator lesson on Docker</a></p></li>
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/singularity-introduction/">Carpentries incubator lesson on Singularity/Apptainer</a></p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Containers can be helpful if complex setups are needed to running a specific software</p></li>
+<li><p>They can also be helpful for prototyping without “messing up” your own computing environment, or for running software that requires a different operating system than your own</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../dependencies/" class="btn btn-neutral float-left" title="Recording dependencies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../where-to-go/" class="btn btn-neutral float-right" title="Where to go from here" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
