@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organizing your projects &mdash; Reproducible research  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=187304be"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=582ca9e2"></script>
+        <script src="../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Recording computational steps" href="../workflow-management/" />
+    <link rel="prev" title="Motivation" href="../motivation/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Reproducible research
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Core episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction - How it all connects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motivation/">Motivation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Organizing your projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#directory-structure-for-projects">Directory structure for projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-source-code-data-and-results">Tracking source code, data, and results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#discussion-on-reproducibility">Discussion on reproducibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-tools-and-templates">Some tools and templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reproducible-publications">Reproducible publications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow-management/">Recording computational steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies/">Recording dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../environments/">Recording environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../where-to-go/">Where to go from here</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Reproducible research</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Organizing your projects</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/reproducible-research/blob/main/content/organizing-projects.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="organizing-your-projects">
+<h1>Organizing your projects<a class="headerlink" href="#organizing-your-projects" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Get an overview on how to organize research projects</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>10 min teaching incl. discussions</p></li>
+</ul>
+</div>
+<p>One of the first steps to make your work reproducible is to organize your projects well.
+Let’s go over some of the basic things which people have found to work (and not to work).</p>
+<section id="directory-structure-for-projects">
+<h2>Directory structure for projects<a class="headerlink" href="#directory-structure-for-projects" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Project files in a <strong>single folder</strong></p></li>
+<li><p><strong>Different projects</strong> should have <strong>separate folders</strong></p></li>
+<li><p>Use <strong>consistent and informative directory structure</strong></p>
+<ul>
+<li><p>Avoid spaces in directory and file names – it is uglier for humans but handy for computers.</p></li>
+</ul>
+</li>
+<li><p>If you need to separate public/private, you can put them in public and private Git repos</p>
+<ul>
+<li><p>If you need to separate public/secret, use <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> or a separate folder that’s not in Git</p></li>
+</ul>
+</li>
+<li><p>Add a <strong>README file</strong> to describe the project and instructions on reproducing the results</p></li>
+<li><p>If a software is reused in several projects it can make sense to put them in own repo</p></li>
+</ul>
+<p>A project directory can look something like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>project_name/
+├──<span class="w"> </span>README.md<span class="w">             </span><span class="c1"># overview of the project</span>
+├──<span class="w"> </span>data/<span class="w">                 </span><span class="c1"># data files used in the project</span>
+│<span class="w">   </span>├──<span class="w"> </span>README.md<span class="w">         </span><span class="c1"># describes where data came from</span>
+│<span class="w">   </span>└──<span class="w"> </span>sub-folder/<span class="w">       </span><span class="c1"># may contain subdirectories</span>
+├──<span class="w"> </span>processed_data/<span class="w">       </span><span class="c1"># intermediate files from the analysis</span>
+├──<span class="w"> </span>manuscript/<span class="w">           </span><span class="c1"># manuscript describing the results</span>
+├──<span class="w"> </span>results/<span class="w">              </span><span class="c1"># results of the analysis (data, tables, figures)</span>
+├──<span class="w"> </span>src/<span class="w">                  </span><span class="c1"># contains all code in the project</span>
+│<span class="w">   </span>├──<span class="w"> </span>LICENSE<span class="w">           </span><span class="c1"># license for your code</span>
+│<span class="w">   </span>├──<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># software requirements and dependencies</span>
+│<span class="w">   </span>└──<span class="w"> </span>...
+└──<span class="w"> </span>doc/<span class="w">                  </span><span class="c1"># documentation for your project</span>
+<span class="w">    </span>├──<span class="w"> </span>index.rst
+<span class="w">    </span>└──<span class="w"> </span>...
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tracking-source-code-data-and-results">
+<h2>Tracking source code, data, and results<a class="headerlink" href="#tracking-source-code-data-and-results" title="Link to this heading"></a></h2>
+<ul>
+<li><p>All code is version controlled and goes in the <code class="docutils literal notranslate"><span class="pre">src/</span></code> or <code class="docutils literal notranslate"><span class="pre">source/</span></code> directory</p></li>
+<li><p>Include appropriate LICENSE file and information on software requirements</p></li>
+<li><p>You can also version control data files or input files under <code class="docutils literal notranslate"><span class="pre">data/</span></code></p></li>
+<li><p>If data files are too large (or sensitive) to track, untrack them using <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p></li>
+<li><p>Intermediate files from the analysis are kept in <code class="docutils literal notranslate"><span class="pre">processed_data/</span></code></p></li>
+<li><p>Consider using Git tags to mark specific versions of results (version
+submitted to a journal, dissertation version, poster version, etc.):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>thesis-submitted<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;this is the submitted version of my thesis&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Check the <a class="reference external" href="https://coderefinery.github.io/git-intro/">Git-intro lesson</a> for a reminder.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="discussion-on-reproducibility">
+<h2>Discussion on reproducibility<a class="headerlink" href="#discussion-on-reproducibility" title="Link to this heading"></a></h2>
+<div class="admonition-discuss-in-the-collaborative-document discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discuss in the collaborative document:</p>
+<p><strong>How do you collaborate on writing academic papers?</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- Are you using version control for academic papers?
+  - ...
+  - ...
+  - (share your experience)
+
+- How do you handle collaborative issues e.g. conflicting changes?
+  - ...
+  - ...
+  - (share your experience)
+</pre></div>
+</div>
+<blockquote>
+<div><p>Please write or discuss your ideas before opening solution!</p>
+</div></blockquote>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p>Consider using version control for manuscripts as well. It may help you when keeping track of edits + if you sync it online then you don’t have to worry about losing your work.</p></li>
+<li><p>Collaboration can be done efficiently by</p>
+<ul>
+<li><p>real time collaboration tools like HackMD/HedgeDoc where conflicts are resolved on the fly</p></li>
+<li><p>version control where conflicts are detected and shown – and solved manually</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="some-tools-and-templates">
+<h2>Some tools and templates<a class="headerlink" href="#some-tools-and-templates" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://devtools.r-lib.org/">R devtools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Materials-Data-Science-and-Informatics/fair-python-cookiecutter">Python cookiecutter template</a></p></li>
+<li><p><a class="reference external" href="https://github.com/the-turing-way/reproducible-project-template">Reproducible research template</a> by the Turing Way</p></li>
+</ul>
+<p>More tools and templates in <a class="reference external" href="https://heidiseibold.ck.page/posts/setting-up-a-fair-and-reproducible-project">Heidi Seibolds blog</a>.</p>
+</section>
+<section id="reproducible-publications">
+<h2>Reproducible publications<a class="headerlink" href="#reproducible-publications" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Git can be used to collaborate on manuscripts written in, e.g., LaTeX and other text-based formats but other tools exist, some with git integration:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.overleaf.com">Overleaf</a> or <a class="reference external" href="https://typst.app/">Typst</a>: online, collaborative LaTeX editor</p></li>
+<li><p><a class="reference external" href="https://www.authorea.com">Authorea</a>: collaborative platform for preprints</p></li>
+<li><p><a class="reference external" href="https://hackmd.io/">HackMD</a> or <a class="reference external" href="https://hedgedoc.org/">HedgeDoc</a>: online collaborative Markdown editors</p></li>
+<li><p><a class="reference external" href="https://www.manuscripts.io/">Manuscripts.io</a>: a collaborative authoring tool that support scientific content and reproducibility.</p></li>
+<li><p>Google Docs can be a good alternative</p></li>
+</ul>
+</li>
+<li><p>Many tools exist to assist in making scholarly output reproducible:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/benmarwick/rrtools">rrtools</a>: instructions, templates, and functions for writing a reproducible article or report with R.</p></li>
+<li><p><a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a>: web-based computational environment for creating code and text based notebooks that can be used as, see also our <a class="reference external" href="https://coderefinery.github.io/jupyter/">Jupyter lesson</a> later in this workshop.
+supplementary material for articles.</p></li>
+<li><p><a class="reference external" href="https://mybinder.org">Binder</a>: makes a repository with Jupyter notebooks available in an executable environment (discussed later in the <a class="reference external" href="https://coderefinery.github.io/jupyter/">Jupyter lesson</a>).</p></li>
+<li><p><a class="reference external" href="http://inundata.org/talks/rstd19/#/">“Research compendia”</a>: a set of good practices for
+reproducible data analysis in R, but much is transferable to other languages.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Do you want to practice your reproducibility skills and get inspired by working with other people’s code/data? Join a <a class="reference external" href="https://www.reprohack.org/event/">ReproHack event</a>!</p>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>An organized project directory structure helps with reproducibility.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../motivation/" class="btn btn-neutral float-left" title="Motivation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../workflow-management/" class="btn btn-neutral float-right" title="Recording computational steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
