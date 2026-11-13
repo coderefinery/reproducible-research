@@ -2,7 +2,7 @@
     "@context": "https://schema.org/",
     "@type": "LearningResource",
     "@id": "https://coderefinery.github.io/reproducible-research/",
-    "description": "The lesson 'Reproducible research' prepares code to be usable by you and others in the future. It covers three aspects of reproducible programs and computations: documenting dependencies, environments, and computational steps in a reproducible way, and touches on containers.",
+    "description": "The lesson 'Reproducible research' prepares code to be usable by you and others in the future.  It covers three aspects of reproducible programs and computations: documenting dependencies, environments,  and computational steps in a reproducible way, and touches on containers.\n",
     "keywords": "Reproducibility, Dependencies, Environments, Containers, Workflow management",
     "name": "Reproducible research - Preparing code to be usable by you and others in the future - CodeRefinery lesson",
     "author": [
@@ -45,19 +45,23 @@
         {
             "@type": "Person",
             "name": "Yonglei Wang"
+        },
+        {
+            "@type": "Person",
+            "name": "Ina P\u00f6hner"
         }
     ],
-    "about": "The lesson 'Reproducible research' prepares code to be usable by you and others in the future. It covers three aspects of reproducible programs and computations: documenting dependencies, environments, and computational steps in a reproducible way, and touches on containers.",
-    "audience": "",
-    "competencyRequired": "",
+    "about": "The lesson 'Reproducible research' prepares code to be usable by you and others in the future.  It covers three aspects of reproducible programs and computations: documenting dependencies, environments,  and computational steps in a reproducible way, and touches on containers.\n",
+    "audience": "Researcher",
+    "competencyRequired": "Some programming language",
     "educationalLevel": "Beginner",
     "identifier": "https://doi.org/10.5281/zenodo.16410659",
     "inLanguage": "en-UK",
     "learningResourceType": "lesson",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "teaches": "Be able to apply a well organized directory structure for a project, Understand that code can have dependencies and know how to document them, Be able to document computational steps and have an idea when it can be useful, Know about use cases for containers",
+    "teaches": "Be able to apply a well organized directory structure for a project,  Understand that code can have dependencies and know how to document them,  Be able to document computational steps and have an idea when it can be useful,  Know about use cases for containers\n",
     "url": "https://coderefinery.github.io/reproducible-research/",
-    "accessibilitySummary": "",
+    "accessibilitySummary": "Short image descriptions are present",
     "isPartOf": "https://coderefinery.org",
-    "version": "2026-08-04"
+    "version": "2026-11-13"
 }
