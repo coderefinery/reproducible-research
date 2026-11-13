@@ -50,6 +50,7 @@ reproducible environments and computational steps** for our future selves and ot
 
    Shell crash course <https://youtu.be/xbTTDLA3txI>
    exercises
+   reproducible-notebooks
    guide
 
 

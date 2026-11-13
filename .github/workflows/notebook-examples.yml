@@ -1,0 +1,17 @@
+name: Notebook examples
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  clean-execution:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install notebook tools
+        run: python -m pip install nbformat nbclient ipykernel
+      - name: Check deliberate failure and corrected notebook
+        run: python content/examples/notebooks/check.py
